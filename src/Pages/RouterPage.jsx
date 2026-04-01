@@ -32,6 +32,8 @@ import Error from './Error'
 import Blog from './Blog'
 import BlogDetails from './BlogDetails'
 import Contact from './Contact'
+import Stays from './Stays'
+
 function RouterPage() {
   return (
     <div>
@@ -69,6 +71,7 @@ function RouterPage() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:id" element={<BlogDetails />} />
             <Route path="contact" element={<Contact />} /> 
+            <Route path="stays" element={<Stays />} />
           </Route>
         </Routes>
       </Router>

@@ -18,15 +18,23 @@ const NiceSelect = ({ options, defaultValue, onChange }) => {
 
   return (
     <div className="nice-select-wrapper">
-      <div className={`nice-select ${isOpen ? "open" : ""}`} ref={dropdownRef} onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={`nice-select ${isOpen ? "open" : ""}`}
+        ref={dropdownRef}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span className="current">{selected}</span>
         <ul className="list">
           {options.map((option, index) => (
-            <li key={index} className="option" onClick={() => { 
-                setSelected(option.label); 
-                setIsOpen(false); 
+            <li
+              key={index}
+              className="option"
+              onClick={() => {
+                setSelected(option.label);
+                setIsOpen(false);
                 if (onChange) onChange(option.value);
-            }}>
+              }}
+            >
               {option.label}
             </li>
           ))}
