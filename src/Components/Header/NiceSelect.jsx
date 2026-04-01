@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const NiceSelect = ({ options, defaultValue }) => {
+const NiceSelect = ({ options, defaultValue, onChange }) => {
   const [selected, setSelected] = useState(defaultValue || options[0].label);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -22,7 +22,11 @@ const NiceSelect = ({ options, defaultValue }) => {
         <span className="current">{selected}</span>
         <ul className="list">
           {options.map((option, index) => (
-            <li key={index} className="option" onClick={() => { setSelected(option.label); setIsOpen(false); }}>
+            <li key={index} className="option" onClick={() => { 
+                setSelected(option.label); 
+                setIsOpen(false); 
+                if (onChange) onChange(option.value);
+            }}>
               {option.label}
             </li>
           ))}

@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import RootRedirect from '../Components/RootRedirect'
+import LanguageWrapper from '../Components/LanguageWrapper'
 import HomeOne from './HomeOne'
 import HomeTwo from './HomeTwo'
 import HomeThree from './HomeThree'
@@ -36,35 +38,38 @@ function RouterPage() {
       <Router>
         <LoadTop />
         <Routes>
-          <Route path="/" element={<HomeOne />}></Route>
-          <Route path="/home-tour" element={<HomeTwo />}></Route>
-          <Route path="/home-agency" element={<HomeThree />}></Route>
-          <Route path="/home-yacht" element={<HomeFour />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/destination" element={<Destination />}></Route>
-          <Route path="/destination/:id" element={<DestinationDetails />} />
-          <Route path="/service" element={<Service />}></Route>
-          <Route path="/service/:id" element={<ServiceDetails />} />
-          <Route path="/activities" element={<Activities />}></Route>
-          <Route path="/activities-details" element={<ActivitiesDetails />}></Route>
-          <Route path="/shop" element={<Shop />}></Route>
-          <Route path="/shop/:id" element={<ShopDetails />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/checkout" element={<Checkout />}></Route>
-          <Route path="/wishlist" element={<Wishlist />}></Route>
-          <Route path="/gallery" element={<Gallery />}></Route>
-          <Route path="/tour" element={<Tour />}></Route>
-          <Route path="/tour-details" element={<TourDetails />}></Route>
-          <Route path="/resort" element={<Resort />}></Route>
-          <Route path="/resort/:id" element={<ResortDetails />}></Route>
-          <Route path="/tour-guide" element={<TourGuide />}></Route>
-          <Route path="/tour-guide/:id" element={<TourGuiderDetails />}></Route>
-          <Route path="/faq" element={<Faq />}></Route>
-          <Route path="/price" element={<Pricing />}></Route>
-          <Route path="/error" element={<Error />}></Route>
-          <Route path="/blog" element={<Blog />}></Route>
-          <Route path="/blog/:id" element={<BlogDetails />}></Route>
-          <Route path="/contact" element={<Contact />}></Route> 
+          <Route path="/" element={<RootRedirect />} />
+          <Route path="/:lang" element={<LanguageWrapper />}>
+            <Route path="home" element={<HomeOne />} />
+            <Route path="home-tour" element={<HomeTwo />} />
+            <Route path="home-agency" element={<HomeThree />} />
+            <Route path="home-yacht" element={<HomeFour />} />
+            <Route path="about" element={<About />} />
+            <Route path="destination" element={<Destination />} />
+            <Route path="destination/:id" element={<DestinationDetails />} />
+            <Route path="service" element={<Service />} />
+            <Route path="service/:id" element={<ServiceDetails />} />
+            <Route path="activities" element={<Activities />} />
+            <Route path="activities-details" element={<ActivitiesDetails />} />
+            <Route path="shop" element={<Shop />} />
+            <Route path="shop/:id" element={<ShopDetails />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="wishlist" element={<Wishlist />} />
+            <Route path="gallery" element={<Gallery />} />
+            <Route path="tour" element={<Tour />} />
+            <Route path="tour-details" element={<TourDetails />} />
+            <Route path="resort" element={<Resort />} />
+            <Route path="resort/:id" element={<ResortDetails />} />
+            <Route path="tour-guide" element={<TourGuide />} />
+            <Route path="tour-guide/:id" element={<TourGuiderDetails />} />
+            <Route path="faq" element={<Faq />} />
+            <Route path="price" element={<Pricing />} />
+            <Route path="error" element={<Error />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="blog/:id" element={<BlogDetails />} />
+            <Route path="contact" element={<Contact />} /> 
+          </Route>
         </Routes>
       </Router>
     </div>
