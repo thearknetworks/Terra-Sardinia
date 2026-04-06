@@ -12,9 +12,10 @@ function Breadcrumb({ title, bgImage, breadcrumbItems }) {
       <div
         className="breadcumb-wrapper "
         style={{
-          backgroundImage: `url(${bgImage || "/assets/img/bg/breadcumb-bg.jpg"})`,
+          backgroundImage: `url(${bgImage})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="container">
