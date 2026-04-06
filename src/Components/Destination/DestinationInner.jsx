@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import DestinationCard from './DestinationCard';
 import DestinationCardTwo from './DestinationCardTwo';
 
@@ -10,6 +10,7 @@ const destinationPosts = [
         subtitle: "Crystal Waters",
         image: "/assets/img/destination/genne-mari-cover.png",
         slug: "genne-mari",
+        tag: "beaches",
     },
     {
         id: 2,
@@ -17,6 +18,7 @@ const destinationPosts = [
         subtitle: "Quiet Shores",
         image: "/assets/img/destination/canne-sisa-cover.png",
         slug: "canne-sisa",
+        tag: "beaches",
     },
     {
         id: 3,
@@ -24,6 +26,7 @@ const destinationPosts = [
         subtitle: "Iconic Beach",
         image: "/assets/img/destination/porto-giunco-cover.png",
         slug: "porto-giunco",
+        tag: "beaches",
     },
     {
         id: 4,
@@ -31,6 +34,7 @@ const destinationPosts = [
         subtitle: "Hidden Cove",
         image: "/assets/img/destination/cala-delfino-cover.png",
         slug: "cala-delfino",
+        tag: "beaches",
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const destinationPosts = [
         subtitle: "Historic City",
         image: "/assets/img/destination/cagliari-cover.png",
         slug: "cagliari",
+        tag: "landmarks",
     },
     {
         id: 6,
@@ -45,6 +50,7 @@ const destinationPosts = [
         subtitle: "Historic Bastion",
         image: "/assets/img/destination/saint-remy-cover.png",
         slug: "saint-remy",
+        tag: "landmarks",
     },
     {
         id: 7,
@@ -52,6 +58,7 @@ const destinationPosts = [
         subtitle: "Coastal Landmark",
         image: "/assets/img/destination/torre-delle-stelle-tower-cover.png",
         slug: "torre-delle-stelle-tower",
+        tag: "landmarks",
     },
     {
         id: 8,
@@ -59,6 +66,7 @@ const destinationPosts = [
         subtitle: "Beach Dining",
         image: "/assets/img/destination/andycoc-cover.png",
         slug: "andycoc",
+        tag: "dining",
     },
     {
         id: 9,
@@ -66,6 +74,7 @@ const destinationPosts = [
         subtitle: "Garden Dining",
         image: "/assets/img/destination/aquarium-cover.png",
         slug: "aquarium",
+        tag: "dining",
     },
     {
         id: 10,
@@ -73,6 +82,7 @@ const destinationPosts = [
         subtitle: "Refined Dining",
         image: "/assets/img/destination/mosaico-cover.png",
         slug: "mosaico",
+        tag: "dining",
     },
     {
         id: 11,
@@ -80,6 +90,7 @@ const destinationPosts = [
         subtitle: "Beach Club",
         image: "/assets/img/destination/istellas-club-cover.png",
         slug: "istellas-club",
+        tag: "dining",
     },
     {
         id: 12,
@@ -87,6 +98,7 @@ const destinationPosts = [
         subtitle: "Local Hub",
         image: "/assets/img/destination/centro-palmira-cover.png",
         slug: "centro-palmira",
+        tag: "hubs",
     },
     {
         id: 13,
@@ -94,18 +106,25 @@ const destinationPosts = [
         subtitle: "Sunset Spot",
         image: "/assets/img/destination/cafe-do-mar-cover.png",
         slug: "cafe-do-mar",
+        tag: "hubs",
     },
 ];
 
 function DestinationInner() {
+    const { lang } = useParams();
+    const [searchParams] = useSearchParams();
     const [activeTab, setActiveTab] = useState('tab-grid');
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 9;
+    const selectedTag = searchParams.get("tag");
+    const filteredPosts = selectedTag
+        ? destinationPosts.filter((post) => post.tag === selectedTag)
+        : destinationPosts;
 
-    const totalPages = Math.ceil(destinationPosts.length / postsPerPage);
+    const totalPages = Math.max(1, Math.ceil(filteredPosts.length / postsPerPage));
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = destinationPosts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -241,46 +260,32 @@ function DestinationInner() {
                                 <h3 className="widget_title">Categories</h3>
                                 <ul>
                                     <li>
-                                        <Link to="/blog">
+                                        <Link to={`/${lang || "en"}/destination?tag=beaches`}>
                                             <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            City Tour
+                                            Beaches
                                         </Link>
-                                        <span>(8)</span>
+                                        <span>(4)</span>
                                     </li>
                                     <li>
-                                        <Link to="/blog">
+                                        <Link to={`/${lang || "en"}/destination?tag=landmarks`}>
                                             <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Beach Tours
+                                            Landmarks
                                         </Link>
-                                        <span>(6)</span>
+                                        <span>(3)</span>
                                     </li>
                                     <li>
-                                        <Link to="/blog">
+                                        <Link to={`/${lang || "en"}/destination?tag=dining`}>
                                             <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Wildlife Tours
+                                            Dining
+                                        </Link>
+                                        <span>(4)</span>
+                                    </li>
+                                    <li>
+                                        <Link to={`/${lang || "en"}/destination?tag=hubs`}>
+                                            <img src="/assets/img/theme-img/map.svg" alt="" />
+                                            Hubs
                                         </Link>
                                         <span>(2)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            News &amp; Tips
-                                        </Link>
-                                        <span>(7)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Adventure Tours
-                                        </Link>
-                                        <span>(9)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Mountain Tours
-                                        </Link>
-                                        <span>(10)</span>
                                     </li>
                                 </ul>
                             </div>
