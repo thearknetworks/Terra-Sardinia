@@ -3,22 +3,56 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const CategoryOne = () => {
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
+  const { lang } = useParams();
 
   const categories = [
-    { id: 1, title: "Cruises", imgSrc: "/assets/img/category/category_1_1.jpg" },
-    { id: 2, title: "Hiking", imgSrc: "/assets/img/category/category_1_2.jpg" },
-    { id: 3, title: "Airbirds", imgSrc: "/assets/img/category/category_1_3.jpg" },
-    { id: 4, title: "Wildlife", imgSrc: "/assets/img/category/category_1_4.jpg" },
-    { id: 5, title: "Walking", imgSrc: "/assets/img/category/category_1_5.jpg" },
-    { id: 6, title: "Cruises", imgSrc: "/assets/img/category/category_1_1.jpg" },
-    { id: 7, title: "Hiking", imgSrc: "/assets/img/category/category_1_2.jpg" },
-    { id: 8, title: "Airbirds", imgSrc: "/assets/img/category/category_1_3.jpg" },
-    { id: 9, title: "Wildlife", imgSrc: "/assets/img/category/category_1_4.jpg" },
-    { id: 10, title: "Walking", imgSrc: "/assets/img/category/category_1_5.jpg" },
+    {
+      id: 1,
+      title: "Private Villa",
+      subtext: "Villa Antares",
+      imgSrc: "/assets/img/category/category_1_1.jpg",
+      route: `/${lang || "en"}/villa-antares`,
+    },
+    {
+      id: 2,
+      title: "Aquarius",
+      subtext: "Villa Verde",
+      imgSrc: "/assets/img/category/category_1_2.jpg",
+      route: `/${lang || "en"}/villa-verde/aquarius`,
+    },
+    {
+      id: 3,
+      title: "Aries",
+      subtext: "Villa Verde",
+      imgSrc: "/assets/img/category/category_1_3.jpg",
+      route: `/${lang || "en"}/villa-verde/aries`,
+    },
+    {
+      id: 4,
+      title: "Cancer",
+      subtext: "Villa Verde",
+      imgSrc: "/assets/img/category/category_1_4.jpg",
+      route: `/${lang || "en"}/villa-verde/cancer`,
+    },
+    {
+      id: 5,
+      title: "Virgo",
+      subtext: "Villa Verde",
+      imgSrc: "/assets/img/category/category_1_5.jpg",
+      route: `/${lang || "en"}/villa-verde/virgo`,
+    },
+    {
+      id: 6,
+      title: "Sagittarius",
+      subtext: "Villa Verde",
+      imgSrc: "/assets/img/category/category_1_1.jpg",
+      route: `/${lang || "en"}/villa-verde/sagittarius`,
+    },
   ];
 
   useEffect(() => {
@@ -50,7 +84,9 @@ const CategoryOne = () => {
       slides.forEach((slide) => {
         const rect = slide.getBoundingClientRect();
         const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5);
-        let ty = Math.abs(r) * multiplier.translate - rect.width * multiplier.translate;
+        let ty =
+          Math.abs(r) * multiplier.translate -
+          rect.width * multiplier.translate;
 
         if (ty < 0) {
           ty = 0;
@@ -74,12 +110,17 @@ const CategoryOne = () => {
   return (
     <section
       className="category-area bg-top-center"
-      style={{ backgroundImage: "url(/assets/img/bg/category_bg_1.png)", backgroundRepeat: "no-repeat" }}
+      style={{
+        backgroundImage: "url(/assets/img/category/tour_category_bg.png)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <div className="container th-container">
         <div className="title-area text-center">
-          <span className="sub-title">Wonderful Place For You</span>
-          <h2 className="sec-title">Tour Categories</h2>
+          <span className="sub-title">Find your perfect stay</span>
+          <h2 className="sec-title">Discover Our Villas</h2>
         </div>
 
         <Swiper
@@ -100,30 +141,43 @@ const CategoryOne = () => {
           pagination={{
             clickable: true,
             el: ".swiper-pagination",
-            type: "bullets"
+            type: "bullets",
           }} // ✅ Defined renderBullet inside pagination
           className="th-slider has-shadow categorySlider"
         >
           {categories.map((category) => (
             <SwiperSlide key={category.id}>
-              <div className="category-card single">
+              <div
+                className="category-card single"
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate(category.route)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    navigate(category.route);
+                  }
+                }}
+              >
                 <div className="box-img global-img">
-                  <img src={category.imgSrc} alt={category.title} loading="lazy" />
+                  <img
+                    src={category.imgSrc}
+                    alt={category.title}
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="box-title">
-                  <Link to="/destination">{category.title}</Link>
-                </h3>
-                <Link className="line-btn" to="/destination">
-                  See more
-                </Link>
+                <h3 className="box-title">{category.title}</h3>
+                <p className="box-text">{category.subtext}</p>
               </div>
             </SwiperSlide>
           ))}
           <div className="slider-controller w-100 justify-content-center">
-            <div className="swiper-pagination" style={{maxWidth:"100%"}}></div>
+            <div
+              className="swiper-pagination"
+              style={{ maxWidth: "100%" }}
+            ></div>
           </div>
         </Swiper>
-
       </div>
     </section>
   );

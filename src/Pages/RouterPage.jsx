@@ -48,7 +48,7 @@ function RouterPage() {
             <Route path="home-yacht" element={<HomeFour />} />
             <Route path="about" element={<About />} />
             <Route path="destination" element={<Destination />} />
-            <Route path="destination/:id" element={<DestinationDetails />} />
+            <Route path="destination/:slug" element={<DestinationDetails />} />
             <Route path="service" element={<Service />} />
             <Route path="service/:id" element={<ServiceDetails />} />
             <Route path="activities" element={<Activities />} />

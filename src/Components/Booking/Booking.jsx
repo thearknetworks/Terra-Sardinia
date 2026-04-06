@@ -17,20 +17,7 @@ const STAY_TYPE_OPTIONS = [
   { value: "private-room", label: "Private Room (Verde)" },
 ];
 
-const STAYS = [
-  {
-    id: "villa-verde-guesthouse",
-    name: "Villa Verde — Guesthouse",
-    stayType: "private-room",
-  },
-  {
-    id: "villa-antares-private-villa",
-    name: "Villa Antares — Private Villa",
-    stayType: "entire-villa",
-  },
-];
-
-function Booking({ onPropertyFilterChange, onFiltersChange }) {
+function Booking() {
   const navigate = useNavigate();
   const { lang } = useParams();
   const [selectedProperty, setSelectedProperty] = useState("all");
@@ -43,17 +30,6 @@ function Booking({ onPropertyFilterChange, onFiltersChange }) {
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
   const datePickerRef = useRef(null);
   const guestsPickerRef = useRef(null);
-
-  const filteredStays = useMemo(() => {
-    return STAYS.filter((stay) => {
-      const matchesProperty =
-        selectedProperty === "all" || stay.id === selectedProperty;
-      const matchesStayType =
-        selectedStayType === "all-types" || stay.stayType === selectedStayType;
-
-      return matchesProperty && matchesStayType;
-    });
-  }, [selectedProperty, selectedStayType]);
 
   const datesLabel = useMemo(() => {
     if (checkInDate && checkOutDate) {
@@ -133,36 +109,6 @@ function Booking({ onPropertyFilterChange, onFiltersChange }) {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
-
-  useEffect(() => {
-    const filterPayload = {
-      selectedProperty,
-      selectedStayType,
-      filteredStays,
-      checkInDate,
-      checkOutDate,
-      adults,
-      children,
-    };
-
-    if (onPropertyFilterChange) {
-      onPropertyFilterChange(filterPayload);
-    }
-
-    if (onFiltersChange) {
-      onFiltersChange(filterPayload);
-    }
-  }, [
-    checkInDate,
-    checkOutDate,
-    adults,
-    children,
-    filteredStays,
-    onFiltersChange,
-    onPropertyFilterChange,
-    selectedProperty,
-    selectedStayType,
-  ]);
 
   return (
     <div className="booking-sec">

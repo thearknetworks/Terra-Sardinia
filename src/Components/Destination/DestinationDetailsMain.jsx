@@ -6,12 +6,11 @@ import Modal from '../Gallery/Modal';
 function DestinationDetailsMain() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState("");
-    const { id } = useParams();
-    const destinationPost = Posts.find(post => post.id === parseInt(id));
-
-    if (!destinationPost) {
-        return <div>Post not found!</div>;
-    }
+    const { slug } = useParams();
+    const numericId = Number(slug);
+    const destinationPost = Number.isNaN(numericId)
+        ? Posts.find(post => post.slug === slug) || Posts[0]
+        : Posts.find(post => post.id === numericId) || Posts[0];
 
     const openModal = (imageSrc, event) => {
         event.preventDefault();

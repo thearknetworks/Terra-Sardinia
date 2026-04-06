@@ -156,7 +156,11 @@ function HeaderOne() {
                         <Link to="/">Services</Link>
                       </li>
                       <li>
-                        <Link to="/">Destination</Link>
+                        <Link
+                          to={`/${i18n.resolvedLanguage || "en"}/destination`}
+                        >
+                          Destination
+                        </Link>
                       </li>
                       <li>
                         <Link to="/">Gallery</Link>

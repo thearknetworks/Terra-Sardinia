@@ -1,48 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function DestinationCard(props) {
-    const { destinationID, destinationImage, destinationTitle, destinationPrice } = props;
+    const { destinationID, destinationImage, destinationTitle, destinationSubtitle, destinationSlug } = props;
+    const { lang } = useParams();
+    const destinationPath = `/${lang || "en"}/destination/${destinationSlug || destinationID}`;
+
     return (
         <>
-            <div className="tour-box th-ani">
+            <div className="tour-box th-ani destination-page-card">
                 <div className="tour-box_img global-img">
-                    <img src={`/assets/img/tour/${destinationImage}`} alt="" />
+                    <img src={destinationImage} alt={destinationTitle || "Destination"} />
                 </div>
                 <div className="tour-content">
                     <h3 className="box-title">
-                        <Link to={`/destination/${destinationID}`}>{destinationTitle ? destinationTitle : 'Dubai'}</Link>
+                        <Link to={destinationPath}>{destinationTitle ? destinationTitle : 'Dubai'}</Link>
                     </h3>
-                    <div className="tour-rating">
-                        <div
-                            className="star-rating"
-                            role="img"
-                            aria-label="Rated 5.00 out of 5"
-                        >
-                            <span style={{ width: "100%" }}>
-                                Rated
-                                <strong className="rating">5.00</strong> out of 5
-                                based on <span className="rating">4.8</span>(4.8
-                                Rating)
-                            </span>
-                        </div>
-                        <Link
-                            to={`/destination/${destinationID}`}
-                            className="woocommerce-review-link"
-                        >
-                            (<span className="count">4.8</span>
-                            Rating)
-                        </Link>
-                    </div>
-                    <h4 className="tour-box_price">
-                        <span className="currency">{destinationPrice ? destinationPrice : '$980.00'}</span>/Person
-                    </h4>
+                    <span className="destination-subtitle">
+                        {destinationSubtitle || "Crystal Waters"}
+                    </span>
                     <div className="tour-action">
                         <span>
                             <i className="fa-light fa-clock" />7 Days
                         </span>
-                        <Link to="/contact" className="th-btn style4 th-icon">
-                            Book Now
+                        <Link to={destinationPath} className="th-btn style4 th-icon">
+                            Discover
                         </Link>
                     </div>
                 </div>

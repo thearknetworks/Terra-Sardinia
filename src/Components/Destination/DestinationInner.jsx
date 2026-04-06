@@ -1,18 +1,111 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import DestinationCard from './DestinationCard';
-import posts from '../data/data-destination.json';
 import DestinationCardTwo from './DestinationCardTwo';
+
+const destinationPosts = [
+    {
+        id: 1,
+        title: "Genn’e Mari",
+        subtitle: "Crystal Waters",
+        image: "/assets/img/destination/genne-mari-cover.png",
+        slug: "genne-mari",
+    },
+    {
+        id: 2,
+        title: "Cann’e Sisa",
+        subtitle: "Quiet Shores",
+        image: "/assets/img/destination/canne-sisa-cover.png",
+        slug: "canne-sisa",
+    },
+    {
+        id: 3,
+        title: "Porto Giunco",
+        subtitle: "Iconic Beach",
+        image: "/assets/img/destination/porto-giunco-cover.png",
+        slug: "porto-giunco",
+    },
+    {
+        id: 4,
+        title: "Cala Delfino",
+        subtitle: "Hidden Cove",
+        image: "/assets/img/destination/cala-delfino-cover.png",
+        slug: "cala-delfino",
+    },
+    {
+        id: 5,
+        title: "Cagliari",
+        subtitle: "Historic City",
+        image: "/assets/img/destination/cagliari-cover.png",
+        slug: "cagliari",
+    },
+    {
+        id: 6,
+        title: "Saint Remy",
+        subtitle: "Historic Bastion",
+        image: "/assets/img/destination/saint-remy-cover.png",
+        slug: "saint-remy",
+    },
+    {
+        id: 7,
+        title: "The Tower",
+        subtitle: "Coastal Landmark",
+        image: "/assets/img/destination/torre-delle-stelle-tower-cover.png",
+        slug: "torre-delle-stelle-tower",
+    },
+    {
+        id: 8,
+        title: "Andycoc",
+        subtitle: "Beach Dining",
+        image: "/assets/img/destination/andycoc-cover.png",
+        slug: "andycoc",
+    },
+    {
+        id: 9,
+        title: "Aquarium",
+        subtitle: "Garden Dining",
+        image: "/assets/img/destination/aquarium-cover.png",
+        slug: "aquarium",
+    },
+    {
+        id: 10,
+        title: "Mosaico",
+        subtitle: "Refined Dining",
+        image: "/assets/img/destination/mosaico-cover.png",
+        slug: "mosaico",
+    },
+    {
+        id: 11,
+        title: "Istellas Club",
+        subtitle: "Beach Club",
+        image: "/assets/img/destination/istellas-club-cover.png",
+        slug: "istellas-club",
+    },
+    {
+        id: 12,
+        title: "Palmira",
+        subtitle: "Local Hub",
+        image: "/assets/img/destination/centro-palmira-cover.png",
+        slug: "centro-palmira",
+    },
+    {
+        id: 13,
+        title: "Café do Mar",
+        subtitle: "Sunset Spot",
+        image: "/assets/img/destination/cafe-do-mar-cover.png",
+        slug: "cafe-do-mar",
+    },
+];
 
 function DestinationInner() {
     const [activeTab, setActiveTab] = useState('tab-grid');
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 9;
 
-    const totalPages = Math.ceil(posts.length / postsPerPage);
+    const totalPages = Math.ceil(destinationPosts.length / postsPerPage);
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPosts = destinationPosts.slice(indexOfFirstPost, indexOfLastPost);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -95,7 +188,8 @@ function DestinationInner() {
                                                 destinationID={data.id}
                                                 destinationImage={`${data.image}`}
                                                 destinationTitle={data.title}
-                                                destinationPrice={data.price}
+                                                destinationSubtitle={data.subtitle}
+                                                destinationSlug={data.slug}
                                             />
                                         </div>
                                     ))}
@@ -110,7 +204,8 @@ function DestinationInner() {
                                                 destinationID={data.id}
                                                 destinationImage={`${data.image}`}
                                                 destinationTitle={data.title}
-                                                destinationPrice={data.price}
+                                                destinationSubtitle={data.subtitle}
+                                                destinationSlug={data.slug}
                                             />
                                         </div>
                                     ))}

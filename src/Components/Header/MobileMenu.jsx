@@ -56,22 +56,50 @@ function MobileMenu({ isOpen, onClose }) {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li className={`menu-item-has-children th-item-has-children ${activeMenu === 1 ? "th-active" : ""}`}>
-              <Link to="#" onClick={(e) => { e.preventDefault(); toggleMenu(1); }}>Stays</Link>
-              <ul
-                  ref={(el) => (menuRefs.current[1] = el)}
-                  className="th-submenu"
-                  style={{ height: "0px", overflow: "hidden", transition: "height 0.3s ease-in-out" }}
+            <li
+              className={`menu-item-has-children th-item-has-children ${activeMenu === 1 ? "th-active" : ""}`}
+            >
+              <Link
+                to="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleMenu(1);
+                }}
               >
-                  <li><Link to={`/${i18n.resolvedLanguage || "en"}/stays/villa-verde`}>Villa Verde</Link></li>
-                  <li><Link to={`/${i18n.resolvedLanguage || "en"}/stays/villa-antares`}>Villa Antares</Link></li>
+                Stays
+              </Link>
+              <ul
+                ref={(el) => (menuRefs.current[1] = el)}
+                className="th-submenu"
+                style={{
+                  height: "0px",
+                  overflow: "hidden",
+                  transition: "height 0.3s ease-in-out",
+                }}
+              >
+                <li>
+                  <Link
+                    to={`/${i18n.resolvedLanguage || "en"}/stays/villa-verde`}
+                  >
+                    Villa Verde
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={`/${i18n.resolvedLanguage || "en"}/stays/villa-antares`}
+                  >
+                    Villa Antares
+                  </Link>
+                </li>
               </ul>
             </li>
             <li>
               <Link to="/">Services</Link>
             </li>
             <li>
-              <Link to="/">Destination</Link>
+              <Link to={`/${i18n.resolvedLanguage || "en"}/destination`}>
+                Destination
+              </Link>
             </li>
             <li>
               <Link to="/">Gallery</Link>
