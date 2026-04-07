@@ -69,51 +69,20 @@ function Booking() {
       return;
     }
 
-    setChildren((current) => update(current));
-  };
+    setFormMessage({ text: "Search submitted successfully!", type: "success" });
 
-  const handleSearch = () => {
-    navigate(`/${lang || "en"}/stays`, {
-      state: {
-        property: selectedProperty,
-        dates: {
-          checkIn: checkInDate,
-          checkOut: checkOutDate,
-        },
-        guests: {
-          adults,
-          children,
-        },
-        type: selectedStayType,
-      },
+    setFormData({
+      destination: "",
+      adventureType: "",
+      duration: "",
+      category: "",
     });
   };
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        datePickerRef.current &&
-        !datePickerRef.current.contains(event.target)
-      ) {
-        setIsDatePickerOpen(false);
-      }
-
-      if (
-        guestsPickerRef.current &&
-        !guestsPickerRef.current.contains(event.target)
-      ) {
-        setIsGuestsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, []);
 
   return (
     <div className="booking-sec">
       <div className="container">
-        <div className="booking-form">
+        <form onSubmit={handleSubmit} className="booking-form">
           <div className="input-wrap">
             <div className="row align-items-center justify-content-between">
               <div className="form-group col-md-6 col-lg-auto">
@@ -121,164 +90,71 @@ function Booking() {
                   <i className="fa-light fa-route" />
                 </div>
                 <div className="search-input">
-                  <label>Property</label>
+                  <label>Destination</label>
                   <NiceSelect
-                    options={PROPERTY_OPTIONS}
-                    defaultValue="Select Stay"
-                    onChange={setSelectedProperty}
+                    options={destinationOptions}
+                    defaultValue="Select Destination"
+                    onChange={(value) => handleChange("destination", value)}
                   />
                 </div>
               </div>
-
+              <div className="form-group col-md-6 col-lg-auto">
+                <div className="icon">
+                  <i className="fa-regular fa-person-hiking" />
+                </div>
+                <div className="search-input">
+                  <label>Type</label>
+                  <NiceSelect
+                    options={adventureOptions}
+                    defaultValue="Adventure"
+                    onChange={(value) => handleChange("adventureType", value)}
+                  />
+                </div>
+              </div>
               <div className="form-group col-md-6 col-lg-auto">
                 <div className="icon">
                   <i className="fa-light fa-clock" />
                 </div>
                 <div className="search-input">
-                  <label>Dates</label>
-                  <div className="nice-select-wrapper" ref={datePickerRef}>
-                    <div
-                      className={`nice-select ${isDatePickerOpen ? "open" : ""}`}
-                      onClick={() => setIsDatePickerOpen((prev) => !prev)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          setIsDatePickerOpen((prev) => !prev);
-                        }
-                      }}
-                    >
-                      <span className="current">{datesLabel}</span>
-                      <ul className="list">
-                        <li className="option">
-                          <input
-                            type="date"
-                            value={checkInDate}
-                            onChange={(event) =>
-                              setCheckInDate(event.target.value)
-                            }
-                            onClick={(event) => event.stopPropagation()}
-                          />
-                        </li>
-                        <li className="option">
-                          <input
-                            type="date"
-                            value={checkOutDate}
-                            onChange={(event) =>
-                              setCheckOutDate(event.target.value)
-                            }
-                            onClick={(event) => event.stopPropagation()}
-                          />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="form-group col-md-6 col-lg-auto">
-                <div className="icon">
-                  <i className="fa-light fa-user-group" />
-                </div>
-                <div className="search-input">
-                  <label>Guests</label>
-                  <div className="nice-select-wrapper" ref={guestsPickerRef}>
-                    <div
-                      className={`nice-select ${isGuestsOpen ? "open" : ""}`}
-                      onClick={() => setIsGuestsOpen((prev) => !prev)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          setIsGuestsOpen((prev) => !prev);
-                        }
-                      }}
-                    >
-                      <span className="current">{guestsLabel}</span>
-                      <ul className="list">
-                        <li className="option d-flex align-items-center justify-content-between">
-                          <span>Adults</span>
-                          <div className="d-flex align-items-center gap-2">
-                            <button
-                              type="button"
-                              className="th-btn style2"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                updateGuestCount("adults", "decrement");
-                              }}
-                            >
-                              -
-                            </button>
-                            <span>{adults}</span>
-                            <button
-                              type="button"
-                              className="th-btn style2"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                updateGuestCount("adults", "increment");
-                              }}
-                            >
-                              +
-                            </button>
-                          </div>
-                        </li>
-                        <li className="option d-flex align-items-center justify-content-between">
-                          <span>Children</span>
-                          <div className="d-flex align-items-center gap-2">
-                            <button
-                              type="button"
-                              className="th-btn style2"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                updateGuestCount("children", "decrement");
-                              }}
-                            >
-                              -
-                            </button>
-                            <span>{children}</span>
-                            <button
-                              type="button"
-                              className="th-btn style2"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                updateGuestCount("children", "increment");
-                              }}
-                            >
-                              +
-                            </button>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="form-group col-md-6 col-lg-auto">
-                <div className="icon">
-                  <i className="fa-light fa-house" />
-                </div>
-                <div className="search-input">
-                  <label>Stay Type</label>
+                  <label>Duration</label>
                   <NiceSelect
-                    options={STAY_TYPE_OPTIONS}
-                    defaultValue="All Types"
-                    onChange={setSelectedStayType}
+                    options={durationOptions}
+                    defaultValue="Duration"
+                    onChange={(value) => handleChange("duration", value)}
                   />
                 </div>
               </div>
-
+              <div className="form-group col-md-6 col-lg-auto">
+                <div className="icon">
+                  <i className="fa-light fa-map-location-dot" />
+                </div>
+                <div className="search-input">
+                  <label>Tour Category</label>
+                  <NiceSelect
+                    options={categoryOptions}
+                    defaultValue="Select Category"
+                    onChange={(value) => handleChange("category", value)}
+                  />
+                </div>
+              </div>
               <div className="form-btn col-md-12 col-lg-auto">
-                <button className="th-btn" type="button" onClick={handleSearch}>
+                <button className="th-btn" type="submit">
                   <img src="/assets/img/icon/search.svg" alt="" />
                   Search
                 </button>
               </div>
             </div>
+
+            {/* Form Message Display */}
+            {formMessage.text && (
+              <p
+                className={`form-messages mb-0 mt-3 ${formMessage.type === "error" ? "text-danger" : "text-success"}`}
+              >
+                {formMessage.text}
+              </p>
+            )}
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
