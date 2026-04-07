@@ -5,30 +5,25 @@ import "swiper/css";
 import { Link } from "react-router-dom";
 
 const brands = [
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
-  "TerraSardiniaBlueLogoFinal.png",
-  "VillaVerdeBlueLogoFinal.png",
-  "VillaAntaresBlueLogoFinal.png",
+  "brand_1_1.svg",
+  "brand_1_2.svg",
+  "brand_1_3.svg",
+  "brand_1_4.svg",
+  "brand_1_5.svg",
+  "brand_1_6.svg",
+  "brand_1_7.svg",
+  "brand_1_8.svg",
+  "brand_1_1.svg",
+  "brand_1_2.svg",
+  "brand_1_3.svg",
+  "brand_1_4.svg",
+  "brand_1_5.svg",
+  "brand_1_6.svg",
+  "brand_1_7.svg",
+  "brand_1_8.svg",
 ];
 
-function BrandOne({ className }) {
+function BrandOne({className}) {
   return (
     <div className={`brand-area overflow-hidden ${className}`}>
       <div className="container th-container">
@@ -54,12 +49,12 @@ function BrandOne({ className }) {
                 <Link to="#">
                   <img
                     className="original"
-                    src={`/assets/images/logo/${brand}`}
+                    src={`/assets/img/brand/${brand}`}
                     alt="Brand Logo"
                   />
                   <img
                     className="gray"
-                    src={`/assets/images/logo/${brand}`}
+                    src={`/assets/img/brand/${brand}`}
                     alt="Brand Logo"
                   />
                 </Link>
