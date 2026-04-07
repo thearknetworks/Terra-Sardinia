@@ -14,6 +14,7 @@ const destinationCards = [
     item: "Crystal Waters",
     image: "/assets/img/destination/genne-mari-cover.png",
     category: "Beaches",
+    keywords: ["Beach", "Relaxation", "Nature"],
   },
   {
     id: "canne-sisa",
@@ -21,6 +22,7 @@ const destinationCards = [
     item: "Quiet Shores",
     image: "/assets/img/destination/canne-sisa-cover.png",
     category: "Beaches",
+    keywords: ["Beach", "Relaxation", "Nature"],
   },
   {
     id: "porto-giunco",
@@ -28,6 +30,7 @@ const destinationCards = [
     item: "Iconic Beach",
     image: "/assets/img/destination/porto-giunco-cover.png",
     category: "Beaches",
+    keywords: ["Beach", "Relaxation", "Nature"],
   },
   {
     id: "cala-delfino",
@@ -35,6 +38,7 @@ const destinationCards = [
     item: "Hidden Cove",
     image: "/assets/img/destination/cala-delfino-cover.png",
     category: "Beaches",
+    keywords: ["Beach", "Relaxation", "Nature"],
   },
   {
     id: "cagliari",
@@ -42,6 +46,7 @@ const destinationCards = [
     item: "Historic City",
     image: "/assets/img/destination/cagliari-cover.png",
     category: "Landmarks",
+    keywords: ["Culture", "Historic", "Scenic"],
   },
   {
     id: "saint-remy",
@@ -49,6 +54,7 @@ const destinationCards = [
     item: "Historic Bastion",
     image: "/assets/img/destination/saint-remy-cover.png",
     category: "Landmarks",
+    keywords: ["Culture", "Historic", "Scenic"],
   },
   {
     id: "torre-delle-stelle-tower",
@@ -56,6 +62,7 @@ const destinationCards = [
     item: "Coastal Landmark",
     image: "/assets/img/destination/torre-delle-stelle-tower-cover.png",
     category: "Landmarks",
+    keywords: ["Culture", "Historic", "Scenic"],
   },
   {
     id: "andycoc",
@@ -63,6 +70,7 @@ const destinationCards = [
     item: "Beach Dining",
     image: "/assets/img/destination/andycoc-cover.png",
     category: "Dining",
+    keywords: ["Restaurant", "Seafood", "Beach"],
   },
   {
     id: "aquarium",
@@ -70,6 +78,7 @@ const destinationCards = [
     item: "Garden Dining",
     image: "/assets/img/destination/aquarium-cover.png",
     category: "Dining",
+    keywords: ["Restaurant", "Garden", "Local"],
   },
   {
     id: "mosaico",
@@ -77,6 +86,7 @@ const destinationCards = [
     item: "Refined Dining",
     image: "/assets/img/destination/mosaico-cover.png",
     category: "Dining",
+    keywords: ["Restaurant", "Wine", "Seafood"],
   },
   {
     id: "istellas-club",
@@ -84,6 +94,7 @@ const destinationCards = [
     item: "Beach Club",
     image: "/assets/img/destination/istellas-club-cover.png",
     category: "Dining",
+    keywords: ["Beach", "Relaxation", "Scenic"],
   },
   {
     id: "centro-palmira",
@@ -91,6 +102,7 @@ const destinationCards = [
     item: "Local Hub",
     image: "/assets/img/destination/centro-palmira-cover.png",
     category: "Hubs",
+    keywords: ["Shopping", "Essentials", "Local"],
   },
   {
     id: "cafe-do-mar",
@@ -98,6 +110,7 @@ const destinationCards = [
     item: "Sunset Spot",
     image: "/assets/img/destination/cafe-do-mar-cover.png",
     category: "Hubs",
+    keywords: ["Restaurant", "Beach", "Relaxation"],
   },
 ];
 
@@ -140,7 +153,17 @@ function Destination() {
     Landmarks: "landmarks",
   };
   const selectedTag = (searchParams.get("tag") || "").toLowerCase();
-  const resolvedCategory = tagToCategory[selectedTag] || "Beaches";
+  const selectedKeyword = (searchParams.get("keyword") || "").toLowerCase();
+  const keywordMatchedCards = selectedKeyword
+    ? destinationCards.filter((destination) =>
+        (destination.keywords || []).some(
+          (keyword) => keyword.toLowerCase() === selectedKeyword,
+        ),
+      )
+    : [];
+  const inferredCategoryFromKeyword = keywordMatchedCards[0]?.category;
+  const resolvedCategory =
+    tagToCategory[selectedTag] || inferredCategoryFromKeyword || "Beaches";
   const [activeCategory, setActiveCategory] = useState(resolvedCategory);
 
   useEffect(() => {
@@ -151,15 +174,24 @@ function Destination() {
     setActiveCategory(categoryName);
     const nextParams = new URLSearchParams(searchParams);
     nextParams.set("tag", categoryToTag[categoryName]);
+    nextParams.delete("keyword");
     setSearchParams(nextParams);
   };
 
   const filteredDestinations = useMemo(
-    () =>
-      destinationCards.filter(
+    () => {
+      if (selectedKeyword) {
+        return destinationCards.filter((destination) =>
+          (destination.keywords || []).some(
+            (keyword) => keyword.toLowerCase() === selectedKeyword,
+          ),
+        );
+      }
+      return destinationCards.filter(
         (destination) => destination.category === activeCategory,
-      ),
-    [activeCategory],
+      );
+    },
+    [activeCategory, selectedKeyword],
   );
 
   return (
