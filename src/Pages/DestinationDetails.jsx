@@ -8,19 +8,36 @@ import FooterFour from "../Components/Footer/FooterFour";
 import ScrollToTop from "../Components/ScrollToTop";
 
 const DESTINATION_LABELS = {
-  "genne-mari": "Genn’e Mari",
-  "canne-sisa": "Cann’e Sisa",
-  "porto-giunco": "Porto Giunco",
+  "genne-mari": "Genn’e Mari Beach",
+  "canne-sisa": "Cann’e Sisa Beach",
+  "porto-giunco": "Porto Giunco Beach",
   "cala-delfino": "Cala Delfino",
   cagliari: "Cagliari",
-  "saint-remy": "Saint Remy",
-  "torre-delle-stelle-tower": "The Tower",
-  andycoc: "Andycoc",
-  aquarium: "Aquarium",
+  "saint-remy": "Bastion of Saint Remy",
+  "torre-delle-stelle-tower": "Torre delle Stelle Tower",
+  andycoc: "Andycoc on the Beach & the Moor",
   mosaico: "Mosaico",
-  "istellas-club": "Istellas Club",
-  "centro-palmira": "Palmira",
+  "istellas-club": "Istellas Beach Club",
+  "centro-palmira": "Centro Palmira",
+  aquarium: "Aquarium Restaurant",
   "cafe-do-mar": "Café do Mar",
+};
+
+const DESTINATION_BANNER_IMAGES = {
+  mosaico: "/assets/img/destination/Mosaico%20-%20Top%20Banner%20Image.png",
+  "genne-mari": "/assets/img/destination/Top%20Banner%20Image.png",
+  "canne-sisa": "/assets/img/destination/Top%20Banner%20Image-1.png",
+  "porto-giunco": "/assets/img/destination/Top%20Banner%20Image-2.png",
+  "cala-delfino": "/assets/img/destination/Top%20Banner%20Image-3.png",
+  "saint-remy": "/assets/img/destination/Top%20Banner%20Image-4.png",
+  cagliari: "/assets/img/destination/Top%20Banner%20Image-5.png",
+  "torre-delle-stelle-tower":
+    "/assets/img/destination/Top%20Banner%20Image-6.png",
+  "istellas-club": "/assets/img/destination/Top%20Banner%20Image-7.png",
+  "cafe-do-mar": "/assets/img/destination/Top%20Banner%20Image-8.png",
+  "centro-palmira": "/assets/img/destination/Top%20Banner%20Image-9.png",
+  aquarium: "/assets/img/destination/Top%20Banner%20Image-10.png",
+  andycoc: "/assets/img/destination/Top%20Banner%20Image-11.png",
 };
 
 function DestinationDetails() {
@@ -33,7 +50,10 @@ function DestinationDetails() {
       <HeaderOne />
       <Breadcrumb
         title={destinationName}
-        bgImage="/assets/img/destination/torre_delle_stelle.jpg"
+        bgImage={
+          DESTINATION_BANNER_IMAGES[slug] ||
+          "/assets/img/destination/torre_delle_stelle.jpg"
+        }
         breadcrumbItems={[
           {
             label: "Destination",
