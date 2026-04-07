@@ -13,7 +13,7 @@ function ResortCard(props) {
             <div className="col-lg-6">
                 <div className="resort-content">
                     <h3 className="box-title">
-                        <Link to={`/resort/${resortID}`}>{resortTitle ? resortTitle : 'Ocean View Resort'}</Link>
+                        <Link to={`/villa-verde/${resortID}`}>{resortTitle ? resortTitle : 'Ocean View Resort'}</Link>
                     </h3>
                     <div className="resort-rating">
                         <div

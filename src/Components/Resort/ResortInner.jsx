@@ -63,7 +63,7 @@ function ResortInner() {
             <div className="col-lg-6">
               <div className="resort-content">
                 <h3 className="box-title">
-                  <Link to={`/resort/${resort.id}`}>{resort.title}</Link>
+                  <Link to={`/villa-verde/${resort.id}`}>{resort.title}</Link>
                 </h3>
                 <div className="resort-rating">
                   <div className="star-rating" role="img" aria-label={`Rated ${resort.rating} out of 5`}>

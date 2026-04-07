@@ -22,8 +22,8 @@ import Wishlist from "./Wishlist";
 import Gallery from "./Gallery";
 import Tour from "./Tour";
 import TourDetails from "./TourDetails";
-import Resort from "./Resort";
-import ResortDetails from "./ResortDetails";
+import VillaVerde from "./VillaVerde";
+import VillaVerdeDetails from "./VillaVerdeDetails";
 import TourGuide from "./TourGuide";
 import TourGuiderDetails from "./TourGuiderDetails";
 import Faq from "./Faq";
@@ -61,8 +61,8 @@ function RouterPage() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="tour" element={<Tour />} />
             <Route path="tour-details" element={<TourDetails />} />
-            <Route path="resort" element={<Resort />} />
-            <Route path="resort/:id" element={<ResortDetails />} />
+            <Route path="villa-verde" element={<VillaVerde />} />
+            <Route path="villa-verde/:id" element={<VillaVerdeDetails />} />
             <Route path="tour-guide" element={<TourGuide />} />
             <Route path="tour-guide/:id" element={<TourGuiderDetails />} />
             <Route path="faq" element={<Faq />} />

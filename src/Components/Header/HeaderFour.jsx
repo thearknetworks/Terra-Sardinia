@@ -271,10 +271,10 @@ function HeaderFour() {
                                           <Link to="/tour-details">Tour Details</Link>
                                        </li>
                                        <li>
-                                          <Link to="/resort">Resort page</Link>
+                                          <Link to="/villa-verde">Resort page</Link>
                                        </li>
                                        <li>
-                                          <Link to="/resort/1">Resort Details</Link>
+                                          <Link to="/villa-verde/1">Resort Details</Link>
                                        </li>
                                        <li>
                                           <Link to="/tour-details">Tour Details</Link>
