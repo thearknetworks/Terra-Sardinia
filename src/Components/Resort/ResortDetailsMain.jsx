@@ -8,7 +8,18 @@ function ResortDetailsMain() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState('');
 
-    const resortPost = Posts.find(post => post.id === parseInt(id));
+    const fallbackPostBySlug = {
+        aquarius: 1,
+        aries: 2,
+        cancer: 3,
+        virgo: 1,
+        sagittarius: 2,
+        "la-tavola": 3,
+    };
+    const numericId = Number.isNaN(parseInt(id, 10))
+        ? fallbackPostBySlug[id]
+        : parseInt(id, 10);
+    const resortPost = Posts.find(post => post.id === numericId);
 
     if (!resortPost) {
         return <div>Post not found!</div>;
@@ -33,7 +44,7 @@ function ResortDetailsMain() {
                     <div className="col-xxl-8 col-lg-7">
                         <div className="page-single">
                             <div className="service-img global-img">
-                                <img src={`/assets/img/normal/${resortPost.bannerImg}`} alt="" />
+                                <img src="/assets/img/villaVerde/Banner%20Image.png" alt="" />
                             </div>
                             <div className="page-content d-block">
                                 <h3 className="box-title mt-20">

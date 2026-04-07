@@ -75,18 +75,22 @@ const kitchenListing = {
   experience: "Fresh, home-style cooking with local ingredients",
 };
 
-function ResortInner() {
+function VillaVerdeInner() {
   return (
     <div className="space">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="title-area text-center pe-xl-4 ps-xl-4">
-              <span className="sub-title">Best Resort For You</span>
-              <h2 className="sec-title mb-20">Most Popular Resort</h2>
+              <span className="sub-title">A Collection of Character</span>
+              <h2 className="sec-title mb-20">Spaces Shaped by the Zodiac</h2>
               <p className="sec-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Every space within Villa Verde carries its own identity, drawing
+                inspiration from the zodiac to create spaces that feel personal,
+                balanced, and quietly expressive. Defined by light, texture, and
+                atmosphere, every stay offers a refined sense of comfort,
+                allowing you to settle in, slow down, and experience the villa
+                through a space that resonates with you.
               </p>
             </div>
           </div>
@@ -187,4 +191,4 @@ function ResortInner() {
   );
 }
 
-export default ResortInner;
+export default VillaVerdeInner;

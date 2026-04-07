@@ -9,7 +9,10 @@ function VillaVerde() {
   return (
     <>
       <HeaderOne />
-      <Breadcrumb title="Villa Verde" />
+      <Breadcrumb
+        title="Villa Verde"
+        bgImage="/assets/img/villaVerde/Banner%20Image.png"
+      />
       <VillaVerdeMain />
       <FooterFour />
       <ScrollToTop />

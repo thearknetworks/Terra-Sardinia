@@ -1,8 +1,8 @@
 import React from "react";
-import ResortInner from "./ResortInner";
+import VillaVerdeInner from "./VillaVerdeInner";
 
 function VillaVerdeMain() {
-  return <ResortInner />;
+  return <VillaVerdeInner />;
 }
 
 export default VillaVerdeMain;
