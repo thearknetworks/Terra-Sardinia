@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const resorts = [
   {
@@ -76,6 +76,9 @@ const kitchenListing = {
 };
 
 function VillaVerdeInner() {
+  const { lang } = useParams();
+  const currentLang = lang || "en";
+
   return (
     <div className="space">
       <div className="container">
@@ -109,7 +112,9 @@ function VillaVerdeInner() {
             <div className="col-lg-6">
               <div className="resort-content">
                 <h3 className="box-title">
-                  <Link to={`/villa-verde/${resort.id}`}>{resort.title}</Link>
+                  <Link to={`/${currentLang}/villa-verde/${resort.id}`}>
+                    {resort.title}
+                  </Link>
                 </h3>
                 <p className="resort-text">{resort.subtext}</p>
                 <div className="resort-list">
@@ -131,7 +136,7 @@ function VillaVerdeInner() {
                 </div>
                 <div className="resort-btn mt-40">
                   <Link
-                    to={`/villa-verde/${resort.id}`}
+                    to={`/${currentLang}/villa-verde/${resort.id}`}
                     className="th-btn style4 th-icon"
                   >
                     View Room
@@ -150,7 +155,7 @@ function VillaVerdeInner() {
           <div className="col-lg-6">
             <div className="resort-content">
               <h3 className="box-title">
-                <Link to={`/villa-verde/${kitchenListing.id}`}>
+                <Link to={`/${currentLang}/villa-verde/${kitchenListing.id}`}>
                   {kitchenListing.title}
                 </Link>
               </h3>
@@ -177,7 +182,7 @@ function VillaVerdeInner() {
               </div>
               <div className="resort-btn mt-40">
                 <Link
-                  to={`/villa-verde/${kitchenListing.id}`}
+                  to={`/${currentLang}/villa-verde/${kitchenListing.id}`}
                   className="th-btn style4 th-icon"
                 >
                   Learn More

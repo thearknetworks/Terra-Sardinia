@@ -62,7 +62,7 @@ function RouterPage() {
             <Route path="tour" element={<Tour />} />
             <Route path="tour-details" element={<TourDetails />} />
             <Route path="villa-verde" element={<VillaVerde />} />
-            <Route path="villa-verde/:id" element={<VillaVerdeDetails />} />
+            <Route path="villa-verde/:room_name" element={<VillaVerdeDetails />} />
             <Route path="tour-guide" element={<TourGuide />} />
             <Route path="tour-guide/:id" element={<TourGuiderDetails />} />
             <Route path="faq" element={<Faq />} />

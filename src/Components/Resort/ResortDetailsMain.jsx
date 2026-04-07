@@ -1,597 +1,628 @@
-import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import Posts from '../data/data-resort.json';
-import Modal from '../Gallery/Modal';
+import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Modal from "../Gallery/Modal";
 
-function ResortDetailsMain() {
-    const { id } = useParams();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalImage, setModalImage] = useState('');
+function VillaVerdeDetailsInner() {
+  const { room_name, lang } = useParams();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState("");
+  const currentLang = lang || "en";
 
-    const fallbackPostBySlug = {
-        aquarius: 1,
-        aries: 2,
-        cancer: 3,
-        virgo: 1,
-        sagittarius: 2,
-        "la-tavola": 3,
-    };
-    const numericId = Number.isNaN(parseInt(id, 10))
-        ? fallbackPostBySlug[id]
-        : parseInt(id, 10);
-    const resortPost = Posts.find(post => post.id === numericId);
+  const roomContentBySlug = {
+    aquarius: {
+      name: "Aquarius",
+      header: "Light, Open, and Effortlessly Calm",
+      body: "Aquarius Room is designed as a bright and tranquil space where simplicity meets comfort. With its soft natural light and relaxed atmosphere, it offers a quiet retreat within the villa, ideal for guests looking to unwind in a setting that feels both open and intimate. The room overlooks the pool area, bringing a subtle connection to the outdoors while maintaining privacy.",
+      secondHeader: "Comfort and Practical Living",
+      secondBody:
+        "The room accommodates up to two guests, with the option of adding an extra bed when needed, making it suitable for flexible stays. It is equipped with essential comforts and functional details to ensure a smooth and relaxed experience, whether for a short getaway or a longer stay. As with all rooms in Villa Verde, the space is part of a pet-friendly environment and welcomes guests within the villa’s shared and easygoing atmosphere.",
+      highlights: [
+        {
+          name: "Pool View",
+          icon: "/assets/img/villaVerde/AQUARIUS%20Pool.png",
+        },
+        {
+          name: "Air Conditioning",
+          icon: "/assets/img/villaVerde/AQUARIUS%20AC.png",
+        },
+        { name: "Wifi", icon: "/assets/img/villaVerde/AQUARIUS%20Wifi.png" },
+        { name: "TV", icon: "/assets/img/villaVerde/AQUARIUS%20TV.png" },
+        { name: "Safe", icon: "/assets/img/villaVerde/AQUARIUS%20Safe.png" },
+        {
+          name: "Hair Dryer",
+          icon: "/assets/img/villaVerde/AQUARIUS%20Hair%20Dryer.png",
+        },
+        { name: "Desk", icon: "/assets/img/villaVerde/AQUARIUS%20Desk.png" },
+        {
+          name: "Shower",
+          icon: "/assets/img/villaVerde/AQUARIUS%20Shower.png",
+        },
+      ],
+    },
 
-    if (!resortPost) {
-        return <div>Post not found!</div>;
-    }
+    aries: {
+      name: "Aries",
+      header: "Warm, Grounded Energy",
+      body: "Aries Room carries a warm and inviting atmosphere, designed to feel both grounded and quietly energizing. With its soft tones and balanced layout, the space creates a sense of ease from the moment you enter. Overlooking the pool, it blends indoor comfort with a subtle connection to the villa’s outdoor life, making it ideal for a relaxed and effortless stay.",
+      secondHeader: "Simple Comfort, Thoughtfully Equipped",
+      secondBody:
+        "Designed for up to two guests, Aries Room offers a comfortable and well-proportioned space with the option of adding an extra bed when needed. The room is equipped with practical amenities that enhance convenience while maintaining a clean, uncluttered feel. As part of Villa Verde, guests also benefit from a welcoming, pet-friendly environment and a shared atmosphere that feels both personal and relaxed.",
+      highlights: [
+        { name: "Pool View", icon: "/assets/img/villaVerde/ARIES%20Pool.png" },
+        {
+          name: "Air Conditioning",
+          icon: "/assets/img/villaVerde/ARIES%20AC.png",
+        },
+        { name: "Wifi", icon: "/assets/img/villaVerde/ARIES%20Wifi.png" },
+        { name: "TV", icon: "/assets/img/villaVerde/ARIES%20TV.png" },
+        { name: "Minibar", icon: "/assets/img/villaVerde/ARIES%20Minibar.png" },
+        { name: "Desk", icon: "/assets/img/villaVerde/ARIES%20Desk.png" },
+        {
+          name: "Hair Dryer",
+          icon: "/assets/img/villaVerde/ARIES%20Hair%20Dryer.png",
+        },
+        { name: "Shower", icon: "/assets/img/villaVerde/ARIES%20Shower.png" },
+      ],
+    },
+    cancer: {
+      name: "Cancer",
+      header: "Soft, Nurturing Escape",
+      body: "Cancer Room is designed as a quiet and comforting retreat, where everything slows down. Overlooking the garden, the space feels naturally calming, surrounded by greenery and soft light. Its intimate size and gentle atmosphere make it ideal for those seeking rest, privacy, and a more grounded connection to the villa’s peaceful surroundings.",
+      secondHeader: "Comfort in Simplicity",
+      secondBody:
+        "Perfect for two guests, Cancer Room offers a cozy and thoughtfully arranged space that prioritizes comfort and ease. Every element is designed to feel familiar and welcoming, with practical amenities that support a relaxed stay. As part of Villa Verde, guests also enjoy a shared, home-like environment that is warm, personal, and pet-friendly.",
+      highlights: [
+        {
+          name: "Garden View",
+          icon: "/assets/img/villaVerde/CANCER%20Garden.png",
+        },
+        {
+          name: "Air Conditioning",
+          icon: "/assets/img/villaVerde/CANCER%20AC.png",
+        },
+        { name: "Wifi", icon: "/assets/img/villaVerde/CANCER%20Wifi.png" },
+        { name: "TV", icon: "/assets/img/villaVerde/CANCER%20TV.png" },
+        {
+          name: "Minibar",
+          icon: "/assets/img/villaVerde/CANCER%20Minibar.png",
+        },
+        { name: "Desk", icon: "/assets/img/villaVerde/CANCER%20Desk.png" },
+        {
+          name: "Hair Dryer",
+          icon: "/assets/img/villaVerde/CANCER%20Hair%20Dryer.png",
+        },
+        { name: "Shower", icon: "/assets/img/villaVerde/CANCER%20Shower.png" },
+      ],
+    },
+    virgo: {
+      name: "Virgo",
+      header: "Refined & Balanced",
+      body: "Virgo Room is defined by clarity, balance, and thoughtful simplicity. Overlooking the garden, it offers a calm and composed atmosphere where every detail feels intentional. The space is designed to feel organized and harmonious, creating a setting that is both relaxing and quietly refined.",
+      secondHeader: "Space with Purpose",
+      secondBody:
+        "Ideal for up to three guests, Virgo Room combines functionality with comfort, offering both a king bed and an additional single bed. The layout is practical yet elegant, making it well-suited for small groups or families. Equipped with essential amenities and part of Villa Verde’s warm, pet-friendly environment, it delivers a stay that feels both structured and effortlessly comfortable.",
+      highlights: [
+        {
+          name: "Garden View",
+          icon: "/assets/img/villaVerde/VIRGO%20Garden.png",
+        },
+        {
+          name: "Air Conditioning",
+          icon: "/assets/img/villaVerde/VIRGO%20AC.png",
+        },
+        { name: "Wifi", icon: "/assets/img/villaVerde/VIRGO%20Wifi.png" },
+        { name: "TV", icon: "/assets/img/villaVerde/VIRGO%20TV.png" },
+        { name: "Minibar", icon: "/assets/img/villaVerde/VIRGO%20Minibar.png" },
+        { name: "Safe", icon: "/assets/img/villaVerde/VIRGO%20Safe.png" },
+        {
+          name: "Hair Dryer",
+          icon: "/assets/img/villaVerde/VIRGO%20Hair%20Dryer.png",
+        },
+        { name: "Shower", icon: "/assets/img/villaVerde/VIRGO%20Shower.png" },
+      ],
+    },
+    sagittarius: {
+      name: "Sagittarius",
+      header: "Open & Effortless",
+      body: "Sagittarius Room is designed to feel open, relaxed, and naturally free. Overlooking the garden, the space carries a light and easy atmosphere, where movement and comfort come together effortlessly. It’s a room that invites you to slow down, unwind, and enjoy a sense of freedom within a calm, natural setting.",
+      secondHeader: "Flexible Living Space",
+      secondBody:
+        "Ideal for up to three guests, Sagittarius Room offers a versatile layout with a king bed and a sofa bed, making it perfect for couples, friends, or small families. The room balances comfort with flexibility, supported by practical amenities that enhance everyday ease. As part of Villa Verde, it also benefits from a warm, welcoming, and pet-friendly environment.",
+      highlights: [
+        {
+          name: "Garden View",
+          icon: "/assets/img/villaVerde/SAGITTARIUS%20Garden.png",
+        },
+        {
+          name: "Air Conditioning",
+          icon: "/assets/img/villaVerde/SAGITTARIUS%20AC.png",
+        },
+        {
+          name: "Wifi",
+          icon: "/assets/img/villaVerde/SAGITTARIUS%20Wifi.png",
+        },
+        { name: "TV", icon: "/assets/img/villaVerde/SAGITTARIUS%20TV.png" },
+        {
+          name: "Minibar",
+          icon: "/assets/img/villaVerde/SAGITTARIUS%20Minibar.png",
+        },
+        { name: "Fan", icon: "/assets/img/villaVerde/SAGITTARIUS%20Fan.png" },
+        {
+          name: "Hair Dryer",
+          icon: "/assets/img/villaVerde/SAGITTARIUS%20Hair%20Dryer.png",
+        },
+        {
+          name: "Shower",
+          icon: "/assets/img/villaVerde/SAGITTARIUS%20Shower.png",
+        },
+      ],
+    },
+    "la-tavola": {
+      name: "La Tavola",
+      header: "Authentic Home Cooking",
+      body: "La Tavola is where Villa Verde comes to life through food. Rooted in Sardinian tradition, this shared dining experience brings guests together around simple, genuine dishes prepared with local ingredients. From fresh seafood to handmade specialties, every meal reflects the flavors of the land and the warmth of a home setting.",
+      secondHeader: "A Shared Culinary Experience",
+      secondBody:
+        "Breakfast is served daily in a relaxed, open setting, tailored to your preferences and designed to start the day slowly and naturally. In the evenings, dinners are available by reservation, offering a fixed menu inspired by Sardinian cuisine, with options for both meat, fish, and vegetarian preferences. More than just a meal, La Tavola is a moment to connect, unwind, and experience the villa as a true home.",
+      highlights: [
+        {
+          name: "Breakfast",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Breakfast.png",
+        },
+        {
+          name: "Dinner",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Dinner.png",
+        },
+        {
+          name: "Sardinian",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Sardinian.png",
+        },
+        {
+          name: "Local",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Local.png",
+        },
+        {
+          name: "Vegetarian",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Vegetarian.png",
+        },
+        {
+          name: "Outdoor",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Outdoor.png",
+        },
+        {
+          name: "Shared Table",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Shared.png",
+        },
+        {
+          name: "Fresh",
+          icon: "/assets/img/villaVerde/LA%20TAVOLA%20Fresh.png",
+        },
+      ],
+    },
+  };
+  const villaVerdeReviews = [
+    {
+      name: "lizdiscovers",
+      rating: "5.0",
+      date: "May 2018",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Liz.jpg",
+      body: "We had a very pleasant stay with Angela and Didier. The rooms are a good size, clean, and equipped with all the necessary amenities. The breakfast was excellent, with fresh bread and delicious coffee. The B&B is close to the beach; you literally walk around the corner and there you are! Because it was early in the season, we often found the beach to ourselves-heavenly! Angela and Didier also offer the option of staying for dinner. They are excellent cooks, and the meals are delicious. I think they deserve a special recommendation as the best restaurant in Torre Delle Stelle. I loved every minute of our relaxing stay! True hospitality, Angela and Didier, we will definitely be back!",
+    },
+    {
+      name: "Marcel T",
+      rating: "5.0",
+      date: "October 2018",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Marcel.jpg",
+      body: "For someone accustomed to staying in hotels, this B&B was a real relief. From the moment you enter the premises, owners Angela and Didier make you feel at home. The rooms are spacious, clean, and well-kept. Dining with Angela and Didier is an experience in itself. Traditional local food made with fresh, homemade ingredients. Added to this is the priceless atmosphere, which makes you feel at home and enjoying dinner at the kitchen table, literally. A huge thank you to Angela and Didier for your hospitality, company, and laughter. It was a week I will remember for years to come. My recommendation: if you want to go to Sardinia, B&B Villa Verde is the place to stay. Marcel Trupia - Netherlands",
+    },
+    {
+      name: "Pimh83",
+      rating: "5.0",
+      date: "May 2019",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Pimh.jpg",
+      body: "B&B Villa Verde is a very welcoming, beautiful, and cozy place to stay. The owners (a couple) are very friendly and speak several languages (good English, Dutch, and French). They have a beautiful garden with lots of beautiful flowers and a pool. They serve all kinds of dinner, but you can also dine elsewhere. We've heard that everyone stays at B&B because the dinner is so delicious. We only stayed one night, and it was one of the best meals we had in Sardinia. I would recommend this place to anyone visiting the island.",
+    },
+    {
+      name: "Katrinalort63",
+      rating: "5.0",
+      date: "June 2019",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Katrina.jpg",
+      body: "A warm welcome from Angela. The whole place is fantastic, they make you feel like family. Just steps from the beach. We ate at the B&B, fresh tuna and homemade ice cream, delicious. It was lovely to sit at a large table with other nationalities sharing stories of our lives (Google Translate helps). Highly recommended.",
+    },
+    {
+      name: "Massimo Farfarana",
+      rating: "5.0",
+      date: "August 2019",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Massimo.jpg",
+      body: "As soon as you walk through the front door, you know you're in paradise! A beautifully kept and enchanting garden, with a magnificent pool, all surrounded by the constellations: Gemini, Cancer, Virgo, and Sagittarius, which are actually the names of the guest rooms! Angela and Didier are the magnificent owners, who, more than just hosts, are the creators of the pleasure, well-being, and serenity of those who decide to spend a few enchanting days in an enchanting place! Congratulations and thank you.",
+    },
+    {
+      name: "Flavio M",
+      rating: "5.0",
+      date: "September 2020",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Flavio.jpg",
+      body: "I stumbled upon this oasis of kindness and hospitality by chance. The owners, Angela and Didier, are delightful people who immediately made us feel at home. The rooms are comfortable, spotlessly clean, and smell wonderful. The pool is fabulous, and the in-house restaurant, run by the owners, offers high-quality international cuisine. We will definitely be back. Highly recommended; don't miss out. Excellent value for money.",
+    },
+    {
+      name: "Deborah999",
+      rating: "5.0",
+      date: "June 2021",
+      avatar: "/assets/img/villaVerde/Villa%20Verde%20review%20-%20Deborah.jpg",
+      body: "I stayed for a week in June with my family and had a wonderful time! The owners are very hospitable and kind. Everything is very well-kept and clean, and there's a beautiful garden. Angela and Dominique are also amazing chefs!! We had dinner with them one evening under the porch in their flower garden, filled with the unique scents of Sardinia. We'll definitely be back.",
+    },
+  ];
 
-    // Function to open the modal with the selected image
-    const openModal = (imageSrc, event) => {
-        event.preventDefault(); // Prevent default link behavior
-        setModalImage(imageSrc);
-        setIsModalOpen(true);
-    };
+  const roomMediaBySlug = {
+    aquarius: {
+      topImage:
+        "/assets/img/villaVerde/Aquarius%20Gallery%201%20Destination%20Detail-13.png",
+      gallery: [
+        "/assets/img/villaVerde/Aquarius%20Gallery%202%20Destination%20Detail-13.png",
+        "/assets/img/villaVerde/Aquarius%20Gallery%201%20Destination%20Detail-1-12.png",
+        "/assets/img/villaVerde/Aquarius%20Gallery%202%20Destination%20Detail-1-12.png",
+      ],
+    },
+    aries: {
+      topImage:
+        "/assets/img/villaVerde/Aries%20Gallery%201%20Destination%20Detail-14.png",
+      gallery: [
+        "/assets/img/villaVerde/Aries%20Gallery%202%20Destination%20Detail-14.png",
+        "/assets/img/villaVerde/Aries%20Gallery%201%20Destination%20Detail-1-13.png",
+        "/assets/img/villaVerde/Aries%20Gallery%202%20Destination%20Detail-1-13.png",
+      ],
+    },
+    cancer: {
+      topImage:
+        "/assets/img/villaVerde/Cancer%20Gallery%201%20Destination%20Detail-15.png",
+      gallery: [
+        "/assets/img/villaVerde/Cancer%20Gallery%202%20Destination%20Detail-15.png",
+        "/assets/img/villaVerde/Cancer%20Gallery%201%20Destination%20Detail-1-14.png",
+        "/assets/img/villaVerde/Cancer%20Gallery%202%20Destination%20Detail-1-14.png",
+      ],
+    },
+    virgo: {
+      topImage:
+        "/assets/img/villaVerde/Virgo%20Gallery%201%20Destination%20Detail-16.png",
+      gallery: [
+        "/assets/img/villaVerde/Virgo%20Gallery%202%20Destination%20Detail-16.png",
+        "/assets/img/villaVerde/Virgo%20Gallery%201%20Destination%20Detail-1-15.png",
+        "/assets/img/villaVerde/Virgo%20Gallery%202%20Destination%20Detail-1-15.png",
+      ],
+    },
+    sagittarius: {
+      topImage:
+        "/assets/img/villaVerde/Sagittarius%20Gallery%201%20Destination%20Detail-17.png",
+      gallery: [
+        "/assets/img/villaVerde/Sagittarius%20Gallery%202%20Destination%20Detail-17.png",
+        "/assets/img/villaVerde/Sagittarius%20Gallery%201%20Destination%20Detail-1-16.png",
+        "/assets/img/villaVerde/Sagittarius%20Gallery%202%20Destination%20Detail-1-16.png",
+      ],
+    },
+    "la-tavola": {
+      topImage:
+        "/assets/img/villaVerde/La%20Tavola%20Gallery%201%20Destination%20Detail-18.png",
+      gallery: [
+        "/assets/img/villaVerde/La%20Tavola%20Gallery%202%20Destination%20Detail-18.png",
+        "/assets/img/villaVerde/La%20Tavola%20Gallery%201%20Destination%20Detail-1-17.png",
+        "/assets/img/villaVerde/La%20Tavola%20Gallery%202%20Destination%20Detail-1-17.png",
+      ],
+    },
+  };
+  const selectedRoomMedia =
+    roomMediaBySlug[room_name] || roomMediaBySlug.aquarius;
+  const selectedRoomContent =
+    roomContentBySlug[room_name] || roomContentBySlug.aquarius;
 
-    // Function to close the modal
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
+  // Function to open the modal with the selected image
+  const openModal = (imageSrc, event) => {
+    event.preventDefault(); // Prevent default link behavior
+    setModalImage(imageSrc);
+    setIsModalOpen(true);
+  };
 
-    return (
-        <section className="space">
-            <div className="container shape-mockup-wrap">
-                <div className="row">
-                    <div className="col-xxl-8 col-lg-7">
-                        <div className="page-single">
-                            <div className="service-img global-img">
-                                <img src="/assets/img/villaVerde/Banner%20Image.png" alt="" />
-                            </div>
-                            <div className="page-content d-block">
-                                <h3 className="box-title mt-20">
-                                    <Link to="#">{resortPost.title}</Link>
-                                </h3>
-                                <p className="blog-text mb-30">
-                                    This luxury resort is set on a private island in the South
-                                    Pacific. The overwater bungalows and beachfront villas offer
-                                    stunning views of the turquoise lagoon and the surrounding
-                                    mountains. Highlights: Snorkeling, spa treatments, and romantic
-                                    dining experiences overlooking the ocean. This luxurious private
-                                    island resort in Tetiaroa offers pristine beaches and a lagoon
-                                    with incredible ocean views. It’s an eco-friendly resort focused
-                                    on sustainability. Highlights: Snorkeling, kayaking, and luxurious
-                                    spa treatments with an ocean backdrop.
-                                </p>
-                                <p className="blog-text mb-35">
-                                    Ocean View Resort typically refers to a coastal resort that
-                                    provides stunning views of the ocean from its accommodations and
-                                    facilities. These resorts are often situated in prime locations
-                                    along beaches, cliffs, or coastal areas, allowing guests to enjoy
-                                    the natural beauty of the sea from their rooms, restaurants,
-                                    pools, and other areas within the property.
-                                </p>
-                                <h4 className="">Children and extra beds.</h4>
-                                <p className="blog-text mb-35">
-                                    Children are welcome Kids stay free! Children stay free when using
-                                    existing bedding; children may not be eligible for complimentary
-                                    breakfast Rollaway/extra beds are available for $ 10 per day.
-                                </p>
-                                <h2 className="box-title">Highlights</h2>
-                                <ul className="resort-grid-list">
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-1.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">TV</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-2.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Free Wifi</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-3.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Air Condition</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-4.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Heater</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-5.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Phone</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-6.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Hair Dryer</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-7.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Saving Safe</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-8.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Towels</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-9.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Laundry</h4>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="resort-grid-list-icon">
-                                            <img src="/assets/img/icon/resort-icon1-10.svg" alt="" />
-                                        </div>
-                                        <div className="resort-grid-list-details">
-                                            <h4 className="resort-grid-list-title">Bath</h4>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="destination-gallery-wrapper">
-                                <h3 className="page-title mt-30 mb-30">From our gallery</h3>
-                                <div className="row gy-4 gallery-row filter-active">
-                                    <div className="col-xxl-auto filter-item">
-                                        <div className="gallery-box style3">
-                                            <div className="gallery-img global-img">
-                                                <img
-                                                    src="/assets/img/gallery/gallery_6_1.jpg"
-                                                    alt="gallery"
-                                                />
-                                                <Link
-                                                    to="/assets/img/gallery/gallery_6_1.jpg"
-                                                    className="icon-btn popup-image"
-                                                    onClick={(e) => openModal('/assets/img/gallery/gallery_6_1.jpg', e)}
-                                                >
-                                                    <i className="fal fa-magnifying-glass-plus" />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-xxl-auto filter-item">
-                                        <div className="gallery-box style3">
-                                            <div className="gallery-img global-img">
-                                                <img
-                                                    src="/assets/img/gallery/gallery_6_2.jpg"
-                                                    alt="gallery"
-                                                />
-                                                <Link
-                                                    to="/assets/img/gallery/gallery_6_2.jpg"
-                                                    className="icon-btn popup-image"
-                                                    onClick={(e) => openModal('/assets/img/gallery/gallery_6_2.jpg', e)}
-                                                >
-                                                    <i className="fal fa-magnifying-glass-plus" />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-xxl-auto filter-item">
-                                        <div className="gallery-box style3">
-                                            <div className="gallery-img global-img">
-                                                <img
-                                                    src="/assets/img/gallery/gallery_6_3.jpg"
-                                                    alt="gallery"
-                                                />
-                                                <Link
-                                                    to="/assets/img/gallery/gallery_6_3.jpg"
-                                                    className="icon-btn popup-image"
-                                                    onClick={(e) => openModal('/assets/img/gallery/gallery_6_3.jpg', e)}
-                                                >
-                                                    <i className="fal fa-magnifying-glass-plus" />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-xxl-auto filter-item">
-                                        <div className="gallery-box style3">
-                                            <div className="gallery-img global-img">
-                                                <img
-                                                    src="/assets/img/gallery/gallery_6_4.jpg"
-                                                    alt="gallery"
-                                                />
-                                                <Link
-                                                    to="/assets/img/gallery/gallery_6_4.jpg"
-                                                    className="icon-btn popup-image"
-                                                    onClick={(e) => openModal('/assets/img/gallery/gallery_6_4.jpg', e)}
-                                                >
-                                                    <i className="fal fa-magnifying-glass-plus" />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="th-comments-wrap style2 ">
-                                <h2 className="blog-inner-title h4">Reviews (3)</h2>
-                                <ul className="comment-list">
-                                    <li className="th-comment-item">
-                                        <div className="th-post-comment">
-                                            <div className="comment-avater">
-                                                <img
-                                                    src="/assets/img/blog/comment-author-1.jpg"
-                                                    alt="Comment Author"
-                                                />
-                                            </div>
-                                            <div className="comment-content">
-                                                <h3 className="name">Adam Jhon</h3>
-                                                <div className="commented-wrapp">
-                                                    <span className="commented-on">20 Jun, 2024</span>
-                                                    <span className="commented-time">08:56pm </span>
-                                                    <span className="comment-review">
-                                                        <i className="fa-solid fa-star" />
-                                                        <i className="fa-solid fa-star" />
-                                                        <i className="fa-solid fa-star" />
-                                                        <i className="fa-solid fa-star" />
-                                                        <i className="fa-solid fa-star" />
-                                                    </span>
-                                                </div>
-                                                <p className="text">
-                                                    Credibly pontificate transparent quality vectors with
-                                                    quality mindshare. Efficiently architect worldwide
-                                                    strategic theme areas after user.
-                                                </p>
-                                                <div className="reply_and_edit">
-                                                    <i className="fa-solid fa-thumbs-up" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul className="children">
-                                            <li className="th-comment-item">
-                                                <div className="th-post-comment">
-                                                    <div className="comment-avater">
-                                                        <img
-                                                            src="/assets/img/blog/comment-author-4.jpg"
-                                                            alt="Comment Author"
-                                                        />
-                                                    </div>
-                                                    <div className="comment-content">
-                                                        <div className="">
-                                                            <h3 className="name">Maria Willson</h3>
-                                                            <div className="commented-wrapp">
-                                                                <span className="commented-on">23 Jun, 2024</span>
-                                                                <span className="commented-time">08:56pm </span>
-                                                                <span className="comment-review">
-                                                                    <i className="fa-solid fa-star" />
-                                                                    <i className="fa-solid fa-star" />
-                                                                    <i className="fa-solid fa-star" />
-                                                                    <i className="fa-solid fa-star" />
-                                                                    <i className="fa-solid fa-star" />
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <p className="text">
-                                                            It is different from airport transfer or port
-                                                            transfer, which are services that pick you up
-                                                        </p>
-                                                        <div className="reply_and_edit">
-                                                            <i className="fa-solid fa-thumbs-up" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li className="th-comment-item">
-                                        <div className="th-post-comment">
-                                            <div className="comment-avater">
-                                                <img
-                                                    src="/assets/img/blog/comment-author-5.jpg"
-                                                    alt="Comment Author"
-                                                />
-                                            </div>
-                                            <div className="comment-content">
-                                                <div className="">
-                                                    <h3 className="name">Michel Edwards</h3>
-                                                    <div className="commented-wrapp">
-                                                        <span className="commented-on">27 Jun, 2024</span>
-                                                        <span className="commented-time">08:56pm </span>
-                                                        <span className="comment-review">
-                                                            <i className="fa-solid fa-star" />
-                                                            <i className="fa-solid fa-star" />
-                                                            <i className="fa-solid fa-star" />
-                                                            <i className="fa-solid fa-star" />
-                                                            <i className="fa-solid fa-star" />
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <p className="text">
-                                                    Credibly pontificate transparent quality vectors with
-                                                    quality mindshare. Efficiently architect worldwide
-                                                    strategic theme areas after user.
-                                                </p>
-                                                <div className="reply_and_edit">
-                                                    <i className="fa-solid fa-thumbs-up" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>{" "}
-                            {/* Comment end */} {/* Comment Form */}
-                            <div className="th-comment-form ">
-                                <div className="row">
-                                    <h3 className="blog-inner-title h4 mb-2">Leave a Reply</h3>
-                                    <p className="mb-25">
-                                        Your email address will not be published. Required fields are
-                                        marked
-                                    </p>
-                                    <div className="col-md-6 form-group">
-                                        <input
-                                            type="text"
-                                            placeholder="Full Name*"
-                                            className="form-control"
-                                            required=""
-                                        />
-                                        <i className="far fa-user" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <input
-                                            type="text"
-                                            placeholder="Your Email*"
-                                            className="form-control"
-                                            required=""
-                                        />
-                                        <i className="far fa-envelope" />
-                                    </div>
-                                    <div className="col-12 form-group">
-                                        <input
-                                            type="text"
-                                            placeholder="Website"
-                                            className="form-control"
-                                            required=""
-                                        />
-                                        <i className="far fa-globe" />
-                                    </div>
-                                    <div className="col-12 form-group">
-                                        <textarea
-                                            placeholder="Comment*"
-                                            className="form-control"
-                                            defaultValue={""}
-                                        />
-                                        <i className="far fa-pencil" />
-                                    </div>
-                                    <div className="col-12 form-group">
-                                        <input type="checkbox" id="html" />
-                                        <label htmlFor="html">
-                                            Save my name, email, and website in this browser for the next
-                                            time I comment.
-                                        </label>
-                                    </div>
-                                    <div className="col-12 form-group mb-0">
-                                        <button className="th-btn">
-                                            Send Message
-                                            <img src="/assets/img/icon/plane2.svg" alt="" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <section className="space">
+      <div className="container shape-mockup-wrap">
+        <div className="row">
+          <div className="col-xxl-8 col-lg-7">
+            <div className="page-single">
+              <div className="service-img global-img">
+                <img src={selectedRoomMedia.topImage} alt="" />
+              </div>
+              <div className="page-content d-block">
+                <h2 className="box-title mt-20">
+                  {selectedRoomContent.header}
+                </h2>
+                <p className="blog-text mb-30">{selectedRoomContent.body}</p>
+                <h4 className="">{selectedRoomContent.secondHeader}</h4>
+                <p className="blog-text mb-35">
+                  {selectedRoomContent.secondBody}
+                </p>
+                <h2 className="box-title">Highlights</h2>
+                <ul className="resort-grid-list">
+                  {selectedRoomContent.highlights.map((highlight) => (
+                    <li key={highlight.name}>
+                      <div className="resort-grid-list-icon">
+                        <img src={highlight.icon} alt={highlight.name} />
+                      </div>
+                      <div className="resort-grid-list-details">
+                        <h4 className="resort-grid-list-title">
+                          {highlight.name}
+                        </h4>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="destination-gallery-wrapper">
+                <h3 className="page-title mt-30 mb-30">From our gallery</h3>
+                <div className="row gy-4 gallery-row filter-active">
+                  {selectedRoomMedia.gallery.map((imagePath, index) => (
+                    <div className="col-xxl-auto filter-item" key={index}>
+                      <div className="gallery-box style3">
+                        <div className="gallery-img global-img">
+                          <img src={imagePath} alt="gallery" />
+                          <Link
+                            to={imagePath}
+                            className="icon-btn popup-image"
+                            onClick={(e) => openModal(imagePath, e)}
+                          >
+                            <i className="fal fa-magnifying-glass-plus" />
+                          </Link>
                         </div>
+                      </div>
                     </div>
-                    <div className="col-xxl-4 col-lg-5">
-                        <aside className="sidebar-area style3">
-                            <div className="widget widget_search  ">
-                                <form className="search-form">
-                                    <input type="text" placeholder="Search" />
-                                    <button type="submit">
-                                        <i className="far fa-search" />
-                                    </button>
-                                </form>
-                            </div>
-                            <div className="widget widget_categories  ">
-                                <h3 className="widget_title">Categories</h3>
-                                <ul>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            City Tour
-                                        </Link>
-                                        <span>(8)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Beach Tours
-                                        </Link>
-                                        <span>(6)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Wildlife Tours
-                                        </Link>
-                                        <span>(2)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            News &amp; Tips
-                                        </Link>
-                                        <span>(7)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Adventure Tours
-                                        </Link>
-                                        <span>(9)</span>
-                                    </li>
-                                    <li>
-                                        <Link to="/blog">
-                                            <img src="/assets/img/theme-img/map.svg" alt="" />
-                                            Mountain Tours
-                                        </Link>
-                                        <span>(10)</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="widget  ">
-                                <h3 className="widget_title">Recent Posts</h3>
-                                <div className="recent-post-wrap">
-                                    <div className="recent-post">
-                                        <div className="media-img">
-                                            <Link to="/blog/1">
-                                                <img
-                                                    src="/assets/img/blog/recent-post-1-1.jpg"
-                                                    alt="Blog"
-                                                />
-                                            </Link>
-                                        </div>
-                                        <div className="media-body">
-                                            <h4 className="post-title">
-                                                <Link className="text-inherit" to="/blog/1">
-                                                    Exploring The Green Spaces Of the island maldives
-                                                </Link>
-                                            </h4>
-                                            <div className="recent-post-meta">
-                                                <Link to="/blog">
-                                                    <i className="fa-regular fa-calendar" />
-                                                    22/6/ 2025
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="recent-post">
-                                        <div className="media-img">
-                                            <Link to="/blog/1">
-                                                <img
-                                                    src="/assets/img/blog/recent-post-1-2.jpg"
-                                                    alt="Blog"
-                                                />
-                                            </Link>
-                                        </div>
-                                        <div className="media-body">
-                                            <h4 className="post-title">
-                                                <Link className="text-inherit" to="/blog/1">
-                                                    Harmony With Nature Of Belgium Tour and travle
-                                                </Link>
-                                            </h4>
-                                            <div className="recent-post-meta">
-                                                <Link to="/blog">
-                                                    <i className="fa-regular fa-calendar" />
-                                                    25/6/ 2025
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="recent-post">
-                                        <div className="media-img">
-                                            <Link to="/blog/1">
-                                                <img
-                                                    src="/assets/img/blog/recent-post-1-3.jpg"
-                                                    alt="Blog"
-                                                />
-                                            </Link>
-                                        </div>
-                                        <div className="media-body">
-                                            <h4 className="post-title">
-                                                <Link className="text-inherit" to="/blog/1">
-                                                    Exploring The Green Spaces Of Realar Residence
-                                                </Link>
-                                            </h4>
-                                            <div className="recent-post-meta">
-                                                <Link to="/blog">
-                                                    <i className="fa-regular fa-calendar" />
-                                                    27/6/ 2025
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="widget widget_tag_cloud  ">
-                                <h3 className="widget_title">Popular Tags</h3>
-                                <div className="tagcloud">
-                                    <Link to="/blog">Tour</Link>
-                                    <Link to="/blog">Adventure</Link>
-                                    <Link to="/blog">Rent</Link>
-                                    <Link to="/blog">Innovate</Link>
-                                    <Link to="/blog">Hotel</Link>
-                                    <Link to="/blog">Modern</Link>
-                                    <Link to="/blog">Luxury</Link>
-                                    <Link to="/blog">Travel</Link>
-                                </div>
-                            </div>
-                            <div
-                                className="widget widget_offer"
-                                style={{background: "url(/assets/img/bg/widget_bg_1.jpg)"}}
-                            >
-                                <div className="offer-banner">
-                                    <div className="offer">
-                                        <h6 className="box-title">
-                                            Need Help? We Are Here To Help You
-                                        </h6>
-                                        <div className="banner-logo">
-                                            <img src="/assets/img/logo2.svg" alt="Tourm" />
-                                        </div>
-                                        <div className="offer">
-                                            <h6 className="offer-title">You Get Online support</h6>
-                                            <Link className="offter-num" to={+256214203215}>
-                                                +256 214 203 215
-                                            </Link>
-                                        </div>
-                                        <Link to="/contact" className="th-btn style2 th-icon">
-                                            Read More
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
+                  ))}
                 </div>
-                <div
-                    className="shape-mockup shape1 d-none d-xxl-block"
-                    style={{ bottom: "35%", right: "-12%" }}
-                >
-                    <img src="/assets/img/shape/shape_1.png" alt="shape" />
-                </div>
-                <div
-                    className="shape-mockup shape2 d-none d-xl-block"
-                    style={{ bottom: "31%", right: "-8%" }}
-                >
-                    <img src="/assets/img/shape/shape_2.png" alt="shape" />
-                </div>
-                <div
-                    className="shape-mockup shape3 d-none d-xxl-block"
-                    style={{ bottom: "33%", right: "-5%" }}
-                >
-                    <img src="/assets/img/shape/shape_3.png" alt="shape" />
-                </div>
+              </div>
+              <div className="th-comments-wrap style2 ">
+                <h2 className="blog-inner-title h4">
+                  Reviews ({villaVerdeReviews.length})
+                </h2>
+                <ul className="comment-list">
+                  {villaVerdeReviews.map((review) => (
+                    <li className="th-comment-item" key={review.name}>
+                      <div className="th-post-comment">
+                        <div className="comment-avater">
+                          <img
+                            src={review.avatar}
+                            alt={review.name}
+                            style={{
+                              width: "80px",
+                              height: "80px",
+                              borderRadius: "50%",
+                              objectFit: "cover",
+                            }}
+                          />
+                        </div>
+                        <div className="comment-content">
+                          <h3 className="name">{review.name}</h3>
+                          <div className="commented-wrapp">
+                            <span className="commented-on">{review.date}</span>
+                            <span className="comment-review">
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <span className="ms-2">{review.rating}</span>
+                            </span>
+                          </div>
+                          <p className="text">{review.body}</p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>{" "}
+              {/* Comment end */}
             </div>
-            <Modal isOpen={isModalOpen} closeModal={closeModal} imageSrc={modalImage} />
-        </section>
-
-    )
+          </div>
+          <div className="col-xxl-4 col-lg-5">
+            <aside className="sidebar-area style3">
+              <div className="widget  ">
+                <h3 className="widget_title">Villa Verde</h3>
+                <div className="recent-post-wrap">
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to={`/${currentLang}/villa-verde/aquarius`}>
+                        <img
+                          src="/assets/img/villaVerde/Aquarius.png"
+                          alt="Aquarius Room"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link
+                          className="text-inherit"
+                          to={`/${currentLang}/villa-verde/aquarius`}
+                        >
+                          Aquarius Room
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <span>20 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to={`/${currentLang}/villa-verde/aries`}>
+                        <img
+                          src="/assets/img/villaVerde/Aries.png"
+                          alt="Aries Room"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link
+                          className="text-inherit"
+                          to={`/${currentLang}/villa-verde/aries`}
+                        >
+                          Aries Room
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <span>21 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to={`/${currentLang}/villa-verde/cancer`}>
+                        <img
+                          src="/assets/img/villaVerde/Cancer.png"
+                          alt="Cancer Room"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link
+                          className="text-inherit"
+                          to={`/${currentLang}/villa-verde/cancer`}
+                        >
+                          Cancer Room
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <span>15 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to={`/${currentLang}/villa-verde/virgo`}>
+                        <img
+                          src="/assets/img/villaVerde/Virgo.png"
+                          alt="Virgo Room"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link
+                          className="text-inherit"
+                          to={`/${currentLang}/villa-verde/virgo`}
+                        >
+                          Virgo Room
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <span>17 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to={`/${currentLang}/villa-verde/sagittarius`}>
+                        <img
+                          src="/assets/img/villaVerde/Sagittarius.png"
+                          alt="Sagittarius Room"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link
+                          className="text-inherit"
+                          to={`/${currentLang}/villa-verde/sagittarius`}
+                        >
+                          Sagittarius Room
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <span>20 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to={`/${currentLang}/villa-verde/la-tavola`}>
+                        <img
+                          src="/assets/img/villaVerde/La%20Tavola.png"
+                          alt="La Tavola"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link
+                          className="text-inherit"
+                          to={`/${currentLang}/villa-verde/la-tavola`}
+                        >
+                          La Tavola
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <span>Breakfast &amp; Dinner</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="widget widget_offer need-help-widget"
+                style={{
+                  background: "url(/assets/img/destination/need_help.png)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                }}
+              >
+                <div className="offer-banner">
+                  <div className="offer">
+                    <h6 className="box-title">Need Help? We’re here for you</h6>
+                    <div className="banner-logo">
+                      <img
+                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        alt="Terra Sardinia"
+                      />
+                    </div>
+                    <Link
+                      to={`/${currentLang}/contact`}
+                      className="th-btn style2 th-icon"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div
+          className="shape-mockup shape1 d-none d-xxl-block"
+          style={{ bottom: "35%", right: "-12%" }}
+        >
+          <img src="/assets/img/shape/shape_1.png" alt="shape" />
+        </div>
+        <div
+          className="shape-mockup shape2 d-none d-xl-block"
+          style={{ bottom: "31%", right: "-8%" }}
+        >
+          <img src="/assets/img/shape/shape_2.png" alt="shape" />
+        </div>
+        <div
+          className="shape-mockup shape3 d-none d-xxl-block"
+          style={{ bottom: "33%", right: "-5%" }}
+        >
+          <img src="/assets/img/shape/shape_3.png" alt="shape" />
+        </div>
+      </div>
+      <Modal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        imageSrc={modalImage}
+      />
+    </section>
+  );
 }
 
-export default ResortDetailsMain
+export default VillaVerdeDetailsInner;

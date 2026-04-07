@@ -1,8 +1,8 @@
 import React from "react";
-import ResortDetailsMain from "./ResortDetailsMain";
+import VillaVerdeDetailsInner from "./ResortDetailsMain";
 
 function VillaVerdeDetailsMain() {
-  return <ResortDetailsMain />;
+  return <VillaVerdeDetailsInner />;
 }
 
 export default VillaVerdeDetailsMain;
