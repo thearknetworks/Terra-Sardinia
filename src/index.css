@@ -4,6 +4,50 @@
   transition: all 0.4s linear;
 }
 
+.destination-item:hover .destination-item_img.global-img:after {
+  height: 100%;
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+
+.destination-category-tabs {
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.destination-category-tabs-wrap {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.destination-category-tabs .th-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.destination-categories-section {
+  padding: 32px 0 8px;
+}
+
+.destination-cards-section {
+  padding: 24px 0 80px;
+}
+
+@media (max-width: 767px) {
+  .destination-categories-section {
+    padding: 20px 0 4px;
+  }
+
+  .destination-cards-section {
+    padding: 16px 0 56px;
+  }
+}
+
 .need-help-widget .banner-logo {
   background: transparent !important;
   box-shadow: none !important;
@@ -26,4 +70,91 @@
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.destination-details-card {
+  border: 1px solid #e3e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.destination-details-card .box-title {
+  margin-bottom: 16px;
+}
+
+.destination-contact-fields {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.destination-contact-field {
+  border: 1px solid #e3e7eb;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.destination-contact-field .field-label {
+  font-size: 14px;
+  color: #5f6d7b;
+  margin-bottom: 2px;
+}
+
+.destination-contact-field .field-value {
+  font-size: 15px;
+  color: #1b2a3a;
+}
+
+.destination-contact-field.is-disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.destination-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.destination-action-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.destination-action-btn.full-width {
+  grid-column: 1 / -1;
+}
+
+.destination-distance-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5f6d7b;
+  font-size: 15px;
+}
+
+.destination-distance-row img {
+  width: 18px;
+  height: 18px;
+}
+
+.destination-distance-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #d7edf3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.destination-distance-icon img {
+  width: 14px;
+  height: 14px;
 }

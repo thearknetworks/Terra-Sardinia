@@ -1,161 +1,18 @@
 import React, { useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DestinationCard from "./DestinationCard";
+import posts from "../data/data-destination.json";
 import DestinationCardTwo from "./DestinationCardTwo";
 
-const destinationPosts = [
-  {
-    id: 1,
-    title: "Genn’e Mari",
-    subtitle: "Crystal Waters",
-    image: "/assets/img/destination/genne-mari-cover.png",
-    slug: "genne-mari",
-    tag: "beaches",
-    keywords: ["Beach", "Relaxation", "Nature"],
-  },
-  {
-    id: 2,
-    title: "Cann’e Sisa",
-    subtitle: "Quiet Shores",
-    image: "/assets/img/destination/canne-sisa-cover.png",
-    slug: "canne-sisa",
-    tag: "beaches",
-    keywords: ["Beach", "Relaxation", "Nature"],
-  },
-  {
-    id: 3,
-    title: "Porto Giunco",
-    subtitle: "Iconic Beach",
-    image: "/assets/img/destination/porto-giunco-cover.png",
-    slug: "porto-giunco",
-    tag: "beaches",
-    keywords: ["Beach", "Relaxation", "Nature"],
-  },
-  {
-    id: 4,
-    title: "Cala Delfino",
-    subtitle: "Hidden Cove",
-    image: "/assets/img/destination/cala-delfino-cover.png",
-    slug: "cala-delfino",
-    tag: "beaches",
-    keywords: ["Beach", "Relaxation", "Nature"],
-  },
-  {
-    id: 5,
-    title: "Cagliari",
-    subtitle: "Historic City",
-    image: "/assets/img/destination/cagliari-cover.png",
-    slug: "cagliari",
-    tag: "landmarks",
-    keywords: ["Culture", "Historic", "Scenic"],
-  },
-  {
-    id: 6,
-    title: "Saint Remy",
-    subtitle: "Historic Bastion",
-    image: "/assets/img/destination/saint-remy-cover.png",
-    slug: "saint-remy",
-    tag: "landmarks",
-    keywords: ["Culture", "Scenic", "Historic"],
-  },
-  {
-    id: 7,
-    title: "The Tower",
-    subtitle: "Coastal Landmark",
-    image: "/assets/img/destination/torre-delle-stelle-tower-cover.png",
-    slug: "torre-delle-stelle-tower",
-    tag: "landmarks",
-    keywords: ["Culture", "Scenic", "Historic"],
-  },
-  {
-    id: 8,
-    title: "Andycoc",
-    subtitle: "Beach Dining",
-    image: "/assets/img/destination/andycoc-cover.png",
-    slug: "andycoc",
-    tag: "dining",
-    keywords: ["Restaurant", "Seafood", "Beach"],
-  },
-  {
-    id: 9,
-    title: "Aquarium",
-    subtitle: "Garden Dining",
-    image: "/assets/img/destination/aquarium-cover.png",
-    slug: "aquarium",
-    tag: "dining",
-    keywords: ["Restaurant", "Garden", "Local"],
-  },
-  {
-    id: 10,
-    title: "Mosaico",
-    subtitle: "Refined Dining",
-    image: "/assets/img/destination/mosaico-cover.png",
-    slug: "mosaico",
-    tag: "dining",
-    keywords: ["Restaurant", "Wine", "Seafood"],
-  },
-  {
-    id: 11,
-    title: "Istellas Club",
-    subtitle: "Beach Club",
-    image: "/assets/img/destination/istellas-club-cover.png",
-    slug: "istellas-club",
-    tag: "dining",
-    keywords: ["Beach", "Relaxation", "Scenic"],
-  },
-  {
-    id: 12,
-    title: "Palmira",
-    subtitle: "Local Hub",
-    image: "/assets/img/destination/centro-palmira-cover.png",
-    slug: "centro-palmira",
-    tag: "hubs",
-    keywords: ["Shopping", "Essentials", "Local"],
-  },
-  {
-    id: 13,
-    title: "Café do Mar",
-    subtitle: "Sunset Spot",
-    image: "/assets/img/destination/cafe-do-mar-cover.png",
-    slug: "cafe-do-mar",
-    tag: "hubs",
-    keywords: ["Restaurant", "Beach", "Relaxation"],
-  },
-];
-
 function DestinationInner() {
-  const { lang } = useParams();
-  const [searchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState("tab-grid");
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 9;
-  const categoryCounts = destinationPosts.reduce(
-    (acc, post) => {
-      acc[post.tag] = (acc[post.tag] || 0) + 1;
-      return acc;
-    },
-    { beaches: 0, landmarks: 0, dining: 0, hubs: 0 },
-  );
-  const selectedTag = searchParams.get("tag");
-  const selectedKeyword = searchParams.get("keyword");
-  const filteredByTag = selectedTag
-    ? destinationPosts.filter((post) => post.tag === selectedTag)
-    : destinationPosts;
-  const filteredPosts = selectedKeyword
-    ? filteredByTag.filter((post) =>
-        (post.keywords || []).some(
-          (keyword) => keyword.toLowerCase() === selectedKeyword.toLowerCase(),
-        ),
-      )
-    : filteredByTag;
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredPosts.length / postsPerPage),
-  );
+  const totalPages = Math.ceil(posts.length / postsPerPage);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -241,8 +98,7 @@ function DestinationInner() {
                         destinationID={data.id}
                         destinationImage={`${data.image}`}
                         destinationTitle={data.title}
-                        destinationSubtitle={data.subtitle}
-                        destinationSlug={data.slug}
+                        destinationPrice={data.price}
                       />
                     </div>
                   ))}
@@ -260,8 +116,7 @@ function DestinationInner() {
                         destinationID={data.id}
                         destinationImage={`${data.image}`}
                         destinationTitle={data.title}
-                        destinationSubtitle={data.subtitle}
-                        destinationSlug={data.slug}
+                        destinationPrice={data.price}
                       />
                     </div>
                   ))}
@@ -302,32 +157,46 @@ function DestinationInner() {
                 <h3 className="widget_title">Categories</h3>
                 <ul>
                   <li>
-                    <Link to={`/${lang || "en"}/destination?tag=beaches`}>
+                    <Link to="/blog">
                       <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Beaches
+                      City Tour
                     </Link>
-                    <span>({categoryCounts.beaches})</span>
+                    <span>(8)</span>
                   </li>
                   <li>
-                    <Link to={`/${lang || "en"}/destination?tag=landmarks`}>
+                    <Link to="/blog">
                       <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Landmarks
+                      Beach Tours
                     </Link>
-                    <span>({categoryCounts.landmarks})</span>
+                    <span>(6)</span>
                   </li>
                   <li>
-                    <Link to={`/${lang || "en"}/destination?tag=dining`}>
+                    <Link to="/blog">
                       <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Dining
+                      Wildlife Tours
                     </Link>
-                    <span>({categoryCounts.dining})</span>
+                    <span>(2)</span>
                   </li>
                   <li>
-                    <Link to={`/${lang || "en"}/destination?tag=hubs`}>
+                    <Link to="/blog">
                       <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Hubs
+                      News &amp; Tips
                     </Link>
-                    <span>({categoryCounts.hubs})</span>
+                    <span>(7)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Adventure Tours
+                    </Link>
+                    <span>(9)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Mountain Tours
+                    </Link>
+                    <span>(10)</span>
                   </li>
                 </ul>
               </div>

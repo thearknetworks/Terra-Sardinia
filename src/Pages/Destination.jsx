@@ -1,16 +1,169 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
-import DestinationInner from "../Components/Destination/DestinationInner";
+import DestinationList from "../Components/Destination/DestinationList";
 import FooterFour from "../Components/Footer/FooterFour";
 import ScrollToTop from "../Components/ScrollToTop";
 
+const destinationCards = [
+  {
+    id: "genne-mari",
+    title: "Genn’e Mari",
+    item: "Crystal Waters",
+    image: "/assets/img/destination/genne-mari-cover.png",
+    category: "Beaches",
+  },
+  {
+    id: "canne-sisa",
+    title: "Cann’e Sisa",
+    item: "Quiet Shores",
+    image: "/assets/img/destination/canne-sisa-cover.png",
+    category: "Beaches",
+  },
+  {
+    id: "porto-giunco",
+    title: "Porto Giunco",
+    item: "Iconic Beach",
+    image: "/assets/img/destination/porto-giunco-cover.png",
+    category: "Beaches",
+  },
+  {
+    id: "cala-delfino",
+    title: "Cala Delfino",
+    item: "Hidden Cove",
+    image: "/assets/img/destination/cala-delfino-cover.png",
+    category: "Beaches",
+  },
+  {
+    id: "cagliari",
+    title: "Cagliari",
+    item: "Historic City",
+    image: "/assets/img/destination/cagliari-cover.png",
+    category: "Landmarks",
+  },
+  {
+    id: "saint-remy",
+    title: "Saint Remy",
+    item: "Historic Bastion",
+    image: "/assets/img/destination/saint-remy-cover.png",
+    category: "Landmarks",
+  },
+  {
+    id: "torre-delle-stelle-tower",
+    title: "The Tower",
+    item: "Coastal Landmark",
+    image: "/assets/img/destination/torre-delle-stelle-tower-cover.png",
+    category: "Landmarks",
+  },
+  {
+    id: "andycoc",
+    title: "Andycoc",
+    item: "Beach Dining",
+    image: "/assets/img/destination/andycoc-cover.png",
+    category: "Dining",
+  },
+  {
+    id: "aquarium",
+    title: "Aquarium",
+    item: "Garden Dining",
+    image: "/assets/img/destination/aquarium-cover.png",
+    category: "Dining",
+  },
+  {
+    id: "mosaico",
+    title: "Mosaico",
+    item: "Refined Dining",
+    image: "/assets/img/destination/mosaico-cover.png",
+    category: "Dining",
+  },
+  {
+    id: "istellas-club",
+    title: "Istellas Club",
+    item: "Beach Club",
+    image: "/assets/img/destination/istellas-club-cover.png",
+    category: "Dining",
+  },
+  {
+    id: "centro-palmira",
+    title: "Palmira",
+    item: "Local Hub",
+    image: "/assets/img/destination/centro-palmira-cover.png",
+    category: "Hubs",
+  },
+  {
+    id: "cafe-do-mar",
+    title: "Café do Mar",
+    item: "Sunset Spot",
+    image: "/assets/img/destination/cafe-do-mar-cover.png",
+    category: "Hubs",
+  },
+];
+
+const categoryOptions = [
+  {
+    name: "Beaches",
+    iconBlue: "/assets/img/destination/Beaches_Blue.png",
+    iconWhite: "/assets/img/destination/Beaches_White.png",
+  },
+  {
+    name: "Dining",
+    iconBlue: "/assets/img/destination/Dining_Blue.png",
+    iconWhite: "/assets/img/destination/Dining_White.png",
+  },
+  {
+    name: "Hubs",
+    iconBlue: "/assets/img/destination/Hubs_Blue.png",
+    iconWhite: "/assets/img/destination/Hubs_White.png",
+  },
+  {
+    name: "Landmarks",
+    iconBlue: "/assets/img/destination/Landmarks_Blue.png",
+    iconWhite: "/assets/img/destination/Landmarks_White.png",
+  },
+];
+
 function Destination() {
   const { i18n } = useTranslation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tagToCategory = {
+    beaches: "Beaches",
+    dining: "Dining",
+    hubs: "Hubs",
+    landmarks: "Landmarks",
+  };
+  const categoryToTag = {
+    Beaches: "beaches",
+    Dining: "dining",
+    Hubs: "hubs",
+    Landmarks: "landmarks",
+  };
+  const selectedTag = (searchParams.get("tag") || "").toLowerCase();
+  const resolvedCategory = tagToCategory[selectedTag] || "Beaches";
+  const [activeCategory, setActiveCategory] = useState(resolvedCategory);
+
+  useEffect(() => {
+    setActiveCategory(resolvedCategory);
+  }, [resolvedCategory]);
+
+  const handleCategoryChange = (categoryName) => {
+    setActiveCategory(categoryName);
+    const nextParams = new URLSearchParams(searchParams);
+    nextParams.set("tag", categoryToTag[categoryName]);
+    setSearchParams(nextParams);
+  };
+
+  const filteredDestinations = useMemo(
+    () =>
+      destinationCards.filter(
+        (destination) => destination.category === activeCategory,
+      ),
+    [activeCategory],
+  );
 
   return (
-    <>
+    <div>
       <HeaderOne />
       <Breadcrumb
         title="Explore the Area"
@@ -23,10 +176,42 @@ function Destination() {
           },
         ]}
       />
-      <DestinationInner />
+      <section className="destination-categories-section">
+        <div className="container">
+          <div className="destination-category-tabs-wrap">
+            <div className="nav nav-tabs tour-tabs destination-category-tabs">
+              {categoryOptions.map((category) => (
+                <button
+                  key={category.name}
+                  className={`nav-link th-btn ${activeCategory === category.name ? "active" : ""}`}
+                  type="button"
+                onClick={() => handleCategoryChange(category.name)}
+                >
+                  <img
+                    src={
+                      activeCategory === category.name
+                        ? category.iconWhite
+                        : category.iconBlue
+                    }
+                    alt={category.name}
+                  />
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <DestinationList
+        detailsBasePath={`/${i18n.resolvedLanguage || "en"}/destination`}
+        posts={filteredDestinations}
+        buttonLabel="Discover"
+        buttonTo="details"
+        sectionClassName="position-relative overflow-hidden destination-cards-section"
+      />
       <FooterFour />
       <ScrollToTop />
-    </>
+    </div>
   );
 }
 

@@ -1031,6 +1031,22 @@ function DestinationDetailsMain() {
   };
 
   const closeModal = () => setIsModalOpen(false);
+  const contact = currentDestination?.contact || {};
+  const hasPhone = contact.phone && contact.phone !== "Not Available";
+  const hasEmail = contact.email && contact.email !== "Not Available";
+  const contactActions = [
+    contact.website
+      ? { key: "website", label: "Website", href: contact.website }
+      : null,
+    contact.menu ? { key: "menu", label: "Menu", href: contact.menu } : null,
+    contact.map
+      ? { key: "location", label: "Location", href: contact.map }
+      : null,
+    contact.reviews
+      ? { key: "reviews", label: "Reviews", href: contact.reviews }
+      : null,
+  ].filter(Boolean);
+
   return (
     <section className="space">
       <div className="container">
@@ -1081,78 +1097,92 @@ function DestinationDetailsMain() {
                       </React.Fragment>
                     ))}
                 </p>
-                <h2 className="box-title">Basic Information</h2>
-                <div className="destination-checklist">
-                  <div className="checklist style2">
-                    <ul>
-                      <li>Distance</li>
-                      <li>Phone</li>
-                      <li>Email</li>
-                      <li>Website</li>
-                      {currentDestination?.contact.menu ? <li>Menu</li> : null}
-                      <li>Location</li>
-                      <li>Reviews</li>
-                    </ul>
-                  </div>
-                  <div className="checklist style2">
-                    <ul>
-                      <li>
-                        {currentDestination?.contact.distance ||
-                          "Around a 10 min drive from you"}
-                      </li>
-                      <li>{currentDestination?.contact.phone || "-"}</li>
-                      <li>{currentDestination?.contact.email || "-"}</li>
-                      <li>
-                        {currentDestination?.contact.website ? (
-                          <a
-                            href={currentDestination.contact.website}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Open Website
-                          </a>
-                        ) : (
-                          "-"
-                        )}
-                      </li>
-                      {currentDestination?.contact.menu ? (
-                        <li>
-                          <a
-                            href={currentDestination.contact.menu}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Open Menu
-                          </a>
-                        </li>
+                <div className="destination-details-card">
+                  <h2 className="box-title">Details</h2>
+                  {hasPhone || hasEmail ? (
+                    <div className="destination-contact-fields">
+                      {hasPhone ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+                        >
+                          <span className="field-label">Phone number</span>
+                          <span className="field-value">{contact.phone}</span>
+                        </a>
                       ) : null}
-                      <li>
-                        {currentDestination?.contact.map ? (
-                          <a
-                            href={currentDestination.contact.map}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Open in Maps
-                          </a>
-                        ) : (
-                          "-"
-                        )}
-                      </li>
-                      <li>
-                        {currentDestination?.contact.reviews ? (
-                          <a
-                            href={currentDestination.contact.reviews}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            View Reviews
-                          </a>
-                        ) : (
-                          "-"
-                        )}
-                      </li>
-                    </ul>
+                      {hasEmail ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`mailto:${contact.email}`}
+                        >
+                          <span className="field-label">Email address</span>
+                          <span className="field-value">{contact.email}</span>
+                        </a>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  {/*
+                    Fallback version kept for possible reuse:
+                    Shows phone/email rows even when unavailable using "-" placeholders.
+
+                    <div className="destination-contact-fields">
+                      <a
+                        className={`destination-contact-field ${!hasPhone ? "is-disabled" : ""}`}
+                        href={
+                          hasPhone
+                            ? `tel:${contact.phone.replace(/\s+/g, "")}`
+                            : undefined
+                        }
+                        onClick={(event) => {
+                          if (!hasPhone) event.preventDefault();
+                        }}
+                      >
+                        <span className="field-label">Phone number</span>
+                        <span className="field-value">
+                          {hasPhone ? contact.phone : "-"}
+                        </span>
+                      </a>
+                      <a
+                        className={`destination-contact-field ${!hasEmail ? "is-disabled" : ""}`}
+                        href={hasEmail ? `mailto:${contact.email}` : undefined}
+                        onClick={(event) => {
+                          if (!hasEmail) event.preventDefault();
+                        }}
+                      >
+                        <span className="field-label">Email address</span>
+                        <span className="field-value">
+                          {hasEmail ? contact.email : "-"}
+                        </span>
+                      </a>
+                    </div>
+                  */}
+                  {contactActions.length ? (
+                    <div className="destination-action-grid">
+                      {contactActions.map((action, index) => (
+                        <a
+                          key={action.key}
+                          href={action.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`th-btn style4 th-icon destination-action-btn ${
+                            contactActions.length % 2 === 1 &&
+                            index === contactActions.length - 1
+                              ? "full-width"
+                              : ""
+                          }`}
+                        >
+                          {action.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                  <div className="destination-distance-row">
+                    <span className="destination-distance-icon">
+                      <img src="/assets/img/destination/car_icon.png" alt="" />
+                    </span>
+                    <span>
+                      {contact.distance || "Around a 10 min drive from you"}
+                    </span>
                   </div>
                 </div>
                 <div className="service-inner-img mb-40">
