@@ -153,22 +153,52 @@ function Booking() {
                       <ul className="list">
                         <li className="option">
                           <input
-                            type="date"
+                            type={checkInDate ? "date" : "text"}
+                            onFocus={(e) => {
+                              e.target.type = "date";
+                              try {
+                                e.target.showPicker?.();
+                              } catch (err) {}
+                            }}
+                            onBlur={(e) => {
+                              if (!e.target.value) e.target.type = "text";
+                            }}
                             value={checkInDate}
                             onChange={(event) =>
                               setCheckInDate(event.target.value)
                             }
-                            onClick={(event) => event.stopPropagation()}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              try {
+                                event.target.showPicker?.();
+                              } catch (err) {}
+                            }}
+                            placeholder="Check-in"
                           />
                         </li>
                         <li className="option">
                           <input
-                            type="date"
+                            type={checkOutDate ? "date" : "text"}
+                            onFocus={(e) => {
+                              e.target.type = "date";
+                              try {
+                                e.target.showPicker?.();
+                              } catch (err) {}
+                            }}
+                            onBlur={(e) => {
+                              if (!e.target.value) e.target.type = "text";
+                            }}
                             value={checkOutDate}
                             onChange={(event) =>
                               setCheckOutDate(event.target.value)
                             }
-                            onClick={(event) => event.stopPropagation()}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              try {
+                                event.target.showPicker?.();
+                              } catch (err) {}
+                            }}
+                            placeholder="Check-out"
                           />
                         </li>
                       </ul>
@@ -200,13 +230,18 @@ function Booking() {
                       <ul className="list">
                         <li className="option d-flex align-items-center justify-content-between">
                           <span>Adults</span>
-                          <div className="d-flex align-items-center gap-2">
+                          <div className="d-flex align-items-center gap-2 justify-content-between">
                             <button
                               type="button"
                               className="th-btn style2"
                               onClick={(event) => {
                                 event.stopPropagation();
                                 updateGuestCount("adults", "decrement");
+                              }}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                padding: "7px",
                               }}
                             >
                               -
@@ -218,6 +253,11 @@ function Booking() {
                               onClick={(event) => {
                                 event.stopPropagation();
                                 updateGuestCount("adults", "increment");
+                              }}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                padding: "7px",
                               }}
                             >
                               +
@@ -234,6 +274,11 @@ function Booking() {
                                 event.stopPropagation();
                                 updateGuestCount("children", "decrement");
                               }}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                padding: "7px",
+                              }}
                             >
                               -
                             </button>
@@ -244,6 +289,11 @@ function Booking() {
                               onClick={(event) => {
                                 event.stopPropagation();
                                 updateGuestCount("children", "increment");
+                              }}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                padding: "7px",
                               }}
                             >
                               +
