@@ -103,9 +103,9 @@ Last Update: 20-07-2024
   --success-color: #28a745;
   --error-color: #dc3545;
   --th-border-color: #e9edf5;
-  --title-font: "Manrope", sans-serif;
+  --title-font: "Inter", sans-serif;
   --body-font: "Inter", sans-serif;
-  --style-font: "Montez", cursive;
+  --style-font: "Allure", cursive;
   --icon-font: "Font Awesome 6 Pro";
   --main-container: 1320px;
   --container-gutters: 24px;
@@ -293,8 +293,10 @@ h6 {
 
 .h1,
 h1 {
-  font-size: 80px;
-  line-height: 1.18;
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .h2,
@@ -331,7 +333,7 @@ h6 {
 @media (max-width: 1199px) {
   .h1,
   h1 {
-    font-size: 54px;
+    font-size: 44px;
     line-height: 1.3;
   }
   .h2,
