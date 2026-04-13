@@ -138,14 +138,14 @@ function HeaderOne() {
                         <ul className="sub-menu">
                           <li>
                             <Link
-                              to={`/${i18n.resolvedLanguage || "en"}/stays/villa-verde`}
+                              to={`/${i18n.resolvedLanguage || "en"}/villa-verde`}
                             >
                               Villa Verde
                             </Link>
                           </li>
                           <li>
                             <Link
-                              to={`/${i18n.resolvedLanguage || "en"}/stays/villa-antares`}
+                              to={`/${i18n.resolvedLanguage || "en"}/villa-antares`}
                             >
                               Villa Antares
                             </Link>

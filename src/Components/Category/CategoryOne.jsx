@@ -113,8 +113,8 @@ const CategoryOne = () => {
       style={{
         backgroundImage: "url(/assets/img/category/tour_category_bg.png)",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundSize: "contain",
+        // backgroundPosition: "center",
       }}
     >
       <div className="container th-container">

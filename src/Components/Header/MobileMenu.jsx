@@ -78,16 +78,12 @@ function MobileMenu({ isOpen, onClose }) {
                 }}
               >
                 <li>
-                  <Link
-                    to={`/${i18n.resolvedLanguage || "en"}/stays/villa-verde`}
-                  >
+                  <Link to={`/${i18n.resolvedLanguage || "en"}/villa-verde`}>
                     Villa Verde
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to={`/${i18n.resolvedLanguage || "en"}/stays/villa-antares`}
-                  >
+                  <Link to={`/${i18n.resolvedLanguage || "en"}/villa-antares`}>
                     Villa Antares
                   </Link>
                 </li>
