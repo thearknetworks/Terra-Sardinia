@@ -45,7 +45,7 @@ function MobileMenu({ isOpen, onClose }) {
         <div className="mobile-logo">
           <Link to="/">
             <img
-              src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+              src="/assets/images/logo/TerraSardiniaDarkBlueLogo.png"
               alt="Tourm"
             />
           </Link>
@@ -97,9 +97,7 @@ function MobileMenu({ isOpen, onClose }) {
               <Link to="/">Services</Link>
             </li>
             <li>
-              <Link to={`/${i18n.resolvedLanguage || "en"}/destination`}>
-                Destination
-              </Link>
+              <Link to="/">Destination</Link>
             </li>
             <li>
               <Link to="/">Gallery</Link>
