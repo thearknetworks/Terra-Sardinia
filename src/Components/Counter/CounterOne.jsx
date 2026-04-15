@@ -14,7 +14,7 @@ const CounterOne = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
-    <div className="counter-area space" ref={ref}>
+    <div className="counter-area space-bottom" ref={ref}>
       <div className="container shape-mockup-wrap">
         <div className="row">
           {counters.map((counter, index) => (
@@ -47,7 +47,7 @@ const CounterOne = () => {
           data-left="-15%"
         >
           <img
-            src="/assets/images/Elements/Blue color/Starfish.png"
+            src="/assets/images/Elements/Blue color/Coral.png"
             alt="shape"
             style={{ scale: "0.7" }}
           />

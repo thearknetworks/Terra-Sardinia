@@ -30,7 +30,7 @@ const brands = [
 
 function BrandOne({ className }) {
   return (
-    <div className={`brand-area overflow-hidden ${className}`}>
+    <div className={`brand-area overflow-hidden space-top ${className}`}>
       <div className="container th-container">
         <Swiper
           modules={[Autoplay]}

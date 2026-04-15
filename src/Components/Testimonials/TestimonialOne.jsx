@@ -112,9 +112,13 @@ function TestimonialOne() {
       </div>
       <div
         className="shape-mockup movingX d-none d-xl-block"
-        style={{ top: "30%", left: "5%" }}
+        style={{ top: "25%", left: "4%" }}
       >
-        <img src="/assets/img/shape/shape_7.png" alt="shape" />
+        <img
+          src="/assets/images/Elements/Blue color/Fish.png"
+          style={{ transform: "rotate(45deg)", scale: "0.7" }}
+          alt="shape"
+        />
       </div>
     </section>
   );

@@ -24,13 +24,15 @@ function HomeOne() {
       <CategoryOne />
       <DestinationOne />
       <AboutOne />
+      <CounterOne />
       <TourOne />
       <GalleryOne />
-      <CounterOne />
-      <TourGuide />
+
+      {/* <TourGuide /> */}
+      <BrandOne />
       <TestimonialOne />
-      <BrandOne className="space-bottom" />
-      <BlogOne />
+
+      {/* <BlogOne /> */}
       <Footer />
       <ScrollToTop />
     </div>

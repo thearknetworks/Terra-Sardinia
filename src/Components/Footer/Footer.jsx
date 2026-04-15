@@ -355,7 +355,10 @@ Terra Sardenia`,
         className="shape-mockup movingX d-none d-xxl-block"
         style={{ top: "24%", left: "5%" }}
       >
-        <img src="/assets/img/shape/shape_8.png" alt="shape" />
+        <img
+          src="/assets/images/Elements/White color/Starfish.png"
+          alt="shape"
+        />
       </div>
       <Modal
         isOpen={isModalOpen}

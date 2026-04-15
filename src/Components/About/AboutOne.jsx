@@ -78,7 +78,10 @@ function AboutOne() {
             scale: "0.4",
           }}
         >
-          <img src="/assets/images/Elements/Blue color/Coral.png" alt="shape" />
+          <img
+            src="/assets/images/Elements/Blue color/Shrimp.png"
+            alt="shape"
+          />
         </div>
         <div
           className="shape-mockup shape2 d-none d-xl-block"
@@ -94,10 +97,10 @@ function AboutOne() {
           style={{
             top: "12%",
             left: "-10%",
-            scale: "0.7",
+            scale: "0.5",
           }}
         >
-          <img src="/assets/images/Elements/Blue color/Coral.png" alt="shape" />
+          <img src="/assets/images/Elements/Blue color/Fish.png" alt="shape" />
         </div>
 
         <div

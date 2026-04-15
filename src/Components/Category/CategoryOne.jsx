@@ -15,42 +15,42 @@ const CategoryOne = () => {
       id: 1,
       title: "Private Villa",
       subtext: "Villa Antares",
-      imgSrc: "/assets/img/category/category_1_1.jpg",
+      imgSrc: "/assets/images/StaysHomeScreen/Antares.png",
       route: `/${lang || "en"}/villa-antares`,
     },
     {
       id: 2,
       title: "Aquarius",
       subtext: "Villa Verde",
-      imgSrc: "/assets/img/category/category_1_2.jpg",
+      imgSrc: "/assets/images/StaysHomeScreen/Aquarius-1.png",
       route: `/${lang || "en"}/villa-verde/aquarius`,
     },
     {
       id: 3,
       title: "Aries",
       subtext: "Villa Verde",
-      imgSrc: "/assets/img/category/category_1_3.jpg",
+      imgSrc: "/assets/images/StaysHomeScreen/Aries-1.png",
       route: `/${lang || "en"}/villa-verde/aries`,
     },
     {
       id: 4,
       title: "Cancer",
       subtext: "Villa Verde",
-      imgSrc: "/assets/img/category/category_1_4.jpg",
+      imgSrc: "/assets/images/StaysHomeScreen/Cancer-1.png",
       route: `/${lang || "en"}/villa-verde/cancer`,
     },
     {
       id: 5,
       title: "Virgo",
       subtext: "Villa Verde",
-      imgSrc: "/assets/img/category/category_1_5.jpg",
+      imgSrc: "/assets/images/StaysHomeScreen/Virgo-1.png",
       route: `/${lang || "en"}/villa-verde/virgo`,
     },
     {
       id: 6,
       title: "Sagittarius",
       subtext: "Villa Verde",
-      imgSrc: "/assets/img/category/category_1_1.jpg",
+      imgSrc: "/assets/images/StaysHomeScreen/Sagittarius-1.png",
       route: `/${lang || "en"}/villa-verde/sagittarius`,
     },
   ];
@@ -134,7 +134,7 @@ const CategoryOne = () => {
             1200: { slidesPerView: 3 },
             1400: { slidesPerView: 5 },
           }}
-          spaceBetween={40}
+          spaceBetween={64}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           speed={1000}

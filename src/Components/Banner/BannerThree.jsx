@@ -200,7 +200,7 @@ function BannerThree() {
       <div className="hero3-wrapper">
         <div className="container">
           <div className="row justify-content-center align-items-end flex-row-reverse">
-            <div className="col-lg-4">
+            {/* <div className="col-lg-4">
               <div className="hero3-swiper-custom">
                 <button className="swiper-button-next">
                   <img src="/assets/img/icon/hero-arrow-right.svg" alt="Next" />
@@ -238,9 +238,9 @@ function BannerThree() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </div> */}
             <div className="col-lg-8">
-              <div className="hero-booking style2">
+              {/* <div className="hero-booking style2">
                 <form
                   action="mail.php"
                   method="POST"
@@ -294,7 +294,7 @@ function BannerThree() {
                     <p className="form-messages mb-0 mt-3" />
                   </div>
                 </form>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
