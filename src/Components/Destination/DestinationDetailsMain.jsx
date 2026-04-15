@@ -1097,94 +1097,6 @@ function DestinationDetailsMain() {
                       </React.Fragment>
                     ))}
                 </p>
-                <div className="destination-details-card">
-                  <h2 className="box-title">Details</h2>
-                  {hasPhone || hasEmail ? (
-                    <div className="destination-contact-fields">
-                      {hasPhone ? (
-                        <a
-                          className="destination-contact-field"
-                          href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-                        >
-                          <span className="field-label">Phone number</span>
-                          <span className="field-value">{contact.phone}</span>
-                        </a>
-                      ) : null}
-                      {hasEmail ? (
-                        <a
-                          className="destination-contact-field"
-                          href={`mailto:${contact.email}`}
-                        >
-                          <span className="field-label">Email address</span>
-                          <span className="field-value">{contact.email}</span>
-                        </a>
-                      ) : null}
-                    </div>
-                  ) : null}
-                  {/*
-                    Fallback version kept for possible reuse:
-                    Shows phone/email rows even when unavailable using "-" placeholders.
-
-                    <div className="destination-contact-fields">
-                      <a
-                        className={`destination-contact-field ${!hasPhone ? "is-disabled" : ""}`}
-                        href={
-                          hasPhone
-                            ? `tel:${contact.phone.replace(/\s+/g, "")}`
-                            : undefined
-                        }
-                        onClick={(event) => {
-                          if (!hasPhone) event.preventDefault();
-                        }}
-                      >
-                        <span className="field-label">Phone number</span>
-                        <span className="field-value">
-                          {hasPhone ? contact.phone : "-"}
-                        </span>
-                      </a>
-                      <a
-                        className={`destination-contact-field ${!hasEmail ? "is-disabled" : ""}`}
-                        href={hasEmail ? `mailto:${contact.email}` : undefined}
-                        onClick={(event) => {
-                          if (!hasEmail) event.preventDefault();
-                        }}
-                      >
-                        <span className="field-label">Email address</span>
-                        <span className="field-value">
-                          {hasEmail ? contact.email : "-"}
-                        </span>
-                      </a>
-                    </div>
-                  */}
-                  {contactActions.length ? (
-                    <div className="destination-action-grid">
-                      {contactActions.map((action, index) => (
-                        <a
-                          key={action.key}
-                          href={action.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className={`th-btn style4 th-icon destination-action-btn ${
-                            contactActions.length % 2 === 1 &&
-                            index === contactActions.length - 1
-                              ? "full-width"
-                              : ""
-                          }`}
-                        >
-                          {action.label}
-                        </a>
-                      ))}
-                    </div>
-                  ) : null}
-                  <div className="destination-distance-row">
-                    <span className="destination-distance-icon">
-                      <img src="/assets/img/destination/car_icon.png" alt="" />
-                    </span>
-                    <span>
-                      {contact.distance || "Around a 10 min drive from you"}
-                    </span>
-                  </div>
-                </div>
                 <div className="service-inner-img mb-40">
                   <img
                     src={
@@ -1327,6 +1239,61 @@ function DestinationDetailsMain() {
                     <span>({categoryCounts.hubs})</span>
                   </li>
                 </ul>
+              </div>
+              <div className="widget">
+                <h3 className="widget_title">Details</h3>
+                <div className="destination-details-card destination-details-card--sidebar">
+                  {hasPhone || hasEmail ? (
+                    <div className="destination-contact-fields">
+                      {hasPhone ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`tel:${contact.phone.replace(/\s+/g, "")}`}
+                        >
+                          <span className="field-label">Phone number</span>
+                          <span className="field-value">{contact.phone}</span>
+                        </a>
+                      ) : null}
+                      {hasEmail ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`mailto:${contact.email}`}
+                        >
+                          <span className="field-label">Email address</span>
+                          <span className="field-value">{contact.email}</span>
+                        </a>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  {contactActions.length ? (
+                    <div className="destination-action-grid">
+                      {contactActions.map((action, index) => (
+                        <a
+                          key={action.key}
+                          href={action.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`th-btn th-icon destination-action-btn ${
+                            contactActions.length % 2 === 1 &&
+                            index === contactActions.length - 1
+                              ? "full-width"
+                              : ""
+                          }`}
+                        >
+                          {action.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                  <div className="destination-distance-row">
+                    <span className="destination-distance-icon">
+                      <img src="/assets/img/destination/car_icon.png" alt="" />
+                    </span>
+                    <span>
+                      {contact.distance || "Around a 10 min drive from you"}
+                    </span>
+                  </div>
+                </div>
               </div>
               <div className="widget  ">
                 <h3 className="widget_title">Nearby</h3>

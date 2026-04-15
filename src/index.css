@@ -124,10 +124,45 @@
 .destination-action-btn {
   width: 100%;
   justify-content: center;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  background-color: #16add6 !important;
+  border: 1px solid #16add6 !important;
+  color: #eaf9ff !important;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.destination-action-btn:before {
+  background-color: #0b4f73 !important;
+}
+
+.destination-action-btn.th-icon:after {
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.destination-action-btn:hover {
+  background-color: #0b4f73 !important;
+  border-color: #0b4f73 !important;
+  color: #ffffff !important;
+}
+
+.destination-action-btn:hover.th-icon:after {
+  background-color: #ffffff !important;
 }
 
 .destination-action-btn.full-width {
   grid-column: 1 / -1;
+}
+
+.destination-details-card--sidebar {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .destination-distance-row {
