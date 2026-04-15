@@ -119,8 +119,8 @@ const CategoryOne = () => {
     >
       <div className="container th-container">
         <div className="title-area text-center">
-          <span className="sub-title">Find your perfect stay</span>
-          <h2 className="sec-title">Discover Our Villas</h2>
+          <span className="sub-title">Discover Our Villas</span>
+          <h2 className="sec-title">Find Your Perfect Stay</h2>
         </div>
 
         <Swiper

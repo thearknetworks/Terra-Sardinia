@@ -45,11 +45,14 @@ const testimonials = [
 
 function TestimonialOne() {
   return (
-    <section className="testi-area overflow-hidden space shape-mockup-wrap" id="testi-sec">
+    <section
+      className="testi-area overflow-hidden space shape-mockup-wrap"
+      id="testi-sec"
+    >
       <div className="container-fluid p-0">
         <div className="title-area mb-20 text-center">
-          <span className="sub-title">Testimonial</span>
-          <h2 className="sec-title">What Clients Say About Us</h2>
+          <span className="sub-title">What Clients Say About Us</span>
+          <h2 className="sec-title">Testimonial</h2>
         </div>
         <div className="slider-area">
           <Swiper
@@ -61,11 +64,11 @@ function TestimonialOne() {
             slidesPerGroup={1}
             speed={1200}
             breakpoints={{
-              0: { slidesPerView: 1},
-              767: { slidesPerView: 2},
-              992: { slidesPerView: 2},
-              1200: { slidesPerView: 2},
-              1400: { slidesPerView: 3},
+              0: { slidesPerView: 1 },
+              767: { slidesPerView: 2 },
+              992: { slidesPerView: 2 },
+              1200: { slidesPerView: 2 },
+              1400: { slidesPerView: 3 },
             }}
             className="testiSlider1 has-shadow"
           >
@@ -79,7 +82,9 @@ function TestimonialOne() {
                       </div>
                       <div className="media-body">
                         <h3 className="box-title">{item.name}</h3>
-                        <span className="testi-card_desig">{item.designation}</span>
+                        <span className="testi-card_desig">
+                          {item.designation}
+                        </span>
                       </div>
                     </div>
                     <div className="testi-card_review">
@@ -99,10 +104,16 @@ function TestimonialOne() {
           <div className="slider-pagination" />
         </div>
       </div>
-      <div className="shape-mockup d-none d-xl-block" style={{bottom:"-2%", right:"0%"}}>
+      <div
+        className="shape-mockup d-none d-xl-block"
+        style={{ bottom: "-2%", right: "0%" }}
+      >
         <img src="/assets/img/shape/line2.png" alt="shape" />
       </div>
-      <div className="shape-mockup movingX d-none d-xl-block" style={{top:"30%", left:"5%"}}>
+      <div
+        className="shape-mockup movingX d-none d-xl-block"
+        style={{ top: "30%", left: "5%" }}
+      >
         <img src="/assets/img/shape/shape_7.png" alt="shape" />
       </div>
     </section>

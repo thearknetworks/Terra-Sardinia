@@ -22,10 +22,8 @@ function GalleryOne() {
     <div className="gallery-area">
       <div className="container th-container shape-mockup-wrap">
         <div className="title-area text-center">
-          <span className="sub-title">
-            Beautiful moments that define Terra Sardenia
-          </span>
-          <h2 className="sec-title">Through Our Lens</h2>
+          <span className="sub-title">Through Our Lens</span>
+          <h2 className="sec-title">Beautiful Moments In Sardenia</h2>
         </div>
         <div className="row gy-10 gx-10 justify-content-center align-items-center">
           <div className="col-md-6 col-lg-2">
