@@ -193,27 +193,3 @@
   width: 14px;
   height: 14px;
 }
-
-.footer-payment-logos {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-payment-logos img {
-  height: 28px;
-  width: auto;
-  object-fit: contain;
-}
-
-.footer-card {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-}
-
-.footer-card .title {
-  margin: 0;
-  line-height: 1;
-}
