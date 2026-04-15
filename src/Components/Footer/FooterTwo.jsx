@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function FooterTwo() {
     return (
-        <footer className="footer-wrapper bg-title footer-layout2">
+        <footer className="footer-wrapper bg-title footer-layout2" style={{ backgroundColor: '#113D48' }}>
             <div className="widget-area">
                 <div className="container">
                     <div className="newsletter-area">

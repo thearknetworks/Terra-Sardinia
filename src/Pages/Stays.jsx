@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import HeaderOne from "../Components/Header/HeaderOne";
-import FooterOne from "../Components/Footer/FooterOne";
+import FooterFour from "../Components/Footer/FooterFour";
 
 const PROPERTY_OPTIONS = [
   { value: "all", label: "All Stays" },
@@ -223,7 +223,7 @@ function Stays() {
           )}
         </div>
       </section>
-      <FooterOne />
+      <FooterFour />
     </>
   );
 }

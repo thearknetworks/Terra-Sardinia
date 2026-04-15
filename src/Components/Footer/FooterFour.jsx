@@ -18,7 +18,7 @@ function FooterFour() {
             setIsModalOpen(false);
         };
     return (
-        <footer className="footer-wrapper bg-title footer-layout2 shape-mockup-wrap">
+        <footer className="footer-wrapper bg-title footer-layout2 shape-mockup-wrap" style={{ backgroundColor: '#113D48' }}>
             <div className="widget-area">
                 <div className="container">
                     <div className="newsletter-area">
