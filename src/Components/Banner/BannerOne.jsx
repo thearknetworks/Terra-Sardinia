@@ -47,7 +47,7 @@ function BannerOne() {
         modules={[Navigation, Pagination, EffectFade, Autoplay]} // Initialize necessary modules
         effect="fade" // Use fade effect
         loop={true} // Enable loop
-        speed={1000}
+        speed={3000}
         pagination={{
           el: ".swiper-pagination", // Custom pagination container
           clickable: true, // Enable clickable pagination
