@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import VillaVerdeDetailsMain from "../Components/Resort/VillaVerdeDetailsMain";
-import FooterFour from "../Components/Footer/FooterFour";
+import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
 
 function VillaVerdeDetails() {
@@ -48,7 +48,7 @@ function VillaVerdeDetails() {
         breadcrumbItems={breadcrumbItems}
       />
       <VillaVerdeDetailsMain />
-      <FooterFour />
+      <Footer />
       <ScrollToTop />
     </>
   );

@@ -2,7 +2,7 @@ import React from 'react'
 import HeaderOne from '../Components/Header/HeaderOne'
 import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
 import TourGuideInner from '../Components/Guide/TourGuideInner'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ScrollToTop from '../Components/ScrollToTop'
 
 function TourGuide() {
@@ -13,7 +13,7 @@ function TourGuide() {
         title="Tour Guide"
       />
       <TourGuideInner />
-      <FooterFour />
+      <Footer />
       <ScrollToTop />
     </>
   )

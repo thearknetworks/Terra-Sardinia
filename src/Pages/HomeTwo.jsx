@@ -11,7 +11,7 @@ import TourGuide from '../Components/Guide/TourGuide'
 import TestimonialTwo from '../Components/Testimonials/TestimonialTwo'
 import BrandOne from '../Components/Brand/BrandOne'
 import BlogTwo from '../Components/Blog/BlogTwo'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ElementSection from '../Components/Elements/ElementSection'
 import ScrollToTop from '../Components/ScrollToTop'
 
@@ -31,7 +31,7 @@ function HomeTwo() {
       <BrandOne className="space-bottom"/>
       <BlogTwo />
       <ElementSection className="bg-smoke"/>
-      <FooterFour />
+      <Footer />
       <ScrollToTop />
     </div>
   )

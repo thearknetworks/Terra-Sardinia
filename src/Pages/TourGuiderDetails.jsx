@@ -3,7 +3,7 @@ import HeaderOne from '../Components/Header/HeaderOne'
 import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
 import TourGuiderDetailsMain from '../Components/Guide/TourGuiderDetailsMain'
 import TourGuideTwo from '../Components/Guide/TourGuideTwo'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ScrollToTop from '../Components/ScrollToTop'
 
 function TourGuiderDetails() {
@@ -15,7 +15,7 @@ function TourGuiderDetails() {
             />
             <TourGuiderDetailsMain />
             <TourGuideTwo />
-            <FooterFour />
+            <Footer />
             <ScrollToTop />
         </>
     )

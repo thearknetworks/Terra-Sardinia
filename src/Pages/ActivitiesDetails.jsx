@@ -2,7 +2,7 @@ import React from 'react'
 import HeaderOne from '../Components/Header/HeaderOne'
 import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
 import ActivitiesDetailsMain from '../Components/Activities/ActivitiesDetailsMain'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ScrollToTop from '../Components/ScrollToTop'
 
 function ActivitiesDetails() {
@@ -13,7 +13,7 @@ function ActivitiesDetails() {
                 title="Activities Details"
             />
             <ActivitiesDetailsMain />
-            <FooterFour />
+            <Footer />
             <ScrollToTop />
         </>
     )

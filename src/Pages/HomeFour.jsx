@@ -9,7 +9,7 @@ import TourGuideThree from '../Components/Guide/TourGuideThree'
 import CounterThree from '../Components/Counter/CounterThree'
 import TestimonialFour from '../Components/Testimonials/TestimonialFour'
 import BlogFour from '../Components/Blog/BlogFour'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ScrollToTop from '../Components/ScrollToTop'
 
 function HomeFour() {
@@ -25,7 +25,7 @@ function HomeFour() {
             <CounterThree />
             <TestimonialFour />
             <BlogFour />
-            <FooterFour />
+            <Footer />
             <ScrollToTop />
         </div>
     )

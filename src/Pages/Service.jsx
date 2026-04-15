@@ -4,7 +4,7 @@ import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
 import ServiceInner from '../Components/Services/ServiceInner'
 import TourTwo from '../Components/Tour/TourTwo'
 import PricingPlan from '../Components/Services/PricingPlan'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ScrollToTop from '../Components/ScrollToTop'
 
 function Service() {
@@ -17,7 +17,7 @@ function Service() {
             <ServiceInner />
             <TourTwo />
             <PricingPlan className="space-bottom"/>
-            <FooterFour />
+            <Footer />
             <ScrollToTop />
         </div>
     )

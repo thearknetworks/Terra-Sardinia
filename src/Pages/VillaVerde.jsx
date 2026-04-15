@@ -2,7 +2,7 @@ import React from "react";
 import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import VillaVerdeMain from "../Components/Resort/VillaVerdeMain";
-import FooterFour from "../Components/Footer/FooterFour";
+import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
 
 function VillaVerde() {
@@ -14,7 +14,7 @@ function VillaVerde() {
         bgImage="/assets/img/villaVerde/Banner%20Image.png"
       />
       <VillaVerdeMain />
-      <FooterFour />
+      <Footer />
       <ScrollToTop />
     </>
   );

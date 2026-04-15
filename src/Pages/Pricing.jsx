@@ -4,7 +4,7 @@ import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
 import PricingPlan from '../Components/Services/PricingPlan'
 import Cta from '../Components/Services/Cta'
 import FaqInnerTwo from '../Components/Faq/FaqInnerTwo'
-import FooterFour from '../Components/Footer/FooterFour'
+import Footer from '../Components/Footer/Footer'
 import ScrollToTop from '../Components/ScrollToTop'
 
 function Pricing() {
@@ -17,7 +17,7 @@ function Pricing() {
             <PricingPlan className="space"/>
             <Cta />
             <FaqInnerTwo />
-            <FooterFour />
+            <Footer />
             <ScrollToTop />
         </div>
     )
