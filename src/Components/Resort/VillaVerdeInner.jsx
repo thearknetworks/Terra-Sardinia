@@ -85,8 +85,8 @@ function VillaVerdeInner() {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="title-area text-center pe-xl-4 ps-xl-4">
-              <span className="sub-title">A Collection of Character</span>
-              <h2 className="sec-title mb-20">Spaces Shaped by the Zodiac</h2>
+              <span className="sub-title">Spaces Shaped by The Zodiac</span>
+              <h2 className="sec-title mb-20">A Collection of Character</h2>
               <p className="sec-text">
                 Every space within Villa Verde carries its own identity, drawing
                 inspiration from the zodiac to create spaces that feel personal,

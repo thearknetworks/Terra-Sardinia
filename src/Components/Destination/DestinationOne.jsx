@@ -162,7 +162,7 @@ function DestinationOne() {
     <div className="position-relative overflow-hidden">
       <div className="container">
         <div className="title-area text-center">
-          <span className="sub-title">Explore the Surroundings</span>
+          <span className="sub-title">Explore The Surroundings</span>
           <h2 className="sec-title">Places Worth Discovering</h2>
         </div>
 
