@@ -7,7 +7,9 @@ import FooterFour from "../Components/Footer/FooterFour";
 import ScrollToTop from "../Components/ScrollToTop";
 
 function VillaVerdeDetails() {
-  const { room_name } = useParams();
+  const { room_name, lang } = useParams();
+  const currentLang = lang || "en";
+
   const roomBannerBySlug = {
     aquarius: "/assets/img/villaVerde/Aquarius%20Banner%20Image-1.png",
     aries: "/assets/img/villaVerde/Aries%20Banner%20Image-2.png",
@@ -16,15 +18,34 @@ function VillaVerdeDetails() {
     sagittarius: "/assets/img/villaVerde/Sagittarius%20Banner%20Image-5.png",
     "la-tavola": "/assets/img/villaVerde/La%20Tavola%20Banner%20Image-6.png",
   };
+
   const breadcrumbImage =
     roomBannerBySlug[room_name] || "/assets/img/villaVerde/Banner%20Image.png";
+
+  const roomTitleBySlug = {
+    aquarius: "Aquarius Room",
+    aries: "Aries Room",
+    cancer: "Cancer Room",
+    virgo: "Virgo Room",
+    sagittarius: "Sagittarius Room",
+  };
+  const isVillaAntares =
+    room_name === "antares-villa" || room_name === "villa-antares";
+  const pageTitle = isVillaAntares
+    ? "Villa Antares"
+    : roomTitleBySlug[room_name] || "Villa Verde";
+  const breadcrumbItems = [
+    { label: "Stays", to: `/${currentLang}/stays` },
+    { label: isVillaAntares ? "Villa Antares" : "Villa Verde" },
+  ];
 
   return (
     <>
       <HeaderOne />
       <Breadcrumb
-        title="Villa Verde Details"
+        title={pageTitle}
         bgImage={breadcrumbImage}
+        breadcrumbItems={breadcrumbItems}
       />
       <VillaVerdeDetailsMain />
       <FooterFour />
