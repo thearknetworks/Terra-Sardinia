@@ -263,7 +263,11 @@ function FooterFour() {
                         <div className="col-md-6 text-end d-none d-md-block">
                             <div className="footer-card">
                                 <span className="title">We Accept</span>
-                                <img src="/assets/img/shape/cards.png" alt="" />
+                                <div className="footer-card-logos">
+                                    <img src="/assets/img/shape/bonifico-card.png" alt="Bonifico" />
+                                    <img src="/assets/img/shape/mastercard-card.png" alt="Mastercard" />
+                                    <img src="/assets/img/shape/visa-card.png" alt="Visa" />
+                                </div>
                             </div>
                         </div>
                     </div>
