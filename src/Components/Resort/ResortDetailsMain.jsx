@@ -47,11 +47,7 @@ function VillaVerdeDetailsInner() {
   const renderGalleryBox = (imagePath) => (
     <div className="gallery-box style3 staggered-gallery-box">
       <div className="gallery-img global-img">
-        <img
-          src={imagePath}
-          alt="gallery"
-          onClick={openModal(imagePath)}
-        />
+        <img src={imagePath} alt="gallery" onClick={openModal(imagePath)} />
         <Link
           to={imagePath}
           className="icon-btn popup-image"
@@ -223,7 +219,7 @@ function VillaVerdeDetailsInner() {
               <div
                 className="widget widget_offer need-help-widget"
                 style={{
-                  background: "url(/assets/img/destination/need_help.png)",
+                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/destination/need_help.png)`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                 }}

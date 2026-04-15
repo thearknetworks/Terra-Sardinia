@@ -12,7 +12,7 @@ function Breadcrumb({ title, bgImage, breadcrumbItems }) {
       <div
         className="breadcumb-wrapper "
         style={{
-          backgroundImage: `url("${bgImage}")`,
+          backgroundImage: `linear-gradient(#111d48a1, #111d48a1), url("${bgImage}")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",

@@ -59,6 +59,24 @@ function ActivitiesDetailsMain() {
                     </SwiperSlide>
                   ))}
                 </Swiper>
+                {/* Thumbnail Slider */}
+                <Swiper
+                  modules={[Navigation, Thumbs]}
+                  loop={true}
+                  spaceBetween={25}
+                  slidesPerView={3}
+                  watchSlidesProgress
+                  onSwiper={setThumbsSwiper} // Connect thumbnails to main slider
+                  className="swiper tour-thumb-slider"
+                >
+                  {images.map((img, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="tour-slider-img">
+                        <img src={img} alt={`Thumbnail ${index + 1}`} />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
                 {/* Navigation Buttons */}
                 <button className="slider-arrow style3 slider-prev">
@@ -520,7 +538,9 @@ function ActivitiesDetailsMain() {
               </div>
               <div
                 className="widget widget_offer"
-                style={{ background: "url(/assets/img/bg/widget_bg_1.jpg)" }}
+                style={{
+                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/bg/widget_bg_1.jpg)`,
+                }}
               >
                 <div className="offer-banner">
                   <div className="offer">

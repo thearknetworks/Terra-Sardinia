@@ -291,7 +291,7 @@ function DestinationInner() {
                 className="widget widget_offer  "
                 data-bg-src="/assets/img/bg/widget_bg_1.jpg"
                 style={{
-                  backgroundImage: "url(/assets/img/bg/widget_bg_1.jpg)",
+                  background: `linear-gradient(#111d487b, #111d487b), urlurl(/assets/img/bg/widget_bg_1.jpg)`,
                 }}
               >
                 <div className="offer-banner">

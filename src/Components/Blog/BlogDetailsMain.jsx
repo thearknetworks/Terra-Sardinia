@@ -456,7 +456,9 @@ function BlogDetailsMain() {
               </div>
               <div
                 className="widget widget_offer"
-                style={{ background: "url(/assets/img/bg/widget_bg_1.jpg)" }}
+                style={{
+                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/bg/widget_bg_1.jpg)`,
+                }}
               >
                 <div className="offer-banner">
                   <div className="offer">
@@ -464,7 +466,7 @@ function BlogDetailsMain() {
                       Need Help? We Are Here To Help You
                     </h6>
                     <div className="banner-logo">
-                      <img src="/assets/img/logo2.svg" alt="Terra Sardenia" />
+                      <img src="/assets/img/logo2.svg" alt="Tourm" />
                     </div>
                     <div className="offer">
                       <h6 className="offer-title">You Get Online support</h6>
