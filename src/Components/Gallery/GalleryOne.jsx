@@ -251,7 +251,7 @@ function GalleryOne() {
         >
           <img
             className="gmovingX"
-            src="/assets/img/shape/shape_4.png"
+            src="/assets/images/Elements/Blue color/Starfish.png"
             alt="shape"
           />
         </div>
