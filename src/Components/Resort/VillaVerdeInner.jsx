@@ -51,7 +51,7 @@ const resorts = [
   },
 
   {
-    id: "sagitarius",
+    id: "sagittarius",
     image: "/assets/img/villaVerde/Sagittarius.png",
     title: "Sagittarius Room",
     subtext:

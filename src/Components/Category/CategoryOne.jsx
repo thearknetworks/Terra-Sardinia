@@ -51,7 +51,7 @@ const CategoryOne = () => {
       title: "Sagittarius",
       subtext: "Villa Verde",
       imgSrc: "/assets/img/category/category_1_1.jpg",
-      route: `/${lang || "en"}/villa-verde/sagitarius`,
+      route: `/${lang || "en"}/villa-verde/sagittarius`,
     },
   ];
 

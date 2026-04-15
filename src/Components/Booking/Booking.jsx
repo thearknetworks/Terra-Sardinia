@@ -1,5 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { DayPicker } from "react-day-picker";
+import { addMonths, format, isValid, parse, startOfDay, startOfMonth } from "date-fns";
+import { enUS } from "date-fns/locale";
+import "react-day-picker/style.css";
+import "./BookingDatePicker.css";
 import NiceSelect from "../Header/NiceSelect";
 
 const PROPERTY_OPTIONS = [
@@ -17,6 +22,26 @@ const STAY_TYPE_OPTIONS = [
   { value: "private-room", label: "Private Room (Verde)" },
 ];
 
+const ISO_DATE = "yyyy-MM-dd";
+
+function formatStoredDateForLabel(iso) {
+  if (!iso) {
+    return "";
+  }
+
+  const parsed = parse(iso, ISO_DATE, new Date());
+  return isValid(parsed) ? format(parsed, "MMM d, yyyy", { locale: enUS }) : iso;
+}
+
+function parseStoredDate(iso) {
+  if (!iso) {
+    return undefined;
+  }
+
+  const parsed = parse(iso, ISO_DATE, new Date());
+  return isValid(parsed) ? parsed : undefined;
+}
+
 function Booking() {
   const navigate = useNavigate();
   const { lang } = useParams();
@@ -28,20 +53,69 @@ function Booking() {
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
+  const [visibleMonth, setVisibleMonth] = useState(() =>
+    startOfMonth(parseStoredDate(checkInDate) ?? new Date())
+  );
   const datePickerRef = useRef(null);
   const guestsPickerRef = useRef(null);
 
   const datesLabel = useMemo(() => {
     if (checkInDate && checkOutDate) {
-      return `${checkInDate} - ${checkOutDate}`;
+      return `${formatStoredDateForLabel(checkInDate)} – ${formatStoredDateForLabel(checkOutDate)}`;
     }
 
     if (checkInDate) {
-      return `${checkInDate} - Select checkout`;
+      return `${formatStoredDateForLabel(checkInDate)} – Select checkout`;
     }
 
     return "Select Dates";
   }, [checkInDate, checkOutDate]);
+
+  const selectedRange = useMemo(() => {
+    const from = parseStoredDate(checkInDate);
+    if (!from) {
+      return undefined;
+    }
+
+    if (!checkOutDate) {
+      return { from, to: undefined };
+    }
+
+    const to = parseStoredDate(checkOutDate);
+    return { from, to: to ?? undefined };
+  }, [checkInDate, checkOutDate]);
+
+  const calendarDefaultMonth = useMemo(() => {
+    return parseStoredDate(checkInDate) ?? new Date();
+  }, [checkInDate]);
+
+  const rightSideMonth = useMemo(
+    () => startOfMonth(addMonths(visibleMonth, 1)),
+    [visibleMonth]
+  );
+
+  const handleRangeSelect = (range) => {
+    if (!range?.from) {
+      setCheckInDate("");
+      setCheckOutDate("");
+      return;
+    }
+
+    setCheckInDate(format(range.from, "yyyy-MM-dd"));
+    setCheckOutDate(range.to ? format(range.to, "yyyy-MM-dd") : "");
+  };
+
+  const shiftVisibleMonth = (monthsToAdd) => {
+    setVisibleMonth((current) => startOfMonth(addMonths(current, monthsToAdd)));
+  };
+
+  const toggleDatePicker = (event) => {
+    if (event.target.closest(".booking-date-dropdown__calendar")) {
+      return;
+    }
+
+    setIsDatePickerOpen((prev) => !prev);
+  };
 
   const guestsLabel = useMemo(() => {
     if (!adults && !children) {
@@ -110,6 +184,14 @@ function Booking() {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
+  useEffect(() => {
+    if (!isDatePickerOpen) {
+      return;
+    }
+
+    setVisibleMonth(startOfMonth(calendarDefaultMonth));
+  }, [isDatePickerOpen, calendarDefaultMonth]);
+
   return (
     <div className="booking-sec">
       <div className="container">
@@ -136,10 +218,13 @@ function Booking() {
                 </div>
                 <div className="search-input">
                   <label>Dates</label>
-                  <div className="nice-select-wrapper" ref={datePickerRef}>
+                  <div
+                    className="nice-select-wrapper booking-date-dropdown"
+                    ref={datePickerRef}
+                  >
                     <div
                       className={`nice-select ${isDatePickerOpen ? "open" : ""}`}
-                      onClick={() => setIsDatePickerOpen((prev) => !prev)}
+                      onClick={toggleDatePicker}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(event) => {
@@ -150,55 +235,64 @@ function Booking() {
                       }}
                     >
                       <span className="current">{datesLabel}</span>
-                      <ul className="list">
-                        <li className="option">
-                          <input
-                            type={checkInDate ? "date" : "text"}
-                            onFocus={(e) => {
-                              e.target.type = "date";
-                              try {
-                                e.target.showPicker?.();
-                              } catch (err) {}
-                            }}
-                            onBlur={(e) => {
-                              if (!e.target.value) e.target.type = "text";
-                            }}
-                            value={checkInDate}
-                            onChange={(event) =>
-                              setCheckInDate(event.target.value)
-                            }
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              try {
-                                event.target.showPicker?.();
-                              } catch (err) {}
-                            }}
-                            placeholder="Check-in"
-                          />
-                        </li>
-                        <li className="option">
-                          <input
-                            type={checkOutDate ? "date" : "text"}
-                            onFocus={(e) => {
-                              e.target.type = "date";
-                              try {
-                                e.target.showPicker?.();
-                              } catch (err) {}
-                            }}
-                            onBlur={(e) => {
-                              if (!e.target.value) e.target.type = "text";
-                            }}
-                            value={checkOutDate}
-                            onChange={(event) =>
-                              setCheckOutDate(event.target.value)
-                            }
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              try {
-                                event.target.showPicker?.();
-                              } catch (err) {}
-                            }}
-                            placeholder="Check-out"
+                      <ul
+                        className="list booking-date-dropdown__calendar"
+                        onMouseDown={(event) => event.stopPropagation()}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <li className="booking-date-dropdown__calendar-inner">
+                          <div className="booking-date-dropdown__month-headers">
+                            <div className="booking-date-dropdown__month-nav">
+                              <button
+                                type="button"
+                                className="booking-date-dropdown__arrow"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  shiftVisibleMonth(-1);
+                                }}
+                                aria-label="Previous month"
+                              >
+                                <i className="fa-light fa-chevron-left" />
+                              </button>
+                              <span className="booking-date-dropdown__month-title">
+                                {format(visibleMonth, "MMMM yyyy")}
+                              </span>
+                              <span
+                                className="booking-date-dropdown__arrow booking-date-dropdown__arrow--placeholder"
+                                aria-hidden="true"
+                              />
+                            </div>
+                            <div className="booking-date-dropdown__month-nav">
+                              <span
+                                className="booking-date-dropdown__arrow booking-date-dropdown__arrow--placeholder"
+                                aria-hidden="true"
+                              />
+                              <span className="booking-date-dropdown__month-title">
+                                {format(rightSideMonth, "MMMM yyyy")}
+                              </span>
+                              <button
+                                type="button"
+                                className="booking-date-dropdown__arrow"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  shiftVisibleMonth(1);
+                                }}
+                                aria-label="Next month"
+                              >
+                                <i className="fa-light fa-chevron-right" />
+                              </button>
+                            </div>
+                          </div>
+                          <DayPicker
+                            mode="range"
+                            weekStartsOn={1}
+                            locale={enUS}
+                            numberOfMonths={2}
+                            month={visibleMonth}
+                            selected={selectedRange}
+                            onSelect={handleRangeSelect}
+                            disabled={{ before: startOfDay(new Date()) }}
+                            className="booking-rdp"
                           />
                         </li>
                       </ul>

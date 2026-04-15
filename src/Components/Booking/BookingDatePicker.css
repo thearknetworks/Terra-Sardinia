@@ -1,0 +1,339 @@
+/* Airbnb-style range calendar inside the booking nice-select dropdown */
+/*
+  Global `public/assets/css/style.css` targets `.input-wrap .form-group .nice-select .list`
+  with width: 200px, overflow-y: scroll, and `.nice-select.open .list` uses a fade-down
+  animation that overwrites `transform` — breaking horizontal centering on small screens.
+  Scope overrides through `.booking-date-dropdown` so they win the cascade.
+*/
+
+.input-wrap
+  .form-group
+  .booking-date-dropdown
+  .nice-select
+  .list.booking-date-dropdown__calendar,
+.input-wrap
+  .form-group
+  .booking-date-dropdown
+  .nice-select.open
+  .list.booking-date-dropdown__calendar {
+  -webkit-animation: none !important;
+  animation: none !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  z-index: 100;
+  /* Theme sets `.input-wrap .form-group .nice-select .list { width: 200px; }` */
+  width: max-content !important;
+  min-width: 620px !important;
+  max-width: calc(100vw - 2rem) !important;
+}
+
+.booking-date-dropdown .nice-select .list.booking-date-dropdown__calendar {
+  width: max-content;
+  min-width: 620px;
+  max-width: calc(100vw - 2rem);
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+  top: calc(100% + 0.7rem);
+  left: 50%;
+  right: auto;
+  transform: translateX(-46%);
+  z-index: 100;
+  border-radius: 14px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  transform-origin: top center;
+  transition: opacity 0.15s ease-out;
+  animation: none !important;
+}
+
+.booking-date-dropdown .nice-select.open .list.booking-date-dropdown__calendar {
+  transform: translateX(-46%);
+  border-radius: 14px;
+  border-bottom: 0;
+  animation: none !important;
+}
+
+@media (max-width: 991px) {
+  /* Center under the Dates field; beat theme width + transform */
+  .input-wrap
+    .form-group
+    .booking-date-dropdown
+    .nice-select
+    .list.booking-date-dropdown__calendar,
+  .input-wrap
+    .form-group
+    .booking-date-dropdown
+    .nice-select.open
+    .list.booking-date-dropdown__calendar,
+  .booking-date-dropdown .nice-select .list.booking-date-dropdown__calendar,
+  .booking-date-dropdown
+    .nice-select.open
+    .list.booking-date-dropdown__calendar {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    min-width: 0 !important;
+    width: min(calc(100vw - 1.25rem), 520px) !important;
+    max-width: calc(100vw - 1.25rem) !important;
+    box-sizing: border-box;
+  }
+
+  /* Avoid 260px min columns forcing overflow inside a narrow panel */
+  .booking-date-dropdown__month-headers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+}
+
+.booking-date-dropdown__calendar-inner {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1.125rem 1.125rem;
+  border-radius: 14px;
+}
+
+.booking-date-dropdown__month-headers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.booking-date-dropdown__month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.booking-date-dropdown__arrow--placeholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.booking-date-dropdown__month-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--title-color, #111);
+}
+
+.booking-date-dropdown__arrow {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d8e3e8;
+  border-radius: 999px;
+  background: #fff;
+  color: #28525c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.booking-date-dropdown__arrow:hover {
+  border-color: var(--theme-color, #1ca8cb);
+  color: var(--theme-color, #1ca8cb);
+}
+
+.booking-date-dropdown .rdp-root {
+  --rdp-accent-color: var(--theme-color, #1ca8cb);
+  --rdp-accent-background-color: color-mix(
+    in srgb,
+    var(--theme-color, #1ca8cb) 18%,
+    transparent
+  );
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
+  --rdp-day_button-height: 40px;
+  --rdp-day_button-width: 40px;
+  --rdp-months-gap: 1.5rem;
+  --rdp-outside-opacity: 0.35;
+  --rdp-nav-height: 0;
+  --rdp-selected-border: 0;
+  margin: 0;
+}
+
+.booking-date-dropdown .rdp-months {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 767px) {
+  .booking-date-dropdown .rdp-months {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.booking-date-dropdown .rdp-nav {
+  display: none;
+}
+
+.booking-date-dropdown .rdp-month_caption {
+  justify-content: center;
+  margin-bottom: 0.35rem;
+}
+
+.booking-date-dropdown .rdp-month_caption {
+  display: none;
+}
+
+.booking-date-dropdown .rdp-weekday {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+.booking-date-dropdown .rdp-day_button {
+  border-radius: 50%;
+  border: 0 !important;
+  outline: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.booking-date-dropdown .rdp-day_button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.booking-date-dropdown .rdp-month,
+.booking-date-dropdown .rdp-month_grid,
+.booking-date-dropdown .rdp-month_grid table,
+.booking-date-dropdown .rdp-month_grid thead,
+.booking-date-dropdown .rdp-month_grid tbody,
+.booking-date-dropdown .rdp-month_grid tr,
+.booking-date-dropdown .rdp-month_grid th,
+.booking-date-dropdown .rdp-month_grid td {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.booking-date-dropdown .rdp-range_middle .rdp-day_button {
+  border-radius: 0;
+}
+
+.booking-date-dropdown .rdp-range_start,
+.booking-date-dropdown .rdp-range_end,
+.booking-date-dropdown .rdp-range_middle {
+  background: var(--rdp-accent-background-color);
+}
+
+.booking-date-dropdown .rdp-range_start {
+  border-radius: 999px 0 0 999px;
+}
+
+.booking-date-dropdown .rdp-range_end {
+  border-radius: 0 999px 999px 0;
+}
+
+.booking-date-dropdown .rdp-range_start .rdp-day_button,
+.booking-date-dropdown .rdp-range_end .rdp-day_button {
+  border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+  .input-wrap
+    .form-group
+    .booking-date-dropdown
+    .nice-select
+    .list.booking-date-dropdown__calendar,
+  .input-wrap
+    .form-group
+    .booking-date-dropdown
+    .nice-select.open
+    .list.booking-date-dropdown__calendar,
+  .booking-date-dropdown .nice-select .list.booking-date-dropdown__calendar,
+  .booking-date-dropdown
+    .nice-select.open
+    .list.booking-date-dropdown__calendar {
+    left: 50% !important;
+    transform: translateX(-55%) !important;
+  }
+
+  .booking-date-dropdown__month-headers {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .booking-date-dropdown__calendar-inner {
+    padding: 0.38rem 0.3rem 0.45rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .booking-date-dropdown__month-title {
+    font-size: 0.75rem;
+  }
+
+  .booking-date-dropdown__arrow {
+    width: 18px;
+    height: 18px;
+    font-size: 0.48rem;
+  }
+
+  .booking-date-dropdown .rdp-root {
+    --rdp-day-height: 24px;
+    --rdp-day-width: 24px;
+    --rdp-day_button-height: 24px;
+    --rdp-day_button-width: 24px;
+    --rdp-months-gap: 0.3rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .booking-date-dropdown .rdp-months {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .booking-date-dropdown .rdp-month {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .booking-date-dropdown .rdp-month_grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .booking-date-dropdown .rdp-month_grid table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+
+  .booking-date-dropdown .rdp-weekday {
+    font-size: 0.44rem;
+    letter-spacing: 0.01em;
+    padding: 0;
+  }
+
+  .booking-date-dropdown .rdp-day_button {
+    font-size: 0.6rem;
+  }
+
+  .input-wrap
+    .form-group
+    .booking-date-dropdown
+    .nice-select
+    .list.booking-date-dropdown__calendar,
+  .input-wrap
+    .form-group
+    .booking-date-dropdown
+    .nice-select.open
+    .list.booking-date-dropdown__calendar,
+  .booking-date-dropdown .nice-select .list.booking-date-dropdown__calendar,
+  .booking-date-dropdown
+    .nice-select.open
+    .list.booking-date-dropdown__calendar {
+    width: calc(85vw - 2.1rem) !important;
+    max-width: calc(85vw - 2.1rem) !important;
+  }
+}

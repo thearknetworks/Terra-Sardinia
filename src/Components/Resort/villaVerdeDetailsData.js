@@ -28,7 +28,7 @@ export const villaVerdeSidebarItems = [
     meta: "17 m²",
   },
   {
-    slug: "sagitarius",
+    slug: "sagittarius",
     title: "Sagittarius Room",
     thumb: "/assets/img/villaVerde/Sagittarius.png",
     meta: "20 m²",
@@ -154,7 +154,7 @@ export const roomContentBySlug = {
       { name: "Shower", icon: "/assets/img/villaVerde/VIRGO%20Shower.png" },
     ],
   },
-  sagitarius: {
+  sagittarius: {
     name: "Sagittarius",
     header: "Open & Effortless",
     body: "Sagittarius Room is designed to feel open, relaxed, and naturally free. Overlooking the garden, the space carries a light and easy atmosphere, where movement and comfort come together effortlessly. It’s a room that invites you to slow down, unwind, and enjoy a sense of freedom within a calm, natural setting.",
@@ -323,7 +323,7 @@ export const roomMediaBySlug = {
       "/assets/img/villaVerde/gallery/VIRGO%20Gallery%202%20Destination%20Detail-1-15.png",
     ],
   },
-  sagitarius: {
+  sagittarius: {
     topImage: "/assets/img/villaVerde/Sagittarius%20Image%201.png",
     gallery: [
       "/assets/img/villaVerde/gallery/SAGITTARIUS%20Gallery%201%20Destination%20Detail-17.png",
