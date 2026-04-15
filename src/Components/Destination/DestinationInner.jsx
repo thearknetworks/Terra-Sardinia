@@ -300,7 +300,7 @@ function DestinationInner() {
                       Need Help? We Are Here To Help You
                     </h6>
                     <div className="banner-logo">
-                      <img src="/assets/img/logo2.svg" alt="Tourm" />
+                      <img src="/assets/img/logo2.svg" alt="Terra Sardenia" />
                     </div>
                     <div className="offer">
                       <h6 className="offer-title">You Get Online support</h6>

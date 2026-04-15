@@ -58,14 +58,19 @@ const blogPosts = [
 
 function BlogOne() {
   return (
-    <section className="bg-smoke overflow-hidden space overflow-hidden" id="blog-sec">
+    <section
+      className="bg-smoke overflow-hidden space overflow-hidden"
+      id="blog-sec"
+    >
       <div className="container shape-mockup-wrap">
         <div className="mb-30 text-center text-md-start">
           <div className="row align-items-center justify-content-between">
             <div className="col-md-7">
               <div className="title-area mb-md-0">
                 <span className="sub-title">About Us Restaurant</span>
-                <h2 className="sec-title">News & Articles From Tourm</h2>
+                <h2 className="sec-title">
+                  News & Articles From Terra Sardenia
+                </h2>
               </div>
             </div>
             <div className="col-md-auto">
@@ -115,13 +120,22 @@ function BlogOne() {
         </Swiper>
 
         {/* Decorative Shapes */}
-        <div className="shape-mockup shape1 d-none d-xxl-block" style={{bottom:"20%", left:"-17%"}}>
+        <div
+          className="shape-mockup shape1 d-none d-xxl-block"
+          style={{ bottom: "20%", left: "-17%" }}
+        >
           <img src="/assets/img/shape/shape_1.png" alt="shape" />
         </div>
-        <div className="shape-mockup shape2 d-none d-xl-block" style={{bottom:"5%", left:"-17%"}}>
+        <div
+          className="shape-mockup shape2 d-none d-xl-block"
+          style={{ bottom: "5%", left: "-17%" }}
+        >
           <img src="/assets/img/shape/shape_2.png" alt="shape" />
         </div>
-        <div className="shape-mockup shape3 d-none d-xxl-block" style={{bottom:"12%", left:"-10%"}}>
+        <div
+          className="shape-mockup shape3 d-none d-xxl-block"
+          style={{ bottom: "12%", left: "-10%" }}
+        >
           <img src="/assets/img/shape/shape_3.png" alt="shape" />
         </div>
       </div>

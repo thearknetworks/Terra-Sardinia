@@ -1,23 +1,30 @@
-import React, { useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css'; // Core Swiper styles
-import { Pagination, A11y, EffectFade, Autoplay, Navigation, Thumbs } from 'swiper/modules'; // Correctly import necessary modules
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css"; // Core Swiper styles
+import {
+  Pagination,
+  A11y,
+  EffectFade,
+  Autoplay,
+  Navigation,
+  Thumbs,
+} from "swiper/modules"; // Correctly import necessary modules
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import { Link } from "react-router-dom";
 function BannerTwo() {
   const swiperRef = useRef(null);
   const thumbsSwiperRef = useRef(null); // Reference for the thumbs swiper
   useEffect(() => {
     // Function to add animation classes
     const animationProperties = () => {
-      document.querySelectorAll('[data-ani]').forEach((element) => {
-        const animationName = element.getAttribute('data-ani');
+      document.querySelectorAll("[data-ani]").forEach((element) => {
+        const animationName = element.getAttribute("data-ani");
         element.classList.add(animationName);
       });
-      document.querySelectorAll('[data-ani-delay]').forEach((element) => {
-        const delayTime = element.getAttribute('data-ani-delay');
+      document.querySelectorAll("[data-ani-delay]").forEach((element) => {
+        const delayTime = element.getAttribute("data-ani-delay");
         element.style.animationDelay = delayTime;
       });
     };
@@ -27,7 +34,7 @@ function BannerTwo() {
   const handleSliderNavigation = (direction) => {
     if (swiperRef.current && swiperRef.current.swiper) {
       const swiper = swiperRef.current.swiper;
-      if (direction === 'prev') {
+      if (direction === "prev") {
         swiper.slidePrev();
       } else {
         swiper.slideNext();
@@ -37,11 +44,16 @@ function BannerTwo() {
   const destinationRef = useRef(null);
   const handleScroll = (e) => {
     e.preventDefault();
-    document.getElementById("destination-sec")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("destination-sec")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <div className="hero-2" id="hero">
-      <div className="hero2-overlay" style={{ backgroundImage: 'url(/assets/img/bg/line-pattern.png)'}} />
+      <div
+        className="hero2-overlay"
+        style={{ backgroundImage: "url(/assets/img/bg/line-pattern.png)" }}
+      />
       {/* Main Swiper */}
       <Swiper
         modules={[Pagination, Navigation, Thumbs, EffectFade, Autoplay]} // Added necessary modules
@@ -51,13 +63,13 @@ function BannerTwo() {
         thumbs={{ swiper: thumbsSwiperRef.current }} // Using thumbsSwiperRef to link thumbs swiper
         effect="fade"
         pagination={{
-          el: '.slider-pagination',
-          type: 'progressbar',
+          el: ".slider-pagination",
+          type: "progressbar",
           clickable: true,
         }}
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         }}
         autoplay={{
           delay: 6000,
@@ -69,17 +81,41 @@ function BannerTwo() {
       >
         <SwiperSlide>
           <div className="hero-inner">
-            <div className="th-hero-bg" style={{ backgroundImage: 'url(/assets/img/hero/hero_bg_2_1.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover" }} />
+            <div
+              className="th-hero-bg"
+              style={{
+                backgroundImage: "url(/assets/img/hero/hero_bg_2_1.jpg)",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
+            />
             <div className="container">
               <div className="hero-style2">
-                <h1 className="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                  Discover <span className="hero-text">The beauty of world</span>
+                <h1
+                  className="hero-title"
+                  data-ani="slideinup"
+                  data-ani-delay="0.4s"
+                >
+                  Discover{" "}
+                  <span className="hero-text">The beauty of world</span>
                 </h1>
-                <p className="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
-                  Tourm an international travel management company with 25 years of experience, specializing in business and maritime travel.
+                <p
+                  className="hero-desc"
+                  data-ani="slideinup"
+                  data-ani-delay="0.5s"
+                >
+                  Terra Sardenia an international travel management company with
+                  25 years of experience, specializing in business and maritime
+                  travel.
                 </p>
-                <div className="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                  <Link to="/destination" className="th-btn white-btn th-icon">Explore Tours</Link>
+                <div
+                  className="btn-group"
+                  data-ani="slideinup"
+                  data-ani-delay="0.6s"
+                >
+                  <Link to="/destination" className="th-btn white-btn th-icon">
+                    Explore Tours
+                  </Link>
                 </div>
               </div>
             </div>
@@ -92,14 +128,31 @@ function BannerTwo() {
             </video>
             <div className="container">
               <div className="hero-style2">
-                <h1 className="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                  Explore <span className="hero-text">beauty of the whole world</span>
+                <h1
+                  className="hero-title"
+                  data-ani="slideinup"
+                  data-ani-delay="0.4s"
+                >
+                  Explore{" "}
+                  <span className="hero-text">beauty of the whole world</span>
                 </h1>
-                <p className="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
-                  Provide a detailed itinerary of the tour, including the places you'll visit each day, any activities planned approximate times.
+                <p
+                  className="hero-desc"
+                  data-ani="slideinup"
+                  data-ani-delay="0.5s"
+                >
+                  Provide a detailed itinerary of the tour, including the places
+                  you'll visit each day, any activities planned approximate
+                  times.
                 </p>
-                <div className="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                  <Link to="/destination" className="th-btn white-btn th-icon">Explore Tours</Link>
+                <div
+                  className="btn-group"
+                  data-ani="slideinup"
+                  data-ani-delay="0.6s"
+                >
+                  <Link to="/destination" className="th-btn white-btn th-icon">
+                    Explore Tours
+                  </Link>
                 </div>
               </div>
             </div>
@@ -107,17 +160,41 @@ function BannerTwo() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="hero-inner">
-            <div className="th-hero-bg" style={{ backgroundImage: 'url(/assets/img/hero/hero_bg_2_3.jpg)', backgroundRepeat: "no-repeat", backgroundSize: "cover" }} />
+            <div
+              className="th-hero-bg"
+              style={{
+                backgroundImage: "url(/assets/img/hero/hero_bg_2_3.jpg)",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
+            />
             <div className="container">
               <div className="hero-style2">
-                <h1 className="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                  Enjoy <span className="hero-text">The Most Enjoyable Journey</span>
+                <h1
+                  className="hero-title"
+                  data-ani="slideinup"
+                  data-ani-delay="0.4s"
+                >
+                  Enjoy{" "}
+                  <span className="hero-text">The Most Enjoyable Journey</span>
                 </h1>
-                <p className="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
-                  Tourm an international travel management company with 25 years of experience, specializing in business and maritime travel.
+                <p
+                  className="hero-desc"
+                  data-ani="slideinup"
+                  data-ani-delay="0.5s"
+                >
+                  Terra Sardenia an international travel management company with
+                  25 years of experience, specializing in business and maritime
+                  travel.
                 </p>
-                <div className="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                  <Link to="/tour" className="th-btn white-btn th-icon">Explore Tours</Link>
+                <div
+                  className="btn-group"
+                  data-ani="slideinup"
+                  data-ani-delay="0.6s"
+                >
+                  <Link to="/tour" className="th-btn white-btn th-icon">
+                    Explore Tours
+                  </Link>
                 </div>
               </div>
             </div>
@@ -128,10 +205,18 @@ function BannerTwo() {
       <div className="th-swiper-custom">
         <div className="slider-pagination" />
         <div className="hero-icon">
-          <button data-slider-prev="#heroSlide2" className="hero-arrow slider-prev" onClick={() => handleSliderNavigation('prev')}>
+          <button
+            data-slider-prev="#heroSlide2"
+            className="hero-arrow slider-prev"
+            onClick={() => handleSliderNavigation("prev")}
+          >
             <img src="/assets/img/icon/hero-arrow-left.svg" alt="" />
           </button>
-          <button data-slider-next="#heroSlide2" className="hero-arrow slider-next" onClick={() => handleSliderNavigation('next')}>
+          <button
+            data-slider-next="#heroSlide2"
+            className="hero-arrow slider-next"
+            onClick={() => handleSliderNavigation("next")}
+          >
             <img src="/assets/img/icon/hero-arrow-right.svg" alt="" />
           </button>
         </div>
@@ -148,8 +233,8 @@ function BannerTwo() {
           disableOnInteraction: false,
         }}
         navigation={{
-          nextEl: '.slider-next',
-          prevEl: '.slider-prev',
+          nextEl: ".slider-next",
+          prevEl: ".slider-prev",
         }}
         loop={true}
         watchSlidesProgress={true}
@@ -165,9 +250,15 @@ function BannerTwo() {
               </div>
               <div className="hero-card_content">
                 <h3 className="box-title">Mountain Tour</h3>
-                <h4 className="hero-card_price"><span className="currency">$850.00</span>/Person</h4>
-                <span className="d-block"><i className="fa-light fa-clock" />7 Days</span>
-                <Link to="/destination/1" className="th-btn style2">Book Now</Link>
+                <h4 className="hero-card_price">
+                  <span className="currency">$850.00</span>/Person
+                </h4>
+                <span className="d-block">
+                  <i className="fa-light fa-clock" />7 Days
+                </span>
+                <Link to="/destination/1" className="th-btn style2">
+                  Book Now
+                </Link>
               </div>
             </div>
           </div>
@@ -180,9 +271,15 @@ function BannerTwo() {
               </div>
               <div className="hero-card_content">
                 <h3 className="box-title">Yachts Tour</h3>
-                <h4 className="hero-card_price"><span className="currency">$750.00</span>/Person</h4>
-                <span className="d-block"><i className="fa-light fa-clock" />6 Days</span>
-                <Link to="/destination/1" className="th-btn style2">Book Now</Link>
+                <h4 className="hero-card_price">
+                  <span className="currency">$750.00</span>/Person
+                </h4>
+                <span className="d-block">
+                  <i className="fa-light fa-clock" />6 Days
+                </span>
+                <Link to="/destination/1" className="th-btn style2">
+                  Book Now
+                </Link>
               </div>
             </div>
           </div>
@@ -195,9 +292,15 @@ function BannerTwo() {
               </div>
               <div className="hero-card_content">
                 <h3 className="box-title">Mountain Tour</h3>
-                <h4 className="hero-card_price"><span className="currency">$850.00</span>/Person</h4>
-                <span className="d-block"><i className="fa-light fa-clock" />7 Days</span>
-                <Link to="/destination/1" className="th-btn style2">Book Now</Link>
+                <h4 className="hero-card_price">
+                  <span className="currency">$850.00</span>/Person
+                </h4>
+                <span className="d-block">
+                  <i className="fa-light fa-clock" />7 Days
+                </span>
+                <Link to="/destination/1" className="th-btn style2">
+                  Book Now
+                </Link>
               </div>
             </div>
           </div>
@@ -205,7 +308,11 @@ function BannerTwo() {
         {/* Add more SwiperSlides here as needed */}
       </Swiper>
       <div className="scroll-down">
-        <Link to="/#destination-sec" onClick={handleScroll} className="scroll-wrap">
+        <Link
+          to="/#destination-sec"
+          onClick={handleScroll}
+          className="scroll-wrap"
+        >
           <span>
             <img src="/assets/img/icon/down-arrow.svg" alt="" />
           </span>
