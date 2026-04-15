@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "../Gallery/Modal";
+import "../Destination/staggeredGallery.css";
 import {
   DEFAULT_VILLA_VERDE_SLUG,
   roomContentBySlug,
@@ -26,11 +27,14 @@ function VillaVerdeDetailsInner() {
     roomMediaBySlug[room_name] || roomMediaBySlug[DEFAULT_VILLA_VERDE_SLUG];
   const selectedRoomContent =
     roomContentBySlug[room_name] || roomContentBySlug[DEFAULT_VILLA_VERDE_SLUG];
-  const galleryImages = selectedRoomMedia.gallery.slice(0, 4);
-  const orderedGalleryImages =
-    galleryImages.length === 4
-      ? [galleryImages[0], galleryImages[1], galleryImages[3], galleryImages[2]]
-      : galleryImages;
+  const galleryRowPairs = useMemo(() => {
+    const galleryImages = selectedRoomMedia.gallery.slice(0, 4);
+    const pairs = [];
+    for (let i = 0; i < galleryImages.length; i += 2) {
+      pairs.push(galleryImages.slice(i, i + 2));
+    }
+    return pairs;
+  }, [selectedRoomMedia.gallery]);
 
   const openModal = (imageSrc) => (e) => {
     e.preventDefault();
@@ -39,6 +43,25 @@ function VillaVerdeDetailsInner() {
   };
 
   const closeModal = () => setIsModalOpen(false);
+
+  const renderGalleryBox = (imagePath) => (
+    <div className="gallery-box style3 staggered-gallery-box">
+      <div className="gallery-img global-img">
+        <img
+          src={imagePath}
+          alt="gallery"
+          onClick={openModal(imagePath)}
+        />
+        <Link
+          to={imagePath}
+          className="icon-btn popup-image"
+          onClick={openModal(imagePath)}
+        >
+          <i className="fal fa-magnifying-glass-plus" />
+        </Link>
+      </div>
+    </div>
+  );
 
   return (
     <section className="space">
@@ -74,30 +97,62 @@ function VillaVerdeDetailsInner() {
                   ))}
                 </ul>
               </div>
-              <div className="destination-gallery-wrapper">
+              <div className="staggered-gallery-wrapper">
                 <h3 className="page-title mt-30 mb-30">From our gallery</h3>
-                <div className="row gy-4 gallery-row filter-active">
-                  {orderedGalleryImages.map((imagePath, index) => (
-                    <div className="col-xxl-auto filter-item" key={index}>
-                      <div className="gallery-box style3">
-                        <div className="gallery-img global-img">
-                          <img
-                            src={imagePath}
-                            alt="gallery"
-                            onClick={openModal(imagePath)}
-                          />
-                          <Link
-                            to={imagePath}
-                            className="icon-btn popup-image"
-                            onClick={openModal(imagePath)}
-                          >
-                            <i className="fal fa-magnifying-glass-plus" />
-                          </Link>
+                {galleryRowPairs.map((pair, rowIndex) => {
+                  const rowKey = `staggered-gallery-row-${rowIndex}-${pair[0]}`;
+                  if (pair.length === 1) {
+                    return (
+                      <div
+                        className="row staggered-gallery-row g-4 align-items-stretch"
+                        key={rowKey}
+                      >
+                        <div className="col-12 filter-item">
+                          <div className="staggered-gallery-item">
+                            {renderGalleryBox(pair[0])}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  const [imgA, imgB] = pair;
+                  if (rowIndex % 2 === 0) {
+                    return (
+                      <div
+                        className="row staggered-gallery-row g-4 align-items-stretch"
+                        key={rowKey}
+                      >
+                        <div className="col-12 col-lg-5 filter-item">
+                          <div className="staggered-gallery-item h-100">
+                            {renderGalleryBox(imgA)}
+                          </div>
+                        </div>
+                        <div className="col-12 col-lg-7 filter-item">
+                          <div className="staggered-gallery-item h-100">
+                            {renderGalleryBox(imgB)}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <div
+                      className="row staggered-gallery-row g-4 align-items-stretch"
+                      key={rowKey}
+                    >
+                      <div className="col-12 col-lg-7 filter-item">
+                        <div className="staggered-gallery-item h-100">
+                          {renderGalleryBox(imgB)}
+                        </div>
+                      </div>
+                      <div className="col-12 col-lg-5 filter-item">
+                        <div className="staggered-gallery-item h-100">
+                          {renderGalleryBox(imgA)}
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
               <div className="th-comments-wrap style2 ">
                 <h2 className="blog-inner-title h4">

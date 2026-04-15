@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Posts from "../data/data-destination.json";
 import Modal from "../Gallery/Modal";
+import "./staggeredGallery.css";
 
 const NEARBY_DESTINATIONS = [
   {
@@ -994,6 +995,13 @@ const DESTINATION_DETAILS_BY_SLUG = {
   },
 };
 
+const DEFAULT_DESTINATION_GALLERY = [
+  "/assets/img/gallery/gallery_6_1.jpg",
+  "/assets/img/gallery/gallery_6_2.jpg",
+  "/assets/img/gallery/gallery_6_3.jpg",
+  "/assets/img/gallery/gallery_6_4.jpg",
+];
+
 function DestinationDetailsMain() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
@@ -1031,6 +1039,37 @@ function DestinationDetailsMain() {
   };
 
   const closeModal = () => setIsModalOpen(false);
+
+  const galleryImages =
+    currentDestination?.images?.gallery ?? DEFAULT_DESTINATION_GALLERY;
+
+  const galleryRowPairs = useMemo(() => {
+    const pairs = [];
+    for (let i = 0; i < galleryImages.length; i += 2) {
+      pairs.push(galleryImages.slice(i, i + 2));
+    }
+    return pairs;
+  }, [galleryImages]);
+
+  const renderGalleryBox = (galleryImage) => (
+    <div className="gallery-box style3 staggered-gallery-box">
+      <div className="gallery-img global-img">
+        <img
+          src={galleryImage}
+          alt="gallery"
+          onClick={(e) => openModal(galleryImage, e)}
+        />
+        <Link
+          to={galleryImage}
+          className="icon-btn popup-image"
+          onClick={(e) => openModal(galleryImage, e)}
+        >
+          <i className="fal fa-magnifying-glass-plus" />
+        </Link>
+      </div>
+    </div>
+  );
+
   const contact = currentDestination?.contact || {};
   const hasPhone = contact.phone && contact.phone !== "Not Available";
   const hasEmail = contact.email && contact.email !== "Not Available";
@@ -1124,40 +1163,62 @@ function DestinationDetailsMain() {
                   </ul>
                 </div>
               </div>
-              <div className="destination-gallery-wrapper">
-                <h3 className="page-title mt-30 mb-30">Destination Gallery</h3>
-                <div className="row gy-4 gallery-row filter-active">
-                  {(
-                    currentDestination?.images.gallery || [
-                      "/assets/img/gallery/gallery_6_1.jpg",
-                      "/assets/img/gallery/gallery_6_2.jpg",
-                      "/assets/img/gallery/gallery_6_3.jpg",
-                      "/assets/img/gallery/gallery_6_4.jpg",
-                    ]
-                  ).map((galleryImage, index) => (
+              <div className="staggered-gallery-wrapper">
+                <h3 className="page-title mt-30 mb-30">From our gallery</h3>
+                {galleryRowPairs.map((pair, rowIndex) => {
+                  const rowKey = `staggered-gallery-row-${rowIndex}-${pair[0]}`;
+                  if (pair.length === 1) {
+                    return (
+                      <div
+                        className="row staggered-gallery-row g-4 align-items-stretch"
+                        key={rowKey}
+                      >
+                        <div className="col-12 filter-item">
+                          <div className="staggered-gallery-item">
+                            {renderGalleryBox(pair[0])}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  const [imgA, imgB] = pair;
+                  if (rowIndex % 2 === 0) {
+                    return (
+                      <div
+                        className="row staggered-gallery-row g-4 align-items-stretch"
+                        key={rowKey}
+                      >
+                        <div className="col-12 col-lg-5 filter-item">
+                          <div className="staggered-gallery-item h-100">
+                            {renderGalleryBox(imgA)}
+                          </div>
+                        </div>
+                        <div className="col-12 col-lg-7 filter-item">
+                          <div className="staggered-gallery-item h-100">
+                            {renderGalleryBox(imgB)}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
                     <div
-                      className="col-xxl-auto filter-item"
-                      key={`${galleryImage}-${index}`}
+                      className="row staggered-gallery-row g-4 align-items-stretch"
+                      key={rowKey}
                     >
-                      <div className="gallery-box style3">
-                        <div className="gallery-img global-img">
-                          <img
-                            src={galleryImage}
-                            alt="gallery"
-                            onClick={(e) => openModal(galleryImage, e)}
-                          />
-                          <Link
-                            to={galleryImage}
-                            className="icon-btn popup-image"
-                            onClick={(e) => openModal(galleryImage, e)}
-                          >
-                            <i className="fal fa-magnifying-glass-plus" />
-                          </Link>
+                      <div className="col-12 col-lg-7 filter-item">
+                        <div className="staggered-gallery-item h-100">
+                          {renderGalleryBox(imgB)}
+                        </div>
+                      </div>
+                      <div className="col-12 col-lg-5 filter-item">
+                        <div className="staggered-gallery-item h-100">
+                          {renderGalleryBox(imgA)}
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
               {!currentDestination?.hideReviews && (
                 <div className="th-comments-wrap style2 destination-detail-reviews">
