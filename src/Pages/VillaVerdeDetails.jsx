@@ -15,7 +15,7 @@ function VillaVerdeDetails() {
     aries: "/assets/img/villaVerde/Aries%20Banner%20Image-2.png",
     cancer: "/assets/img/villaVerde/Cancer%20Banner%20Image-3.png",
     virgo: "/assets/img/villaVerde/Virgo%20Banner%20Image-4.png",
-    sagittarius: "/assets/img/villaVerde/Sagittarius%20Banner%20Image-5.png",
+    sagitarius: "/assets/img/villaVerde/Sagittarius%20Banner%20Image-5.png",
     "la-tavola": "/assets/img/villaVerde/La%20Tavola%20Banner%20Image-6.png",
   };
 
@@ -27,7 +27,7 @@ function VillaVerdeDetails() {
     aries: "Aries Room",
     cancer: "Cancer Room",
     virgo: "Virgo Room",
-    sagittarius: "Sagittarius Room",
+    sagitarius: "Sagittarius Room",
   };
   const isVillaAntares =
     room_name === "antares-villa" || room_name === "villa-antares";

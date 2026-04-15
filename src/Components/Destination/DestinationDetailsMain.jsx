@@ -1405,7 +1405,7 @@ function DestinationDetailsMain() {
               <div
                 className="widget widget_offer need-help-widget"
                 style={{
-                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/destination/need_help.png)`,
+                  background: "url(/assets/img/destination/need_help.png)",
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                 }}
