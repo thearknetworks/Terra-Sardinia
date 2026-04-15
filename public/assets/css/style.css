@@ -103,9 +103,9 @@ Last Update: 20-07-2024
   --success-color: #28a745;
   --error-color: #dc3545;
   --th-border-color: #e9edf5;
-  --title-font: "Inter", sans-serif;
+  --title-font: "Playfair Display";
   --body-font: "Inter", sans-serif;
-  --style-font: "Allure", cursive;
+  --style-font: "Allura", cursive;
   --icon-font: "Font Awesome 6 Pro";
   --main-container: 1320px;
   --container-gutters: 24px;
