@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import NiceSelect from "./NiceSelect";
 import MobileMenu from "./MobileMenu";
 import LoginForm from "./LoginForm";
 
 function HeaderTwo() {
+  const { i18n } = useTranslation();
   const languageOptions = [
     { value: "language", label: "Language" },
     { value: "CNY", label: "CNY" },
@@ -59,11 +61,13 @@ function HeaderTwo() {
                   </div>
                   <div className="header-links">
                     <ul>
-                      <li className="d-none d-md-inline-block">
+                      <li className="d-none d-xl-inline-block">
                         <Link to="/faq">FAQ</Link>
                       </li>
                       <li className="d-none d-md-inline-block">
-                        <Link to="/contact">Support</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>
+                          Support
+                        </Link>
                       </li>
                       <li>
                         <button
@@ -289,9 +293,6 @@ function HeaderTwo() {
                             <Link to="/tour-guide/1">Tour Guider Details</Link>
                           </li>
                           <li>
-                            <Link to="/faq">Faq Page</Link>
-                          </li>
-                          <li>
                             <Link to="/price">Price Package</Link>
                           </li>
                           <li>
@@ -311,7 +312,9 @@ function HeaderTwo() {
                         </ul>
                       </li>
                       <li>
-                        <Link to="/contact">Contact us</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>
+                          Contact us
+                        </Link>
                       </li>
                     </ul>
                   </nav>
@@ -325,7 +328,10 @@ function HeaderTwo() {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                    <Link to="/contact" className="th-btn style3 th-icon">
+                    <Link
+                      to={`/${i18n.resolvedLanguage || "en"}/contact`}
+                      className="th-btn style3 th-icon"
+                    >
                       Book Now
                     </Link>
                   </div>

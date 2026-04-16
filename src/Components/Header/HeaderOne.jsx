@@ -83,11 +83,11 @@ function HeaderOne() {
 
                   <div className="header-links">
                     <ul>
-                      <li className="d-none d-md-inline-block">
+                      <li className="d-none d-xl-inline-block">
                         <Link to="/faq">FAQ</Link>
                       </li>
                       {/* <li className="d-none d-md-inline-block">
-                        <Link to="/contact">Support</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>Support</Link>
                       </li> */}
                       {/* <li>
                         <button
@@ -168,10 +168,9 @@ function HeaderOne() {
                         <Link to="/">Gallery</Link>
                       </li>
                       <li>
-                        <Link to="/">FAQ</Link>
-                      </li>
-                      <li>
-                        <Link to="/">Contact</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>
+                          Contact
+                        </Link>
                       </li>
 
                       {/* <li className="menu-item-has-children">

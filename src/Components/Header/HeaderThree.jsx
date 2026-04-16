@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SideMenu from "./SideMenu";
 import MobileMenu from "./MobileMenu";
 
 function HeaderThree() {
+  const { i18n } = useTranslation();
   const [isSticky, setIsSticky] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -239,9 +241,6 @@ function HeaderThree() {
                             <Link to="/tour-guide/1">Tour Guider Details</Link>
                           </li>
                           <li>
-                            <Link to="/faq">Faq Page</Link>
-                          </li>
-                          <li>
                             <Link to="/price">Price Package</Link>
                           </li>
                           <li>
@@ -261,7 +260,9 @@ function HeaderThree() {
                         </ul>
                       </li>
                       <li>
-                        <Link to="/contact">Contact us</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>
+                          Contact us
+                        </Link>
                       </li>
                     </ul>
                   </nav>

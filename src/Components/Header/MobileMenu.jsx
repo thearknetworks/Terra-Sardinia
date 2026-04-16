@@ -102,7 +102,9 @@ function MobileMenu({ isOpen, onClose }) {
               <Link to={`/${i18n.resolvedLanguage || "en"}/faq`}>FAQ</Link>
             </li>
             <li>
-              <Link to="/">Contact</Link>
+              <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
