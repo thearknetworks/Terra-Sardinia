@@ -207,7 +207,10 @@ function HeaderOne() {
                       className="simple-btn sideMenuToggler"
                       onClick={() => setIsSideMenuOpen(true)}
                     >
-                      <img src="/assets/img/icon/menu.svg" alt="Open side menu" />
+                      <img
+                        src="/assets/img/icon/menu.svg"
+                        alt="Open side menu"
+                      />
                     </button>
                   </div>
                 </div>
