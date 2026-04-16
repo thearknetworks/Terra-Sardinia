@@ -4,7 +4,7 @@ import Posts from "../data/data-service.json";
 import Modal from "../Gallery/Modal";
 
 function ServiceDetailsMain() {
-  const { id, lang = "en" } = useParams();
+  const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalIndex, setModalIndex] = useState(0);
@@ -49,7 +49,7 @@ function ServiceDetailsMain() {
               </div>
               <div className="page-content d-block">
                 <div className="page-meta mt-50 mb-45">
-                  <Link className="page-tag" to={`/${lang}/tour`}>
+                  <Link className="page-tag" to="/tour">
                     Featured
                   </Link>
                   <span className="ratting">
@@ -298,11 +298,123 @@ function ServiceDetailsMain() {
                   </li>
                 </ul>
               </div>{" "}
-              {/* Comment end */}
+              {/* Comment end */} {/* Comment Form */}
+              <div className="th-comment-form ">
+                <div className="row">
+                  <h3 className="blog-inner-title h4 mb-2">Leave a Reply</h3>
+                  <p className="mb-25">
+                    Your email address will not be published. Required fields
+                    are marked
+                  </p>
+                  <div className="col-md-6 form-group">
+                    <input
+                      type="text"
+                      placeholder="Full Name*"
+                      className="form-control"
+                      required=""
+                    />
+                    <i className="far fa-user" />
+                  </div>
+                  <div className="col-md-6 form-group">
+                    <input
+                      type="text"
+                      placeholder="Your Email*"
+                      className="form-control"
+                      required=""
+                    />
+                    <i className="far fa-envelope" />
+                  </div>
+                  <div className="col-12 form-group">
+                    <input
+                      type="text"
+                      placeholder="Website"
+                      className="form-control"
+                      required=""
+                    />
+                    <i className="far fa-globe" />
+                  </div>
+                  <div className="col-12 form-group">
+                    <textarea
+                      placeholder="Comment*"
+                      className="form-control"
+                      defaultValue={""}
+                    />
+                    <i className="far fa-pencil" />
+                  </div>
+                  <div className="col-12 form-group">
+                    <input type="checkbox" id="html" />
+                    <label htmlFor="html">
+                      Save my name, email, and website in this browser for the
+                      next time I comment.
+                    </label>
+                  </div>
+                  <div className="col-12 form-group mb-0">
+                    <button className="th-btn">
+                      Send Message
+                      <img src="/assets/img/icon/plane2.svg" alt="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
+              <div className="widget widget_search  ">
+                <form className="search-form">
+                  <input type="text" placeholder="Search" />
+                  <button type="submit">
+                    <i className="far fa-search" />
+                  </button>
+                </form>
+              </div>
+              <div className="widget widget_categories  ">
+                <h3 className="widget_title">Categories</h3>
+                <ul>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      City Tour
+                    </Link>
+                    <span>(8)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Beach Tours
+                    </Link>
+                    <span>(6)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Wildlife Tours
+                    </Link>
+                    <span>(2)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      News &amp; Tips
+                    </Link>
+                    <span>(7)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Adventure Tours
+                    </Link>
+                    <span>(9)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Mountain Tours
+                    </Link>
+                    <span>(10)</span>
+                  </li>
+                </ul>
+              </div>
               <div className="widget tour-booking  ">
                 <p className="widget_subtitle">
                   From <span className="widget_price">$75.00</span>
@@ -319,7 +431,7 @@ function ServiceDetailsMain() {
                     </li>
                   </ul>
                 </div>
-                <Link to={`/${lang}/booking`} className="th-btn th-icon">
+                <Link to="/booking" className="th-btn th-icon">
                   Book Now
                 </Link>
                 <span className="review">
@@ -332,7 +444,7 @@ function ServiceDetailsMain() {
                 <div className="recent-post-wrap">
                   <div className="recent-post">
                     <div className="media-img">
-                      <Link to={`/${lang}/blog/1`}>
+                      <Link to="/blog/1">
                         <img
                           src="/assets/img/blog/recent-post-1-1.jpg"
                           alt="Blog"
@@ -341,12 +453,12 @@ function ServiceDetailsMain() {
                     </div>
                     <div className="media-body">
                       <h4 className="post-title">
-                        <Link className="text-inherit" to={`/${lang}/blog/1`}>
+                        <Link className="text-inherit" to="/blog/1">
                           Exploring The Green Spaces Of the island maldives
                         </Link>
                       </h4>
                       <div className="recent-post-meta">
-                        <Link to={`/${lang}/blog`}>
+                        <Link to="/blog">
                           <i className="fa-regular fa-calendar" />
                           22/6/ 2025
                         </Link>
@@ -355,7 +467,7 @@ function ServiceDetailsMain() {
                   </div>
                   <div className="recent-post">
                     <div className="media-img">
-                      <Link to={`/${lang}/blog/1`}>
+                      <Link to="/blog/1">
                         <img
                           src="/assets/img/blog/recent-post-1-2.jpg"
                           alt="Blog"
@@ -364,12 +476,12 @@ function ServiceDetailsMain() {
                     </div>
                     <div className="media-body">
                       <h4 className="post-title">
-                        <Link className="text-inherit" to={`/${lang}/blog/1`}>
+                        <Link className="text-inherit" to="/blog/1">
                           Harmony With Nature Of Belgium Tour and travle
                         </Link>
                       </h4>
                       <div className="recent-post-meta">
-                        <Link to={`/${lang}/blog`}>
+                        <Link to="/blog">
                           <i className="fa-regular fa-calendar" />
                           25/6/ 2025
                         </Link>
@@ -378,7 +490,7 @@ function ServiceDetailsMain() {
                   </div>
                   <div className="recent-post">
                     <div className="media-img">
-                      <Link to={`/${lang}/blog/1`}>
+                      <Link to="/blog/1">
                         <img
                           src="/assets/img/blog/recent-post-1-3.jpg"
                           alt="Blog"
@@ -387,12 +499,12 @@ function ServiceDetailsMain() {
                     </div>
                     <div className="media-body">
                       <h4 className="post-title">
-                        <Link className="text-inherit" to={`/${lang}/blog/1`}>
+                        <Link className="text-inherit" to="/blog/1">
                           Exploring The Green Spaces Of Realar Residence
                         </Link>
                       </h4>
                       <div className="recent-post-meta">
-                        <Link to={`/${lang}/blog`}>
+                        <Link to="/blog">
                           <i className="fa-regular fa-calendar" />
                           27/6/ 2025
                         </Link>
@@ -404,14 +516,14 @@ function ServiceDetailsMain() {
               <div className="widget widget_tag_cloud  ">
                 <h3 className="widget_title">Popular Tags</h3>
                 <div className="tagcloud">
-                  <Link to={`/${lang}/blog`}>Tour</Link>
-                  <Link to={`/${lang}/blog`}>Adventure</Link>
-                  <Link to={`/${lang}/blog`}>Rent</Link>
-                  <Link to={`/${lang}/blog`}>Innovate</Link>
-                  <Link to={`/${lang}/blog`}>Hotel</Link>
-                  <Link to={`/${lang}/blog`}>Modern</Link>
-                  <Link to={`/${lang}/blog`}>Luxury</Link>
-                  <Link to={`/${lang}/blog`}>Travel</Link>
+                  <Link to="/blog">Tour</Link>
+                  <Link to="/blog">Adventure</Link>
+                  <Link to="/blog">Rent</Link>
+                  <Link to="/blog">Innovate</Link>
+                  <Link to="/blog">Hotel</Link>
+                  <Link to="/blog">Modern</Link>
+                  <Link to="/blog">Luxury</Link>
+                  <Link to="/blog">Travel</Link>
                 </div>
               </div>
               <div
@@ -431,11 +543,11 @@ function ServiceDetailsMain() {
                     </div>
                     <div className="offer">
                       <h6 className="offer-title">You Get Online support</h6>
-                      <a className="offter-num" href="tel:+256214203215">
+                      <Link className="offter-num" to={+256214203215}>
                         +256 214 203 215
-                      </a>
+                      </Link>
                     </div>
-                    <Link to={`/${lang}/contact`} className="th-btn style2 th-icon">
+                    <Link to="/contact" className="th-btn style2 th-icon">
                       Read More
                     </Link>
                   </div>
