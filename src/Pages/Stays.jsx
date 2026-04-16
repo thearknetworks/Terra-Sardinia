@@ -25,7 +25,7 @@ const STAYS_CARDS = [
     id: "aquarius",
     villa: "Villa Verde",
     roomName: "Aquarius",
-    minStay: "2 Nights",
+    minStay: "2 nights",
     size: 20,
     beds: ["King Size", "Extra Bed"],
     guests: "Up to 2",
@@ -38,7 +38,7 @@ const STAYS_CARDS = [
     id: "aries",
     villa: "Villa Verde",
     roomName: "Aries",
-    minStay: "2 Nights",
+    minStay: "2 nights",
     size: 21,
     beds: ["King Size", "Twin Bed", "Extra Bed"],
     guests: "Up to 2",
@@ -58,7 +58,7 @@ const STAYS_CARDS = [
     id: "cancer",
     villa: "Villa Verde",
     roomName: "Cancer",
-    minStay: "2 Nights",
+    minStay: "2 nights",
     size: 15,
     beds: ["Double Bed"],
     guests: "Up to 2",
@@ -78,7 +78,7 @@ const STAYS_CARDS = [
     id: "virgo",
     villa: "Villa Verde",
     roomName: "Virgo",
-    minStay: "2 Nights",
+    minStay: "2 nights",
     size: 17,
     beds: ["King Size", "Single Bed", "Extra Bed"],
     guests: "Up to 3",
@@ -98,7 +98,7 @@ const STAYS_CARDS = [
     id: "sagittarius",
     villa: "Villa Verde",
     roomName: "Sagittarius",
-    minStay: "2 Nights",
+    minStay: "2 nights",
     size: 20,
     beds: ["King Size", "Sofa Bed", "Extra Bed"],
     guests: "Up to 3",
@@ -118,7 +118,7 @@ const STAYS_CARDS = [
     id: "villa-antares",
     villa: "Villa Antares",
     roomName: "Private Villa",
-    minStay: "6 Nights",
+    minStay: "6 nights",
     size: 150,
     beds: ["King Size", "Double Bed", "Single Bed", "Twin Bed", "Extra Bed"],
     guests: "Up to 10",
@@ -423,9 +423,29 @@ function Stays() {
                         <div className="tour-action">
                           <span>
                             <i className="fa-light fa-clock" />
-                            Min. Stay: {stay.minStay}
+                            <span
+                              className="d-none d-xl-inline"
+                              style={{
+                                color: "inherit",
+                                fontWeight: "inherit",
+                              }}
+                            >
+                              Min. Stay:{" "}
+                            </span>
+                            {stay.minStay}
                           </span>
-                          <span className="th-btn style4">View Details</span>
+                          <span className="th-btn style4">
+                            <span
+                              className="d-none d-sm-inline"
+                              style={{
+                                color: "inherit",
+                                fontWeight: "inherit",
+                              }}
+                            >
+                              View
+                            </span>
+                            Details
+                          </span>
                         </div>
                       </div>
                     </Link>
