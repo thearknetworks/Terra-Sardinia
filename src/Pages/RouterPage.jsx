@@ -24,6 +24,7 @@ import Tour from "./Tour";
 import TourDetails from "./TourDetails";
 import VillaVerde from "./VillaVerde";
 import VillaVerdeDetails from "./VillaVerdeDetails";
+import VillaAntares from "./VillaAntares";
 import TourGuide from "./TourGuide";
 import TourGuiderDetails from "./TourGuiderDetails";
 import Faq from "./Faq";
@@ -62,6 +63,7 @@ function RouterPage() {
             <Route path="tour" element={<Tour />} />
             <Route path="tour-details" element={<TourDetails />} />
             <Route path="villa-verde" element={<VillaVerde />} />
+            <Route path="villa-antares" element={<VillaAntares />} />
             <Route
               path="villa-verde/:room_name"
               element={<VillaVerdeDetails />}
