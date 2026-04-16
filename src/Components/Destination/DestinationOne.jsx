@@ -178,7 +178,7 @@ function DestinationOne() {
                     <img src={dest.image} alt={dest.name} />
                     <div className="destination-content">
                       <div className="media-left">
-                        <h4 className="box-title">{dest.name}</h4>
+                        <h4 className="box-title text-white">{dest.name}</h4>
                         <span className="destination-subtitle">
                           {dest.listings}
                         </span>
