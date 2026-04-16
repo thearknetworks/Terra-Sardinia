@@ -150,7 +150,7 @@ function PopularDestination() {
                                             <span>
                                                 <i className="fa-light fa-clock" /> {destination.duration}
                                             </span>
-                                            <Link to="/contact" className="th-btn style4">
+                                            <Link to="/booking" className="th-btn style4">
                                                 Book Now
                                             </Link>
                                         </div>

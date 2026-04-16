@@ -338,7 +338,7 @@ function HeaderFour() {
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
                     <Link
-                      to={`/${i18n.resolvedLanguage || "en"}/contact`}
+                      to="/booking"
                       className="th-btn style1 th-icon"
                     >
                       Book Now

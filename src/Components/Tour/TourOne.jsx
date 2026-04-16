@@ -65,7 +65,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -99,7 +99,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -133,7 +133,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -167,7 +167,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -201,7 +201,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -235,7 +235,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -269,7 +269,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>
@@ -303,7 +303,7 @@ function TourOne() {
                     <span>
                       <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to="/contact" className="th-btn style4 th-icon">
+                    <Link to="/booking" className="th-btn style4 th-icon">
                       Book Now
                     </Link>
                   </div>

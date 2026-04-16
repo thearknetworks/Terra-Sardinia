@@ -40,7 +40,7 @@ function DestinationTwo() {
                                         </h4>
                                         <span className="destination-subtitle">{item.listings} Listing</span>
                                     </div>
-                                    <Link to="/contact" className="th-btn style2">
+                                    <Link to="/booking" className="th-btn style2">
                                         Book Now
                                     </Link>
                                 </div>

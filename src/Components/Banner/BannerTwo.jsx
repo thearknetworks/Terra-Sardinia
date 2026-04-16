@@ -256,7 +256,7 @@ function BannerTwo() {
                 <span className="d-block">
                   <i className="fa-light fa-clock" />7 Days
                 </span>
-                <Link to="/destination/1" className="th-btn style2">
+                <Link to="/booking" className="th-btn style2">
                   Book Now
                 </Link>
               </div>
@@ -277,7 +277,7 @@ function BannerTwo() {
                 <span className="d-block">
                   <i className="fa-light fa-clock" />6 Days
                 </span>
-                <Link to="/destination/1" className="th-btn style2">
+                <Link to="/booking" className="th-btn style2">
                   Book Now
                 </Link>
               </div>
@@ -298,7 +298,7 @@ function BannerTwo() {
                 <span className="d-block">
                   <i className="fa-light fa-clock" />7 Days
                 </span>
-                <Link to="/destination/1" className="th-btn style2">
+                <Link to="/booking" className="th-btn style2">
                   Book Now
                 </Link>
               </div>

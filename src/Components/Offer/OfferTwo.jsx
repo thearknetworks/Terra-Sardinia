@@ -23,7 +23,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Photo Shoot</Link>
                                 </h3>
                                 <p className="destination-text">20 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -39,7 +39,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Tour Guide</Link>
                                 </h3>
                                 <p className="destination-text">22 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -55,7 +55,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Cozy Event</Link>
                                 </h3>
                                 <p className="destination-text">23 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -71,7 +71,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Interesting Rest</Link>
                                 </h3>
                                 <p className="destination-text">24 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -87,7 +87,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Kayaking</Link>
                                 </h3>
                                 <p className="destination-text">25 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -103,7 +103,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Safe Flight</Link>
                                 </h3>
                                 <p className="destination-text">26 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -119,7 +119,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Entertainment</Link>
                                 </h3>
                                 <p className="destination-text">27 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
@@ -135,7 +135,7 @@ function OfferTwo() {
                                     <Link to="/service/1">Delicisious Food</Link>
                                 </h3>
                                 <p className="destination-text">28 Listing</p>
-                                <Link to="/contact" className="th-btn style4 th-icon">
+                                <Link to="/booking" className="th-btn style4 th-icon">
                                     Book Now
                                 </Link>
                             </div>
