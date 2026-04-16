@@ -185,7 +185,11 @@ function Destination() {
       );
     }
     if (!activeCategory) {
-      return destinationCards;
+      return [...destinationCards].sort((a, b) =>
+        (a.title || "").localeCompare(b.title || "", undefined, {
+          sensitivity: "base",
+        }),
+      );
     }
     return destinationCards.filter(
       (destination) => destination.category === activeCategory,
