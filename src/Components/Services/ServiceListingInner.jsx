@@ -27,18 +27,8 @@ function ServiceListingInner() {
     <section className="space">
       <div className="container">
         <div className="th-sort-bar">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-md-4">
-              <div className="search-form-area">
-                <form className="search-form">
-                  <input type="text" placeholder="Search" />
-                  <button type="submit">
-                    <i className="fa-light fa-magnifying-glass" />
-                  </button>
-                </form>
-              </div>
-            </div>
-            <div className="col-md-auto">
+          <div className="row justify-content-end align-items-center">
+            <div className="col-auto">
               <div className="sorting-filter-wrap">
                 <div className="nav" role="tablist">
                   <Link
@@ -159,53 +149,6 @@ function ServiceListingInner() {
           </div>
           <div className="col-xxl-3 col-lg-4">
             <aside className="sidebar-area style2">
-              <div className="widget widget_categories  ">
-                <h3 className="widget_title">Categories</h3>
-                <ul>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      City Tour
-                    </Link>
-                    <span>(8)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Beach Tours
-                    </Link>
-                    <span>(6)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Wildlife Tours
-                    </Link>
-                    <span>(2)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      News &amp; Tips
-                    </Link>
-                    <span>(7)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Adventure Tours
-                    </Link>
-                    <span>(9)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Mountain Tours
-                    </Link>
-                    <span>(10)</span>
-                  </li>
-                </ul>
-              </div>
               <div className="widget  ">
                 <h3 className="widget_title">Recent Posts</h3>
                 <div className="recent-post-wrap">
