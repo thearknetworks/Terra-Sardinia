@@ -299,7 +299,7 @@ export const roomMediaBySlug = {
   aquarius: {
     topImage: "/assets/img/villaVerde/Aquarius%20Image%201.png",
     gallery: [
-      "/assets/img/villaVerde/gallery/AQUARIUS%20Gallery%201%20Destination%20Detail-13.png",
+      "/assets/img/destination/Gallery%202%20Destination%20Detail-1-18.png",
       "/assets/img/villaVerde/gallery/AQUARIUS%20Gallery%202%20Destination%20Detail-13.png",
       "/assets/img/villaVerde/gallery/AQUARIUS%20Gallery%201%20Destination%20Detail-1-12.png",
       "/assets/img/villaVerde/gallery/AQUARIUS%20Gallery%202%20Destination%20Detail-1-12.png",
