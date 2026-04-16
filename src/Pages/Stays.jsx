@@ -281,6 +281,7 @@ function Stays() {
                     className="th-btn style4 stays-reset-btn"
                     onClick={resetFilters}
                   >
+                    <i className="fa-light fa-xmark" />
                     Clear Filter
                   </button>
                 ) : null}
