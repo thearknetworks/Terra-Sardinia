@@ -32,6 +32,17 @@ function GalleryInner() {
     "/assets/img/gallery/Untitled-1_1352 x 720 Image 5.png",
     "/assets/img/gallery/Untitled-1_1352 x 720 Image 6 .png",
     "/assets/img/gallery/Untitled-1_1352 x 720 Image 6  copy.png",
+    "/assets/img/gallery/297799879.jpg",
+    "/assets/img/gallery/297799881.jpg",
+    "/assets/img/gallery/297799882.jpg",
+    "/assets/img/gallery/297799889.jpg",
+    "/assets/img/gallery/297799892.jpg",
+    "/assets/img/gallery/297799895.jpg",
+    "/assets/img/gallery/297800410.jpg",
+    "/assets/img/gallery/326794171.jpg",
+    "/assets/img/gallery/326794839.jpg",
+    "/assets/img/gallery/851750551.jpg",
+    "/assets/img/gallery/851750802.jpg",
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);

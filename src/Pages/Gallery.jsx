@@ -11,6 +11,7 @@ function Gallery() {
             <HeaderOne />
             <Breadcrumb
                 title="Gallery"
+                bgImage="/assets/img/gallery/gallery_banner.png"
             />
             <GalleryInner />
             <Footer />

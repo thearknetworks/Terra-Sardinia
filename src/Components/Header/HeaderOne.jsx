@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import NiceSelect from "./NiceSelect";
 import MobileMenu from "./MobileMenu";
 import LoginForm from "./LoginForm";
+import SideMenu from "./SideMenu";
 
 function HeaderOne() {
   const { t, i18n } = useTranslation();
@@ -36,6 +37,7 @@ function HeaderOne() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoginFormOpen, setIsLoginFormOpen] = useState(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,7 +83,7 @@ function HeaderOne() {
 
                   <div className="header-links">
                     <ul>
-                      <li className="d-none d-lg-inline-block">
+                      <li className="d-none d-md-inline-block">
                         <Link to="/faq">FAQ</Link>
                       </li>
                       {/* <li className="d-none d-md-inline-block">
@@ -166,6 +168,9 @@ function HeaderOne() {
                         <Link to="/">Gallery</Link>
                       </li>
                       <li>
+                        <Link to="/">FAQ</Link>
+                      </li>
+                      <li>
                         <Link to="/">Contact</Link>
                       </li>
 
@@ -198,6 +203,13 @@ function HeaderOne() {
                     >
                       Book Now
                     </Link>
+                    <button
+                      type="button"
+                      className="simple-btn sideMenuToggler"
+                      onClick={() => setIsSideMenuOpen(true)}
+                    >
+                      <img src="/assets/img/icon/menu.svg" alt="Open side menu" />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -219,6 +231,10 @@ function HeaderOne() {
       <LoginForm
         isOpen={isLoginFormOpen}
         onClose={() => setIsLoginFormOpen(false)}
+      />
+      <SideMenu
+        isOpen={isSideMenuOpen}
+        onClose={() => setIsSideMenuOpen(false)}
       />
     </>
   );
