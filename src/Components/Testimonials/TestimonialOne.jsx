@@ -40,6 +40,7 @@ function TestimonialOne() {
                   <div className="testi-card_wrapper">
                     <div className="testi-card_profile">
                       <div className="testi-card_avater">
+                        <img src={item.avatar} alt={item.name} />
                       </div>
                       <div className="media-body">
                         <h3 className="box-title">{item.name}</h3>
