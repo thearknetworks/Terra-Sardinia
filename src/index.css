@@ -92,6 +92,51 @@
   border-radius: 14px;
 }
 
+/* Image lightbox modal (Gallery/Details/etc.): fit image, no internal scroll */
+.modal-overlay {
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  overflow: hidden !important;
+}
+
+.modal-content {
+  position: relative;
+  max-height: none !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image {
+  width: auto !important;
+  height: auto !important;
+  max-width: min(92vw, 1200px) !important;
+  max-height: 92vh !important;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-content .close-btn {
+  top: 12px;
+  right: 12px;
+  left: auto;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .modal-overlay {
+    padding: 12px !important;
+  }
+
+  .modal-image {
+    max-width: 94vw !important;
+    max-height: 94vh !important;
+  }
+}
+
 @media (max-width: 767px) {
   .destination-categories-section {
     padding: 20px 0 4px;
