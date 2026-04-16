@@ -360,14 +360,6 @@ function ServiceDetailsMain() {
           </div>
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget widget_search  ">
-                <form className="search-form">
-                  <input type="text" placeholder="Search" />
-                  <button type="submit">
-                    <i className="far fa-search" />
-                  </button>
-                </form>
-              </div>
               <div className="widget widget_categories  ">
                 <h3 className="widget_title">Categories</h3>
                 <ul>
