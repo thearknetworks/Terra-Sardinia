@@ -7,10 +7,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Thumbs } from "swiper/modules";
 
 const sliderImages = [
-  "/assets/img/destination/Image%201%20Destination%20Detail.png",
-  "/assets/img/destination/Image%202%20Destination%20Detail-2.png",
-  "/assets/img/destination/Gallery%201%20Destination%20Detail.png",
-  "/assets/img/destination/Gallery%202%20Destination%20Detail.png",
+  "/assets/img/tour/tour_inner_2_1.jpg",
+  "/assets/img/tour/tour_inner_2_2.jpg",
+  "/assets/img/tour/tour_inner_2_3.jpg",
+  "/assets/img/tour/tour_inner_2_4.jpg",
+];
+
+const bannerImage = "/assets/img/villaAntres/Antares%20Banner%20Image.png";
+
+const galleryImages = [
+  "/assets/img/villaAntres/Antares%20Gallery%202%20%28a%29.png",
+  "/assets/img/villaAntres/Antares%20Gallery%201.png",
+  "/assets/img/villaAntres/Antares%20Gallery%202.png",
+  "/assets/img/villaAntres/Gallery%201%20%28a%29.png",
 ];
 
 const highlights = [
@@ -45,8 +54,8 @@ const highlights = [
 ];
 
 const selectedRoomMedia = {
-  topImage: sliderImages[0],
-  gallery: sliderImages,
+  topImage: bannerImage,
+  gallery: galleryImages,
 };
 
 const selectedRoomContent = {
@@ -97,11 +106,7 @@ function VillaAntaresInner() {
   const renderGalleryBox = (imagePath) => (
     <div className="gallery-box style3 staggered-gallery-box">
       <div className="gallery-img global-img">
-        <img
-          src={imagePath}
-          alt="gallery"
-          onClick={openModal(imagePath)}
-        />
+        <img src={imagePath} alt="gallery" onClick={openModal(imagePath)} />
         <Link
           to={imagePath}
           className="icon-btn popup-image"
@@ -182,7 +187,9 @@ function VillaAntaresInner() {
               </div>
 
               <div className="page-content d-block">
-                <h2 className="box-title mt-20">{selectedRoomContent.header}</h2>
+                <h2 className="box-title mt-20">
+                  {selectedRoomContent.header}
+                </h2>
                 <p className="blog-text mb-30">{selectedRoomContent.body}</p>
 
                 <h4 className="">{selectedRoomContent.secondHeader}</h4>
@@ -195,10 +202,7 @@ function VillaAntaresInner() {
                   {selectedRoomContent.highlights.map((highlight) => (
                     <li key={highlight.name}>
                       <div className="resort-grid-list-icon">
-                        <img
-                          src={highlight.icon}
-                          alt={highlight.name}
-                        />
+                        <img src={highlight.icon} alt={highlight.name} />
                       </div>
                       <div className="resort-grid-list-details">
                         <h4 className="resort-grid-list-title">
@@ -285,10 +289,7 @@ function VillaAntaresInner() {
                   <div className="recent-post">
                     <div className="media-img">
                       <Link to={`/${currentLang}/villa-antares`}>
-                        <img
-                          src={sliderImages[0]}
-                          alt="Villa Antares"
-                        />
+                        <img src={bannerImage} alt="Villa Antares" />
                       </Link>
                     </div>
                     <div className="media-body">
@@ -464,7 +465,9 @@ function VillaAntaresInner() {
               <section>
                 <h5>Check-in</h5>
                 <p>From 3:30 PM to 12:30 AM</p>
-                <p>Please let the property know your arrival time in advance.</p>
+                <p>
+                  Please let the property know your arrival time in advance.
+                </p>
               </section>
               <section>
                 <h5>Check-out</h5>
@@ -483,7 +486,9 @@ function VillaAntaresInner() {
               </section>
               <section>
                 <h5>Pets</h5>
-                <p>Pets are allowed on request. Additional charges may apply.</p>
+                <p>
+                  Pets are allowed on request. Additional charges may apply.
+                </p>
               </section>
               <section>
                 <h5>Payment</h5>

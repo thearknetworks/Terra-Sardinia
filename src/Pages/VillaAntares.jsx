@@ -19,7 +19,7 @@ function VillaAntares() {
       <HeaderOne />
       <Breadcrumb
         title="Villa Antares"
-        bgImage="/assets/img/destination/Top%20Banner%20Image.png"
+        bgImage="/assets/img/villaAntres/Antares%20Banner%20Image.png"
         breadcrumbItems={breadcrumbItems}
       />
       <VillaAntaresMain />
