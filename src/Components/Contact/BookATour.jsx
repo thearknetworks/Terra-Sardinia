@@ -30,29 +30,20 @@ function BookATour() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact-request", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/send-terrasardenia-contact-request-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: trimmedEmail,
+            message: message.trim(),
+          }),
         },
-        body: JSON.stringify({
-          from_email: "admin@thearknetworks.com",
-          to_email: "info.terrasardinia@gmail.com",
-          subject: "New Contact Request",
-          user_email: trimmedEmail,
-          user_message: message.trim(),
-          body: `A new guest has reached out through the website.
-
-Contact Email: ${trimmedEmail}
-Message: ${message.trim()}
-
-They are interested in planning a stay.
-Please follow up directly to assist them.
-
-Regards, 
-Terra Sardenia`,
-        }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to send request");
@@ -150,7 +141,16 @@ Terra Sardenia`,
                     <img src="assets/img/icon/chat.svg" alt="" />
                   </div>
                   <div className="form-btn col-12 mt-24">
-                    <button type="submit" className="th-btn style3">
+                    <button
+                      type="submit"
+                      className="th-btn style3"
+                      disabled={
+                        isSubmitting ||
+                        !name.trim() ||
+                        !email.trim() ||
+                        !message.trim()
+                      }
+                    >
                       {isSubmitting ? "Sending..." : "Send message"}
                       <img src="/assets/img/icon/plane.svg" alt="" />
                     </button>

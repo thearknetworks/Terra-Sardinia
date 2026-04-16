@@ -4,6 +4,10 @@
   transition: all 0.4s linear;
 }
 
+* {
+  user-select: none !important;
+}
+
 .destination-item:hover .destination-item_img.global-img:after {
   height: 100%;
   opacity: 0;

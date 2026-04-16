@@ -51,7 +51,7 @@ function Footer() {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/send-terrasardenia-email-footer`,
+        `${process.env.REACT_APP_BACKEND_URL}/send-terrasardenia-email-footer`,
         {
           method: "POST",
           headers: {
