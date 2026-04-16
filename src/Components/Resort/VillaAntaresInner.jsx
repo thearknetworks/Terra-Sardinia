@@ -413,7 +413,7 @@ function VillaAntaresInner() {
                       alt="Cancellation"
                     />
                     <div>
-                      <p>Cancellation</p>
+                      <p>House Rules</p>
                       <button
                         type="button"
                         className="resort-details-widget__learn-more"
