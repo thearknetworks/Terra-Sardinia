@@ -36,11 +36,14 @@ function GalleryInner() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const [modalIndex, setModalIndex] = useState(0);
 
   // Function to open the modal with the selected image
   const openModal = (imageSrc, event) => {
     event.preventDefault(); // Prevent default link behavior
     setModalImage(imageSrc);
+    const index = galleryImages.indexOf(imageSrc);
+    setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
@@ -82,6 +85,8 @@ function GalleryInner() {
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
+        images={galleryImages}
+        initialIndex={modalIndex}
       />
     </div>
   );

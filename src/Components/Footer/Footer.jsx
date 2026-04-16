@@ -6,6 +6,15 @@ function Footer() {
   const { lang = "en" } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const footerGalleryImages = [
+    "/assets/img/footer/Footer%20Image-63.png",
+    "/assets/img/footer/Footer%20Image-64.png",
+    "/assets/img/footer/Footer%20Image-65.png",
+    "/assets/img/footer/Footer%20Image-66.png",
+    "/assets/img/footer/Footer%20Image-67.png",
+    "/assets/img/footer/Footer%20Image-69.png",
+  ];
+  const [modalIndex, setModalIndex] = useState(0);
   const [requestEmail, setRequestEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [submitError, setSubmitError] = useState("");
@@ -15,6 +24,8 @@ function Footer() {
   const openModal = (imageSrc, event) => {
     event.preventDefault();
     setModalImage(imageSrc);
+    const index = footerGalleryImages.indexOf(imageSrc);
+    setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
@@ -296,12 +307,7 @@ Terra Sardenia`,
                 <h3 className="widget_title">From Sardenia with Love</h3>
                 <div className="sidebar-gallery">
                   {[
-                    "/assets/img/footer/Footer%20Image-63.png",
-                    "/assets/img/footer/Footer%20Image-64.png",
-                    "/assets/img/footer/Footer%20Image-65.png",
-                    "/assets/img/footer/Footer%20Image-66.png",
-                    "/assets/img/footer/Footer%20Image-67.png",
-                    "/assets/img/footer/Footer%20Image-69.png",
+                    ...footerGalleryImages,
                   ].map((imageSrc) => (
                     <div className="gallery-thumb" key={imageSrc}>
                       <img
@@ -364,6 +370,8 @@ Terra Sardenia`,
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
+        images={footerGalleryImages}
+        initialIndex={modalIndex}
       />
     </footer>
   );

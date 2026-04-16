@@ -5,11 +5,22 @@ import { Link } from 'react-router-dom';
 function GalleryTwo() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState('');
+    const galleryImages = [
+        "/assets/img/gallery/gallery_2_1.jpg",
+        "/assets/img/gallery/gallery_2_2.jpg",
+        "/assets/img/gallery/gallery_2_3.jpg",
+        "/assets/img/gallery/gallery_2_4.jpg",
+        "/assets/img/gallery/gallery_2_5.jpg",
+        "/assets/img/gallery/gallery_2_6.jpg",
+    ];
+    const [modalIndex, setModalIndex] = useState(0);
 
     // Function to open the modal with the selected image
     const openModal = (imageSrc, event) => {
         event.preventDefault(); // Prevent default link behavior
         setModalImage(imageSrc);
+        const index = galleryImages.indexOf(imageSrc);
+        setModalIndex(index >= 0 ? index : 0);
         setIsModalOpen(true);
     };
 
@@ -188,7 +199,13 @@ function GalleryTwo() {
                     <img src="/assets/img/shape/shape_2_4.png" alt="shape" />
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} closeModal={closeModal} imageSrc={modalImage} />
+            <Modal
+                isOpen={isModalOpen}
+                closeModal={closeModal}
+                imageSrc={modalImage}
+                images={galleryImages}
+                initialIndex={modalIndex}
+            />
         </div>
 
     )

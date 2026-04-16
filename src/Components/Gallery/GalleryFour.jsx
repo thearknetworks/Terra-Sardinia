@@ -5,11 +5,24 @@ import { Link } from 'react-router-dom';
 function GalleryFour() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState('');
+    const galleryImages = [
+        "/assets/img/gallery/gallery_8_1.jpg",
+        "/assets/img/gallery/gallery_8_2.jpg",
+        "/assets/img/gallery/gallery_8_3.jpg",
+        "/assets/img/gallery/gallery_8_4.jpg",
+        "/assets/img/gallery/gallery_8_5.jpg",
+        "/assets/img/gallery/gallery_8_6.jpg",
+        "/assets/img/gallery/gallery_8_7.jpg",
+        "/assets/img/gallery/gallery_8_8.jpg",
+    ];
+    const [modalIndex, setModalIndex] = useState(0);
 
     // Function to open the modal with the selected image
     const openModal = (imageSrc, event) => {
         event.preventDefault(); // Prevent default link behavior
         setModalImage(imageSrc);
+        const index = galleryImages.indexOf(imageSrc);
+        setModalIndex(index >= 0 ? index : 0);
         setIsModalOpen(true);
     };
 
@@ -148,7 +161,13 @@ function GalleryFour() {
                     </div>
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} closeModal={closeModal} imageSrc={modalImage} />
+            <Modal
+                isOpen={isModalOpen}
+                closeModal={closeModal}
+                imageSrc={modalImage}
+                images={galleryImages}
+                initialIndex={modalIndex}
+            />
         </div>
     )
 }

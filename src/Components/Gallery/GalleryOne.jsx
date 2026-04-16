@@ -3,13 +3,25 @@ import Modal from "./Modal";
 import { Link } from "react-router-dom";
 
 function GalleryOne() {
+  const galleryImages = [
+    "/assets/img/gallery/Home Gallery Component_742x696 Image 1.png",
+    "/assets/img/gallery/Home Gallery Component_743x575 Image 1.png",
+    "/assets/img/gallery/Home Gallery Component_743x575 Image 2.png",
+    "/assets/img/gallery/Home Gallery Component_743x1200 Image 1.png",
+    "/assets/img/gallery/Home Gallery Component_743x575 Image 3.png",
+    "/assets/img/gallery/Home Gallery Component_743x575 Image 4.png",
+    "/assets/img/gallery/Home Gallery Component_742x696 Image 2.png",
+  ];
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const [modalIndex, setModalIndex] = useState(0);
 
   // Function to open the modal with the selected image
   const openModal = (imageSrc, event) => {
     event.preventDefault(); // Prevent default link behavior
     setModalImage(imageSrc);
+    const index = galleryImages.indexOf(imageSrc);
+    setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
@@ -260,6 +272,8 @@ function GalleryOne() {
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
+        images={galleryImages}
+        initialIndex={modalIndex}
       />
     </div>
   );

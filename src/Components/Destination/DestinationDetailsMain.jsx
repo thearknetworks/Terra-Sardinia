@@ -1005,6 +1005,7 @@ const DEFAULT_DESTINATION_GALLERY = [
 function DestinationDetailsMain() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const [modalIndex, setModalIndex] = useState(0);
   const { slug, lang } = useParams();
   const numericId = Number(slug);
   const destinationPost = Number.isNaN(numericId)
@@ -1035,6 +1036,8 @@ function DestinationDetailsMain() {
   const openModal = (imageSrc, event) => {
     event.preventDefault();
     setModalImage(imageSrc);
+    const index = galleryImages.indexOf(imageSrc);
+    setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
@@ -1437,6 +1440,8 @@ function DestinationDetailsMain() {
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
+        images={galleryImages}
+        initialIndex={modalIndex}
       />
     </section>
   );

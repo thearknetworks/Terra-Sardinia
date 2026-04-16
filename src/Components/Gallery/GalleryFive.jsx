@@ -10,10 +10,20 @@ import "swiper/css/pagination";
 function GalleryFive() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState("");
+    const galleryImages = [
+        "/assets/img/gallery/gallery_4_1.jpg",
+        "/assets/img/gallery/gallery_4_2.jpg",
+        "/assets/img/gallery/gallery_4_3.jpg",
+        "/assets/img/gallery/gallery_4_4.jpg",
+        "/assets/img/gallery/gallery_4_5.jpg",
+    ];
+    const [modalIndex, setModalIndex] = useState(0);
 
     const openModal = (imageSrc, event) => {
         event.preventDefault();
         setModalImage(imageSrc);
+        const index = galleryImages.indexOf(imageSrc);
+        setModalIndex(index >= 0 ? index : 0);
         setIsModalOpen(true);
     };
 
@@ -207,7 +217,13 @@ function GalleryFive() {
                     </Swiper>
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} closeModal={closeModal} imageSrc={modalImage} />
+            <Modal
+                isOpen={isModalOpen}
+                closeModal={closeModal}
+                imageSrc={modalImage}
+                images={galleryImages}
+                initialIndex={modalIndex}
+            />
         </div>
     );
 }

@@ -7,6 +7,13 @@ function ServiceDetailsMain() {
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const [modalIndex, setModalIndex] = useState(0);
+  const galleryImages = [
+    "/assets/img/gallery/gallery_6_1.jpg",
+    "/assets/img/gallery/gallery_6_2.jpg",
+    "/assets/img/gallery/gallery_6_3.jpg",
+    "/assets/img/gallery/gallery_6_4.jpg",
+  ];
 
   const servicePost = Posts.find((post) => post.id === parseInt(id));
 
@@ -18,6 +25,8 @@ function ServiceDetailsMain() {
   const openModal = (imageSrc, event) => {
     event.preventDefault(); // Prevent default link behavior
     setModalImage(imageSrc);
+    const index = galleryImages.indexOf(imageSrc);
+    setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
@@ -570,6 +579,8 @@ function ServiceDetailsMain() {
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
+        images={galleryImages}
+        initialIndex={modalIndex}
       />
     </section>
   );

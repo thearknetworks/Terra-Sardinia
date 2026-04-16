@@ -60,6 +60,7 @@ function VillaVerdeDetailsInner() {
   const { room_name, lang } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const [modalIndex, setModalIndex] = useState(0);
   const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
   const currentLang = lang || "en";
   const detailsConfig = ROOM_DETAILS_BY_SLUG[room_name];
@@ -81,6 +82,8 @@ function VillaVerdeDetailsInner() {
   const openModal = (imageSrc) => (e) => {
     e.preventDefault();
     setModalImage(imageSrc);
+    const index = selectedRoomMedia.gallery.indexOf(imageSrc);
+    setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
@@ -369,6 +372,8 @@ function VillaVerdeDetailsInner() {
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
+        images={selectedRoomMedia.gallery}
+        initialIndex={modalIndex}
       />
       {isRulesModalOpen ? (
         <div
