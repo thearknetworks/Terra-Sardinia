@@ -212,7 +212,7 @@ function Footer() {
                       <Link to={`/${lang}/faqs`}>Faqs</Link>
                     </li>
                     <li>
-                      <Link to={`/${lang}/ferry`}>Ferry</Link>
+                      <Link to={`/${lang}/services/ferry`}>Ferry</Link>
                     </li>
                   </ul>
                 </div>

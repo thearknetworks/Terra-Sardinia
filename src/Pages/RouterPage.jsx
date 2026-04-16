@@ -49,7 +49,10 @@ function RouterPage() {
         <LoadTop />
         <Routes>
           <Route path="/" element={<RootRedirect />} />
-          <Route path="/booking" element={<Navigate to="/en/booking" replace />} />
+          <Route
+            path="/booking"
+            element={<Navigate to="/en/booking" replace />}
+          />
           <Route path="/faq" element={<Navigate to="/en/faqs" replace />} />
           <Route path="/faqs" element={<Navigate to="/en/faqs" replace />} />
           <Route path="/:lang" element={<LanguageWrapper />}>
@@ -88,7 +91,7 @@ function RouterPage() {
             <Route path="blog/:id" element={<BlogDetails />} />
             <Route path="contact" element={<Contact />} />
             <Route path="stays" element={<Stays />} />
-            <Route path="ferry" element={<Ferry />} />
+            <Route path="services/ferry" element={<Ferry />} />
             <Route path="booking" element={<Booking />} />
           </Route>
         </Routes>

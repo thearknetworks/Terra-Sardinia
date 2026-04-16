@@ -103,8 +103,24 @@ const Modal = ({ isOpen, closeModal, imageSrc, images, initialIndex = 0 }) => {
         className={`modal-content ${visible ? "active" : ""}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-btn" onClick={closeModal}>
-          ×
+        <button
+          className="close-btn"
+          onClick={closeModal}
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.20)",
+            borderRadius: "50%",
+            width: "50px",
+            height: "50px",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 0,
+            border: "none",
+          }}
+        >
+          <span style={{ transform: "translateY(-2px)", lineHeight: 1 }}>
+            ×
+          </span>
         </button>
         {hasMultiple && (
           <>
@@ -113,6 +129,17 @@ const Modal = ({ isOpen, closeModal, imageSrc, images, initialIndex = 0 }) => {
               className="modal-nav modal-nav--prev"
               onClick={goPrev}
               aria-label="Previous image"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.20)",
+                borderRadius: "50%",
+                width: "50px",
+                height: "50px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 0,
+                border: "none",
+              }}
             >
               <i className="fa-light fa-chevron-left" />
             </button>
@@ -121,6 +148,17 @@ const Modal = ({ isOpen, closeModal, imageSrc, images, initialIndex = 0 }) => {
               className="modal-nav modal-nav--next"
               onClick={goNext}
               aria-label="Next image"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.20)",
+                borderRadius: "50%",
+                width: "50px",
+                height: "50px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 0,
+                border: "none",
+              }}
             >
               <i className="fa-light fa-chevron-right" />
             </button>
