@@ -7,10 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Thumbs } from "swiper/modules";
 
 const sliderImages = [
-  "/assets/img/tour/tour_inner_2_1.jpg",
-  "/assets/img/tour/tour_inner_2_2.jpg",
-  "/assets/img/tour/tour_inner_2_3.jpg",
-  "/assets/img/tour/tour_inner_2_4.jpg",
+  "/assets/img/destination/Image%201%20Destination%20Detail.png",
+  "/assets/img/destination/Image%202%20Destination%20Detail-2.png",
+  "/assets/img/destination/Gallery%201%20Destination%20Detail.png",
+  "/assets/img/destination/Gallery%202%20Destination%20Detail.png",
 ];
 
 const bannerImage = "/assets/img/villaAntres/Antares%20Banner%20Image.png";

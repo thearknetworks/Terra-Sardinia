@@ -5,10 +5,10 @@ import { Navigation, Thumbs, EffectFade } from "swiper/modules";
 
 function ActivitiesDetailsMain() {
   const images = [
-    "/assets/img/tour/tour_inner_2_1.jpg",
-    "/assets/img/tour/tour_inner_2_2.jpg",
-    "/assets/img/tour/tour_inner_2_3.jpg",
-    "/assets/img/tour/tour_inner_2_4.jpg",
+    "/assets/img/destination/Image%201%20Destination%20Detail.png",
+    "/assets/img/destination/Image%202%20Destination%20Detail-2.png",
+    "/assets/img/destination/Gallery%201%20Destination%20Detail.png",
+    "/assets/img/destination/Gallery%202%20Destination%20Detail.png",
   ];
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
