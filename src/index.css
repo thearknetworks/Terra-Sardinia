@@ -398,6 +398,51 @@
   letter-spacing: 0.04em;
 }
 
+.stays-reset-btn {
+  min-width: 160px;
+}
+
+.stays-filter-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+}
+
+.stays-filter-btn.active {
+  color: var(--theme-color);
+  font-weight: 600;
+}
+
+.stays-amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.stays-filter-chip {
+  border: 1px solid #d9e1e6;
+  background: #fff;
+  border-radius: 999px;
+  color: #4d6070;
+  font-size: 13px;
+  line-height: 1.3;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.stays-filter-chip.active {
+  border-color: #16add6;
+  color: #16add6;
+  font-weight: 600;
+}
+
 /* Mobile/tablet header spacing and alignment */
 @media (max-width: 1199px) {
   .header-layout1 .sticky-wrapper .menu-area {
