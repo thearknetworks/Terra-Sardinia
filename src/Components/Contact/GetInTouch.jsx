@@ -5,25 +5,25 @@ function GetInTouch() {
     <div className="space">
       <div className="container">
         <div className="title-area text-center">
-          <span className="sub-title">Get In Touch</span>
-          <h2 className="sec-title">Our Contact Information</h2>
+          <span className="sub-title">We’re Here for You</span>
+          <h2 className="sec-title">Create a Stay to Remember</h2>
         </div>
 
-        <div className="row gy-4 justify-content-center">
+        <div className="row gy-4 align-right">
           <div className="col-xl-4 col-lg-6">
             <div className="about-contact-grid style2">
               <div className="about-contact-icon">
                 <img src="/assets/img/icon/location-dot2.svg" alt="" />
               </div>
               <div className="about-contact-details">
-                <h6 className="box-title">Our Address</h6>
+                <h6 className="box-title">Our Addresses</h6>
                 <p className="about-contact-details-text">
                   <a
                     href="https://maps.app.goo.gl/r19TGvnjhd1ZYzP7A"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Villa Verde, Via dell'acquario 51, Torre delle Stelle
+                    Villa Verde
                   </a>
                 </p>
                 <p className="about-contact-details-text">
@@ -32,13 +32,26 @@ function GetInTouch() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Villa Antares, Via dei Pesci 65, Torre delle Stelle
+                    Villa Antares
                   </a>
                 </p>
               </div>
             </div>
           </div>
 
+          <div className="col-xl-4 col-lg-6">
+            <div className="about-contact-grid">
+              <div className="about-contact-icon">
+                <img src="/assets/img/icon/call.svg" alt="" />
+              </div>
+              <div className="about-contact-details">
+                <h6 className="box-title">Phone Number</h6>
+                <p className="about-contact-details-text">
+                  <a href="tel:+393924915855">+39 3924915855</a>
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="col-xl-4 col-lg-6">
             <div className="about-contact-grid">
               <div className="about-contact-icon">
