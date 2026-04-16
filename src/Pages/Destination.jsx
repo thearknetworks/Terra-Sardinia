@@ -12,7 +12,7 @@ const destinationCards = [
     id: "genne-mari",
     title: "Genn’e Mari",
     item: "Crystal Waters",
-    image: "/assets/img/destination/genne-mari-cover.png",
+    image: "/assets/img/destination/covers/genne-mari-cover.png",
     category: "Beaches",
     keywords: ["Beach", "Relaxation", "Nature"],
   },
@@ -20,7 +20,7 @@ const destinationCards = [
     id: "canne-sisa",
     title: "Cann’e Sisa",
     item: "Quiet Shores",
-    image: "/assets/img/destination/canne-sisa-cover.png",
+    image: "/assets/img/destination/covers/canne-sisa-cover.png",
     category: "Beaches",
     keywords: ["Beach", "Relaxation", "Nature"],
   },
@@ -28,7 +28,7 @@ const destinationCards = [
     id: "porto-giunco",
     title: "Porto Giunco",
     item: "Iconic Beach",
-    image: "/assets/img/destination/porto-giunco-cover.png",
+    image: "/assets/img/destination/covers/porto-giunco-cover.png",
     category: "Beaches",
     keywords: ["Beach", "Relaxation", "Nature"],
   },
@@ -36,7 +36,7 @@ const destinationCards = [
     id: "cala-delfino",
     title: "Cala Delfino",
     item: "Hidden Cove",
-    image: "/assets/img/destination/cala-delfino-cover.png",
+    image: "/assets/img/destination/covers/cala-delfino-cover.png",
     category: "Beaches",
     keywords: ["Beach", "Relaxation", "Nature"],
   },
@@ -44,7 +44,7 @@ const destinationCards = [
     id: "cagliari",
     title: "Cagliari",
     item: "Historic City",
-    image: "/assets/img/destination/cagliari-cover.png",
+    image: "/assets/img/destination/covers/cagliari-cover.png",
     category: "Landmarks",
     keywords: ["Culture", "Historic", "Scenic"],
   },
@@ -52,7 +52,7 @@ const destinationCards = [
     id: "saint-remy",
     title: "Saint Remy",
     item: "Historic Bastion",
-    image: "/assets/img/destination/saint-remy-cover.png",
+    image: "/assets/img/destination/covers/saint-remy-cover.png",
     category: "Landmarks",
     keywords: ["Culture", "Historic", "Scenic"],
   },
@@ -60,7 +60,7 @@ const destinationCards = [
     id: "torre-delle-stelle-tower",
     title: "The Tower",
     item: "Coastal Landmark",
-    image: "/assets/img/destination/torre-delle-stelle-tower-cover.png",
+    image: "/assets/img/destination/covers/torre-delle-stelle-tower-cover.png",
     category: "Landmarks",
     keywords: ["Culture", "Historic", "Scenic"],
   },
@@ -68,7 +68,7 @@ const destinationCards = [
     id: "andycoc",
     title: "Andycoc",
     item: "Beach Dining",
-    image: "/assets/img/destination/andycoc-cover.png",
+    image: "/assets/img/destination/covers/andycoc-cover.png",
     category: "Dining",
     keywords: ["Restaurant", "Seafood", "Beach"],
   },
@@ -76,7 +76,7 @@ const destinationCards = [
     id: "aquarium",
     title: "Aquarium",
     item: "Garden Dining",
-    image: "/assets/img/destination/aquarium-cover.png",
+    image: "/assets/img/destination/covers/aquarium-cover.png",
     category: "Dining",
     keywords: ["Restaurant", "Garden", "Local"],
   },
@@ -84,7 +84,7 @@ const destinationCards = [
     id: "mosaico",
     title: "Mosaico",
     item: "Refined Dining",
-    image: "/assets/img/destination/mosaico-cover.png",
+    image: "/assets/img/destination/covers/mosaico-cover.png",
     category: "Dining",
     keywords: ["Restaurant", "Wine", "Seafood"],
   },
@@ -92,7 +92,7 @@ const destinationCards = [
     id: "istellas-club",
     title: "Istellas Club",
     item: "Beach Club",
-    image: "/assets/img/destination/istellas-club-cover.png",
+    image: "/assets/img/destination/covers/istellas-club-cover.png",
     category: "Dining",
     keywords: ["Beach", "Relaxation", "Scenic"],
   },
@@ -100,7 +100,7 @@ const destinationCards = [
     id: "centro-palmira",
     title: "Palmira",
     item: "Local Hub",
-    image: "/assets/img/destination/centro-palmira-cover.png",
+    image: "/assets/img/destination/covers/centro-palmira-cover.png",
     category: "Hubs",
     keywords: ["Shopping", "Essentials", "Local"],
   },
@@ -108,7 +108,7 @@ const destinationCards = [
     id: "cafe-do-mar",
     title: "Café do Mar",
     item: "Sunset Spot",
-    image: "/assets/img/destination/cafe-do-mar-cover.png",
+    image: "/assets/img/destination/covers/cafe-do-mar-cover.png",
     category: "Hubs",
     keywords: ["Restaurant", "Beach", "Relaxation"],
   },
@@ -178,21 +178,18 @@ function Destination() {
     setSearchParams(nextParams);
   };
 
-  const filteredDestinations = useMemo(
-    () => {
-      if (selectedKeyword) {
-        return destinationCards.filter((destination) =>
-          (destination.keywords || []).some(
-            (keyword) => keyword.toLowerCase() === selectedKeyword,
-          ),
-        );
-      }
-      return destinationCards.filter(
-        (destination) => destination.category === activeCategory,
+  const filteredDestinations = useMemo(() => {
+    if (selectedKeyword) {
+      return destinationCards.filter((destination) =>
+        (destination.keywords || []).some(
+          (keyword) => keyword.toLowerCase() === selectedKeyword,
+        ),
       );
-    },
-    [activeCategory, selectedKeyword],
-  );
+    }
+    return destinationCards.filter(
+      (destination) => destination.category === activeCategory,
+    );
+  }, [activeCategory, selectedKeyword]);
 
   return (
     <div>
@@ -217,7 +214,7 @@ function Destination() {
                   key={category.name}
                   className={`nav-link th-btn ${activeCategory === category.name ? "active" : ""}`}
                   type="button"
-                onClick={() => handleCategoryChange(category.name)}
+                  onClick={() => handleCategoryChange(category.name)}
                 >
                   <img
                     src={
