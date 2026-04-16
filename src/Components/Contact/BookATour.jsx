@@ -75,7 +75,7 @@ Terra Sardenia`,
     <div
       className="space-extra2-top space-extra2-bottom"
       style={{
-        background: "url(/assets/img/bg/video_bg_1.jpg)",
+        background: "url(/assets/img/bg/video_bg_1.png)",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
@@ -98,7 +98,7 @@ Terra Sardenia`,
                 className="contact-form style2 ajax-contact"
                 onSubmit={handleSubmit}
               >
-                <h3 className="sec-title mb-30 text-capitalize">Book a tour</h3>
+                <h3 className="sec-title mb-30 text">Get in Touch</h3>
 
                 <div className="row">
                   <div className="col-12 form-group">
