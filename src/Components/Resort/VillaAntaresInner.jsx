@@ -97,7 +97,7 @@ const highlights = [
   { name: "Desk", icon: "/assets/img/villaAntres/Desk-3.png" },
   { name: "Alarm System", icon: "/assets/img/villaAntres/Alarm%20System.png" },
   {
-    name: "Electric Car Charging",
+    name: "E-Car Charging",
     icon: "/assets/img/villaAntres/Electric%20Car%20Charger.png",
   },
   { name: "Pet Friendly", icon: "/assets/img/villaAntres/Pet%20Friendly.png" },

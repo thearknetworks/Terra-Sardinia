@@ -28,7 +28,14 @@ const STAYS_CARDS = [
     beds: ["King Size", "Twin Bed", "Extra Bed"],
     guests: "Up to 2",
     propertyType: "Guesthouse Rooms",
-    amenities: ["Pool View", "Air Conditioning", "Wifi", "TV", "Minibar", "Desk"],
+    amenities: [
+      "Pool View",
+      "Air Conditioning",
+      "Wifi",
+      "TV",
+      "Minibar",
+      "Desk",
+    ],
     image: "/assets/img/stays/cards/Aries%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/aries`,
   },
@@ -41,7 +48,14 @@ const STAYS_CARDS = [
     beds: ["Double Bed"],
     guests: "Up to 2",
     propertyType: "Guesthouse Rooms",
-    amenities: ["Garden View", "Air Conditioning", "Wifi", "TV", "Minibar", "Desk"],
+    amenities: [
+      "Garden View",
+      "Air Conditioning",
+      "Wifi",
+      "TV",
+      "Minibar",
+      "Desk",
+    ],
     image: "/assets/img/stays/cards/Cancer%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/cancer`,
   },
@@ -54,7 +68,14 @@ const STAYS_CARDS = [
     beds: ["King Size", "Single Bed", "Extra Bed"],
     guests: "Up to 3",
     propertyType: "Guesthouse Rooms",
-    amenities: ["Garden View", "Air Conditioning", "Wifi", "TV", "Minibar", "Safe"],
+    amenities: [
+      "Garden View",
+      "Air Conditioning",
+      "Wifi",
+      "TV",
+      "Minibar",
+      "Safe",
+    ],
     image: "/assets/img/stays/cards/Virgo%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/virgo`,
   },
@@ -67,7 +88,14 @@ const STAYS_CARDS = [
     beds: ["King Size", "Extra Bed"],
     guests: "Up to 3",
     propertyType: "Guesthouse Rooms",
-    amenities: ["Garden View", "Air Conditioning", "Wifi", "TV", "Minibar", "Fan"],
+    amenities: [
+      "Garden View",
+      "Air Conditioning",
+      "Wifi",
+      "TV",
+      "Minibar",
+      "Fan",
+    ],
     image: "/assets/img/stays/cards/Sagittarius%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/sagittarius`,
   },
@@ -98,7 +126,7 @@ const STAYS_CARDS = [
       "Adapter",
       "Desk",
       "Alarm System",
-      "Electric Car Charging",
+      "E-Car Charging",
       "Pet Friendly",
     ],
     image: "/assets/img/stays/cards/Villa%20Antares%20-%20Stays.png",
@@ -108,7 +136,13 @@ const STAYS_CARDS = [
 
 const GUEST_OPTIONS = ["Up to 2", "Up to 3", "Up to 10"];
 const PROPERTY_OPTIONS = ["Guesthouse Rooms", "Private Villa"];
-const BED_OPTIONS = ["Single Bed", "Double Bed", "Twin Bed", "King Size", "Extra Bed"];
+const BED_OPTIONS = [
+  "Single Bed",
+  "Double Bed",
+  "Twin Bed",
+  "King Size",
+  "Extra Bed",
+];
 
 function Stays() {
   const { lang = "en" } = useParams();
@@ -136,7 +170,8 @@ function Stays() {
 
   const matchesFilters = (stay, filters) => {
     if (filters.size !== "all" && stay.size !== filters.size) return false;
-    if (filters.guests !== "all" && stay.guests !== filters.guests) return false;
+    if (filters.guests !== "all" && stay.guests !== filters.guests)
+      return false;
     if (
       filters.propertyType !== "all" &&
       stay.propertyType !== filters.propertyType
@@ -319,14 +354,19 @@ function Stays() {
                   <ul>
                     {BED_OPTIONS.map((bed) => {
                       const count = getCountForOption("beds", bed);
-                      if (count === 0 && !selectedBeds.includes(bed)) return null;
+                      if (count === 0 && !selectedBeds.includes(bed))
+                        return null;
                       return (
                         <li key={bed}>
                           <button
                             type="button"
                             className={`stays-filter-btn ${selectedBeds.includes(bed) ? "active" : ""}`}
                             onClick={() =>
-                              toggleMultiSelect(setSelectedBeds, selectedBeds, bed)
+                              toggleMultiSelect(
+                                setSelectedBeds,
+                                selectedBeds,
+                                bed,
+                              )
                             }
                           >
                             <span>{bed}</span>
@@ -387,7 +427,9 @@ function Stays() {
                           onClick={() => setSelectedPropertyType(propertyType)}
                         >
                           <span>{propertyType}</span>
-                          <span>({getCountForOption("propertyType", propertyType)})</span>
+                          <span>
+                            ({getCountForOption("propertyType", propertyType)})
+                          </span>
                         </button>
                       </li>
                     ))}
