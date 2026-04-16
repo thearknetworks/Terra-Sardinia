@@ -1188,12 +1188,12 @@ function DestinationDetailsMain() {
                         className="row staggered-gallery-row g-4 align-items-stretch"
                         key={rowKey}
                       >
-                        <div className="col-12 col-lg-5 filter-item">
+                        <div className="col-12 col-lg-7 filter-item">
                           <div className="staggered-gallery-item h-100">
                             {renderGalleryBox(imgA)}
                           </div>
                         </div>
-                        <div className="col-12 col-lg-7 filter-item">
+                        <div className="col-12 col-lg-5 filter-item">
                           <div className="staggered-gallery-item h-100">
                             {renderGalleryBox(imgB)}
                           </div>
@@ -1206,12 +1206,12 @@ function DestinationDetailsMain() {
                       className="row staggered-gallery-row g-4 align-items-stretch"
                       key={rowKey}
                     >
-                      <div className="col-12 col-lg-7 filter-item">
+                      <div className="col-12 col-lg-5 filter-item">
                         <div className="staggered-gallery-item h-100">
                           {renderGalleryBox(imgB)}
                         </div>
                       </div>
-                      <div className="col-12 col-lg-5 filter-item">
+                      <div className="col-12 col-lg-7 filter-item">
                         <div className="staggered-gallery-item h-100">
                           {renderGalleryBox(imgA)}
                         </div>
