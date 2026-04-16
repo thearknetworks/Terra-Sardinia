@@ -30,7 +30,7 @@ const TourItem = ({ image, title, link, rating, price, duration, bookLink }) => 
                 <span>
                     <i className="fa-light fa-clock" /> {duration} Days
                 </span>
-                <Link to={bookLink} className="th-btn style4 th-icon">
+                <Link to="/booking" className="th-btn style4 th-icon">
                     Book Now
                 </Link>
             </div>

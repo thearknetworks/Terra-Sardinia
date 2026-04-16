@@ -431,7 +431,7 @@ function ServiceDetailsMain() {
                     </li>
                   </ul>
                 </div>
-                <Link to="/contact" className="th-btn th-icon">
+                <Link to="/booking" className="th-btn th-icon">
                   Book Now
                 </Link>
                 <span className="review">

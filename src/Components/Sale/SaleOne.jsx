@@ -86,7 +86,7 @@ function SaleOne() {
                                         <h4 className="tour-box_price">
                                             <span className="currency">$980.00</span>/per day
                                         </h4>
-                                        <Link to="/contact" className="th-btn style4 th-icon">
+                                        <Link to="/booking" className="th-btn style4 th-icon">
                                             Book Now
                                         </Link>
                                     </div>
@@ -139,7 +139,7 @@ function SaleOne() {
                                         <h4 className="tour-box_price">
                                             <span className="currency">$980.00</span>/per day
                                         </h4>
-                                        <Link to="/contact" className="th-btn style4 th-icon">
+                                        <Link to="/booking" className="th-btn style4 th-icon">
                                             Book Now
                                         </Link>
                                     </div>
@@ -192,7 +192,7 @@ function SaleOne() {
                                         <h4 className="tour-box_price">
                                             <span className="currency">$980.00</span>/per day
                                         </h4>
-                                        <Link to="/contact" className="th-btn style4 th-icon">
+                                        <Link to="/booking" className="th-btn style4 th-icon">
                                             Book Now
                                         </Link>
                                     </div>
@@ -245,7 +245,7 @@ function SaleOne() {
                                         <h4 className="tour-box_price">
                                             <span className="currency">$980.00</span>/per day
                                         </h4>
-                                        <Link to="/contact" className="th-btn style4 th-icon">
+                                        <Link to="/booking" className="th-btn style4 th-icon">
                                             Book Now
                                         </Link>
                                     </div>
@@ -298,7 +298,7 @@ function SaleOne() {
                                         <h4 className="tour-box_price">
                                             <span className="currency">$980.00</span>/per day
                                         </h4>
-                                        <Link to="/contact" className="th-btn style4 th-icon">
+                                        <Link to="/booking" className="th-btn style4 th-icon">
                                             Book Now
                                         </Link>
                                     </div>
@@ -351,7 +351,7 @@ function SaleOne() {
                                         <h4 className="tour-box_price">
                                             <span className="currency">$980.00</span>/per day
                                         </h4>
-                                        <Link to="/contact" className="th-btn style4 th-icon">
+                                        <Link to="/booking" className="th-btn style4 th-icon">
                                             Book Now
                                         </Link>
                                     </div>

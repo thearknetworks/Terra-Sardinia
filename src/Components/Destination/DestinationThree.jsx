@@ -101,7 +101,7 @@ function DestinationThree() {
                     <Link to="/destination/1">{item.name}</Link>
                   </h3>
                   <p className="destination-text">25 Listing</p>
-                  <Link to="/contact" className="th-btn style4 th-icon">
+                  <Link to="/booking" className="th-btn style4 th-icon">
                     Book Now
                   </Link>
                 </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import RootRedirect from "../Components/RootRedirect";
 import LanguageWrapper from "../Components/LanguageWrapper";
 import HomeOne from "./HomeOne";
@@ -44,6 +44,7 @@ function RouterPage() {
         <LoadTop />
         <Routes>
           <Route path="/" element={<RootRedirect />} />
+          <Route path="/booking" element={<Navigate to="/en/booking" replace />} />
           <Route path="/:lang" element={<LanguageWrapper />}>
             <Route path="home" element={<HomeOne />} />
             <Route path="home-tour" element={<HomeTwo />} />

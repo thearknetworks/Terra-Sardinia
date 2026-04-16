@@ -57,7 +57,7 @@ function ResortCard(props) {
                         </ul>
                     </div>
                     <div className="resort-btn mt-40">
-                        <Link to="/contact" className="th-btn style4 th-icon">
+                        <Link to="/booking" className="th-btn style4 th-icon">
                             Book Now
                         </Link>
                     </div>

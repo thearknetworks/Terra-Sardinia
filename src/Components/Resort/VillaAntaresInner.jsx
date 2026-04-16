@@ -425,7 +425,7 @@ function VillaAntaresInner() {
                   </div>
                 </div>
                 <Link
-                  to={`/${currentLang}/stays`}
+                  to="/booking"
                   className="th-btn th-icon resort-details-widget__book-btn"
                 >
                   Book Now
