@@ -80,7 +80,7 @@ function Booking() {
     }
 
     if (checkInDate) {
-      return `${formatStoredDateForLabel(checkInDate)} – Select checkout`;
+      return `${formatStoredDateForLabel(checkInDate)} - dd/mm/yyyy`;
     }
 
     return "Select Dates";
@@ -368,6 +368,7 @@ function Booking() {
                           <DayPicker
                             mode="range"
                             min={1}
+                            resetOnSelect
                             weekStartsOn={1}
                             locale={enUS}
                             numberOfMonths={2}
