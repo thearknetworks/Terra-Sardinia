@@ -3139,7 +3139,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   display: block;
   border-radius: 50px;
-  z-index: 10000;
+  z-index: 1000;
   opacity: 1;
   visibility: hidden;
   -webkit-transform: translateY(45px);
