@@ -8,37 +8,49 @@ import ScrollToTop from "../Components/ScrollToTop";
 const STAYS_CARDS = [
   {
     id: "aquarius",
-    title: "Aquarius Room",
+    villa: "Villa Verde",
+    roomName: "Aquarius",
+    minStay: "2 Nights",
     image: "/assets/img/stays/cards/Aquarius%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/aquarius`,
   },
   {
     id: "aries",
-    title: "Aries Room",
+    villa: "Villa Verde",
+    roomName: "Aries",
+    minStay: "2 Nights",
     image: "/assets/img/stays/cards/Aries%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/aries`,
   },
   {
     id: "cancer",
-    title: "Cancer Room",
+    villa: "Villa Verde",
+    roomName: "Cancer",
+    minStay: "2 Nights",
     image: "/assets/img/stays/cards/Cancer%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/cancer`,
   },
   {
     id: "virgo",
-    title: "Virgo Room",
+    villa: "Villa Verde",
+    roomName: "Virgo",
+    minStay: "2 Nights",
     image: "/assets/img/stays/cards/Virgo%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/virgo`,
   },
   {
     id: "sagittarius",
-    title: "Sagittarius Room",
+    villa: "Villa Verde",
+    roomName: "Sagittarius",
+    minStay: "2 Nights",
     image: "/assets/img/stays/cards/Sagittarius%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/sagittarius`,
   },
   {
     id: "villa-antares",
-    title: "Villa Antares",
+    villa: "Villa Antares",
+    roomName: "Private Villa",
+    minStay: "6 Nights",
     image: "/assets/img/stays/cards/Villa%20Antares%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-antares`,
   },
@@ -69,12 +81,19 @@ function Stays() {
                   className="tour-box th-ani clickable-card"
                 >
                   <div className="tour-box_img global-img">
-                    <img src={stay.image} alt={stay.title} />
+                    <img src={stay.image} alt={`${stay.villa} - ${stay.roomName}`} />
                   </div>
                   <div className="tour-content">
-                    <h3 className="box-title">{stay.title}</h3>
+                    <p className="stays-card-villa-label">{stay.villa}</p>
+                    <h4 className="tour-box_price">
+                      <span className="currency">{stay.roomName}</span>
+                    </h4>
                     <div className="tour-action">
-                      <span className="th-btn style4">View Stay</span>
+                      <span>
+                        <i className="fa-light fa-clock" />
+                        Min. Stay: {stay.minStay}
+                      </span>
+                      <span className="th-btn style4">View Details</span>
                     </div>
                   </div>
                 </Link>

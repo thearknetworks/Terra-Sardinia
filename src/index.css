@@ -384,3 +384,12 @@
   border: 0;
   overflow: hidden;
 }
+
+.stays-card-villa-label {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5f6d7b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
