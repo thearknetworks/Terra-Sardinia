@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "../Gallery/Modal";
 import "../Destination/staggeredGallery.css";
+import "./ResortDetailsInfoCard.css";
 import {
   DEFAULT_VILLA_VERDE_SLUG,
   roomContentBySlug,
@@ -17,11 +18,52 @@ const REVIEW_AVATAR_STYLE = {
   objectFit: "cover",
 };
 
+const ROOM_DETAILS_BY_SLUG = {
+  aquarius: {
+    minStay: "2 Nights",
+    groupSize: "2 Persons",
+    extraBed: "Available",
+  },
+  aries: {
+    minStay: "2 Nights",
+    groupSize: "2 Persons",
+    extraBed: "Available",
+  },
+  cancer: {
+    minStay: "2 Nights",
+    groupSize: "2 Persons",
+    extraBed: "Available",
+  },
+  virgo: {
+    minStay: "2 Nights",
+    groupSize: "3 Persons",
+    extraBed: "Available",
+  },
+  sagittarius: {
+    minStay: "2 Nights",
+    groupSize: "3 Persons",
+    extraBed: "Available",
+  },
+  "antares-villa": {
+    minStay: "6 Nights",
+    groupSize: "8 Persons",
+    extraBed: "2 Available",
+  },
+  "villa-antares": {
+    minStay: "6 Nights",
+    groupSize: "8 Persons",
+    extraBed: "2 Available",
+  },
+};
+
 function VillaVerdeDetailsInner() {
   const { room_name, lang } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
+  const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
   const currentLang = lang || "en";
+  const detailsConfig = ROOM_DETAILS_BY_SLUG[room_name];
+  const shouldShowDetailsWidget = Boolean(detailsConfig) && room_name !== "la-tavola";
 
   const selectedRoomMedia =
     roomMediaBySlug[room_name] || roomMediaBySlug[DEFAULT_VILLA_VERDE_SLUG];
@@ -216,6 +258,65 @@ function VillaVerdeDetailsInner() {
                   ))}
                 </div>
               </div>
+              {shouldShowDetailsWidget ? (
+                <div className="widget resort-details-widget">
+                  <h3 className="widget_title">Details</h3>
+                  <div className="resort-details-widget__grid">
+                    <div className="resort-details-widget__item">
+                      <img
+                        src="/assets/img/villaVerde/details/Duration.png"
+                        alt="Min. Stay"
+                      />
+                      <div>
+                        <p>Min. Stay</p>
+                        <h6>{detailsConfig.minStay}</h6>
+                      </div>
+                    </div>
+                    <div className="resort-details-widget__item">
+                      <img
+                        src="/assets/img/villaVerde/details/Group.png"
+                        alt="Group Size"
+                      />
+                      <div>
+                        <p>Group Size</p>
+                        <h6>{detailsConfig.groupSize}</h6>
+                      </div>
+                    </div>
+                    <div className="resort-details-widget__item">
+                      <img
+                        src="/assets/img/villaVerde/details/Extra%20Bed.png"
+                        alt="Extra Bed"
+                      />
+                      <div>
+                        <p>Extra Bed</p>
+                        <h6>{detailsConfig.extraBed}</h6>
+                      </div>
+                    </div>
+                    <div className="resort-details-widget__item">
+                      <img
+                        src="/assets/img/villaVerde/details/Cancellation.png"
+                        alt="Cancellation"
+                      />
+                      <div>
+                        <p>Cancellation</p>
+                        <button
+                          type="button"
+                          className="resort-details-widget__learn-more"
+                          onClick={() => setIsRulesModalOpen(true)}
+                        >
+                          Learn More
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <Link
+                    to={`/${currentLang}/stays`}
+                    className="th-btn resort-details-widget__book-btn"
+                  >
+                    Book Now
+                  </Link>
+                </div>
+              ) : null}
               <div
                 className="widget widget_offer need-help-widget"
                 style={{
@@ -269,6 +370,82 @@ function VillaVerdeDetailsInner() {
         closeModal={closeModal}
         imageSrc={modalImage}
       />
+      {isRulesModalOpen ? (
+        <div
+          className="resort-rules-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="resort-rules-modal-title"
+          onClick={() => setIsRulesModalOpen(false)}
+        >
+          <div
+            className="resort-rules-modal__content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="resort-rules-modal__close"
+              onClick={() => setIsRulesModalOpen(false)}
+              aria-label="Close rules popup"
+            >
+              ×
+            </button>
+            <h4 id="resort-rules-modal-title">House Rules & Cancellation</h4>
+            <div className="resort-rules-modal__divider" />
+            <div className="resort-rules-modal__body">
+              <section>
+                <h5>Flexible Rate</h5>
+                <p>
+                  Pay 50% now and enjoy flexibility. Cancel up to 30 days before
+                  arrival to receive a full refund of your deposit.
+                </p>
+              </section>
+              <section>
+                <h5>Non-Refundable Rate</h5>
+                <p>
+                  Pay the full amount upfront at a reduced price. This rate is
+                  non-refundable in case of cancellation.
+                </p>
+              </section>
+              <section>
+                <h5>Check-in</h5>
+                <p>From 3:30 PM to 12:30 AM</p>
+                <p>Please let the property know your arrival time in advance.</p>
+              </section>
+              <section>
+                <h5>Check-out</h5>
+                <p>From 8:00 AM to 10:00 AM</p>
+              </section>
+              <section>
+                <h5>Children & Beds</h5>
+                <p>Children over 8 are welcome.</p>
+                <p>Guests aged 18 and above are considered adults.</p>
+                <p>Extra beds are available upon request.</p>
+                <p>Cribs depend on availability.</p>
+              </section>
+              <section>
+                <h5>Age Requirement</h5>
+                <p>There is no age requirement for check-in.</p>
+              </section>
+              <section>
+                <h5>Pets</h5>
+                <p>Pets are allowed on request. Additional charges may apply.</p>
+              </section>
+              <section>
+                <h5>Payment</h5>
+                <p>
+                  Visa, Mastercard, Diners Club, Maestro, and CartaSi are
+                  accepted. Cash is not accepted.
+                </p>
+              </section>
+              <section>
+                <h5>Smoking</h5>
+                <p>Smoking is not allowed.</p>
+              </section>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
