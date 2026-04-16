@@ -1,10 +1,12 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import StaysFilterSections from "../Components/Stays/StaysFilterSections";
 import { villaVerdeSidebarItems } from "../Components/Resort/villaVerdeDetailsData";
+import "../Components/Resort/ResortDetailsInfoCard.css";
 
 /** Villa Verde room sizes from each room page (La Tavola excluded) + Villa Antares. */
 const VILLA_ANTARES_SIZE_M2 = 150;
@@ -164,6 +166,7 @@ function Stays() {
   const [selectedGuests, setSelectedGuests] = useState("all");
   const [selectedPropertyType, setSelectedPropertyType] = useState("all");
   const [selectedAmenities, setSelectedAmenities] = useState([]);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
   const allAmenities = useMemo(
     () =>
@@ -257,6 +260,41 @@ function Stays() {
     setSelectedAmenities([]);
   };
 
+  useEffect(() => {
+    if (!isFilterModalOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setIsFilterModalOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isFilterModalOpen]);
+
+  const filterSectionsProps = {
+    selectedSize,
+    setSelectedSize,
+    selectedBeds,
+    setSelectedBeds,
+    selectedGuests,
+    setSelectedGuests,
+    selectedPropertyType,
+    setSelectedPropertyType,
+    selectedAmenities,
+    setSelectedAmenities,
+    staySizeFilterOptions: STAY_SIZE_FILTER_OPTIONS,
+    bedOptions: BED_OPTIONS,
+    guestOptions: GUEST_OPTIONS,
+    propertyOptions: PROPERTY_OPTIONS,
+    allAmenities,
+    totalStaysCount: STAYS_CARDS.length,
+    getCountForOption,
+    toggleMultiSelect,
+  };
+
   return (
     <>
       <HeaderOne />
@@ -272,6 +310,20 @@ function Stays() {
       <section className="space">
         <div className="container">
           <div className="row">
+            <div className="col-12 d-lg-none mb-3">
+              <button
+                type="button"
+                className="th-btn style4 w-100 stays-mobile-filter-open"
+                onClick={() => setIsFilterModalOpen(true)}
+              >
+                <i className="fa-light fa-sliders" aria-hidden />
+                <span>Filter</span>
+                {hasAppliedFilters ? (
+                  <span className="stays-mobile-filter-badge" aria-hidden />
+                ) : null}
+              </button>
+            </div>
+
             <div className="col-xxl-8 col-lg-7">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <div />
@@ -325,170 +377,67 @@ function Stays() {
               ) : null}
             </div>
 
-            <div className="col-xxl-4 col-lg-5 mt-4 mt-lg-0">
+            <div className="col-xxl-4 col-lg-5 mt-4 mt-lg-0 d-none d-lg-block">
               <aside className="sidebar-area">
-                <div className="widget widget_categories">
-                  <h3 className="widget_title">Size</h3>
-                  <ul>
-                    <li>
-                      <button
-                        type="button"
-                        className={`stays-filter-btn ${selectedSize === "all" ? "active" : ""}`}
-                        onClick={() => setSelectedSize("all")}
-                      >
-                        <span>All</span>
-                        <span>({STAYS_CARDS.length})</span>
-                      </button>
-                    </li>
-                    {STAY_SIZE_FILTER_OPTIONS.map((size) => {
-                      const count = getCountForOption("size", size);
-                      if (count === 0 && selectedSize !== size) return null;
-                      return (
-                        <li key={size}>
-                          <button
-                            type="button"
-                            className={`stays-filter-btn ${selectedSize === size ? "active" : ""}`}
-                            onClick={() => setSelectedSize(size)}
-                          >
-                            <span>{size} m2</span>
-                            <span>({count})</span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div className="widget widget_categories">
-                  <h3 className="widget_title">Beds</h3>
-                  <ul>
-                    {BED_OPTIONS.map((bed) => {
-                      const count = getCountForOption("beds", bed);
-                      if (count === 0 && !selectedBeds.includes(bed))
-                        return null;
-                      return (
-                        <li key={bed}>
-                          <button
-                            type="button"
-                            className={`stays-filter-btn ${selectedBeds.includes(bed) ? "active" : ""}`}
-                            onClick={() =>
-                              toggleMultiSelect(
-                                setSelectedBeds,
-                                selectedBeds,
-                                bed,
-                              )
-                            }
-                          >
-                            <span>{bed}</span>
-                            <span>({count})</span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div className="widget widget_categories">
-                  <h3 className="widget_title">Guests</h3>
-                  <ul>
-                    <li>
-                      <button
-                        type="button"
-                        className={`stays-filter-btn ${selectedGuests === "all" ? "active" : ""}`}
-                        onClick={() => setSelectedGuests("all")}
-                      >
-                        <span>All</span>
-                        <span>({STAYS_CARDS.length})</span>
-                      </button>
-                    </li>
-                    {GUEST_OPTIONS.map((guest) => {
-                      const count = getCountForOption("guests", guest);
-                      if (count === 0 && selectedGuests !== guest) return null;
-                      return (
-                        <li key={guest}>
-                          <button
-                            type="button"
-                            className={`stays-filter-btn ${selectedGuests === guest ? "active" : ""}`}
-                            onClick={() => setSelectedGuests(guest)}
-                          >
-                            <span>{guest}</span>
-                            <span>({count})</span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div className="widget widget_categories">
-                  <h3 className="widget_title">Property Type</h3>
-                  <ul>
-                    <li>
-                      <button
-                        type="button"
-                        className={`stays-filter-btn ${selectedPropertyType === "all" ? "active" : ""}`}
-                        onClick={() => setSelectedPropertyType("all")}
-                      >
-                        <span>All</span>
-                        <span>({STAYS_CARDS.length})</span>
-                      </button>
-                    </li>
-                    {PROPERTY_OPTIONS.map((propertyType) => {
-                      const count = getCountForOption(
-                        "propertyType",
-                        propertyType,
-                      );
-                      if (count === 0 && selectedPropertyType !== propertyType)
-                        return null;
-                      return (
-                        <li key={propertyType}>
-                          <button
-                            type="button"
-                            className={`stays-filter-btn ${selectedPropertyType === propertyType ? "active" : ""}`}
-                            onClick={() =>
-                              setSelectedPropertyType(propertyType)
-                            }
-                          >
-                            <span>{propertyType}</span>
-                            <span>({count})</span>
-                          </button>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div className="widget widget_categories">
-                  <h3 className="widget_title">Amenities</h3>
-                  <div className="stays-amenities-grid">
-                    {allAmenities.map((amenity) => {
-                      const count = getCountForOption("amenities", amenity);
-                      if (count === 0 && !selectedAmenities.includes(amenity))
-                        return null;
-                      return (
-                        <button
-                          key={amenity}
-                          type="button"
-                          className={`stays-filter-chip ${selectedAmenities.includes(amenity) ? "active" : ""}`}
-                          onClick={() =>
-                            toggleMultiSelect(
-                              setSelectedAmenities,
-                              selectedAmenities,
-                              amenity,
-                            )
-                          }
-                        >
-                          {amenity} ({count})
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
+                <StaysFilterSections {...filterSectionsProps} />
               </aside>
             </div>
           </div>
         </div>
       </section>
+
+      {isFilterModalOpen ? (
+        <div
+          className="resort-rules-modal stays-filter-modal-shell"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="stays-filter-modal-title"
+          onClick={() => setIsFilterModalOpen(false)}
+        >
+          <div
+            className="resort-rules-modal__content stays-filter-modal-shell__content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="resort-rules-modal__close"
+              onClick={() => setIsFilterModalOpen(false)}
+              aria-label="Close filter popup"
+            >
+              ×
+            </button>
+            <h4 id="stays-filter-modal-title">Filter</h4>
+            <div className="resort-rules-modal__divider" />
+            <div className="resort-rules-modal__body stays-filter-modal-shell__body">
+              <StaysFilterSections
+                {...filterSectionsProps}
+                sectionClassName="stays-filter-section--in-modal"
+              />
+            </div>
+            <div className="stays-filter-modal-shell__footer">
+              {hasAppliedFilters ? (
+                <button
+                  type="button"
+                  className="th-btn style3 stays-filter-modal-shell__btn"
+                  onClick={() => {
+                    resetFilters();
+                  }}
+                >
+                  Clear Filters
+                </button>
+              ) : null}
+              <button
+                type="button"
+                className="th-btn style4 stays-filter-modal-shell__btn"
+                onClick={() => setIsFilterModalOpen(false)}
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <Footer />
       <ScrollToTop />
     </>

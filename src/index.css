@@ -443,6 +443,116 @@
   font-weight: 600;
 }
 
+.stays-mobile-filter-open {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+}
+
+.stays-mobile-filter-badge {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+}
+
+/* Stays filter modal (same shell as resort rules modal) */
+.stays-filter-modal-shell__content {
+  width: min(640px, 100%);
+}
+
+.stays-filter-modal-shell__body {
+  max-height: min(58vh, 520px);
+}
+
+.stays-filter-section--in-modal.widget {
+  border: 1px solid #e1e4e6;
+  border-radius: 12px;
+  padding: 14px 14px 10px;
+  margin-bottom: 14px;
+  background: #ffffff;
+}
+
+.stays-filter-section--in-modal.widget:last-child {
+  margin-bottom: 0;
+}
+
+.stays-filter-section--in-modal .widget_title {
+  position: relative;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  font-family: var(--title-font);
+  color: #163844;
+}
+
+.stays-filter-section--in-modal .widget_title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44px;
+  height: 4px;
+  border-radius: 4px;
+  background: #16add6;
+}
+
+.stays-filter-section--in-modal ul {
+  margin: 0;
+  padding: 0;
+}
+
+.stays-filter-section--in-modal ul li {
+  list-style: none;
+  border-bottom: 1px solid #eef2f4;
+  padding: 8px 0;
+}
+
+.stays-filter-section--in-modal ul li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.stays-filter-section--in-modal .stays-amenities-grid {
+  margin-top: 4px;
+}
+
+.stays-filter-modal-shell__footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e8edf1;
+}
+
+.stays-filter-modal-shell__footer > button:only-child {
+  grid-column: 1 / -1;
+}
+
+.stays-filter-modal-shell__btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+  border-radius: 999px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  text-align: center;
+}
+
 /* Mobile/tablet header spacing and alignment */
 @media (max-width: 1199px) {
   .header-layout1 .sticky-wrapper .menu-area {
