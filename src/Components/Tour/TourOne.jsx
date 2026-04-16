@@ -10,7 +10,7 @@ function TourOne() {
     <section
       className="tour-area position-relative bg-top-center overflow-hidden space bg-no-repeat"
       id="service-sec"
-      style={{ backgroundImage: 'url(/assets/img/bg/tour_bg_1.jpg)' }}
+      style={{ backgroundImage: 'url(/assets/img/bg/tour_bg_1.png)' }}
     >
       <div className="container">
         <div className="row">

@@ -88,7 +88,7 @@ function BannerOne() {
                     data-ani="slideinup"
                     data-ani-delay="0.4s"
                   >
-                    Where Sardinia slows down{" "}
+                    Where Sardinia Slows Down{" "}
                   </h1>
                   <div
                     className="btn-group"
@@ -146,7 +146,7 @@ function BannerOne() {
                     data-ani="slideinup"
                     data-ani-delay="0.4s"
                   >
-                    Where Holidays are effortless{" "}
+                    Where Holidays are Effortless{" "}
                   </h1>
                   <div
                     className="btn-group"
@@ -205,7 +205,7 @@ function BannerOne() {
                     data-ani="slideinup"
                     data-ani-delay="0.4s"
                   >
-                    Where the horizon is yours{" "}
+                    Where the Horizon is Yours{" "}
                   </h1>
                   <div
                     className="btn-group"

@@ -19266,7 +19266,7 @@ span.select2-selection.select2-selection--single:focus {
 .about-item.style4 .about-item_img {
   background-color: var(--title-color);
 }
-
+/* 
 .about-item_img {
   min-width: 72px;
   height: 72px;
@@ -19276,21 +19276,21 @@ span.select2-selection.select2-selection--single:focus {
   background-color: var(--theme-color);
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-}
+} */
 
-.about-item_img img {
+/* .about-item_img img {
   -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; */
 }
 
-.about-item_img:hover {
+/* .about-item_img:hover {
   background-color: var(--title-color);
-}
+} */
 
-.about-item_img:hover img {
+/* .about-item_img:hover img {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-}
+} */
 
 .about-item .box-title {
   margin-bottom: 7px;
