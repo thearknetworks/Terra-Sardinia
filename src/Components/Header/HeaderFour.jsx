@@ -62,7 +62,7 @@ function HeaderFour() {
                   <div className="header-links">
                     <ul>
                       <li className="d-none d-xl-inline-block">
-                        <Link to="/faq">FAQ</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/faqs`}>FAQ</Link>
                       </li>
                       <li className="d-none d-md-inline-block">
                         <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>

@@ -9824,11 +9824,19 @@ heding animation  end
 .wp-block-query-pagination-numbers span.next-page,
 .wp-block-query-pagination-numbers a.next-page,
 .th-pagination span.next-page,
-.th-pagination a.next-page {
+.th-pagination a.next-page,
+.wp-block-query-pagination-numbers span.prev-page,
+.wp-block-query-pagination-numbers a.prev-page,
+.th-pagination span.prev-page,
+.th-pagination a.prev-page {
   width: auto;
   padding: 0 24px;
   border-radius: 30px;
   line-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   /* Extra small devices */
 }
 
@@ -9836,7 +9844,11 @@ heding animation  end
   .wp-block-query-pagination-numbers span.next-page,
   .wp-block-query-pagination-numbers a.next-page,
   .th-pagination span.next-page,
-  .th-pagination a.next-page {
+  .th-pagination a.next-page,
+  .wp-block-query-pagination-numbers span.prev-page,
+  .wp-block-query-pagination-numbers a.prev-page,
+  .th-pagination span.prev-page,
+  .th-pagination a.prev-page {
     line-height: 35px;
   }
 }
