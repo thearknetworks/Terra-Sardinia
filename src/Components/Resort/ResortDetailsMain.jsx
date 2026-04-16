@@ -6,7 +6,7 @@ import {
   DEFAULT_VILLA_VERDE_SLUG,
   roomContentBySlug,
   roomMediaBySlug,
-  villaVerdeReviews,
+  villaVerdeReviewsNewestFirst,
   villaVerdeSidebarItems,
 } from "./villaVerdeDetailsData";
 
@@ -152,10 +152,10 @@ function VillaVerdeDetailsInner() {
               </div>
               <div className="th-comments-wrap style2 ">
                 <h2 className="blog-inner-title h4">
-                  Reviews ({villaVerdeReviews.length})
+                  Reviews ({villaVerdeReviewsNewestFirst.length})
                 </h2>
                 <ul className="comment-list">
-                  {villaVerdeReviews.map((review) => (
+                  {villaVerdeReviewsNewestFirst.map((review) => (
                     <li className="th-comment-item" key={review.name}>
                       <div className="th-post-comment">
                         <div className="comment-avater">

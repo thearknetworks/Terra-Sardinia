@@ -286,6 +286,15 @@ export const villaVerdeReviews = [
   },
 ];
 
+const parseReviewDate = (dateLabel) => {
+  const parsedTimestamp = Date.parse(`${dateLabel} 1`);
+  return Number.isNaN(parsedTimestamp) ? 0 : parsedTimestamp;
+};
+
+export const villaVerdeReviewsNewestFirst = [...villaVerdeReviews].sort(
+  (a, b) => parseReviewDate(b.date) - parseReviewDate(a.date)
+);
+
 export const roomMediaBySlug = {
   aquarius: {
     topImage: "/assets/img/villaVerde/Aquarius%20Image%201.png",
