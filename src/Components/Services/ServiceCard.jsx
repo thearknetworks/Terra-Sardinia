@@ -4,20 +4,18 @@ import { Link } from 'react-router-dom';
 function ServiceCard(props) {
     const { serviceID, serviceImage, serviceTitle, serviceItem } = props;
     return (
-            <div className="destination-item th-ani">
+            <Link to={`/service/${serviceID}`} className="destination-item th-ani clickable-card">
                 <div className="destination-item_img global-img">
                     <img src={`/assets/img/destination/${serviceImage}`} alt="" />
                 </div>
                 <div className="destination-content">
                     <h3 className="box-title">
-                        <Link to={`/service/${serviceID}`}>{serviceTitle ? serviceTitle : 'Photo Shoot'}</Link>
+                        {serviceTitle ? serviceTitle : 'Photo Shoot'}
                     </h3>
                     <p className="destination-text">{serviceItem ? serviceItem : '20 Listing'}</p>
-                    <Link to="/contact" className="th-btn style4 th-icon">
-                        Book Now
-                    </Link>
+                    <span className="th-btn style4 th-icon">Book Now</span>
                 </div>
-            </div>
+            </Link>
     )
 }
 

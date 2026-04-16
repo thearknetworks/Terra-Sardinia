@@ -41,142 +41,102 @@ function BlogFour() {
           className="th-slider has-shadow"
         >
           <SwiperSlide>
-            <div className="blog-box style2 th-ani">
+            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_1.jpg" alt="blog" />
               </div>
               <div className="blog-box_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    Sep 05 2024
-                  </Link>
-                  <Link to="/blog">6 min read</Link>
+                  <span className="author">Sep 05 2024</span>
+                  <span>6 min read</span>
                 </div>
-                <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Experiencing Paradise in The Maldives
-                  </Link>
-                </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <h3 className="box-title">Experiencing Paradise in The Maldives</h3>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="blog-box style2 th-ani">
+            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_2.jpg" alt="blog" />
               </div>
               <div className="blog-box_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    Sep 06 2024
-                  </Link>
-                  <Link to="/blog">7 min read</Link>
+                  <span className="author">Sep 06 2024</span>
+                  <span>7 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Discovering Paradise in The Indonesia Bali
-                  </Link>
+                  Discovering Paradise in The Indonesia Bali
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="blog-box style2 th-ani">
+            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_3.jpg" alt="blog" />
               </div>
               <div className="blog-box_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    Sep 07 2024
-                  </Link>
-                  <Link to="/blog">8 min read</Link>
+                  <span className="author">Sep 07 2024</span>
+                  <span>8 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Journey to Paradise in The Wang Beach in London
-                  </Link>
+                  Journey to Paradise in The Wang Beach in London
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="blog-box style2 th-ani">
+            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_1.jpg" alt="blog" />
               </div>
               <div className="blog-box_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    Sep 09 2024
-                  </Link>
-                  <Link to="/blog">9 min read</Link>
+                  <span className="author">Sep 09 2024</span>
+                  <span>9 min read</span>
                 </div>
-                <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Experiencing Paradise in The Maldives
-                  </Link>
-                </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <h3 className="box-title">Experiencing Paradise in The Maldives</h3>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="blog-box style2 th-ani">
+            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_2.jpg" alt="blog" />
               </div>
               <div className="blog-box_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    Sep 10 2024
-                  </Link>
-                  <Link to="/blog">10 min read</Link>
+                  <span className="author">Sep 10 2024</span>
+                  <span>10 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Discovering Paradise in The Indonesia Bali
-                  </Link>
+                  Discovering Paradise in The Indonesia Bali
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="blog-box style2 th-ani">
+            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_3.jpg" alt="blog" />
               </div>
               <div className="blog-box_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    Sep 12 2024
-                  </Link>
-                  <Link to="/blog">11 min read</Link>
+                  <span className="author">Sep 12 2024</span>
+                  <span>11 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Journey to Paradise in The Wang Beach in London
-                  </Link>
+                  Journey to Paradise in The Wang Beach in London
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         </Swiper>
         <div

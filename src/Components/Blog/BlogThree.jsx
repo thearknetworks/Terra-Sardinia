@@ -24,73 +24,54 @@ function BlogThree() {
         </div>
         <div className="row gx-24 gy-30">
           <div className="col-xl-5">
-            <div className="blog-grid th-ani">
+            <Link to="/blog/1" className="blog-grid th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_3_1.jpg" alt="blog" />
               </div>
               <div className="blog-grid_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    July 05, 2024
-                  </Link>
-                  <Link to="/blog">6 min read</Link>
+                  <span className="author">July 05, 2024</span>
+                  <span>6 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Travel agency for those who want to explore the world and
-                    try to make adventure
-                  </Link>
+                  Travel agency for those who want to explore the world and try
+                  to make adventure
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="col-xl-7">
-            <div className="blog-grid style2 th-ani">
+            <Link to="/blog/1" className="blog-grid style2 th-ani clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_3_2.jpg" alt="blog" />
               </div>
               <div className="blog-grid_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    July 07, 2024
-                  </Link>
-                  <Link to="/blog">7 min read</Link>
+                  <span className="author">July 07, 2024</span>
+                  <span>7 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    The best time to visit japan &amp; enjoy the cherry blossoms
-                  </Link>
+                  The best time to visit japan &amp; enjoy the cherry blossoms
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
-            <div className="blog-grid th-ani style2 mt-24">
+            </Link>
+            <Link to="/blog/1" className="blog-grid th-ani style2 mt-24 clickable-card">
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_3_3.jpg" alt="blog" />
               </div>
               <div className="blog-grid_content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
-                    July 10, 2024
-                  </Link>
-                  <Link to="/blog">8 min read</Link>
+                  <span className="author">July 10, 2024</span>
+                  <span>8 min read</span>
                 </div>
                 <h3 className="box-title">
-                  <Link to="/blog/1">
-                    Hiden history of Japan in the world and try to make
-                    adventure
-                  </Link>
+                  Hiden history of Japan in the world and try to make adventure
                 </h3>
-                <Link to="/blog/1" className="th-btn style4 th-icon">
-                  Read More
-                </Link>
+                <span className="th-btn style4 th-icon">Read More</span>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
         <div

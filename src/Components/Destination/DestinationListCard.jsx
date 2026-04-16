@@ -19,20 +19,16 @@ function DestinationListCard(props) {
   const ctaPath = buttonTo === "details" ? detailsPath : buttonTo;
 
   return (
-    <div className="destination-item th-ani">
+    <Link to={ctaPath} className="destination-item th-ani clickable-card">
       <div className="destination-item_img global-img">
         <img src={imageSrc} alt={destinationTitle || "Destination"} />
       </div>
       <div className="destination-content">
-        <h3 className="box-title">
-          <Link to={detailsPath}>{destinationTitle || "Destination"}</Link>
-        </h3>
+        <h3 className="box-title">{destinationTitle || "Destination"}</h3>
         <p className="destination-text">{destinationSubtitle || "Explore"}</p>
-        <Link to={ctaPath} className="th-btn style4 th-icon">
-          {buttonLabel}
-        </Link>
+        <span className="th-btn style4 th-icon">{buttonLabel}</span>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -7,13 +7,13 @@ function DestinationCardTwo(props) {
     const destinationPath = `/${lang || "en"}/destination/${destinationSlug || destinationID}`;
 
     return (
-        <div className="tour-box style-flex th-ani destination-page-card">
+        <Link to={destinationPath} className="tour-box style-flex th-ani destination-page-card clickable-card">
             <div className="tour-box_img global-img">
                 <img src={destinationImage} alt={destinationTitle || "Destination"} />
             </div>
             <div className="tour-content">
                 <h3 className="box-title">
-                    <Link to={destinationPath}>{destinationTitle ? destinationTitle : 'Dubai'}</Link>
+                    {destinationTitle ? destinationTitle : 'Dubai'}
                 </h3>
                 <span className="destination-subtitle">
                     {destinationSubtitle || "Crystal Waters"}
@@ -22,12 +22,10 @@ function DestinationCardTwo(props) {
                     <span>
                         <i className="fa-light fa-clock" />7 Days
                     </span>
-                    <Link to={destinationPath} className="th-btn style4 th-icon">
-                        Discover
-                    </Link>
+                    <span className="th-btn style4 th-icon">Discover</span>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

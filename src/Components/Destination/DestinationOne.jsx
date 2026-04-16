@@ -171,29 +171,23 @@ function DestinationOne() {
             {destinations.map((dest) => (
               <SwiperSlide key={dest.id}>
                 <div className="destination-box gsap-cursor">
-                  <div className="destination-img">
+                  <Link
+                    to={`/${lang || "en"}${dest.slug}`}
+                    className="destination-img clickable-card"
+                  >
                     <img src={dest.image} alt={dest.name} />
                     <div className="destination-content">
                       <div className="media-left">
-                        <h4 className="box-title">
-                          <Link to={`/${lang || "en"}${dest.slug}`}>
-                            {dest.name}
-                          </Link>
-                        </h4>
+                        <h4 className="box-title">{dest.name}</h4>
                         <span className="destination-subtitle">
                           {dest.listings}
                         </span>
                       </div>
                       <div>
-                        <Link
-                          to={`/${lang || "en"}${dest.slug}`}
-                          className="th-btn style2 th-icon"
-                        >
-                          Explore
-                        </Link>
+                        <span className="th-btn style2 th-icon">Explore</span>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </SwiperSlide>
             ))}

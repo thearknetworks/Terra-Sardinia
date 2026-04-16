@@ -5,13 +5,13 @@ function ActivitiesCard(props) {
     const { activitiesID, activitiesImage, activitiesTitle, activitiesPrice } = props;
     return (
         <>
-            <div className="tour-box th-ani">
+            <Link to="/activities-details" className="tour-box th-ani clickable-card">
                 <div className="tour-box_img global-img">
                     <img src={`/assets/img/tour/${activitiesImage}`} alt="" />
                 </div>
                 <div className="tour-content">
                     <h3 className="box-title">
-                        <Link to="/activities-details">{activitiesTitle ? activitiesTitle : 'Paragliding'}</Link>
+                        {activitiesTitle ? activitiesTitle : 'Paragliding'}
                     </h3>
                     <div className="tour-rating">
                         <div
@@ -25,13 +25,10 @@ function ActivitiesCard(props) {
                                 <span className="rating">4.8</span>(4.8 Rating)
                             </span>
                         </div>
-                        <Link
-                            to="/activities-details"
-                            className="woocommerce-review-link"
-                        >
+                        <span className="woocommerce-review-link">
                             (<span className="count">4.8</span>
                             Rating)
-                        </Link>
+                        </span>
                     </div>
                     <h4 className="tour-box_price">
                         <span className="currency">{activitiesPrice ? activitiesPrice : '$980.00'}$980.00</span>/Person
@@ -40,12 +37,10 @@ function ActivitiesCard(props) {
                         <span>
                             <i className="fa-light fa-clock" />7 Days
                         </span>
-                        <Link to="/activities-details" className="th-btn style4">
-                            Detail View
-                        </Link>
+                        <span className="th-btn style4">Detail View</span>
                     </div>
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

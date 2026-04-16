@@ -96,25 +96,19 @@ function BlogOne() {
         >
           {blogPosts.map((post) => (
             <SwiperSlide key={post.id}>
-              <div className="blog-box th-ani">
+              <Link to={post.detailsLink} className="blog-box th-ani clickable-card">
                 <div className="blog-img global-img">
                   <img src={post.image} alt="blog" />
                 </div>
                 <div className="blog-box_content">
                   <div className="blog-meta">
-                    <Link className="author" to="/blog">
-                      {post.date}
-                    </Link>
-                    <Link to="/blog">{post.readTime}</Link>
+                    <span className="author">{post.date}</span>
+                    <span>{post.readTime}</span>
                   </div>
-                  <h3 className="box-title">
-                    <Link to={post.detailsLink}>{post.title}</Link>
-                  </h3>
-                  <Link to={post.detailsLink} className="th-btn style4 th-icon">
-                    Read More
-                  </Link>
+                  <h3 className="box-title">{post.title}</h3>
+                  <span className="th-btn style4 th-icon">Read More</span>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

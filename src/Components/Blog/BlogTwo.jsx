@@ -103,25 +103,19 @@ const BlogTwo = () => {
                 },
               ].map((post, index) => (
                 <div className="swiper-slide" key={index}>
-                  <div className="blog-box th-ani">
+                  <Link to={post.link} className="blog-box th-ani clickable-card">
                     <div className="blog-img global-img">
                       <img src={post.image} alt="blog" />
                     </div>
                     <div className="blog-box_content">
                       <div className="blog-meta">
-                        <Link className="author" to="/blog">
-                          {post.date}
-                        </Link>
-                        <Link to="/blog">{post.time}</Link>
+                        <span className="author">{post.date}</span>
+                        <span>{post.time}</span>
                       </div>
-                      <h3 className="box-title">
-                        <Link to={post.link}>{post.title}</Link>
-                      </h3>
-                      <Link to={post.link} className="th-btn style4 th-icon">
-                        Read More
-                      </Link>
+                      <h3 className="box-title">{post.title}</h3>
+                      <span className="th-btn style4 th-icon">Read More</span>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>
