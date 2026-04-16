@@ -84,12 +84,12 @@ Terra Sardenia`,
         <div className="row flex-row-reverse justify-content-center align-items-center">
           <div className="col-lg-6">
             <div className="video-box1">
-              <button
+              {/* <button
                 className="play-btn style2 popup-video"
                 onClick={() => setModalIsOpen(true)}
               >
                 <i className="fa-sharp fa-solid fa-play" />
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="col-lg-6">
