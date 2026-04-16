@@ -276,7 +276,7 @@ function Stays() {
                     className="th-btn style4 stays-reset-btn"
                     onClick={resetFilters}
                   >
-                    Reset Filters
+                    Clear Filter
                   </button>
                 ) : null}
               </div>
