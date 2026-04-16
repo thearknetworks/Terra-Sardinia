@@ -223,10 +223,18 @@ function HeaderTwo() {
                         <Link to="#">Service</Link>
                         <ul className="sub-menu">
                           <li>
-                            <Link to="/service">Services</Link>
+                            <Link
+                              to={`/${i18n.resolvedLanguage || "en"}/service`}
+                            >
+                              Services
+                            </Link>
                           </li>
                           <li>
-                            <Link to="/service/1">Service Details</Link>
+                            <Link
+                              to={`/${i18n.resolvedLanguage || "en"}/service/1`}
+                            >
+                              Service Details
+                            </Link>
                           </li>
                         </ul>
                       </li>
