@@ -4,6 +4,19 @@ import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import { villaVerdeSidebarItems } from "../Components/Resort/villaVerdeDetailsData";
+
+/** Villa Verde room sizes from each room page (La Tavola excluded) + Villa Antares. */
+const VILLA_ANTARES_SIZE_M2 = 150;
+const STAY_SIZE_FILTER_OPTIONS = Array.from(
+  new Set([
+    ...villaVerdeSidebarItems
+      .filter((item) => item.slug !== "la-tavola")
+      .map((item) => parseInt(item.meta, 10))
+      .filter((n) => !Number.isNaN(n)),
+    VILLA_ANTARES_SIZE_M2,
+  ]),
+).sort((a, b) => a - b);
 
 const STAYS_CARDS = [
   {
@@ -85,7 +98,7 @@ const STAYS_CARDS = [
     roomName: "Sagittarius",
     minStay: "2 Nights",
     size: 20,
-    beds: ["King Size", "Extra Bed"],
+    beds: ["King Size", "Sofa Bed", "Extra Bed"],
     guests: "Up to 3",
     propertyType: "Guesthouse Rooms",
     amenities: [
@@ -156,14 +169,6 @@ function Stays() {
     () =>
       Array.from(new Set(STAYS_CARDS.flatMap((stay) => stay.amenities))).sort(
         (a, b) => a.localeCompare(b),
-      ),
-    [],
-  );
-
-  const sizeOptions = useMemo(
-    () =>
-      Array.from(new Set(STAYS_CARDS.map((stay) => stay.size))).sort(
-        (a, b) => a - b,
       ),
     [],
   );
@@ -276,7 +281,7 @@ function Stays() {
                     className="th-btn style4 stays-reset-btn"
                     onClick={resetFilters}
                   >
-                    Clear Filter
+                    Reset Filters
                   </button>
                 ) : null}
               </div>
@@ -334,18 +339,22 @@ function Stays() {
                         <span>({STAYS_CARDS.length})</span>
                       </button>
                     </li>
-                    {sizeOptions.map((size) => (
-                      <li key={size}>
-                        <button
-                          type="button"
-                          className={`stays-filter-btn ${selectedSize === size ? "active" : ""}`}
-                          onClick={() => setSelectedSize(size)}
-                        >
-                          <span>{size} m2</span>
-                          <span>({getCountForOption("size", size)})</span>
-                        </button>
-                      </li>
-                    ))}
+                    {STAY_SIZE_FILTER_OPTIONS.map((size) => {
+                      const count = getCountForOption("size", size);
+                      if (count === 0 && selectedSize !== size) return null;
+                      return (
+                        <li key={size}>
+                          <button
+                            type="button"
+                            className={`stays-filter-btn ${selectedSize === size ? "active" : ""}`}
+                            onClick={() => setSelectedSize(size)}
+                          >
+                            <span>{size} m2</span>
+                            <span>({count})</span>
+                          </button>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
@@ -391,18 +400,22 @@ function Stays() {
                         <span>({STAYS_CARDS.length})</span>
                       </button>
                     </li>
-                    {GUEST_OPTIONS.map((guest) => (
-                      <li key={guest}>
-                        <button
-                          type="button"
-                          className={`stays-filter-btn ${selectedGuests === guest ? "active" : ""}`}
-                          onClick={() => setSelectedGuests(guest)}
-                        >
-                          <span>{guest}</span>
-                          <span>({getCountForOption("guests", guest)})</span>
-                        </button>
-                      </li>
-                    ))}
+                    {GUEST_OPTIONS.map((guest) => {
+                      const count = getCountForOption("guests", guest);
+                      if (count === 0 && selectedGuests !== guest) return null;
+                      return (
+                        <li key={guest}>
+                          <button
+                            type="button"
+                            className={`stays-filter-btn ${selectedGuests === guest ? "active" : ""}`}
+                            onClick={() => setSelectedGuests(guest)}
+                          >
+                            <span>{guest}</span>
+                            <span>({count})</span>
+                          </button>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
@@ -419,20 +432,28 @@ function Stays() {
                         <span>({STAYS_CARDS.length})</span>
                       </button>
                     </li>
-                    {PROPERTY_OPTIONS.map((propertyType) => (
-                      <li key={propertyType}>
-                        <button
-                          type="button"
-                          className={`stays-filter-btn ${selectedPropertyType === propertyType ? "active" : ""}`}
-                          onClick={() => setSelectedPropertyType(propertyType)}
-                        >
-                          <span>{propertyType}</span>
-                          <span>
-                            ({getCountForOption("propertyType", propertyType)})
-                          </span>
-                        </button>
-                      </li>
-                    ))}
+                    {PROPERTY_OPTIONS.map((propertyType) => {
+                      const count = getCountForOption(
+                        "propertyType",
+                        propertyType,
+                      );
+                      if (count === 0 && selectedPropertyType !== propertyType)
+                        return null;
+                      return (
+                        <li key={propertyType}>
+                          <button
+                            type="button"
+                            className={`stays-filter-btn ${selectedPropertyType === propertyType ? "active" : ""}`}
+                            onClick={() =>
+                              setSelectedPropertyType(propertyType)
+                            }
+                          >
+                            <span>{propertyType}</span>
+                            <span>({count})</span>
+                          </button>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
