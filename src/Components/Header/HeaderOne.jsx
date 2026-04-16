@@ -81,7 +81,7 @@ function HeaderOne() {
 
                   <div className="header-links">
                     <ul>
-                      <li className="d-none d-md-inline-block">
+                      <li className="d-none d-lg-inline-block">
                         <Link to="/faq">FAQ</Link>
                       </li>
                       {/* <li className="d-none d-md-inline-block">
@@ -164,9 +164,6 @@ function HeaderOne() {
                       </li>
                       <li>
                         <Link to="/">Gallery</Link>
-                      </li>
-                      <li>
-                        <Link to="/">FAQ</Link>
                       </li>
                       <li>
                         <Link to="/">Contact</Link>
