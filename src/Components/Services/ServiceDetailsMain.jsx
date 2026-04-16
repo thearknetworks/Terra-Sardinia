@@ -1,360 +1,554 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Posts from "../data/data-service.json";
 import Modal from "../Gallery/Modal";
-import "../Destination/staggeredGallery.css";
-
-const DEFAULT_GALLERY_IMAGES = [
-  "/assets/img/gallery/gallery_6_1.jpg",
-  "/assets/img/gallery/gallery_6_2.jpg",
-  "/assets/img/gallery/gallery_6_3.jpg",
-  "/assets/img/gallery/gallery_6_4.jpg",
-];
-
-const SERVICE_TAGS = [
-  "Tour",
-  "Adventure",
-  "Guided",
-  "Outdoor",
-  "Family",
-  "Luxury",
-  "Coastal",
-  "Experience",
-];
-
-const DEFAULT_REVIEWS = [
-  {
-    name: "Sofia M.",
-    date: "2 months ago",
-    stars: 5,
-    text: "Smooth booking and a memorable experience. The team was responsive and the service matched exactly what was described.",
-    avatar: "/assets/img/blog/comment-author-1.jpg",
-  },
-  {
-    name: "James R.",
-    date: "5 months ago",
-    stars: 5,
-    text: "Professional, friendly, and well organized. I would book again and recommend it to friends visiting Sardinia.",
-    avatar: "/assets/img/blog/comment-author-5.jpg",
-  },
-];
 
 function ServiceDetailsMain() {
-  const { id, lang = "en" } = useParams();
+  const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalIndex, setModalIndex] = useState(0);
+  const galleryImages = [
+    "/assets/img/gallery/gallery_6_1.jpg",
+    "/assets/img/gallery/gallery_6_2.jpg",
+    "/assets/img/gallery/gallery_6_3.jpg",
+    "/assets/img/gallery/gallery_6_4.jpg",
+  ];
 
-  const servicePost = Posts.find((post) => post.id === parseInt(id, 10));
+  const servicePost = Posts.find((post) => post.id === parseInt(id));
 
-  const heroImg = servicePost
-    ? `/assets/img/destination/${servicePost.bannerImg}`
-    : "/assets/img/destination/destination_4_1.jpg";
-  const innerImg = `/assets/img/destination/destination-inner-1.jpg`;
+  if (!servicePost) {
+    return <div>Post not found!</div>;
+  }
 
-  const headerTitle = servicePost?.title || "Service";
-  const bodyText = `Discover ${headerTitle.toLowerCase()} with Terra Sardinia — tailored experiences, local insight, and the same attention to detail you expect from a premium travel partner. Whether you are planning a short escape or a longer stay, we help you get the most from your time on the island.`;
-
-  const highlights = useMemo(
-    () => [
-      `Dedicated support for your ${headerTitle} booking`,
-      "Local recommendations and practical tips for your visit",
-      "Clear information on availability and what to expect",
-      "Options suited to couples, families, and small groups",
-      "Easy coordination with the rest of your Sardinia itinerary",
-    ],
-    [headerTitle],
-  );
-
-  const galleryImages = useMemo(() => {
-    const base = heroImg ? [heroImg] : [];
-    return [...base, ...DEFAULT_GALLERY_IMAGES].slice(0, 8);
-  }, [heroImg]);
-
-  const galleryRowPairs = useMemo(() => {
-    const pairs = [];
-    for (let i = 0; i < galleryImages.length; i += 2) {
-      pairs.push(galleryImages.slice(i, i + 2));
-    }
-    return pairs;
-  }, [galleryImages]);
-
-  const nearbyServices = useMemo(() => {
-    const others = Posts.filter((p) => p.id !== parseInt(id, 10));
-    const shuffled = [...others].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 3);
-  }, [id]);
-
+  // Function to open the modal with the selected image
   const openModal = (imageSrc, event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default link behavior
     setModalImage(imageSrc);
     const index = galleryImages.indexOf(imageSrc);
     setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
-  const closeModal = () => setIsModalOpen(false);
-
-  const renderGalleryBox = (galleryImage) => (
-    <div className="gallery-box style3 staggered-gallery-box">
-      <div className="gallery-img global-img">
-        <img
-          src={galleryImage}
-          alt="gallery"
-          onClick={(e) => openModal(galleryImage, e)}
-        />
-        <Link
-          to={galleryImage}
-          className="icon-btn popup-image"
-          onClick={(e) => openModal(galleryImage, e)}
-        >
-          <i className="fal fa-magnifying-glass-plus" />
-        </Link>
-      </div>
-    </div>
-  );
-
-  if (!servicePost) {
-    return (
-      <section className="space">
-        <div className="container">
-          <p className="text-center">Service not found.</p>
-        </div>
-      </section>
-    );
-  }
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <section className="space">
-      <div className="container">
+      <div className="container shape-mockup-wrap">
         <div className="row">
           <div className="col-xxl-8 col-lg-7">
             <div className="page-single">
-              <div className="service-img global-img">
-                <img src={heroImg} alt={headerTitle} />
+              <div className="service-img">
+                <img
+                  src={`/assets/img/destination/${servicePost.bannerImg}`}
+                  alt=""
+                />
               </div>
               <div className="page-content d-block">
-                <div
-                  className="page-meta mt-50 mb-45 d-flex align-items-center"
-                  style={{ gap: "8px" }}
-                >
-                  <Link className="page-tag mr-5" to={`/${lang}/service`}>
-                    Services
+                <div className="page-meta mt-50 mb-45">
+                  <Link className="page-tag" to="/tour">
+                    Featured
                   </Link>
                   <span className="ratting">
                     <i className="fa-sharp fa-solid fa-star" />
                     <span>4.8</span>
                   </span>
                 </div>
-                <h2 className="box-title">{headerTitle}</h2>
-                <p className="blog-text mb-30">{bodyText}</p>
-                <div className="service-inner-img mb-40 global-img">
-                  <img src={innerImg} alt="" />
+                <h2 className="box-title">
+                  Explore the Beauty of Maldives and enjoy
+                </h2>
+                <p className="box-text mb-30">
+                  voluptatem accusantium doloremque laudantium, totam rem
+                  aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                  architecto beatae vitae dicta sunt explicabo. Dolorem ipsum
+                  quia dolor sit amet, consectetur, adipisci velit, sed quia non
+                  numquam eius modi tempora incidunt ut labore et dolore magnam
+                  aliquam quaerat voluptatem. Quis autem vel eum iure
+                  reprehenderit qui in ea voluptate velit esse quam nihil
+                  molestiae consequatur, vel illum qui dolorem eum fugiat quo
+                  voluptas nulla pariatur Quis autem vel eum iure reprehenderit
+                  qui in ea voluptate velit esse quam nihil molestiae
+                  consequatur, vel illum qui dolorem eum fugiat quo voluptas
+                  nulla pariatur
+                </p>
+                <p className="box-text mb-50">
+                  {" "}
+                  ‍Whether you work from home or commute to a nearby office, the
+                  energy-efficient features of your home contribute to a
+                  productive and eco-conscious workday. Smart home systems allow
+                  you to monitor and control energy usage, ensuring that your
+                  environmental impact remains minimal.
+                </p>
+                <div className="service-inner-img mb-40">
+                  <img
+                    src="/assets/img/destination/destination-inner-1.jpg"
+                    alt=""
+                  />
                 </div>
                 <h2 className="box-title">Highlights</h2>
                 <div className="checklist">
                   <ul>
-                    {highlights.map((line, index) => (
-                      <li key={`${line}-${index}`}>{line}</li>
-                    ))}
+                    <li>Visit most popular location of Maldives</li>
+                    <li>
+                      Buffet Breakfast for all traveler with good quality.
+                    </li>
+                    <li>
+                      Expert guide always guide you and give informations.
+                    </li>
+                    <li>Best Hotel for all also great food.</li>
+                    <li>Helping all traveler for Money Exchange.</li>
+                    <li>
+                      Buffet Breakfast for all traveler with good quality..
+                    </li>
+                    <li>
+                      Buffet Breakfast for all traveler with good quality.
+                    </li>
                   </ul>
                 </div>
               </div>
-
-              <div className="staggered-gallery-wrapper">
+              <div className="destination-gallery-wrapper">
                 <h3 className="page-title mt-30 mb-30">From our gallery</h3>
-                {galleryRowPairs.map((pair, rowIndex) => {
-                  const rowKey = `svc-gallery-${rowIndex}-${pair[0]}`;
-                  if (pair.length === 1) {
-                    return (
-                      <div
-                        className="row staggered-gallery-row g-4 align-items-stretch"
-                        key={rowKey}
-                      >
-                        <div className="col-12 filter-item">
-                          <div className="staggered-gallery-item">
-                            {renderGalleryBox(pair[0])}
-                          </div>
-                        </div>
+                <div className="row gy-4 gallery-row filter-active">
+                  <div className="col-xxl-auto filter-item">
+                    <div className="gallery-box style3">
+                      <div className="gallery-img global-img">
+                        <img
+                          src="/assets/img/gallery/gallery_6_1.jpg"
+                          alt="gallery"
+                        />
+                        <Link
+                          to="/assets/img/gallery/gallery_6_1.jpg"
+                          className="icon-btn popup-image"
+                          onClick={(e) =>
+                            openModal("/assets/img/gallery/gallery_6_1.jpg", e)
+                          }
+                        >
+                          <i className="fal fa-magnifying-glass-plus" />
+                        </Link>
                       </div>
-                    );
-                  }
-                  const [imgA, imgB] = pair;
-                  if (rowIndex % 2 === 0) {
-                    return (
-                      <div
-                        className="row staggered-gallery-row g-4 align-items-stretch"
-                        key={rowKey}
-                      >
-                        <div className="col-12 col-lg-7 filter-item">
-                          <div className="staggered-gallery-item h-100">
-                            {renderGalleryBox(imgA)}
-                          </div>
-                        </div>
-                        <div className="col-12 col-lg-5 filter-item">
-                          <div className="staggered-gallery-item h-100">
-                            {renderGalleryBox(imgB)}
-                          </div>
-                        </div>
+                    </div>
+                  </div>
+                  <div className="col-xxl-auto filter-item">
+                    <div className="gallery-box style3">
+                      <div className="gallery-img global-img">
+                        <img
+                          src="/assets/img/gallery/gallery_6_2.jpg"
+                          alt="gallery"
+                        />
+                        <Link
+                          to="/assets/img/gallery/gallery_6_2.jpg"
+                          className="icon-btn popup-image"
+                          onClick={(e) =>
+                            openModal("/assets/img/gallery/gallery_6_2.jpg", e)
+                          }
+                        >
+                          <i className="fal fa-magnifying-glass-plus" />
+                        </Link>
                       </div>
-                    );
-                  }
-                  return (
-                    <div
-                      className="row staggered-gallery-row g-4 align-items-stretch"
-                      key={rowKey}
-                    >
-                      <div className="col-12 col-lg-5 filter-item">
-                        <div className="staggered-gallery-item h-100">
-                          {renderGalleryBox(imgB)}
-                        </div>
+                    </div>
+                  </div>
+                  <div className="col-xxl-auto filter-item">
+                    <div className="gallery-box style3">
+                      <div className="gallery-img global-img">
+                        <img
+                          src="/assets/img/gallery/gallery_6_3.jpg"
+                          alt="gallery"
+                        />
+                        <Link
+                          to="/assets/img/gallery/gallery_6_3.jpg"
+                          className="icon-btn popup-image"
+                          onClick={(e) =>
+                            openModal("/assets/img/gallery/gallery_6_3.jpg", e)
+                          }
+                        >
+                          <i className="fal fa-magnifying-glass-plus" />
+                        </Link>
                       </div>
-                      <div className="col-12 col-lg-7 filter-item">
-                        <div className="staggered-gallery-item h-100">
-                          {renderGalleryBox(imgA)}
+                    </div>
+                  </div>
+                  <div className="col-xxl-auto filter-item">
+                    <div className="gallery-box style3">
+                      <div className="gallery-img global-img">
+                        <img
+                          src="/assets/img/gallery/gallery_6_4.jpg"
+                          alt="gallery"
+                        />
+                        <Link
+                          to="/assets/img/gallery/gallery_6_4.jpg"
+                          className="icon-btn popup-image"
+                          onClick={(e) =>
+                            openModal("/assets/img/gallery/gallery_6_4.jpg", e)
+                          }
+                        >
+                          <i className="fal fa-magnifying-glass-plus" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="th-comments-wrap style2 ">
+                <h2 className="blog-inner-title h4">Reviews (3)</h2>
+                <ul className="comment-list">
+                  <li className="th-comment-item">
+                    <div className="th-post-comment">
+                      <div className="comment-avater">
+                        <img
+                          src="/assets/img/blog/comment-author-1.jpg"
+                          alt="Comment Author"
+                        />
+                      </div>
+                      <div className="comment-content">
+                        <h3 className="name">Adam Jhon</h3>
+                        <div className="commented-wrapp">
+                          <span className="commented-on">20 Jun, 2024</span>
+                          <span className="commented-time">08:56pm </span>
+                          <span className="comment-review">
+                            <i className="fa-solid fa-star" />
+                            <i className="fa-solid fa-star" />
+                            <i className="fa-solid fa-star" />
+                            <i className="fa-solid fa-star" />
+                            <i className="fa-solid fa-star" />
+                          </span>
+                        </div>
+                        <p className="text">
+                          Credibly pontificate transparent quality vectors with
+                          quality mindshare. Efficiently architect worldwide
+                          strategic theme areas after user.
+                        </p>
+                        <div className="reply_and_edit">
+                          <i className="fa-solid fa-thumbs-up" />
                         </div>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-
-              <div className="th-comments-wrap style2 destination-detail-reviews">
-                <h2 className="blog-inner-title h4">
-                  Reviews ({DEFAULT_REVIEWS.length})
-                </h2>
-                <ul className="comment-list">
-                  {DEFAULT_REVIEWS.map((review, index) => (
-                    <li className="th-comment-item" key={`${review.name}-${index}`}>
-                      <div className="th-post-comment">
-                        <div className="comment-avater">
-                          <img src={review.avatar} alt={review.name} />
+                    <ul className="children">
+                      <li className="th-comment-item">
+                        <div className="th-post-comment">
+                          <div className="comment-avater">
+                            <img
+                              src="/assets/img/blog/comment-author-4.jpg"
+                              alt="Comment Author"
+                            />
+                          </div>
+                          <div className="comment-content">
+                            <div className="">
+                              <h3 className="name">Maria Willson</h3>
+                              <div className="commented-wrapp">
+                                <span className="commented-on">
+                                  23 Jun, 2024
+                                </span>
+                                <span className="commented-time">08:56pm </span>
+                                <span className="comment-review">
+                                  <i className="fa-solid fa-star" />
+                                  <i className="fa-solid fa-star" />
+                                  <i className="fa-solid fa-star" />
+                                  <i className="fa-solid fa-star" />
+                                  <i className="fa-solid fa-star" />
+                                </span>
+                              </div>
+                            </div>
+                            <p className="text">
+                              It is different from airport transfer or port
+                              transfer, which are services that pick you up
+                            </p>
+                            <div className="reply_and_edit">
+                              <i className="fa-solid fa-thumbs-up" />
+                            </div>
+                          </div>
                         </div>
-                        <div className="comment-content">
-                          <h3 className="name">{review.name}</h3>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="th-comment-item">
+                    <div className="th-post-comment">
+                      <div className="comment-avater">
+                        <img
+                          src="/assets/img/blog/comment-author-5.jpg"
+                          alt="Comment Author"
+                        />
+                      </div>
+                      <div className="comment-content">
+                        <div className="">
+                          <h3 className="name">Michel Edwards</h3>
                           <div className="commented-wrapp">
-                            <span className="commented-on">{review.date}</span>
+                            <span className="commented-on">27 Jun, 2024</span>
+                            <span className="commented-time">08:56pm </span>
                             <span className="comment-review">
-                              {Array.from({ length: review.stars }).map(
-                                (_, starIndex) => (
-                                  <i
-                                    key={`star-${starIndex}`}
-                                    className="fa-solid fa-star"
-                                  />
-                                ),
-                              )}
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
                             </span>
                           </div>
-                          <p className="text">{review.text}</p>
+                        </div>
+                        <p className="text">
+                          Credibly pontificate transparent quality vectors with
+                          quality mindshare. Efficiently architect worldwide
+                          strategic theme areas after user.
+                        </p>
+                        <div className="reply_and_edit">
+                          <i className="fa-solid fa-thumbs-up" />
                         </div>
                       </div>
-                    </li>
-                  ))}
+                    </div>
+                  </li>
                 </ul>
+              </div>{" "}
+              {/* Comment end */} {/* Comment Form */}
+              <div className="th-comment-form ">
+                <div className="row">
+                  <h3 className="blog-inner-title h4 mb-2">Leave a Reply</h3>
+                  <p className="mb-25">
+                    Your email address will not be published. Required fields
+                    are marked
+                  </p>
+                  <div className="col-md-6 form-group">
+                    <input
+                      type="text"
+                      placeholder="Full Name*"
+                      className="form-control"
+                      required=""
+                    />
+                    <i className="far fa-user" />
+                  </div>
+                  <div className="col-md-6 form-group">
+                    <input
+                      type="text"
+                      placeholder="Your Email*"
+                      className="form-control"
+                      required=""
+                    />
+                    <i className="far fa-envelope" />
+                  </div>
+                  <div className="col-12 form-group">
+                    <input
+                      type="text"
+                      placeholder="Website"
+                      className="form-control"
+                      required=""
+                    />
+                    <i className="far fa-globe" />
+                  </div>
+                  <div className="col-12 form-group">
+                    <textarea
+                      placeholder="Comment*"
+                      className="form-control"
+                      defaultValue={""}
+                    />
+                    <i className="far fa-pencil" />
+                  </div>
+                  <div className="col-12 form-group">
+                    <input type="checkbox" id="html" />
+                    <label htmlFor="html">
+                      Save my name, email, and website in this browser for the
+                      next time I comment.
+                    </label>
+                  </div>
+                  <div className="col-12 form-group mb-0">
+                    <button className="th-btn">
+                      Send Message
+                      <img src="/assets/img/icon/plane2.svg" alt="" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget widget_categories">
-                <h3 className="widget_title">Browse</h3>
+              <div className="widget widget_search  ">
+                <form className="search-form">
+                  <input type="text" placeholder="Search" />
+                  <button type="submit">
+                    <i className="far fa-search" />
+                  </button>
+                </form>
+              </div>
+              <div className="widget widget_categories  ">
+                <h3 className="widget_title">Categories</h3>
                 <ul>
                   <li>
-                    <Link to={`/${lang}/service`}>
+                    <Link to="/blog">
                       <img src="/assets/img/theme-img/map.svg" alt="" />
-                      All services
+                      City Tour
                     </Link>
-                    <span>({Posts.length})</span>
+                    <span>(8)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Beach Tours
+                    </Link>
+                    <span>(6)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Wildlife Tours
+                    </Link>
+                    <span>(2)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      News &amp; Tips
+                    </Link>
+                    <span>(7)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Adventure Tours
+                    </Link>
+                    <span>(9)</span>
+                  </li>
+                  <li>
+                    <Link to="/blog">
+                      <img src="/assets/img/theme-img/map.svg" alt="" />
+                      Mountain Tours
+                    </Link>
+                    <span>(10)</span>
                   </li>
                 </ul>
               </div>
-              <div className="widget tour-booking">
+              <div className="widget tour-booking  ">
                 <p className="widget_subtitle">
                   From <span className="widget_price">$75.00</span>
                 </p>
                 <div className="info-list">
                   <ul>
                     <li>
-                      <strong>Service</strong>
-                      <span>{headerTitle}</span>
+                      <strong>Date </strong>
+                      <span>sun 15 June - Fri 20 July</span>
                     </li>
                     <li>
-                      <strong>Availability</strong>
-                      <span>Request dates when you book</span>
+                      <strong>Number of travelers</strong>
+                      <span>2 adults - 1 childeren - 1 room</span>
                     </li>
                   </ul>
                 </div>
-                <Link to={`/${lang}/booking`} className="th-btn th-icon">
+                <Link to="/booking" className="th-btn th-icon">
                   Book Now
                 </Link>
                 <span className="review">
-                  <i className="fa-light fa-heart" /> Recommended for Sardinia
-                  travelers
+                  <i className="fa-light fa-heart" /> 88% of travelers recommend
+                  this experience
                 </span>
               </div>
-              <div className="widget">
-                <h3 className="widget_title">More services</h3>
+              <div className="widget  ">
+                <h3 className="widget_title">Recent Posts</h3>
                 <div className="recent-post-wrap">
-                  {nearbyServices.map((item) => (
-                    <div className="recent-post" key={item.id}>
-                      <div className="media-img">
-                        <Link to={`/${lang}/service/${item.id}`}>
-                          <img
-                            src={`/assets/img/destination/${item.image}`}
-                            alt={item.title}
-                          />
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to="/blog/1">
+                        <img
+                          src="/assets/img/blog/recent-post-1-1.jpg"
+                          alt="Blog"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link className="text-inherit" to="/blog/1">
+                          Exploring The Green Spaces Of the island maldives
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <Link to="/blog">
+                          <i className="fa-regular fa-calendar" />
+                          22/6/ 2025
                         </Link>
                       </div>
-                      <div className="media-body">
-                        <h4 className="post-title">
-                          <Link
-                            className="text-inherit"
-                            to={`/${lang}/service/${item.id}`}
-                          >
-                            {item.title}
-                          </Link>
-                        </h4>
-                        <span className="destination-subtitle">
-                          {item.item}
-                        </span>
+                    </div>
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to="/blog/1">
+                        <img
+                          src="/assets/img/blog/recent-post-1-2.jpg"
+                          alt="Blog"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link className="text-inherit" to="/blog/1">
+                          Harmony With Nature Of Belgium Tour and travle
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <Link to="/blog">
+                          <i className="fa-regular fa-calendar" />
+                          25/6/ 2025
+                        </Link>
                       </div>
                     </div>
-                  ))}
+                  </div>
+                  <div className="recent-post">
+                    <div className="media-img">
+                      <Link to="/blog/1">
+                        <img
+                          src="/assets/img/blog/recent-post-1-3.jpg"
+                          alt="Blog"
+                        />
+                      </Link>
+                    </div>
+                    <div className="media-body">
+                      <h4 className="post-title">
+                        <Link className="text-inherit" to="/blog/1">
+                          Exploring The Green Spaces Of Realar Residence
+                        </Link>
+                      </h4>
+                      <div className="recent-post-meta">
+                        <Link to="/blog">
+                          <i className="fa-regular fa-calendar" />
+                          27/6/ 2025
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="widget widget_tag_cloud">
-                <h3 className="widget_title">Tags</h3>
+              <div className="widget widget_tag_cloud  ">
+                <h3 className="widget_title">Popular Tags</h3>
                 <div className="tagcloud">
-                  {SERVICE_TAGS.map((keyword) => (
-                    <Link key={keyword} to={`/${lang}/service`}>
-                      {keyword}
-                    </Link>
-                  ))}
+                  <Link to="/blog">Tour</Link>
+                  <Link to="/blog">Adventure</Link>
+                  <Link to="/blog">Rent</Link>
+                  <Link to="/blog">Innovate</Link>
+                  <Link to="/blog">Hotel</Link>
+                  <Link to="/blog">Modern</Link>
+                  <Link to="/blog">Luxury</Link>
+                  <Link to="/blog">Travel</Link>
                 </div>
               </div>
               <div
-                className="widget widget_offer need-help-widget"
+                className="widget widget_offer"
                 style={{
-                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/destination/need_help.png)`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
+                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/bg/widget_bg_1.jpg)`,
                 }}
+                data-bg-src="/assets/img/bg/widget_bg_1.jpg"
               >
                 <div className="offer-banner">
                   <div className="offer">
-                    <h6 className="box-title">Need Help? We’re here for you</h6>
+                    <h6 className="box-title">
+                      Need Help? We Are Here To Help You
+                    </h6>
                     <div className="banner-logo">
-                      <img
-                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
-                        alt="Terra Sardinia"
-                      />
+                      <img src="/assets/img/logo2.svg" alt="Tourm" />
                     </div>
-                    <Link
-                      to={`/${lang}/contact`}
-                      className="th-btn style2 th-icon"
-                    >
-                      Contact Us
+                    <div className="offer">
+                      <h6 className="offer-title">You Get Online support</h6>
+                      <Link className="offter-num" to={+256214203215}>
+                        +256 214 203 215
+                      </Link>
+                    </div>
+                    <Link to="/contact" className="th-btn style2 th-icon">
+                      Read More
                     </Link>
                   </div>
                 </div>
@@ -362,8 +556,25 @@ function ServiceDetailsMain() {
             </aside>
           </div>
         </div>
+        <div
+          className="shape-mockup shape1 d-none d-xxl-block"
+          style={{ bottom: "35%", right: "-12%" }}
+        >
+          <img src="/assets/img/shape/shape_1.png" alt="shape" />
+        </div>
+        <div
+          className="shape-mockup shape2 d-none d-xl-block"
+          style={{ bottom: "31%", right: "-8%" }}
+        >
+          <img src="/assets/img/shape/shape_2.png" alt="shape" />
+        </div>
+        <div
+          className="shape-mockup shape3 d-none d-xxl-block"
+          style={{ bottom: "33%", right: "-5%" }}
+        >
+          <img src="/assets/img/shape/shape_3.png" alt="shape" />
+        </div>
       </div>
-
       <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}
