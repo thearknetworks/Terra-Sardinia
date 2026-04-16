@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function GetInTouch() {
   return (
@@ -9,6 +8,7 @@ function GetInTouch() {
           <span className="sub-title">Get In Touch</span>
           <h2 className="sec-title">Our Contact Information</h2>
         </div>
+
         <div className="row gy-4 justify-content-center">
           <div className="col-xl-4 col-lg-6">
             <div className="about-contact-grid style2">
@@ -18,14 +18,27 @@ function GetInTouch() {
               <div className="about-contact-details">
                 <h6 className="box-title">Our Address</h6>
                 <p className="about-contact-details-text">
-                  2690 Hiltona Street Victoria
+                  <a
+                    href="https://maps.app.goo.gl/r19TGvnjhd1ZYzP7A"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Villa Verde, Via dell'acquario 51, Torre delle Stelle
+                  </a>
                 </p>
                 <p className="about-contact-details-text">
-                  Road, New York, Canada
+                  <a
+                    href="https://maps.app.goo.gl/AtnRLm71X88EKWtJ6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Villa Antares, Via dei Pesci 65, Torre delle Stelle
+                  </a>
                 </p>
               </div>
             </div>
           </div>
+
           <div className="col-xl-4 col-lg-6">
             <div className="about-contact-grid">
               <div className="about-contact-icon">
@@ -34,10 +47,7 @@ function GetInTouch() {
               <div className="about-contact-details">
                 <h6 className="box-title">Phone Number</h6>
                 <p className="about-contact-details-text">
-                  <Link to="tel:01234567890">+01 234 567 890</Link>
-                </p>
-                <p className="about-contact-details-text">
-                  <Link to="tel:01234567890">+09 876 543 210</Link>
+                  <a href="tel:+393924915855">+39 3924915855</a>
                 </p>
               </div>
             </div>
@@ -50,14 +60,14 @@ function GetInTouch() {
               <div className="about-contact-details">
                 <h6 className="box-title">Email Address</h6>
                 <p className="about-contact-details-text">
-                  <Link to="mailto:mailinfo00@tourm.com">
-                    mailinfo00@tourm.com
-                  </Link>
+                  <a href="mailto:villaantares.viapesci65@gmail.com">
+                    Villa Antares
+                  </a>
                 </p>
                 <p className="about-contact-details-text">
-                  <Link to="mailto:support24@tourm.com">
-                    support24@tourm.com
-                  </Link>
+                  <a href="mailto:villaverdeguesthouse51@gmail.com">
+                    Villa Verde
+                  </a>
                 </p>
               </div>
             </div>
