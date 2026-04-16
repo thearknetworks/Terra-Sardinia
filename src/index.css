@@ -393,3 +393,24 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
+
+/* Mobile/tablet header spacing and alignment */
+@media (max-width: 1199px) {
+  .header-layout1 .sticky-wrapper .menu-area {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .header-layout1 .logo-bg {
+    height: 72px !important;
+  }
+
+  .header-layout1 .header-logo img {
+    height: 60px !important;
+    width: auto !important;
+  }
+
+  .header-layout1 .th-menu-toggle {
+    margin-top: 2px;
+  }
+}
