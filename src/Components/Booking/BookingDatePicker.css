@@ -207,8 +207,17 @@
   color: var(--theme-color, #1ca8cb);
 }
 
+.booking-date-dropdown__arrow--mobile-only {
+  display: none;
+}
+
 .booking-date-dropdown .rdp-root {
   --rdp-accent-color: var(--theme-color, #1ca8cb);
+  /* react-day-picker v9: first click with default min=0 uses a same-day {from,to}
+     range, which applies range-start gradient on the cell. We neutralize that
+     until a real multi-day range is active via .booking-rdp--has-range. */
+  --rdp-range_start-background: transparent;
+  --rdp-range_end-background: transparent;
   --rdp-accent-background-color: color-mix(
     in srgb,
     var(--theme-color, #1ca8cb) 18%,
@@ -223,6 +232,19 @@
   --rdp-nav-height: 0;
   --rdp-selected-border: 0;
   margin: 0;
+}
+
+.booking-date-dropdown .booking-rdp--has-range {
+  --rdp-range_start-background: linear-gradient(
+    var(--rdp-gradient-direction),
+    transparent 50%,
+    var(--rdp-range_middle-background-color) 50%
+  );
+  --rdp-range_end-background: linear-gradient(
+    var(--rdp-gradient-direction),
+    var(--rdp-range_middle-background-color) 50%,
+    transparent 50%
+  );
 }
 
 .booking-date-dropdown .rdp-months {
@@ -251,6 +273,29 @@
 
 .booking-date-dropdown .rdp-month_caption {
   display: none;
+}
+
+.booking-date-dropdown__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.55rem 0.2rem 0.15rem;
+}
+
+.booking-date-dropdown__apply {
+  border: 0;
+  border-radius: 999px;
+  background: var(--theme-color, #1ca8cb);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.56rem 1.1rem;
+  min-height: 34px;
+  transition: opacity 0.2s ease;
+}
+
+.booking-date-dropdown__apply:hover {
+  opacity: 0.92;
 }
 
 .booking-date-dropdown .rdp-weekday {
@@ -293,7 +338,7 @@
 .booking-date-dropdown .rdp-range_start,
 .booking-date-dropdown .rdp-range_end,
 .booking-date-dropdown .rdp-range_middle {
-  background: var(--rdp-accent-background-color);
+  background: transparent;
 }
 
 .booking-date-dropdown .rdp-range_start {
@@ -302,6 +347,44 @@
 
 .booking-date-dropdown .rdp-range_end {
   border-radius: 0 999px 999px 0;
+}
+
+.booking-date-dropdown .booking-rdp--has-range .rdp-range_start,
+.booking-date-dropdown .booking-rdp--has-range .rdp-range_end,
+.booking-date-dropdown .booking-rdp--has-range .rdp-range_middle {
+  background: var(--rdp-accent-background-color);
+}
+
+.booking-date-dropdown .booking-rdp:not(.booking-rdp--has-range) .rdp-range_start,
+.booking-date-dropdown .booking-rdp:not(.booking-rdp--has-range) .rdp-range_end,
+.booking-date-dropdown .booking-rdp:not(.booking-rdp--has-range) .rdp-range_middle {
+  background: transparent !important;
+}
+
+.booking-date-dropdown
+  .booking-rdp:not(.booking-rdp--has-range)
+  .rdp-range_start
+  .rdp-day_button,
+.booking-date-dropdown
+  .booking-rdp:not(.booking-rdp--has-range)
+  .rdp-range_end
+  .rdp-day_button {
+  border-radius: 50% !important;
+}
+
+/* Check-in only: cell has .rdp-selected but not range_start/end — keep solid accent circle */
+.booking-date-dropdown
+  .booking-rdp:not(.booking-rdp--has-range)
+  .rdp-day.rdp-selected
+  .rdp-day_button {
+  background: var(--rdp-accent-color);
+  color: #fff;
+}
+
+.booking-date-dropdown .rdp-range_start .rdp-day_button,
+.booking-date-dropdown .rdp-range_end .rdp-day_button {
+  background: var(--rdp-accent-color);
+  color: #fff;
 }
 
 .booking-date-dropdown .rdp-range_start .rdp-day_button,
@@ -331,6 +414,19 @@
   .booking-date-dropdown__month-headers {
     grid-template-columns: 1fr;
     gap: 0.2rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .booking-date-dropdown__month-headers .booking-date-dropdown__month-nav:last-child {
+    display: none;
+  }
+
+  .booking-date-dropdown__arrow--mobile-only {
+    display: inline-flex;
+  }
+
+  .booking-date-dropdown__arrow--desktop-only {
+    display: none;
   }
 
   .booking-date-dropdown__calendar-inner {
@@ -341,6 +437,26 @@
 
   .booking-date-dropdown__month-title {
     font-size: 0.75rem;
+  }
+
+  .booking-date-dropdown .rdp-month_caption {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .booking-date-dropdown .rdp-month:nth-of-type(1) .rdp-month_caption {
+    display: none;
+  }
+
+  .booking-date-dropdown .rdp-month:first-of-type .rdp-month_caption {
+    display: none;
+  }
+
+  .booking-date-dropdown .rdp-caption_label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--title-color, #111);
   }
 
   .booking-date-dropdown__arrow {
@@ -389,6 +505,16 @@
 
   .booking-date-dropdown .rdp-day_button {
     font-size: 0.6rem;
+  }
+
+  .booking-date-dropdown__actions {
+    padding: 0.5rem 0.2rem 0.2rem;
+  }
+
+  .booking-date-dropdown__apply {
+    font-size: 0.68rem;
+    padding: 0.42rem 0.78rem;
+    min-height: 28px;
   }
 
   .input-wrap

@@ -4,6 +4,7 @@ import { DayPicker } from "react-day-picker";
 import {
   addMonths,
   format,
+  isSameDay,
   isValid,
   parse,
   startOfDay,
@@ -99,6 +100,13 @@ function Booking() {
     return { from, to: to ?? undefined };
   }, [checkInDate, checkOutDate]);
 
+  const hasCompleteRange = useMemo(() => {
+    if (!selectedRange?.from || !selectedRange?.to) {
+      return false;
+    }
+    return !isSameDay(selectedRange.from, selectedRange.to);
+  }, [selectedRange]);
+
   const calendarDefaultMonth = useMemo(() => {
     return parseStoredDate(checkInDate) ?? new Date();
   }, [checkInDate]);
@@ -115,12 +123,23 @@ function Booking() {
       return;
     }
 
+    if (range.to && isSameDay(range.from, range.to)) {
+      setCheckInDate(format(range.from, "yyyy-MM-dd"));
+      setCheckOutDate("");
+      return;
+    }
+
     setCheckInDate(format(range.from, "yyyy-MM-dd"));
     setCheckOutDate(range.to ? format(range.to, "yyyy-MM-dd") : "");
   };
 
   const shiftVisibleMonth = (monthsToAdd) => {
     setVisibleMonth((current) => startOfMonth(addMonths(current, monthsToAdd)));
+  };
+
+  const handleApplyDates = (event) => {
+    event.stopPropagation();
+    setIsDatePickerOpen(false);
   };
 
   const toggleDatePicker = (event) => {
@@ -313,10 +332,17 @@ function Booking() {
                               <span className="booking-date-dropdown__month-title">
                                 {format(visibleMonth, "MMMM yyyy")}
                               </span>
-                              <span
-                                className="booking-date-dropdown__arrow booking-date-dropdown__arrow--placeholder"
-                                aria-hidden="true"
-                              />
+                              <button
+                                type="button"
+                                className="booking-date-dropdown__arrow booking-date-dropdown__arrow--mobile-only"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  shiftVisibleMonth(1);
+                                }}
+                                aria-label="Next month"
+                              >
+                                <i className="fa-light fa-chevron-right" />
+                              </button>
                             </div>
                             <div className="booking-date-dropdown__month-nav">
                               <span
@@ -328,7 +354,7 @@ function Booking() {
                               </span>
                               <button
                                 type="button"
-                                className="booking-date-dropdown__arrow"
+                                className="booking-date-dropdown__arrow booking-date-dropdown__arrow--desktop-only"
                                 onClick={(event) => {
                                   event.stopPropagation();
                                   shiftVisibleMonth(1);
@@ -341,6 +367,7 @@ function Booking() {
                           </div>
                           <DayPicker
                             mode="range"
+                            min={1}
                             weekStartsOn={1}
                             locale={enUS}
                             numberOfMonths={2}
@@ -348,8 +375,18 @@ function Booking() {
                             selected={selectedRange}
                             onSelect={handleRangeSelect}
                             disabled={{ before: startOfDay(new Date()) }}
-                            className="booking-rdp"
+                            className={`booking-rdp ${hasCompleteRange ? "booking-rdp--has-range" : ""}`}
                           />
+                          <div className="booking-date-dropdown__actions">
+                            <button
+                              type="button"
+                              className="booking-date-dropdown__apply"
+                              onMouseDown={(event) => event.stopPropagation()}
+                              onClick={handleApplyDates}
+                            >
+                              Apply
+                            </button>
+                          </div>
                         </li>
                       </ul>
                     </div>
