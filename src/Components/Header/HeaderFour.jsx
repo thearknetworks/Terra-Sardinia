@@ -264,7 +264,11 @@ function HeaderFour() {
                             </ul>
                           </li>
                           <li>
-                            <Link to="/gallery">Gallery</Link>
+                            <Link
+                              to={`/${i18n.resolvedLanguage || "en"}/gallery`}
+                            >
+                              Gallery
+                            </Link>
                           </li>
                           <li>
                             <Link to="/tour">Our Tour</Link>
