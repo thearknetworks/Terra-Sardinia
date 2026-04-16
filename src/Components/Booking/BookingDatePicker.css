@@ -6,6 +6,57 @@
   Scope overrides through `.booking-date-dropdown` so they win the cascade.
 */
 
+.booking-form .row {
+  row-gap: 0.6rem;
+}
+
+@media (min-width: 992px) {
+  .booking-form .booking-form-group {
+    flex: 0 0 auto;
+  }
+
+  .booking-form .booking-form-group--property {
+    width: 220px;
+  }
+
+  .booking-form .booking-form-group--dates {
+    width: 260px;
+  }
+
+  .booking-form .booking-form-group--guests {
+    width: 220px;
+  }
+
+  .booking-form .booking-form-group--stay-type {
+    width: 180px;
+  }
+
+  .booking-form .booking-form-btn {
+    flex: 0 0 auto;
+    width: 150px;
+  }
+}
+
+.booking-form .booking-form-group .search-input,
+.booking-form .booking-form-group .nice-select-wrapper,
+.booking-form .booking-form-group .nice-select {
+  width: 100%;
+}
+
+.booking-guests-dropdown .booking-guests-dropdown__current {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.booking-guests-dropdown .nice-select .list,
+.booking-guests-dropdown .nice-select.open .list {
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
 .input-wrap
   .form-group
   .booking-date-dropdown

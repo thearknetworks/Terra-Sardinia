@@ -52,6 +52,7 @@ function Booking() {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
+  const [pets, setPets] = useState(0);
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
   const [visibleMonth, setVisibleMonth] = useState(() =>
     startOfMonth(parseStoredDate(checkInDate) ?? new Date())
@@ -118,16 +119,22 @@ function Booking() {
   };
 
   const guestsLabel = useMemo(() => {
-    if (!adults && !children) {
-      return "Guests";
+    const guestParts = [];
+
+    if (adults) {
+      guestParts.push(`${adults} Adult${adults > 1 ? "s" : ""}`);
     }
 
-    if (!children) {
-      return `${adults} Adult${adults > 1 ? "s" : ""}`;
+    if (children) {
+      guestParts.push(`${children} Child${children > 1 ? "ren" : ""}`);
     }
 
-    return `${adults} Adult${adults > 1 ? "s" : ""}, ${children} Child${children > 1 ? "ren" : ""}`;
-  }, [adults, children]);
+    if (pets) {
+      guestParts.push(`${pets} Pet${pets > 1 ? "s" : ""}`);
+    }
+
+    return guestParts.length ? guestParts.join(", ") : "Guests";
+  }, [adults, children, pets]);
 
   const updateGuestCount = (type, operation) => {
     const update = (currentValue) => {
@@ -143,7 +150,12 @@ function Booking() {
       return;
     }
 
-    setChildren((current) => update(current));
+    if (type === "children") {
+      setChildren((current) => update(current));
+      return;
+    }
+
+    setPets((current) => update(current));
   };
 
   const handleSearch = () => {
@@ -157,6 +169,7 @@ function Booking() {
         guests: {
           adults,
           children,
+          pets,
         },
         type: selectedStayType,
       },
@@ -198,7 +211,7 @@ function Booking() {
         <div className="booking-form">
           <div className="input-wrap">
             <div className="row align-items-center justify-content-between">
-              <div className="form-group col-md-6 col-lg-auto">
+              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--property">
                 <div className="icon">
                   <i className="fa-light fa-route" />
                 </div>
@@ -212,7 +225,7 @@ function Booking() {
                 </div>
               </div>
 
-              <div className="form-group col-md-6 col-lg-auto">
+              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--dates">
                 <div className="icon">
                   <i className="fa-light fa-clock" />
                 </div>
@@ -301,13 +314,13 @@ function Booking() {
                 </div>
               </div>
 
-              <div className="form-group col-md-6 col-lg-auto">
+              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--guests">
                 <div className="icon">
                   <i className="fa-light fa-user-group" />
                 </div>
                 <div className="search-input">
                   <label>Guests</label>
-                  <div className="nice-select-wrapper" ref={guestsPickerRef}>
+                  <div className="nice-select-wrapper booking-guests-dropdown" ref={guestsPickerRef}>
                     <div
                       className={`nice-select ${isGuestsOpen ? "open" : ""}`}
                       onClick={() => setIsGuestsOpen((prev) => !prev)}
@@ -320,7 +333,7 @@ function Booking() {
                         }
                       }}
                     >
-                      <span className="current">{guestsLabel}</span>
+                      <span className="current booking-guests-dropdown__current">{guestsLabel}</span>
                       <ul className="list">
                         <li className="option d-flex align-items-center justify-content-between">
                           <span>Adults</span>
@@ -394,13 +407,49 @@ function Booking() {
                             </button>
                           </div>
                         </li>
+                        <li className="option d-flex align-items-center justify-content-between">
+                          <span>Pets</span>
+                          <div className="d-flex align-items-center gap-2">
+                            <button
+                              type="button"
+                              className="th-btn style2"
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                updateGuestCount("pets", "decrement");
+                              }}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                padding: "7px",
+                              }}
+                            >
+                              -
+                            </button>
+                            <span>{pets}</span>
+                            <button
+                              type="button"
+                              className="th-btn style2"
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                updateGuestCount("pets", "increment");
+                              }}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                padding: "7px",
+                              }}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="form-group col-md-6 col-lg-auto">
+              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--stay-type">
                 <div className="icon">
                   <i className="fa-light fa-house" />
                 </div>
@@ -414,7 +463,7 @@ function Booking() {
                 </div>
               </div>
 
-              <div className="form-btn col-md-12 col-lg-auto">
+              <div className="form-btn col-md-12 col-lg-auto booking-form-btn">
                 <button className="th-btn" type="button" onClick={handleSearch}>
                   <img src="/assets/img/icon/search.svg" alt="" />
                   Search
