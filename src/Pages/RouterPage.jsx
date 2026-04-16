@@ -35,6 +35,7 @@ import BlogDetails from "./BlogDetails";
 import Contact from "./Contact";
 import Stays from "./Stays";
 import Ferry from "./Ferry";
+import Booking from "./Booking";
 
 function RouterPage() {
   return (
@@ -79,6 +80,7 @@ function RouterPage() {
             <Route path="contact" element={<Contact />} />
             <Route path="stays" element={<Stays />} />
             <Route path="ferry" element={<Ferry />} />
+            <Route path="booking" element={<Booking />} />
           </Route>
         </Routes>
       </Router>
