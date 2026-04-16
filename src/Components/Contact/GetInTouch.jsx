@@ -9,9 +9,9 @@ function GetInTouch() {
           <h2 className="sec-title">Create a Stay to Remember</h2>
         </div>
 
-        <div className="row gy-4 align-right">
-          <div className="col-xl-4 col-lg-6">
-            <div className="about-contact-grid style2">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div className="col">
+            <div className="about-contact-grid style2 h-100">
               <div className="about-contact-icon">
                 <img src="/assets/img/icon/location-dot2.svg" alt="" />
               </div>
@@ -39,8 +39,8 @@ function GetInTouch() {
             </div>
           </div>
 
-          <div className="col-xl-4 col-lg-6">
-            <div className="about-contact-grid">
+          <div className="col">
+            <div className="about-contact-grid h-100">
               <div className="about-contact-icon">
                 <img src="/assets/img/icon/call.svg" alt="" />
               </div>
@@ -52,8 +52,8 @@ function GetInTouch() {
               </div>
             </div>
           </div>
-          <div className="col-xl-4 col-lg-6">
-            <div className="about-contact-grid">
+          <div className="col">
+            <div className="about-contact-grid h-100">
               <div className="about-contact-icon">
                 <img src="/assets/img/icon/call.svg" alt="" />
               </div>
@@ -65,8 +65,8 @@ function GetInTouch() {
               </div>
             </div>
           </div>
-          <div className="col-xl-4 col-lg-6">
-            <div className="about-contact-grid">
+          <div className="col">
+            <div className="about-contact-grid h-100">
               <div className="about-contact-icon">
                 <img src="/assets/img/icon/mail.svg" alt="" />
               </div>
