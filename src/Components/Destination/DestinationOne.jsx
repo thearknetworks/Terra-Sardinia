@@ -8,11 +8,12 @@ import { Link, useParams } from "react-router-dom";
 const destinations = [
   {
     id: 1,
-    name: "Genn’e Mari",
-    listings: "Crystal Waters",
-    image: "/assets/img/destination/genne-mari-cover.png",
-    slug: "/destination/genne-mari",
+    name: "Saint Remy",
+    listings: "Historic Bastion",
+    image: "/assets/img/destination/saint-remy-cover.png",
+    slug: "/destination/saint-remy",
   },
+
   {
     id: 2,
     name: "Cann’e Sisa",
@@ -41,13 +42,15 @@ const destinations = [
     image: "/assets/img/destination/cagliari-cover.png",
     slug: "/destination/cagliari",
   },
+
   {
     id: 6,
-    name: "Saint Remy",
-    listings: "Historic Bastion",
-    image: "/assets/img/destination/saint-remy-cover.png",
-    slug: "/destination/saint-remy",
+    name: "Genn’e Mari",
+    listings: "Crystal Waters",
+    image: "/assets/img/destination/genne-mari-cover.png",
+    slug: "/destination/genne-mari",
   },
+
   {
     id: 7,
     name: "The Tower",
