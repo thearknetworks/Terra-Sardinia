@@ -20,17 +20,17 @@ function Booking() {
         ]}
       />
 
-      <div className="space-top space-extra-bottom">
-        <div className="container">
-          <iframe
-            src="https://www.terrasardinia.it/it/booking/room#DatesGuests-BE"
-            width="100%"
-            height="1200"
-            frameBorder="0"
-            title="Booking iframe"
-          />
-        </div>
-      </div>
+      <section className="booking-embed-section">
+        <iframe
+          className="booking-embed-iframe"
+          src="https://www.terrasardinia.it/it/booking/room#DatesGuests-BE"
+          width="100%"
+          height="2000"
+          frameBorder="0"
+          scrolling="no"
+          title="Booking iframe"
+        />
+      </section>
 
       <Footer />
       <ScrollToTop />

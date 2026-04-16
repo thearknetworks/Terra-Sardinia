@@ -368,3 +368,19 @@
   width: 14px;
   height: 14px;
 }
+
+/* Booking page iframe: full-width and no inner spacing */
+.booking-embed-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.booking-embed-iframe {
+  display: block;
+  width: 100%;
+  min-height: 2000px;
+  border: 0;
+  overflow: hidden;
+}
