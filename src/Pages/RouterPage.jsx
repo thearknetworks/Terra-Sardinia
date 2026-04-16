@@ -34,6 +34,7 @@ import Blog from "./Blog";
 import BlogDetails from "./BlogDetails";
 import Contact from "./Contact";
 import Stays from "./Stays";
+import Ferry from "./Ferry";
 
 function RouterPage() {
   return (
@@ -77,6 +78,7 @@ function RouterPage() {
             <Route path="blog/:id" element={<BlogDetails />} />
             <Route path="contact" element={<Contact />} />
             <Route path="stays" element={<Stays />} />
+            <Route path="ferry" element={<Ferry />} />
           </Route>
         </Routes>
       </Router>

@@ -221,7 +221,7 @@ Terra Sardenia`,
                       <Link to={`/${lang}/faqs`}>Faqs</Link>
                     </li>
                     <li>
-                      <Link to={`/${lang}/ferrys`}>Ferrys</Link>
+                      <Link to={`/${lang}/ferry`}>Ferry</Link>
                     </li>
                   </ul>
                 </div>
