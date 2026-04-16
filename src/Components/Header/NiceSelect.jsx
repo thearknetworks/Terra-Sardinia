@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const NiceSelect = ({ options, defaultValue, onChange }) => {
+const NiceSelect = ({ options, defaultValue, onChange, outsideClickBoundaryRef }) => {
   const [selected, setSelected] = useState(defaultValue || options[0].label);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -8,6 +8,13 @@ const NiceSelect = ({ options, defaultValue, onChange }) => {
   // Handle outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
+      if (
+        outsideClickBoundaryRef?.current &&
+        outsideClickBoundaryRef.current.contains(event.target)
+      ) {
+        return;
+      }
+
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }

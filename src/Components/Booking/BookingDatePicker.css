@@ -43,6 +43,21 @@
   width: 100%;
 }
 
+.booking-form .booking-form-group,
+.booking-form .booking-form-group .icon,
+.booking-form .booking-form-group .search-input,
+.booking-form .booking-form-group .nice-select-wrapper,
+.booking-form .booking-form-group .nice-select,
+.booking-form .booking-form-group .search-input label,
+.booking-form .booking-form-btn,
+.booking-form .booking-form-btn .th-btn {
+  cursor: pointer;
+}
+
+.booking-form .booking-form-group .nice-select:after {
+  pointer-events: none;
+}
+
 .booking-guests-dropdown .booking-guests-dropdown__current {
   display: block;
   width: 100%;

@@ -68,6 +68,10 @@ function Booking() {
   );
   const datePickerRef = useRef(null);
   const guestsPickerRef = useRef(null);
+  const propertyGroupRef = useRef(null);
+  const datesGroupRef = useRef(null);
+  const guestsGroupRef = useRef(null);
+  const stayTypeGroupRef = useRef(null);
 
   const datesLabel = useMemo(() => {
     if (checkInDate && checkOutDate) {
@@ -125,6 +129,23 @@ function Booking() {
     }
 
     setIsDatePickerOpen((prev) => !prev);
+  };
+
+  const openDropdownFromSectionClick = (event, groupRef) => {
+    if (
+      event.target.closest(".list") ||
+      event.target.closest("button") ||
+      event.target.closest("a")
+    ) {
+      return;
+    }
+
+    const dropdown = groupRef.current?.querySelector(".nice-select");
+    if (!dropdown || dropdown.contains(event.target)) {
+      return;
+    }
+
+    dropdown.click();
   };
 
   const guestsLabel = useMemo(() => {
@@ -188,15 +209,15 @@ function Booking() {
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (
-        datePickerRef.current &&
-        !datePickerRef.current.contains(event.target)
+        datesGroupRef.current &&
+        !datesGroupRef.current.contains(event.target)
       ) {
         setIsDatePickerOpen(false);
       }
 
       if (
-        guestsPickerRef.current &&
-        !guestsPickerRef.current.contains(event.target)
+        guestsGroupRef.current &&
+        !guestsGroupRef.current.contains(event.target)
       ) {
         setIsGuestsOpen(false);
       }
@@ -220,7 +241,13 @@ function Booking() {
         <div className="booking-form">
           <div className="input-wrap">
             <div className="row align-items-center justify-content-between">
-              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--property">
+              <div
+                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--property"
+                ref={propertyGroupRef}
+                onClick={(event) =>
+                  openDropdownFromSectionClick(event, propertyGroupRef)
+                }
+              >
                 <div className="icon">
                   <i className="fa-light fa-route" />
                 </div>
@@ -230,11 +257,18 @@ function Booking() {
                     options={PROPERTY_OPTIONS}
                     defaultValue="Select Stay"
                     onChange={setSelectedProperty}
+                    outsideClickBoundaryRef={propertyGroupRef}
                   />
                 </div>
               </div>
 
-              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--dates">
+              <div
+                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--dates"
+                ref={datesGroupRef}
+                onClick={(event) =>
+                  openDropdownFromSectionClick(event, datesGroupRef)
+                }
+              >
                 <div className="icon">
                   <i className="fa-light fa-clock" />
                 </div>
@@ -323,7 +357,13 @@ function Booking() {
                 </div>
               </div>
 
-              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--guests">
+              <div
+                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--guests"
+                ref={guestsGroupRef}
+                onClick={(event) =>
+                  openDropdownFromSectionClick(event, guestsGroupRef)
+                }
+              >
                 <div className="icon">
                   <i className="fa-light fa-user-group" />
                 </div>
@@ -463,7 +503,13 @@ function Booking() {
                 </div>
               </div>
 
-              <div className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--stay-type">
+              <div
+                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--stay-type"
+                ref={stayTypeGroupRef}
+                onClick={(event) =>
+                  openDropdownFromSectionClick(event, stayTypeGroupRef)
+                }
+              >
                 <div className="icon">
                   <i className="fa-light fa-house" />
                 </div>
@@ -473,6 +519,7 @@ function Booking() {
                     options={STAY_TYPE_OPTIONS}
                     defaultValue="All Types"
                     onChange={setSelectedStayType}
+                    outsideClickBoundaryRef={stayTypeGroupRef}
                   />
                 </div>
               </div>
