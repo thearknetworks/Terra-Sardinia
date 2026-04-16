@@ -34,7 +34,7 @@ function HeaderTwo() {
       <header className="th-header header-layout1 header-layout2">
         <div className="header-top">
           <div className="container th-container">
-            <div className="row justify-content-center justify-content-lg-between align-items-center">
+            <div className="row justify-content-end justify-content-lg-between align-items-center">
               <div className="col-auto d-none d-md-block">
                 <div className="header-links">
                   <ul>

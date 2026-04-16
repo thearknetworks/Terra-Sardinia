@@ -60,7 +60,7 @@ function HeaderOne() {
       <header className="th-header header-layout1">
         <div className="header-top">
           <div className="container th-container">
-            <div className="row justify-content-center justify-content-xl-between align-items-center">
+            <div className="row justify-content-end justify-content-xl-between align-items-center">
               <div className="col-auto d-none d-md-block">
                 <div className="header-links">
                   <ul>
