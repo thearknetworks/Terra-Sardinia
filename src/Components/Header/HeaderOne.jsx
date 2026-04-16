@@ -117,7 +117,7 @@ function HeaderOne() {
                         src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
                         style={{
                           width: "126px",
-                          height: "50px",
+                          height: "70px",
                           objectFit: "contain",
                           padding: "0",
                           margin: "0",
@@ -206,7 +206,7 @@ function HeaderOne() {
                     >
                       Book Now
                     </Link>
-                    <button
+                    {/* <button
                       type="button"
                       className="simple-btn sideMenuToggler"
                       onClick={() => setIsSideMenuOpen(true)}
@@ -215,7 +215,7 @@ function HeaderOne() {
                         src="/assets/img/icon/menu.svg"
                         alt="Open side menu"
                       />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -238,10 +238,10 @@ function HeaderOne() {
         isOpen={isLoginFormOpen}
         onClose={() => setIsLoginFormOpen(false)}
       />
-      <SideMenu
+      {/* <SideMenu
         isOpen={isSideMenuOpen}
         onClose={() => setIsSideMenuOpen(false)}
-      />
+      /> */}
     </>
   );
 }

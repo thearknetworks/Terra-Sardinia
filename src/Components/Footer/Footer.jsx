@@ -173,25 +173,27 @@ Terra Sardenia`,
                     Salt in the air, warmth in every detail, and moments that
                     unfold at their own perfect pace.
                   </p>
-                  {/* Keep social links for potential future use; currently disabled.
+
                   <div className="th-social">
-                    <Link to="https://www.facebook.com/">
+                    <Link
+                      to="https://www.facebook.com/VillaVerdeSardegna"
+                      target="_blank"
+                    >
                       <i className="fab fa-facebook-f" />
                     </Link>
-                    <Link to="https://www.twitter.com/">
+                    {/* <Link to="https://www.twitter.com/">
                       <i className="fab fa-twitter" />
                     </Link>
                     <Link to="https://www.linkedin.com/">
                       <i className="fab fa-linkedin-in" />
-                    </Link>
-                    <Link to="https://www.whatsapp.com/">
+                    </Link> */}
+                    <Link to="https://wa.me/393924915855" target="_blank">
                       <i className="fab fa-whatsapp" />
                     </Link>
-                    <Link to="https://instagram.com/">
+                    {/* <Link to="https://instagram.com/">
                       <i className="fab fa-instagram" />
-                    </Link>
+                    </Link> */}
                   </div>
-                  */}
                 </div>
               </div>
             </div>
@@ -250,7 +252,7 @@ Terra Sardenia`,
                         alt="Envelope icon"
                       />
                     </div>
-                    <div className="details">
+                    <div className="details d-flex align-items-center">
                       <p>
                         <a
                           href="mailto:villaantares.viapesci65@gmail.com"
@@ -259,6 +261,16 @@ Terra Sardenia`,
                           Villa Antares
                         </a>
                       </p>
+                    </div>
+                  </div>
+                  <div className="info-box_text">
+                    <div className="icon">
+                      <img
+                        src="/assets/img/icon/envelope.svg"
+                        alt="Envelope icon"
+                      />
+                    </div>
+                    <div className="details d-flex align-items-center">
                       <p>
                         <a
                           href="mailto:villaverdeguesthouse51@gmail.com"
@@ -287,6 +299,16 @@ Terra Sardenia`,
                           Villa Verde, Via dell'acquario 51, Torre delle Stelle
                         </a>
                       </p>
+                    </div>
+                  </div>
+                  <div className="info-box_text">
+                    <div className="icon">
+                      <img
+                        src="/assets/img/icon/location-dot.svg"
+                        alt="Location icon"
+                      />
+                    </div>
+                    <div className="details">
                       <p>
                         <a
                           href="https://maps.app.goo.gl/AtnRLm71X88EKWtJ6"
@@ -306,9 +328,7 @@ Terra Sardenia`,
               <div className="widget footer-widget">
                 <h3 className="widget_title">From Sardenia with Love</h3>
                 <div className="sidebar-gallery">
-                  {[
-                    ...footerGalleryImages,
-                  ].map((imageSrc) => (
+                  {[...footerGalleryImages].map((imageSrc) => (
                     <div className="gallery-thumb" key={imageSrc}>
                       <img
                         src={imageSrc}
