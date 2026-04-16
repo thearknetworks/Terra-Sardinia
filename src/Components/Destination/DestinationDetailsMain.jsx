@@ -658,7 +658,7 @@ const DESTINATION_DETAILS_BY_SLUG = {
     slug: "centro-palmira",
     category: "Hubs",
     rating: 4.3,
-    keywords: ["Shopping", "Essentials", "Local"],
+    keywords: ["Local", "Culture", "Scenic"],
     headerTitle: "Everything you need, just moments away",
     bodyText:
       "Centro Palmira serves as the central commercial hub of Torre delle Stelle, offering a practical and convenient stop for both everyday needs and casual experiences. Positioned within easy reach of the villas, it brings together a variety of essential services in one accessible location.\n\nThe area includes a mix of shops and amenities, from a market and butcher to a fishmonger, café, pizzeria, and bar. Beyond food and dining, visitors will also find local crafts, newspapers, tobacco shops, and beach-related services, creating a well-rounded offering that supports both short stays and longer visits.\n\nWhether stocking up on groceries, enjoying a quick coffee, or preparing for a day by the sea, Centro Palmira provides a reliable and efficient base, a place where convenience meets the rhythm of local life.",
@@ -733,7 +733,7 @@ const DESTINATION_DETAILS_BY_SLUG = {
     slug: "aquarium",
     category: "Dining",
     rating: 4.6,
-    keywords: ["Restaurant", "Pizza", "Local"],
+    keywords: ["Restaurant", "Local", "Nature"],
     headerTitle: "Where every slice reflects Sardinia",
     bodyText:
       "Pizzeria Farra offers a refined take on a timeless classic, rooted in Sardinian tradition and elevated through quality ingredients and thoughtful preparation. Known for its light, easily digestible doughs, the kitchen places emphasis on balance, simplicity, and authenticity.\n\nThe menu highlights locally sourced ingredients, many coming directly from nearby producers, creating pizzas that reflect the richness of the region. From carefully selected cheeses to cured meats and seasonal vegetables, each element is chosen with intention, resulting in flavors that are both familiar and distinctive.\n\nBeyond pizza, the experience extends into a broader expression of Sardinian hospitality. With a curated selection of local wines and craft beers, paired with a warm and welcoming atmosphere, Pizzeria Farra offers a setting where tradition and comfort meet, a place where each meal feels both grounded and memorable.",
@@ -1000,6 +1000,18 @@ const DEFAULT_DESTINATION_GALLERY = [
   "/assets/img/gallery/gallery_6_2.jpg",
   "/assets/img/gallery/gallery_6_3.jpg",
   "/assets/img/gallery/gallery_6_4.jpg",
+];
+const DESTINATION_TAGS = [
+  "Restaurant",
+  "Seafood",
+  "Beach",
+  "Relaxation",
+  "Scenic",
+  "Culture",
+  "Historic",
+  "Nature",
+  "Local",
+  "Wine",
 ];
 
 function DestinationDetailsMain() {
@@ -1389,13 +1401,7 @@ function DestinationDetailsMain() {
               <div className="widget widget_tag_cloud">
                 <h3 className="widget_title">Tags</h3>
                 <div className="tagcloud">
-                  {(
-                    currentDestination?.keywords || [
-                      "Beaches",
-                      "Landmarks",
-                      "Dining",
-                    ]
-                  ).map((keyword) => (
+                  {DESTINATION_TAGS.map((keyword) => (
                     <Link
                       key={keyword}
                       to={`/${lang || "en"}/destination?keyword=${keyword.toLowerCase()}`}

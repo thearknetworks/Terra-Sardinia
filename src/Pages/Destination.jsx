@@ -78,7 +78,7 @@ const destinationCards = [
     item: "Garden Dining",
     image: "/assets/img/destination/covers/aquarium-cover.png",
     category: "Dining",
-    keywords: ["Restaurant", "Garden", "Local"],
+    keywords: ["Restaurant", "Nature", "Local"],
   },
   {
     id: "mosaico",
@@ -102,7 +102,7 @@ const destinationCards = [
     item: "Local Hub",
     image: "/assets/img/destination/covers/centro-palmira-cover.png",
     category: "Hubs",
-    keywords: ["Shopping", "Essentials", "Local"],
+    keywords: ["Local", "Culture", "Scenic"],
   },
   {
     id: "cafe-do-mar",
@@ -161,9 +161,7 @@ function Destination() {
         ),
       )
     : [];
-  const inferredCategoryFromKeyword = keywordMatchedCards[0]?.category;
-  const resolvedCategory =
-    tagToCategory[selectedTag] || inferredCategoryFromKeyword || "Beaches";
+  const resolvedCategory = tagToCategory[selectedTag] || "";
   const [activeCategory, setActiveCategory] = useState(resolvedCategory);
 
   useEffect(() => {
@@ -185,6 +183,9 @@ function Destination() {
           (keyword) => keyword.toLowerCase() === selectedKeyword,
         ),
       );
+    }
+    if (!activeCategory) {
+      return destinationCards;
     }
     return destinationCards.filter(
       (destination) => destination.category === activeCategory,
