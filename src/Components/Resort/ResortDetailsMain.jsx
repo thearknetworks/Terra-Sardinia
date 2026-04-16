@@ -272,7 +272,9 @@ function VillaVerdeDetailsInner() {
                       />
                       <div>
                         <p>Min. Stay</p>
-                        <h6>{detailsConfig.minStay}</h6>
+                        <h6 className="resort-details-widget__subtitle">
+                          {detailsConfig.minStay}
+                        </h6>
                       </div>
                     </div>
                     <div className="resort-details-widget__item">
@@ -282,7 +284,9 @@ function VillaVerdeDetailsInner() {
                       />
                       <div>
                         <p>Group Size</p>
-                        <h6>{detailsConfig.groupSize}</h6>
+                        <h6 className="resort-details-widget__subtitle">
+                          {detailsConfig.groupSize}
+                        </h6>
                       </div>
                     </div>
                     <div className="resort-details-widget__item">
@@ -292,7 +296,9 @@ function VillaVerdeDetailsInner() {
                       />
                       <div>
                         <p>Extra Bed</p>
-                        <h6>{detailsConfig.extraBed}</h6>
+                        <h6 className="resort-details-widget__subtitle">
+                          {detailsConfig.extraBed}
+                        </h6>
                       </div>
                     </div>
                     <div className="resort-details-widget__item">
@@ -314,7 +320,7 @@ function VillaVerdeDetailsInner() {
                   </div>
                   <Link
                     to={`/${currentLang}/stays`}
-                    className="th-btn resort-details-widget__book-btn"
+                    className="th-btn th-icon resort-details-widget__book-btn"
                   >
                     Book Now
                   </Link>

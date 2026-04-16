@@ -5,6 +5,14 @@ import "../Destination/staggeredGallery.css";
 import "./ResortDetailsInfoCard.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Thumbs } from "swiper/modules";
+import { villaVerdeReviewsNewestFirst } from "./villaVerdeDetailsData";
+
+const REVIEW_AVATAR_STYLE = {
+  width: "80px",
+  height: "80px",
+  borderRadius: "50%",
+  objectFit: "cover",
+};
 
 const sliderImages = [
   "/assets/img/destination/Image%201%20Destination%20Detail.png",
@@ -275,40 +283,45 @@ function VillaAntaresInner() {
               </div>
 
               <div className="th-comments-wrap style2 ">
-                <h2 className="blog-inner-title h4">Reviews (0)</h2>
-                <ul className="comment-list" />
+                <h2 className="blog-inner-title h4">
+                  Reviews ({villaVerdeReviewsNewestFirst.length})
+                </h2>
+                <ul className="comment-list">
+                  {villaVerdeReviewsNewestFirst.map((review) => (
+                    <li className="th-comment-item" key={review.name}>
+                      <div className="th-post-comment">
+                        <div className="comment-avater">
+                          <img
+                            src={review.avatar}
+                            alt={review.name}
+                            style={REVIEW_AVATAR_STYLE}
+                          />
+                        </div>
+                        <div className="comment-content">
+                          <h3 className="name">{review.name}</h3>
+                          <div className="commented-wrapp">
+                            <span className="commented-on">{review.date}</span>
+                            <span className="comment-review">
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <i className="fa-solid fa-star" />
+                              <span className="ms-2">{review.rating}</span>
+                            </span>
+                          </div>
+                          <p className="text">{review.body}</p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
 
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget">
-                <h3 className="widget_title">Villa Antares</h3>
-                <div className="recent-post-wrap">
-                  <div className="recent-post">
-                    <div className="media-img">
-                      <Link to={`/${currentLang}/villa-antares`}>
-                        <img src={bannerImage} alt="Villa Antares" />
-                      </Link>
-                    </div>
-                    <div className="media-body">
-                      <h4 className="post-title">
-                        <Link
-                          className="text-inherit"
-                          to={`/${currentLang}/villa-antares`}
-                        >
-                          Villa Antares
-                        </Link>
-                      </h4>
-                      <div className="recent-post-meta">
-                        <span>Up to 10 guests</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <div className="widget resort-details-widget">
                 <h3 className="widget_title">Details</h3>
                 <div className="resort-details-widget__grid">
@@ -319,7 +332,9 @@ function VillaAntaresInner() {
                     />
                     <div>
                       <p>Min. Stay</p>
-                      <h6>{detailsConfig.minStay}</h6>
+                      <h6 className="resort-details-widget__subtitle">
+                        {detailsConfig.minStay}
+                      </h6>
                     </div>
                   </div>
                   <div className="resort-details-widget__item">
@@ -329,7 +344,9 @@ function VillaAntaresInner() {
                     />
                     <div>
                       <p>Group Size</p>
-                      <h6>{detailsConfig.groupSize}</h6>
+                      <h6 className="resort-details-widget__subtitle">
+                        {detailsConfig.groupSize}
+                      </h6>
                     </div>
                   </div>
                   <div className="resort-details-widget__item">
@@ -339,7 +356,9 @@ function VillaAntaresInner() {
                     />
                     <div>
                       <p>Extra Bed</p>
-                      <h6>{detailsConfig.extraBed}</h6>
+                      <h6 className="resort-details-widget__subtitle">
+                        {detailsConfig.extraBed}
+                      </h6>
                     </div>
                   </div>
                   <div className="resort-details-widget__item">

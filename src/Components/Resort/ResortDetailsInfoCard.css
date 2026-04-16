@@ -38,6 +38,10 @@
   color: #163844;
 }
 
+.resort-details-widget__subtitle {
+  font-family: "Inter", sans-serif;
+}
+
 .resort-details-widget__learn-more {
   margin: 2px 0 0;
   padding: 0;
@@ -119,7 +123,7 @@
   overflow-y: auto;
   padding-right: 8px;
   scrollbar-width: thin;
-  scrollbar-color: #16add6 #d5dde3;
+  scrollbar-color: #0b4f73 #d5dde3;
 }
 
 .resort-rules-modal__body::-webkit-scrollbar {
@@ -132,8 +136,12 @@
 }
 
 .resort-rules-modal__body::-webkit-scrollbar-thumb {
-  background: #16add6;
+  background: #0b4f73;
   border-radius: 999px;
+}
+
+.resort-rules-modal__body::-webkit-scrollbar-thumb:hover {
+  background: #0b4f73;
 }
 
 .resort-rules-modal__body section {
