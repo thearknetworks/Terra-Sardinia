@@ -159,6 +159,22 @@ const BED_OPTIONS = [
   "Extra Bed",
 ];
 
+function serializeStaysFilterState({
+  selectedSize,
+  selectedBeds,
+  selectedGuests,
+  selectedPropertyType,
+  selectedAmenities,
+}) {
+  return JSON.stringify({
+    size: selectedSize,
+    beds: [...selectedBeds].sort(),
+    guests: selectedGuests,
+    propertyType: selectedPropertyType,
+    amenities: [...selectedAmenities].sort(),
+  });
+}
+
 function Stays() {
   const { lang = "en" } = useParams();
   const [selectedSize, setSelectedSize] = useState("all");
@@ -167,6 +183,7 @@ function Stays() {
   const [selectedPropertyType, setSelectedPropertyType] = useState("all");
   const [selectedAmenities, setSelectedAmenities] = useState([]);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [filterModalBaseline, setFilterModalBaseline] = useState("");
 
   const allAmenities = useMemo(
     () =>
@@ -260,6 +277,40 @@ function Stays() {
     setSelectedAmenities([]);
   };
 
+  const openFilterModal = () => {
+    setFilterModalBaseline(
+      serializeStaysFilterState({
+        selectedSize,
+        selectedBeds,
+        selectedGuests,
+        selectedPropertyType,
+        selectedAmenities,
+      }),
+    );
+    setIsFilterModalOpen(true);
+  };
+
+  const showFilterModalDone = useMemo(() => {
+    if (!isFilterModalOpen) return false;
+    return (
+      serializeStaysFilterState({
+        selectedSize,
+        selectedBeds,
+        selectedGuests,
+        selectedPropertyType,
+        selectedAmenities,
+      }) !== filterModalBaseline
+    );
+  }, [
+    isFilterModalOpen,
+    filterModalBaseline,
+    selectedSize,
+    selectedBeds,
+    selectedGuests,
+    selectedPropertyType,
+    selectedAmenities,
+  ]);
+
   useEffect(() => {
     if (!isFilterModalOpen) return undefined;
     const previousOverflow = document.body.style.overflow;
@@ -311,21 +362,33 @@ function Stays() {
         <div className="container">
           <div className="row">
             <div className="col-12 d-lg-none mb-3">
-              <button
-                type="button"
-                className="th-btn style4 w-100 stays-mobile-filter-open"
-                onClick={() => setIsFilterModalOpen(true)}
-              >
-                <i className="fa-light fa-sliders" aria-hidden />
-                <span>Filter</span>
+              <div className="stays-mobile-toolbar d-flex gap-2 align-items-stretch">
+                <button
+                  type="button"
+                  className="th-btn style4 stays-mobile-filter-open flex-grow-1"
+                  onClick={openFilterModal}
+                >
+                  <i className="fa-light fa-sliders" aria-hidden />
+                  <span>Filter</span>
+                  {hasAppliedFilters ? (
+                    <span className="stays-mobile-filter-badge" aria-hidden />
+                  ) : null}
+                </button>
                 {hasAppliedFilters ? (
-                  <span className="stays-mobile-filter-badge" aria-hidden />
+                  <button
+                    type="button"
+                    className="th-btn style4 stays-mobile-clear flex-grow-1"
+                    onClick={resetFilters}
+                  >
+                    <i className="fa-light fa-xmark" aria-hidden />
+                    Clear Filter
+                  </button>
                 ) : null}
-              </button>
+              </div>
             </div>
 
             <div className="col-xxl-8 col-lg-7">
-              <div className="d-flex justify-content-between align-items-center mb-3">
+              <div className="d-none d-lg-flex justify-content-between align-items-center mb-3">
                 <div />
                 {hasAppliedFilters ? (
                   <button
@@ -414,26 +477,30 @@ function Stays() {
                 sectionClassName="stays-filter-section--in-modal"
               />
             </div>
-            <div className="stays-filter-modal-shell__footer">
-              {hasAppliedFilters ? (
-                <button
-                  type="button"
-                  className="th-btn style3 stays-filter-modal-shell__btn"
-                  onClick={() => {
-                    resetFilters();
-                  }}
-                >
-                  Clear Filters
-                </button>
-              ) : null}
-              <button
-                type="button"
-                className="th-btn style4 stays-filter-modal-shell__btn"
-                onClick={() => setIsFilterModalOpen(false)}
-              >
-                Done
-              </button>
-            </div>
+            {hasAppliedFilters || showFilterModalDone ? (
+              <div className="stays-filter-modal-shell__footer">
+                {hasAppliedFilters ? (
+                  <button
+                    type="button"
+                    className="th-btn style3 stays-filter-modal-shell__btn"
+                    onClick={() => {
+                      resetFilters();
+                    }}
+                  >
+                    Clear Filters
+                  </button>
+                ) : null}
+                {showFilterModalDone ? (
+                  <button
+                    type="button"
+                    className="th-btn style4 stays-filter-modal-shell__btn"
+                    onClick={() => setIsFilterModalOpen(false)}
+                  >
+                    Apply
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         </div>
       ) : null}

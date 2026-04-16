@@ -464,6 +464,24 @@
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
 }
 
+.stays-mobile-toolbar {
+  width: 100%;
+}
+
+.stays-mobile-toolbar .stays-mobile-filter-open,
+.stays-mobile-toolbar .stays-mobile-clear {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.stays-mobile-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+}
+
 /* Stays filter modal (same shell as resort rules modal) */
 .stays-filter-modal-shell__content {
   width: min(640px, 100%);
