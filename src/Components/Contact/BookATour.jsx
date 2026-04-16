@@ -1,6 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
 
 function BookATour() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -8,29 +12,6 @@ function BookATour() {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
-  const videoWrapperRef = useRef(null);
-
-  useEffect(() => {
-    const target = videoWrapperRef.current;
-    if (!target || shouldLoadVideo) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry?.isIntersecting) {
-          setShouldLoadVideo(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "250px 0px" },
-    );
-
-    observer.observe(target);
-    return () => observer.disconnect();
-  }, [shouldLoadVideo]);
 
   const validateEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -102,31 +83,13 @@ Terra Sardenia`,
       <div className="container">
         <div className="row flex-row-reverse justify-content-center align-items-center">
           <div className="col-lg-6">
-            <div className="video-box1" ref={videoWrapperRef}>
-              {shouldLoadVideo ? (
-                <video
-                  controls
-                  playsInline
-                  preload="none"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                >
-                  <source
-                    src="/assets/img/contact/contact_us_video.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <div
-                  aria-hidden="true"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    minHeight: "280px",
-                    background: "rgba(255, 255, 255, 0.2)",
-                  }}
-                />
-              )}
+            <div className="video-box1">
+              <button
+                className="play-btn style2 popup-video"
+                onClick={() => setModalIsOpen(true)}
+              >
+                <i className="fa-sharp fa-solid fa-play" />
+              </button>
             </div>
           </div>
           <div className="col-lg-6">
@@ -208,6 +171,26 @@ Terra Sardenia`,
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="Video Popup"
+        className="video-modal"
+        overlayClassName="video-modal-overlay"
+      >
+        <button className="close-btn" onClick={() => setModalIsOpen(false)}>
+          &times;
+        </button>
+        <iframe
+          width="100%"
+          height="400px"
+          src="https://www.youtube.com/embed/cQfIUPw72Dk"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </Modal>
     </div>
   );
 }
