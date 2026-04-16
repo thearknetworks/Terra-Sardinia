@@ -50,25 +50,16 @@ function Footer() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact-request", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/send-terrasardenia-email-footer`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: trimmedEmail }),
         },
-        body: JSON.stringify({
-          subject: "New Contact Request",
-          user_email: trimmedEmail,
-          body: `A new guest has reached out through the website.
-
-Contact Email: ${trimmedEmail}
-
-They are interested in planning a stay.
-Please follow up directly to assist them.
-
-Regards, 
-Terra Sardenia`,
-        }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to send request");
@@ -146,7 +137,7 @@ Terra Sardenia`,
                     <button
                       type="submit"
                       className="th-btn style1"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !requestEmail.trim()}
                       style={{ minWidth: "210px", alignSelf: "start" }}
                     >
                       {isSubmitting ? "Sending..." : "Send Request"}{" "}
