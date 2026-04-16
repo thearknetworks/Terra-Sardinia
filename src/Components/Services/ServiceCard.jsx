@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function ServiceCard(props) {
     const { serviceID, serviceImage, serviceTitle, serviceItem } = props;
+    const { lang = 'en' } = useParams();
     return (
-            <Link to={`/service/${serviceID}`} className="destination-item th-ani clickable-card">
+            <Link to={`/${lang}/service/${serviceID}`} className="destination-item th-ani clickable-card">
                 <div className="destination-item_img global-img">
                     <img src={`/assets/img/destination/${serviceImage}`} alt="" />
                 </div>
