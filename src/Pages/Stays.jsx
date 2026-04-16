@@ -162,6 +162,12 @@ function Stays() {
     propertyType: selectedPropertyType,
     amenities: selectedAmenities,
   };
+  const hasAppliedFilters =
+    selectedSize !== "all" ||
+    selectedBeds.length > 0 ||
+    selectedGuests !== "all" ||
+    selectedPropertyType !== "all" ||
+    selectedAmenities.length > 0;
 
   const filteredStays = useMemo(
     () => STAYS_CARDS.filter((stay) => matchesFilters(stay, activeFilters)),
@@ -228,14 +234,16 @@ function Stays() {
           <div className="row">
             <div className="col-xxl-8 col-lg-7">
               <div className="d-flex justify-content-between align-items-center mb-3">
-                <h3 className="mb-0">Our Stays</h3>
-                <button
-                  type="button"
-                  className="th-btn style4 stays-reset-btn"
-                  onClick={resetFilters}
-                >
-                  Reset Filters
-                </button>
+                <div />
+                {hasAppliedFilters ? (
+                  <button
+                    type="button"
+                    className="th-btn style4 stays-reset-btn"
+                    onClick={resetFilters}
+                  >
+                    Reset Filters
+                  </button>
+                ) : null}
               </div>
 
               <div className="row gy-24 gx-24">
@@ -272,13 +280,6 @@ function Stays() {
               {sortedFilteredStays.length === 0 ? (
                 <div className="mt-4 text-center">
                   <p className="mb-2">No stays match your selected filters.</p>
-                  <button
-                    type="button"
-                    className="th-btn style4 stays-reset-btn"
-                    onClick={resetFilters}
-                  >
-                    Reset Filters
-                  </button>
                 </div>
               ) : null}
             </div>
