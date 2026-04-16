@@ -54,13 +54,25 @@ function GetInTouch() {
           </div>
           <div className="col">
             <div className="about-contact-grid h-100">
-              <div className="about-contact-icon">
-                <img src="/assets/img/icon/call.svg" alt="" />
+              <div className="about-contact-icon d-flex align-items-center justify-content-center">
+                <i
+                  className="fab fa-whatsapp text-white"
+                  style={{
+                    fontSize: "2rem",
+                    fontWeight: "300",
+                  }}
+                ></i>
               </div>
               <div className="about-contact-details">
-                <h6 className="box-title">Phone Number</h6>
+                <h6 className="box-title">WhatsApp</h6>
                 <p className="about-contact-details-text">
-                  <a href="tel:+393924915855">+39 3924915855</a>
+                  <a
+                    href="https://wa.me/393924915855"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    +39 3924915855
+                  </a>
                 </p>
               </div>
             </div>
