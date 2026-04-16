@@ -124,6 +124,11 @@
   right: 12px;
   left: auto;
   z-index: 2;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 400;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
 }
 
 .modal-nav {
