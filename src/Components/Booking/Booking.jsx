@@ -1,7 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DayPicker } from "react-day-picker";
-import { addMonths, format, isValid, parse, startOfDay, startOfMonth } from "date-fns";
+import {
+  addMonths,
+  format,
+  isValid,
+  parse,
+  startOfDay,
+  startOfMonth,
+} from "date-fns";
 import { enUS } from "date-fns/locale";
 import "react-day-picker/style.css";
 import "./BookingDatePicker.css";
@@ -18,8 +25,8 @@ const PROPERTY_OPTIONS = [
 
 const STAY_TYPE_OPTIONS = [
   { value: "all-types", label: "All Types" },
-  { value: "entire-villa", label: "Entire Villa (Antares)" },
-  { value: "private-room", label: "Private Room (Verde)" },
+  { value: "entire-villa", label: "Entire Villa" },
+  { value: "private-room", label: "Private Room" },
 ];
 
 const ISO_DATE = "yyyy-MM-dd";
@@ -30,7 +37,9 @@ function formatStoredDateForLabel(iso) {
   }
 
   const parsed = parse(iso, ISO_DATE, new Date());
-  return isValid(parsed) ? format(parsed, "MMM d, yyyy", { locale: enUS }) : iso;
+  return isValid(parsed)
+    ? format(parsed, "MMM d, yyyy", { locale: enUS })
+    : iso;
 }
 
 function parseStoredDate(iso) {
@@ -55,7 +64,7 @@ function Booking() {
   const [pets, setPets] = useState(0);
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
   const [visibleMonth, setVisibleMonth] = useState(() =>
-    startOfMonth(parseStoredDate(checkInDate) ?? new Date())
+    startOfMonth(parseStoredDate(checkInDate) ?? new Date()),
   );
   const datePickerRef = useRef(null);
   const guestsPickerRef = useRef(null);
@@ -92,7 +101,7 @@ function Booking() {
 
   const rightSideMonth = useMemo(
     () => startOfMonth(addMonths(visibleMonth, 1)),
-    [visibleMonth]
+    [visibleMonth],
   );
 
   const handleRangeSelect = (range) => {
@@ -320,7 +329,10 @@ function Booking() {
                 </div>
                 <div className="search-input">
                   <label>Guests</label>
-                  <div className="nice-select-wrapper booking-guests-dropdown" ref={guestsPickerRef}>
+                  <div
+                    className="nice-select-wrapper booking-guests-dropdown"
+                    ref={guestsPickerRef}
+                  >
                     <div
                       className={`nice-select ${isGuestsOpen ? "open" : ""}`}
                       onClick={() => setIsGuestsOpen((prev) => !prev)}
@@ -333,7 +345,9 @@ function Booking() {
                         }
                       }}
                     >
-                      <span className="current booking-guests-dropdown__current">{guestsLabel}</span>
+                      <span className="current booking-guests-dropdown__current">
+                        {guestsLabel}
+                      </span>
                       <ul className="list">
                         <li className="option d-flex align-items-center justify-content-between">
                           <span>Adults</span>

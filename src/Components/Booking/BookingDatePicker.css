@@ -57,6 +57,12 @@
   overflow-y: visible !important;
 }
 
+.booking-form-group--stay-type .nice-select .list,
+.booking-form-group--stay-type .nice-select.open .list {
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
 .input-wrap
   .form-group
   .booking-date-dropdown
