@@ -119,6 +119,27 @@
   display: block;
 }
 
+/* Mobile/tablet: align language selector with hamburger (right edge) */
+@media (max-width: 1199px) {
+  .header-layout1 .header-top .header-right {
+    justify-content: flex-end;
+  }
+
+  .header-layout1 .header-top .currency-menu {
+    justify-content: flex-end;
+  }
+
+  /* Remove extra spacing that makes the pill look offset */
+  .header-layout1 .header-top .currency-menu .nice-select {
+    margin-right: 0 !important;
+    padding-right: 36px !important;
+  }
+
+  .header-layout1 .header-top .currency-menu .nice-select:after {
+    right: 14px !important;
+  }
+}
+
 .modal-content .close-btn {
   top: 12px;
   right: 12px;
