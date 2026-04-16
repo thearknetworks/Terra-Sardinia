@@ -281,7 +281,7 @@ function Stays() {
                     className="th-btn style4 stays-reset-btn"
                     onClick={resetFilters}
                   >
-                    Clear Filter
+                    Reset Filters
                   </button>
                 ) : null}
               </div>
@@ -339,7 +339,7 @@ function Stays() {
                         <span>({STAYS_CARDS.length})</span>
                       </button>
                     </li>
-                    {sizeOptions.map((size) => {
+                    {STAY_SIZE_FILTER_OPTIONS.map((size) => {
                       const count = getCountForOption("size", size);
                       if (count === 0 && selectedSize !== size) return null;
                       return (
