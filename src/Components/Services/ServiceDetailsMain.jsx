@@ -360,53 +360,6 @@ function ServiceDetailsMain() {
           </div>
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget widget_categories  ">
-                <h3 className="widget_title">Categories</h3>
-                <ul>
-                  <li>
-                    <Link to="/blog">
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      City Tour
-                    </Link>
-                    <span>(8)</span>
-                  </li>
-                  <li>
-                    <Link to="/blog">
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Beach Tours
-                    </Link>
-                    <span>(6)</span>
-                  </li>
-                  <li>
-                    <Link to="/blog">
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Wildlife Tours
-                    </Link>
-                    <span>(2)</span>
-                  </li>
-                  <li>
-                    <Link to="/blog">
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      News &amp; Tips
-                    </Link>
-                    <span>(7)</span>
-                  </li>
-                  <li>
-                    <Link to="/blog">
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Adventure Tours
-                    </Link>
-                    <span>(9)</span>
-                  </li>
-                  <li>
-                    <Link to="/blog">
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Mountain Tours
-                    </Link>
-                    <span>(10)</span>
-                  </li>
-                </ul>
-              </div>
               <div className="widget tour-booking  ">
                 <p className="widget_subtitle">
                   From <span className="widget_price">$75.00</span>
