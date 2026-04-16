@@ -5,6 +5,10 @@ import "../Destination/staggeredGallery.css";
 import "./ResortDetailsInfoCard.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import "swiper/css/effect-fade";
 import { villaVerdeReviewsNewestFirst } from "./villaVerdeDetailsData";
 
 const REVIEW_AVATAR_STYLE = {
@@ -15,10 +19,48 @@ const REVIEW_AVATAR_STYLE = {
 };
 
 const sliderImages = [
-  "/assets/img/destination/Image%201%20Destination%20Detail.png",
-  "/assets/img/destination/Image%202%20Destination%20Detail-2.png",
-  "/assets/img/destination/Gallery%201%20Destination%20Detail.png",
-  "/assets/img/destination/Gallery%202%20Destination%20Detail.png",
+  "/assets/img/slider/a4oyyb39ounwv6rhjad2.webp",
+  "/assets/img/slider/avxyeckgjs48quysoyvc.webp",
+  "/assets/img/slider/cadsjj0iniyxxltpi9ec.webp",
+  "/assets/img/slider/ccc1mhpmnawd0w3kircw.webp",
+  "/assets/img/slider/cskfsqdnddsncptamtiy.webp",
+  "/assets/img/slider/elfictg7dsi12k8hvedh.webp",
+  "/assets/img/slider/euutfgqxhdcmkvkelgpi.webp",
+  "/assets/img/slider/eyiybm6778l4uqtnhsns.webp",
+  "/assets/img/slider/f6kkhwynae8qgxykleh4.webp",
+  "/assets/img/slider/gfao8mukr5scau6wrkbt.webp",
+  "/assets/img/slider/gzaortnmddmzn8blogtp.webp",
+  "/assets/img/slider/ipfnwjxwwel7wnwcp7vk.webp",
+  "/assets/img/slider/jadqscjw9jhdou9czey3.webp",
+  "/assets/img/slider/jd7vqqyh3y3ls5slpewr.webp",
+  "/assets/img/slider/ka3kqoe10had65673g6p.webp",
+  "/assets/img/slider/l1gbimgxctb71lduuqxt.webp",
+  "/assets/img/slider/li6mqd2xt8fpokkcbioa.webp",
+  "/assets/img/slider/ljoegzli0xso6qnbnmcf.webp",
+  "/assets/img/slider/ly6up9jrvtxpnhxea9ul.webp",
+  "/assets/img/slider/mhl7greh6ijcafxe5crk.webp",
+  "/assets/img/slider/mi9wixalmlptgeiayzni.webp",
+  "/assets/img/slider/nrq4wcngmm4do1ha509f.webp",
+  "/assets/img/slider/nwribsdq94cfbqd8azgt.webp",
+  "/assets/img/slider/oy2gn5mbx00picjoiip9.webp",
+  "/assets/img/slider/pmxclj2gf5akzr1hsswz.webp",
+  "/assets/img/slider/q287iwlsmilsgldksbis.webp",
+  "/assets/img/slider/qossjrtwiainrmewawle.webp",
+  "/assets/img/slider/sxortqfnwxoapahi0hzx.webp",
+  "/assets/img/slider/szc4sqcea9dzruof6qwi.webp",
+  "/assets/img/slider/t9nzfklbvbsmjy6zmnmj.webp",
+  "/assets/img/slider/tyq6txyg7ecckhqgh8nh.webp",
+  "/assets/img/slider/umshbf4irno99g0ds2d5.webp",
+  "/assets/img/slider/vjcz3am4nkovuym1xu0y.webp",
+  "/assets/img/slider/xklxlsjx6c4rhhr04njb.webp",
+  "/assets/img/slider/yse1em6e9zjdkqozvlat.webp",
+  "/assets/img/slider/fmgo2dtyo7afneh9kkcb.jpg",
+  "/assets/img/slider/ldmczmharv8d8b8xtmka.jpg",
+  "/assets/img/slider/mfmbhkex7cv7hp9yyno7.jpg",
+  "/assets/img/slider/mxsdyfb5jvfrwfcmgqyo.jpg",
+  "/assets/img/slider/t1smo9m6t2vvzelkvq9c.jpg",
+  "/assets/img/slider/yoxcafbe1dms0mpxkxnl.jpg",
+  "/assets/img/slider/zwirkj7ql2z9uepfbttx.jpg",
 ];
 
 const bannerImage = "/assets/img/villaAntres/Antares%20Banner%20Image.png";
@@ -132,66 +174,70 @@ function VillaAntaresInner() {
         <div className="row">
           <div className="col-xxl-8 col-lg-7">
             <div className="page-single">
-              <div className="service-img global-img">
-                <div className="slider-area tour-slider1">
-                  <Swiper
-                    modules={[Navigation, Thumbs, EffectFade]}
-                    effect="fade"
-                    loop={true}
-                    spaceBetween={10}
-                    navigation={{
-                      prevEl: ".villa-antares-slider-prev",
-                      nextEl: ".villa-antares-slider-next",
-                    }}
-                    thumbs={{ swiper: thumbsSwiper }}
-                    className="swiper th-slider mb-25"
-                  >
-                    {sliderImages.map((img, slideIndex) => (
-                      <SwiperSlide key={img}>
-                        <div className="tour-slider-img">
-                          <img
-                            src={img}
-                            alt={`Villa Antares Slide ${slideIndex + 1}`}
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+              <div className="slider-area tour-slider1">
+                <Swiper
+                  modules={[Navigation, Thumbs, EffectFade]}
+                  effect="fade"
+                  loop={true}
+                  spaceBetween={10}
+                  navigation={{
+                    prevEl: ".villa-antares-slider-prev",
+                    nextEl: ".villa-antares-slider-next",
+                  }}
+                  thumbs={{
+                    swiper:
+                      thumbsSwiper && !thumbsSwiper.destroyed
+                        ? thumbsSwiper
+                        : null,
+                  }}
+                  className="swiper th-slider mb-25"
+                  id="villaAntaresSlider"
+                >
+                  {sliderImages.map((img, slideIndex) => (
+                    <SwiperSlide key={img}>
+                      <div className="tour-slider-img">
+                        <img
+                          src={img}
+                          alt={`Villa Antares Slide ${slideIndex + 1}`}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
-                  <Swiper
-                    modules={[Navigation, Thumbs]}
-                    loop={true}
-                    spaceBetween={25}
-                    slidesPerView={3}
-                    watchSlidesProgress
-                    onSwiper={setThumbsSwiper}
-                    className="swiper tour-thumb-slider"
-                  >
-                    {sliderImages.map((img, thumbIndex) => (
-                      <SwiperSlide key={`${img}-thumb`}>
-                        <div className="tour-slider-img">
-                          <img
-                            src={img}
-                            alt={`Villa Antares Thumbnail ${thumbIndex + 1}`}
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                <Swiper
+                  modules={[Thumbs]}
+                  loop={false}
+                  spaceBetween={12}
+                  slidesPerView={3}
+                  watchSlidesProgress
+                  onSwiper={setThumbsSwiper}
+                  className="swiper tour-thumb-slider"
+                >
+                  {sliderImages.map((img, thumbIndex) => (
+                    <SwiperSlide key={`${img}-thumb`}>
+                      <div className="tour-slider-img">
+                        <img
+                          src={img}
+                          alt={`Villa Antares Thumbnail ${thumbIndex + 1}`}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
-                  <button className="slider-arrow style3 villa-antares-slider-prev">
-                    <img
-                      src="/assets/img/icon/hero-arrow-left.svg"
-                      alt="Previous slide"
-                    />
-                  </button>
-                  <button className="slider-arrow style3 villa-antares-slider-next">
-                    <img
-                      src="/assets/img/icon/hero-arrow-right.svg"
-                      alt="Next slide"
-                    />
-                  </button>
-                </div>
+                <button
+                  className="slider-arrow style3 villa-antares-slider-prev"
+                  aria-label="Previous slide"
+                >
+                  <img src="/assets/img/icon/hero-arrow-left.svg" alt="" />
+                </button>
+                <button
+                  className="slider-arrow style3 slider-next villa-antares-slider-next"
+                  aria-label="Next slide"
+                >
+                  <img src="/assets/img/icon/hero-arrow-right.svg" alt="" />
+                </button>
               </div>
 
               <div className="page-content d-block">
@@ -380,7 +426,7 @@ function VillaAntaresInner() {
                 </div>
                 <Link
                   to={`/${currentLang}/stays`}
-                  className="th-btn resort-details-widget__book-btn"
+                  className="th-btn th-icon resort-details-widget__book-btn"
                 >
                   Book Now
                 </Link>

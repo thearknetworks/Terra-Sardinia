@@ -64,7 +64,8 @@ function VillaVerdeDetailsInner() {
   const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
   const currentLang = lang || "en";
   const detailsConfig = ROOM_DETAILS_BY_SLUG[room_name];
-  const shouldShowDetailsWidget = Boolean(detailsConfig) && room_name !== "la-tavola";
+  const shouldShowDetailsWidget =
+    Boolean(detailsConfig) && room_name !== "la-tavola";
 
   const selectedRoomMedia =
     roomMediaBySlug[room_name] || roomMediaBySlug[DEFAULT_VILLA_VERDE_SLUG];
@@ -421,7 +422,9 @@ function VillaVerdeDetailsInner() {
               <section>
                 <h5>Check-in</h5>
                 <p>From 3:30 PM to 12:30 AM</p>
-                <p>Please let the property know your arrival time in advance.</p>
+                <p>
+                  Please let the property know your arrival time in advance.
+                </p>
               </section>
               <section>
                 <h5>Check-out</h5>
@@ -440,7 +443,9 @@ function VillaVerdeDetailsInner() {
               </section>
               <section>
                 <h5>Pets</h5>
-                <p>Pets are allowed on request. Additional charges may apply.</p>
+                <p>
+                  Pets are allowed on request. Additional charges may apply.
+                </p>
               </section>
               <section>
                 <h5>Payment</h5>

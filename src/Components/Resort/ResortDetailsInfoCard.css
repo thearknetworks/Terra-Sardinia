@@ -1,3 +1,74 @@
+/* ── Villa Antares / Tour-style image slider ──────────────────────── */
+.page-single .tour-slider1 {
+  margin-bottom: 30px;
+}
+
+.tour-slider1 .th-slider .tour-slider-img img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tour-slider1 .tour-thumb-slider {
+  margin-top: 12px;
+}
+
+.tour-thumb-slider .tour-slider-img {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.tour-thumb-slider .tour-slider-img img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.tour-thumb-slider .swiper-slide {
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+
+.tour-thumb-slider .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.tour-thumb-slider .swiper-slide-thumb-active .tour-slider-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--theme-color, #16add6);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.tour-thumb-slider .tour-slider-img {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .tour-slider1 .th-slider .tour-slider-img img {
+    height: 280px;
+  }
+  .tour-thumb-slider .tour-slider-img img {
+    height: 90px;
+  }
+}
+
+@media (max-width: 575px) {
+  .tour-slider1 .th-slider .tour-slider-img img {
+    height: 220px;
+  }
+  .tour-thumb-slider .tour-slider-img img {
+    height: 70px;
+  }
+}
+
+/* ── Details widget ───────────────────────────────────────────────── */
 .resort-details-widget .widget_title {
   margin-bottom: 14px;
 }
