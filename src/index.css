@@ -295,6 +295,22 @@
   margin-bottom: 40px;
 }
 
+/* Homepage services carousel: bullets inherit theme `.swiper-pagination-bullets`
+   (style.css) — same hollow ring + filled active dot as other Tourm sliders. */
+
+.tour-services-slider-wrap .tour-services-swiper-pagination.swiper-pagination-horizontal {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .tour-services-slider-wrap .tour-services-pagination-row {
+    display: none !important;
+  }
+}
+
 .destination-details-card {
   border: 1px solid #e3e7eb;
   border-radius: 12px;

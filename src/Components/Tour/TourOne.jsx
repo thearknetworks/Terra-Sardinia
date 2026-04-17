@@ -1,5 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -35,8 +36,13 @@ function TourOne() {
             </div>
           </div>
         </div>
-        <div className="slider-area tour-slider">
+        <div className="slider-area tour-slider tour-services-slider-wrap">
           <Swiper
+            modules={[Pagination]}
+            pagination={{
+              clickable: true,
+              el: ".tour-services-swiper-pagination",
+            }}
             breakpoints={{
               0: { slidesPerView: 1 },
               576: { slidesPerView: 1 },
@@ -47,6 +53,7 @@ function TourOne() {
             }}
             spaceBetween={24}
             grabCursor={true}
+            watchOverflow={true}
             className="swiper th-slider has-shadow slider-drag-wrap"
           >
             {services.map((item) => (
@@ -93,6 +100,12 @@ function TourOne() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="slider-controller w-100 justify-content-center tour-services-pagination-row">
+            <div
+              className="swiper-pagination tour-services-swiper-pagination"
+              style={{ maxWidth: "100%" }}
+            />
+          </div>
         </div>
       </div>
     </section>
