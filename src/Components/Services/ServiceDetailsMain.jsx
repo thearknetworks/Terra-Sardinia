@@ -284,6 +284,68 @@ function ServiceDetailsMain({ service }) {
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
               <div className="widget">
+                <h3 className="widget_title">Services</h3>
+                <div className="recent-post-wrap service-sidebar-other-wrap">
+                  {otherServicesSidebar.map((item, index) => {
+                    const isPlaceholder = Boolean(item.placeholder);
+                    const isCurrent = Boolean(item.isCurrent);
+                    const to =
+                      !isPlaceholder && item.slug && !isCurrent
+                        ? `/${lang}/services/${item.slug}`
+                        : null;
+                    return (
+                      <div
+                        className={`recent-post service-sidebar-other${isCurrent ? " service-sidebar-other--current" : ""}`}
+                        key={
+                          item.slug
+                            ? `${item.slug}-${index}`
+                            : `placeholder-${index}`
+                        }
+                      >
+                        <div className="media-img">
+                          {isPlaceholder || !item.image ? (
+                            <div
+                              className="service-sidebar-other__thumb-ph"
+                              aria-hidden
+                            />
+                          ) : to ? (
+                            <Link to={to}>
+                              <img src={item.image} alt="" />
+                            </Link>
+                          ) : (
+                            <img src={item.image} alt="" />
+                          )}
+                        </div>
+                        <div className="media-body">
+                          <h4 className="post-title">
+                            {to ? (
+                              <Link className="text-inherit" to={to}>
+                                {item.name}
+                              </Link>
+                            ) : (
+                              <span
+                                className={
+                                  isCurrent
+                                    ? "text-inherit"
+                                    : "text-inherit service-sidebar-other__name--muted"
+                                }
+                              >
+                                {item.name}
+                              </span>
+                            )}
+                          </h4>
+                          {item.typeLabel ? (
+                            <span className="destination-subtitle service-sidebar-other__type">
+                              {item.typeLabel}
+                            </span>
+                          ) : null}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="widget">
                 <h3 className="widget_title">Details</h3>
                 <div className="destination-details-card destination-details-card--sidebar">
                   {hasPhone || hasWhatsapp || hasEmail ? (
@@ -354,68 +416,7 @@ function ServiceDetailsMain({ service }) {
                   ) : null} */}
                 </div>
               </div>
-              <div className="widget">
-                <h3 className="widget_title">Services</h3>
-                <div className="recent-post-wrap service-sidebar-other-wrap">
-                  {otherServicesSidebar.map((item, index) => {
-                    const isPlaceholder = Boolean(item.placeholder);
-                    const isCurrent = Boolean(item.isCurrent);
-                    const to =
-                      !isPlaceholder && item.slug && !isCurrent
-                        ? `/${lang}/services/${item.slug}`
-                        : null;
-                    return (
-                      <div
-                        className={`recent-post service-sidebar-other${isCurrent ? " service-sidebar-other--current" : ""}`}
-                        key={
-                          item.slug
-                            ? `${item.slug}-${index}`
-                            : `placeholder-${index}`
-                        }
-                      >
-                        <div className="media-img">
-                          {isPlaceholder || !item.image ? (
-                            <div
-                              className="service-sidebar-other__thumb-ph"
-                              aria-hidden
-                            />
-                          ) : to ? (
-                            <Link to={to}>
-                              <img src={item.image} alt="" />
-                            </Link>
-                          ) : (
-                            <img src={item.image} alt="" />
-                          )}
-                        </div>
-                        <div className="media-body">
-                          <h4 className="post-title">
-                            {to ? (
-                              <Link className="text-inherit" to={to}>
-                                {item.name}
-                              </Link>
-                            ) : (
-                              <span
-                                className={
-                                  isCurrent
-                                    ? "text-inherit"
-                                    : "text-inherit service-sidebar-other__name--muted"
-                                }
-                              >
-                                {item.name}
-                              </span>
-                            )}
-                          </h4>
-                          {item.typeLabel ? (
-                            <span className="destination-subtitle service-sidebar-other__type">
-                              {item.typeLabel}
-                            </span>
-                          ) : null}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+
               <div
                 className="widget widget_offer need-help-widget"
                 style={{

@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function AboutOne() {
+  const { lang = "en" } = useParams();
+
   return (
     <div
       className="about-area position-relative overflow-hidden space"
@@ -9,8 +11,8 @@ function AboutOne() {
     >
       <div className="container shape-mockup-wrap">
         <div className="row">
-          <div className="col-xl-6">
-            <div className="img-box1">
+          <div className="col-xl-6 text-center text-xl-start">
+            <div className="img-box1 mx-auto mx-xl-0">
               <div className="img1">
                 <img src="/assets/img/normal/about_1_1.png" alt="About" />
               </div>
@@ -24,26 +26,26 @@ function AboutOne() {
           </div>
 
           <div className="col-xl-6">
-            <div className="ps-xl-4 ms-xl-2">
+            <div className="ps-xl-4 ms-xl-2 text-center text-xl-start">
               <div className="title-area mb-20 pe-xl-5 me-xl-5">
-                <span className="sub-title style1">A Love Story</span>
+                <span className="sub-title style1 justify-content-center justify-content-xl-start">A Love Story</span>
                 <h2 className="sec-title mb-20 pe-xl-5 me-xl-5 heading">
                   Rooted in Sardinia
                 </h2>
                 <p className="sec-text mb-30">
-                  Welcome to Terra Sardinia, where Villa Verde and Villa
-                  Antares invite you to experience the beauty of Torre delle
-                  Stelle, its peaceful rhythm, and the simple joy of being
-                  surrounded by nature, sea, and unforgettable moments.
+                  Welcome to Terra Sardinia, where Villa Verde and Villa Antares
+                  invite you to experience the beauty of Torre delle Stelle, its
+                  peaceful rhythm, and the simple joy of being surrounded by
+                  nature, sea, and unforgettable moments.
                 </p>
               </div>
 
               <div className="about-item-wrap">
-                <div className="about-item">
+                <div className="about-item justify-content-center justify-content-xl-start">
                   <div className="about-item_img">
                     <img src="/assets/img/icon/Verdeaward.png" alt="" />
                   </div>
-                  <div className="about-item_centent">
+                  <div className="about-item_centent text-start">
                     <h5 className="box-title">Traveller Award 2020</h5>
                     <p className="about-item_text">
                       Recognized with a score of 9.4/10 for outstanding guest
@@ -52,11 +54,11 @@ function AboutOne() {
                   </div>
                 </div>
 
-                <div className="about-item">
+                <div className="about-item justify-content-center justify-content-xl-start">
                   <div className="about-item_img">
                     <img src="/assets/img/icon/Antaresaward.png" alt="" />
                   </div>
-                  <div className="about-item_centent">
+                  <div className="about-item_centent text-start">
                     <h5 className="box-title">Traveller Award 2024</h5>
                     <p className="about-item_text">
                       Awarded with a perfect 10/10 rating, reflecting
@@ -67,8 +69,8 @@ function AboutOne() {
               </div>
 
               <div className="mt-35">
-                <Link to="/about" className="th-btn style3 th-icon">
-                  Learn More
+                <Link to={`/${lang}/contact`} className="th-btn style3 th-icon">
+                  Contact Us
                 </Link>
               </div>
             </div>
@@ -96,10 +98,7 @@ function AboutOne() {
             left: "-14%",
           }}
         >
-          <img
-            src="/assets/images/Elements/Blue color/Coral.png"
-            alt="shape"
-          />
+          <img src="/assets/images/Elements/Blue color/Coral.png" alt="shape" />
         </div>
 
         <div
@@ -110,10 +109,7 @@ function AboutOne() {
             scale: "0.5",
           }}
         >
-          <img
-            src="/assets/images/Elements/Blue color/Fish.png"
-            alt="shape"
-          />
+          <img src="/assets/images/Elements/Blue color/Fish.png" alt="shape" />
         </div>
 
         <div
