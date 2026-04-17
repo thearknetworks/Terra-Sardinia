@@ -4,7 +4,7 @@ import Posts from "../data/data-service.json";
 import Modal from "../Gallery/Modal";
 
 function ServiceDetailsMain() {
-  const { id } = useParams();
+  const { id, lang } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalIndex, setModalIndex] = useState(0);
@@ -414,28 +414,27 @@ function ServiceDetailsMain() {
                 </div>
               </div>
               <div
-                className="widget widget_offer"
+                className="widget widget_offer need-help-widget"
                 style={{
-                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/bg/widget_bg_1.jpg)`,
+                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/destination/need_help.png)`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
                 }}
-                data-bg-src="/assets/img/bg/widget_bg_1.jpg"
               >
                 <div className="offer-banner">
                   <div className="offer">
-                    <h6 className="box-title">
-                      Need Help? We Are Here To Help You
-                    </h6>
+                    <h6 className="box-title">Need Help? We’re here for you</h6>
                     <div className="banner-logo">
-                      <img src="/assets/img/logo2.svg" alt="Tourm" />
+                      <img
+                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        alt="Terra Sardinia"
+                      />
                     </div>
-                    <div className="offer">
-                      <h6 className="offer-title">You Get Online support</h6>
-                      <Link className="offter-num" to={+256214203215}>
-                        +256 214 203 215
-                      </Link>
-                    </div>
-                    <Link to="/contact" className="th-btn style2 th-icon">
-                      Read More
+                    <Link
+                      to={`/${lang || "en"}/contact`}
+                      className="th-btn style2 th-icon"
+                    >
+                      Contact Us
                     </Link>
                   </div>
                 </div>

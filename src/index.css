@@ -244,6 +244,16 @@
   object-fit: contain;
 }
 
+/* Match destination / resort sidebars: Playfair title, Inter button */
+.need-help-widget .offer-banner .box-title {
+  font-family: var(--title-font), "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.need-help-widget .offer-banner .th-btn {
+  font-family: var(--body-font), "Inter", sans-serif;
+}
+
 .destination-detail-reviews .comment-avater img {
   width: 80px;
   height: 80px;
