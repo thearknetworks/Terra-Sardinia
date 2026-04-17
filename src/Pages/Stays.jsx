@@ -498,15 +498,7 @@ function Stays() {
                             <div className="tour-action">
                               <span>
                                 <i className="fa-light fa-clock" />
-                                <span
-                                  className="d-none d-xl-inline"
-                                  style={{
-                                    color: "inherit",
-                                    fontWeight: "inherit",
-                                  }}
-                                >
-                                  Min. Stay:{" "}
-                                </span>
+
                                 {stay.minStay}
                               </span>
                               <span className="th-btn style4">
