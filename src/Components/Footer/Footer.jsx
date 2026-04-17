@@ -97,16 +97,13 @@ function Footer() {
                 </div>
                 <div className="col-lg-7">
                   <form
-                    className="newsletter-form style2"
+                    className="newsletter-form style2 d-flex flex-column flex-md-row gap-2 gap-md-3"
                     onSubmit={handleRequestSubmit}
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "1fr auto",
-                      gap: "16px",
                       alignItems: "start",
                     }}
                   >
-                    <div>
+                    <div className="w-100">
                       <input
                         className="form-control "
                         type="email"
@@ -136,9 +133,9 @@ function Footer() {
                     </div>
                     <button
                       type="submit"
-                      className="th-btn style1"
+                      className="th-btn style1 align-self-stretch align-self-md-start"
                       disabled={isSubmitting || !requestEmail.trim()}
-                      style={{ minWidth: "210px", alignSelf: "start" }}
+                      style={{ minWidth: "210px" }}
                     >
                       {isSubmitting ? "Sending..." : "Send Request"}{" "}
                       <img src="/assets/img/icon/plane2.svg" alt="" />
