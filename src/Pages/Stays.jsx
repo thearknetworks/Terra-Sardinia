@@ -393,7 +393,7 @@ function Stays() {
                 {hasAppliedFilters ? (
                   <button
                     type="button"
-                    className="th-btn style4 stays-mobile-clear flex-grow-1"
+                    className="th-btn style4 stays-mobile-clear py-2 px-3 flex-grow-1"
                     onClick={resetFilters}
                   >
                     <i className="fa-light fa-xmark" aria-hidden />
@@ -408,7 +408,7 @@ function Stays() {
                 {hasAppliedFilters ? (
                   <button
                     type="button"
-                    className="th-btn style4 stays-reset-btn"
+                    className="th-btn style4 py-2 px-3 stays-reset-btn"
                     onClick={resetFilters}
                   >
                     <i className="fa-light fa-xmark" />
