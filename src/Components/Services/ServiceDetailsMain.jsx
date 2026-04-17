@@ -302,30 +302,6 @@ function ServiceDetailsMain() {
           </div>
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget tour-booking  ">
-                <p className="widget_subtitle">
-                  From <span className="widget_price">$75.00</span>
-                </p>
-                <div className="info-list">
-                  <ul>
-                    <li>
-                      <strong>Date </strong>
-                      <span>sun 15 June - Fri 20 July</span>
-                    </li>
-                    <li>
-                      <strong>Number of travelers</strong>
-                      <span>2 adults - 1 childeren - 1 room</span>
-                    </li>
-                  </ul>
-                </div>
-                <Link to="/booking" className="th-btn th-icon">
-                  Book Now
-                </Link>
-                <span className="review">
-                  <i className="fa-light fa-heart" /> 88% of travelers recommend
-                  this experience
-                </span>
-              </div>
               <div className="widget  ">
                 <h3 className="widget_title">Recent Posts</h3>
                 <div className="recent-post-wrap">
