@@ -490,21 +490,24 @@ function ServiceDetailsMain({ service }) {
         </div>
         <div
           className="shape-mockup shape1 d-none d-xxl-block"
-          style={{ bottom: "35%", right: "-12%" }}
+          style={{ bottom: "35%", right: "-12%", scale: "0.4" }}
         >
-          <img src="/assets/img/shape/shape_1.png" alt="shape" />
+          <img
+            src="/assets/images/Elements/Blue color/Shrimp.png"
+            alt="shape"
+          />
         </div>
         <div
           className="shape-mockup shape2 d-none d-xl-block"
           style={{ bottom: "31%", right: "-8%" }}
         >
-          <img src="/assets/img/shape/shape_2.png" alt="shape" />
+          <img src="/assets/images/Elements/Blue color/Coral.png" alt="shape" />
         </div>
         <div
           className="shape-mockup shape3 d-none d-xxl-block"
-          style={{ bottom: "33%", right: "-5%" }}
+          style={{ bottom: "33%", right: "-5%", scale: "0.5" }}
         >
-          <img src="/assets/img/shape/shape_3.png" alt="shape" />
+          <img src="/assets/images/Elements/Blue color/Fish.png" alt="shape" />
         </div>
       </div>
       <Modal
