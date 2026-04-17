@@ -69,33 +69,35 @@ function ServiceListingInner() {
                 </div>
               </div>
             </div>
-            <div className="th-pagination text-center mt-60 mb-0">
-              <ul>
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <li key={i}>
-                    <Link
-                      className={currentPage === i + 1 ? "active" : ""}
-                      to="#"
-                      onClick={() => handlePageChange(i + 1)}
-                    >
-                      {i + 1}
-                    </Link>
-                  </li>
-                ))}
-                {currentPage < totalPages && (
-                  <li>
-                    <Link
-                      className="next-page"
-                      to="#"
-                      onClick={() => handlePageChange(currentPage + 1)}
-                    >
-                      Next{" "}
-                      <img src="/assets/img/icon/arrow-right4.svg" alt="" />
-                    </Link>
-                  </li>
-                )}
-              </ul>
-            </div>
+            {totalPages > 1 ? (
+              <div className="th-pagination text-center mt-60 mb-0">
+                <ul>
+                  {Array.from({ length: totalPages }, (_, i) => (
+                    <li key={i}>
+                      <Link
+                        className={currentPage === i + 1 ? "active" : ""}
+                        to="#"
+                        onClick={() => handlePageChange(i + 1)}
+                      >
+                        {i + 1}
+                      </Link>
+                    </li>
+                  ))}
+                  {currentPage < totalPages && (
+                    <li>
+                      <Link
+                        className="next-page"
+                        to="#"
+                        onClick={() => handlePageChange(currentPage + 1)}
+                      >
+                        Next{" "}
+                        <img src="/assets/img/icon/arrow-right4.svg" alt="" />
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            ) : null}
           </div>
           <div className="col-xxl-3 col-lg-4">
             <aside className="sidebar-area style2">
