@@ -389,7 +389,7 @@ function Stays() {
             </div>
 
             <div className="col-xxl-8 col-lg-7">
-              <div className="d-none d-lg-flex justify-content-between align-items-center mb-3">
+              <div className="d-none d-lg-flex justify-content-between align-items-center stays-desktop-cards-top-offset">
                 {hasAppliedFilters ? (
                   <button
                     type="button"

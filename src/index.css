@@ -521,6 +521,14 @@
   min-height: 48px;
 }
 
+/* Align cards top with first sidebar filter widget (Size), not view toggle bar */
+@media (min-width: 992px) {
+  .stays-desktop-cards-top-offset {
+    min-height: 74px;
+    margin-bottom: 0;
+  }
+}
+
 /* Stays filter modal (same shell as resort rules modal) */
 .stays-filter-modal-shell__content {
   width: min(640px, 100%);
