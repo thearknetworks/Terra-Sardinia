@@ -168,6 +168,60 @@ function VillaAntaresInner() {
     </div>
   );
 
+  const renderDetailsWidget = () => (
+    <div className="widget resort-details-widget">
+      <h3 className="widget_title">Details</h3>
+      <div className="resort-details-widget__grid">
+        <div className="resort-details-widget__item">
+          <img src="/assets/img/villaVerde/details/Duration.png" alt="Min. Stay" />
+          <div>
+            <p>Min. Stay</p>
+            <h6 className="resort-details-widget__subtitle">
+              {detailsConfig.minStay}
+            </h6>
+          </div>
+        </div>
+        <div className="resort-details-widget__item">
+          <img src="/assets/img/villaVerde/details/Group.png" alt="Group Size" />
+          <div>
+            <p>Group Size</p>
+            <h6 className="resort-details-widget__subtitle">
+              {detailsConfig.groupSize}
+            </h6>
+          </div>
+        </div>
+        <div className="resort-details-widget__item">
+          <img src="/assets/img/villaVerde/details/Extra%20Bed.png" alt="Extra Bed" />
+          <div>
+            <p>Extra Bed</p>
+            <h6 className="resort-details-widget__subtitle">
+              {detailsConfig.extraBed}
+            </h6>
+          </div>
+        </div>
+        <div className="resort-details-widget__item">
+          <img
+            src="/assets/img/villaVerde/details/Cancellation.png"
+            alt="Cancellation"
+          />
+          <div>
+            <p>House Rules</p>
+            <button
+              type="button"
+              className="resort-details-widget__learn-more"
+              onClick={() => setIsRulesModalOpen(true)}
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+      <Link to="/booking" className="th-btn th-icon resort-details-widget__book-btn">
+        Book Now
+      </Link>
+    </div>
+  );
+
   return (
     <section className="space">
       <div className="container shape-mockup-wrap">
@@ -250,6 +304,9 @@ function VillaAntaresInner() {
                 <p className="blog-text mb-35">
                   {selectedRoomContent.secondBody}
                 </p>
+                <div className="d-block d-lg-none mb-35">
+                  {renderDetailsWidget()}
+                </div>
 
                 <h2 className="box-title">Highlights</h2>
                 <ul className="resort-grid-list">
@@ -368,69 +425,7 @@ function VillaAntaresInner() {
 
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget resort-details-widget">
-                <h3 className="widget_title">Details</h3>
-                <div className="resort-details-widget__grid">
-                  <div className="resort-details-widget__item">
-                    <img
-                      src="/assets/img/villaVerde/details/Duration.png"
-                      alt="Min. Stay"
-                    />
-                    <div>
-                      <p>Min. Stay</p>
-                      <h6 className="resort-details-widget__subtitle">
-                        {detailsConfig.minStay}
-                      </h6>
-                    </div>
-                  </div>
-                  <div className="resort-details-widget__item">
-                    <img
-                      src="/assets/img/villaVerde/details/Group.png"
-                      alt="Group Size"
-                    />
-                    <div>
-                      <p>Group Size</p>
-                      <h6 className="resort-details-widget__subtitle">
-                        {detailsConfig.groupSize}
-                      </h6>
-                    </div>
-                  </div>
-                  <div className="resort-details-widget__item">
-                    <img
-                      src="/assets/img/villaVerde/details/Extra%20Bed.png"
-                      alt="Extra Bed"
-                    />
-                    <div>
-                      <p>Extra Bed</p>
-                      <h6 className="resort-details-widget__subtitle">
-                        {detailsConfig.extraBed}
-                      </h6>
-                    </div>
-                  </div>
-                  <div className="resort-details-widget__item">
-                    <img
-                      src="/assets/img/villaVerde/details/Cancellation.png"
-                      alt="Cancellation"
-                    />
-                    <div>
-                      <p>House Rules</p>
-                      <button
-                        type="button"
-                        className="resort-details-widget__learn-more"
-                        onClick={() => setIsRulesModalOpen(true)}
-                      >
-                        Learn More
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  to="/booking"
-                  className="th-btn th-icon resort-details-widget__book-btn"
-                >
-                  Book Now
-                </Link>
-              </div>
+              <div className="d-none d-lg-block">{renderDetailsWidget()}</div>
 
               <div
                 className="widget widget_offer need-help-widget"
