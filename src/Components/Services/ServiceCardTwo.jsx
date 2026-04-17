@@ -4,13 +4,17 @@ import { Link, useParams } from "react-router-dom";
 function ServiceCardTwo(props) {
   const { serviceSlug, serviceImage, serviceTitle, serviceItem } = props;
   const { lang = "en" } = useParams();
+  const serviceUrl =
+    serviceSlug === "ferry"
+      ? `/${lang}/services/ferry`
+      : `/${lang}/services/${serviceSlug}`;
   const imgSrc = serviceImage.startsWith("/")
     ? serviceImage
     : `/assets/img/destination/${serviceImage}`;
 
   return (
     <Link
-      to={`/${lang}/services/${serviceSlug}`}
+      to={serviceUrl}
       className="tour-box style-flex th-ani destination-page-card clickable-card"
     >
       <div className="tour-box_img global-img">

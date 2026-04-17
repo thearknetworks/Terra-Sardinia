@@ -280,5 +280,13 @@
         "avatar": "/assets/img/services/Sailing/Review%205%20Image%20-%20Sailing.png"
       }
     ]
+  },
+  {
+    "id": 4,
+    "slug": "ferry",
+    "listTitle": "Imbarco Traghetti",
+    "cardSubtitle": "Ferry",
+    "categoryLabel": "Ferry",
+    "cardImage": "/assets/img/ferry/Service%20Card%20Image%20-%20Ferry.png"
   }
 ]

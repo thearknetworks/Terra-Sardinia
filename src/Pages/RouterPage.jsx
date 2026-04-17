@@ -91,6 +91,7 @@ function RouterPage() {
             <Route path="blog/:id" element={<BlogDetails />} />
             <Route path="contact" element={<Contact />} />
             <Route path="stays" element={<Stays />} />
+            <Route path="service/ferry" element={<Ferry />} />
             <Route path="services/ferry" element={<Ferry />} />
             <Route path="services/:slug" element={<ServiceDetails />} />
             <Route path="booking" element={<Booking />} />
