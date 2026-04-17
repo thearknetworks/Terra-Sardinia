@@ -5,7 +5,10 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
 import StaysFilterSections from "../Components/Stays/StaysFilterSections";
-import { villaVerdeSidebarItems } from "../Components/Resort/villaVerdeDetailsData";
+import {
+  villaVerdeSidebarItems,
+  roomContentBySlug,
+} from "../Components/Resort/villaVerdeDetailsData";
 import "../Components/Resort/ResortDetailsInfoCard.css";
 
 /** Villa Verde room sizes from each room page (La Tavola excluded) + Villa Antares. */
@@ -20,6 +23,37 @@ const STAY_SIZE_FILTER_OPTIONS = Array.from(
   ]),
 ).sort((a, b) => a - b);
 
+const VILLA_ANTARES_HIGHLIGHTS = [
+  { name: "Sea View", icon: "/assets/img/villaAntres/Seaview.png" },
+  { name: "Air Conditioning", icon: "/assets/img/villaAntres/AC-5.png" },
+  { name: "Wifi", icon: "/assets/img/villaAntres/Wifi-5.png" },
+  { name: "TV", icon: "/assets/img/villaAntres/TV-5.png" },
+  { name: "Dishwasher", icon: "/assets/img/villaAntres/Dishwasher.png" },
+  { name: "Dining Area", icon: "/assets/img/villaAntres/Dining%20Area.png" },
+  { name: "Outdoor Dining", icon: "/assets/img/villaAntres/Outdoor-1.png" },
+  { name: "BBQ", icon: "/assets/img/villaAntres/BBQ.png" },
+  { name: "Pool", icon: "/assets/img/villaAntres/Pool-2.png" },
+  {
+    name: "Outdoor Hot Tub",
+    icon: "/assets/img/villaAntres/Outdoor%20Hot%20Tub.png",
+  },
+  {
+    name: "Cleaning Service",
+    icon: "/assets/img/villaAntres/Cleaning%20Service.png",
+  },
+  { name: "Safe", icon: "/assets/img/villaAntres/Safe-2.png" },
+  { name: "Hair Dryer", icon: "/assets/img/villaAntres/Hair%20Dryer-5.png" },
+  { name: "Shower", icon: "/assets/img/villaAntres/Shower-5.png" },
+  { name: "Adapter", icon: "/assets/img/villaAntres/Adapter.png" },
+  { name: "Desk", icon: "/assets/img/villaAntres/Desk-3.png" },
+  { name: "Alarm System", icon: "/assets/img/villaAntres/Alarm%20System.png" },
+  {
+    name: "E-Car Charging",
+    icon: "/assets/img/villaAntres/Electric%20Car%20Charger.png",
+  },
+  { name: "Pet Friendly", icon: "/assets/img/villaAntres/Pet%20Friendly.png" },
+];
+
 const STAYS_CARDS = [
   {
     id: "aquarius",
@@ -30,15 +64,7 @@ const STAYS_CARDS = [
     beds: ["King Size", "Extra Bed"],
     guests: "Up to 2",
     propertyType: "Guesthouse Rooms",
-    amenities: [
-      "Pool View",
-      "Air Conditioning",
-      "Wifi",
-      "TV",
-      "Safe",
-      "Desk",
-      "Pet Friendly",
-    ],
+    amenities: roomContentBySlug.aquarius.highlights,
     image: "/assets/img/stays/cards/Aquarius%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/aquarius`,
   },
@@ -51,15 +77,7 @@ const STAYS_CARDS = [
     beds: ["King Size", "Twin Bed", "Extra Bed"],
     guests: "Up to 2",
     propertyType: "Guesthouse Rooms",
-    amenities: [
-      "Pool View",
-      "Air Conditioning",
-      "Wifi",
-      "TV",
-      "Minibar",
-      "Desk",
-      "Pet Friendly",
-    ],
+    amenities: roomContentBySlug.aries.highlights,
     image: "/assets/img/stays/cards/Aries%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/aries`,
   },
@@ -72,15 +90,7 @@ const STAYS_CARDS = [
     beds: ["Double Bed"],
     guests: "Up to 2",
     propertyType: "Guesthouse Rooms",
-    amenities: [
-      "Garden View",
-      "Air Conditioning",
-      "Wifi",
-      "TV",
-      "Minibar",
-      "Desk",
-      "Pet Friendly",
-    ],
+    amenities: roomContentBySlug.cancer.highlights,
     image: "/assets/img/stays/cards/Cancer%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/cancer`,
   },
@@ -93,15 +103,7 @@ const STAYS_CARDS = [
     beds: ["King Size", "Single Bed", "Extra Bed"],
     guests: "Up to 3",
     propertyType: "Guesthouse Rooms",
-    amenities: [
-      "Garden View",
-      "Air Conditioning",
-      "Wifi",
-      "TV",
-      "Minibar",
-      "Safe",
-      "Pet Friendly",
-    ],
+    amenities: roomContentBySlug.virgo.highlights,
     image: "/assets/img/stays/cards/Virgo%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/virgo`,
   },
@@ -114,15 +116,7 @@ const STAYS_CARDS = [
     beds: ["King Size", "Sofa Bed", "Extra Bed"],
     guests: "Up to 3",
     propertyType: "Guesthouse Rooms",
-    amenities: [
-      "Garden View",
-      "Air Conditioning",
-      "Wifi",
-      "TV",
-      "Minibar",
-      "Fan",
-      "Pet Friendly",
-    ],
+    amenities: roomContentBySlug.sagittarius.highlights,
     image: "/assets/img/stays/cards/Sagittarius%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-verde/sagittarius`,
   },
@@ -135,27 +129,7 @@ const STAYS_CARDS = [
     beds: ["King Size", "Double Bed", "Single Bed", "Twin Bed", "Extra Bed"],
     guests: "Up to 10",
     propertyType: "Private Villa",
-    amenities: [
-      "Sea View",
-      "Air Conditioning",
-      "Wifi",
-      "TV",
-      "Dishwasher",
-      "Dining Area",
-      "Outdoor Dining",
-      "BBQ",
-      "Pool",
-      "Outdoor Hot Tub",
-      "Cleaning Service",
-      "Safe",
-      "Hair Dryer",
-      "Shower",
-      "Adapter",
-      "Desk",
-      "Alarm System",
-      "E-Car Charging",
-      "Pet Friendly",
-    ],
+    amenities: VILLA_ANTARES_HIGHLIGHTS,
     image: "/assets/img/stays/cards/Villa%20Antares%20-%20Stays.png",
     to: (lang) => `/${lang}/villa-antares`,
   },
@@ -199,10 +173,19 @@ function Stays() {
   const [filterModalBaseline, setFilterModalBaseline] = useState("");
 
   const allAmenities = useMemo(
-    () =>
-      Array.from(new Set(STAYS_CARDS.flatMap((stay) => stay.amenities))).sort(
-        (a, b) => a.localeCompare(b),
-      ),
+    () => {
+      const map = new Map();
+      STAYS_CARDS.forEach((stay) => {
+        stay.amenities.forEach((am) => {
+          if (!map.has(am.name)) {
+            map.set(am.name, am.icon);
+          }
+        });
+      });
+      return Array.from(map.entries())
+        .map(([name, icon]) => ({ name, icon }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    },
     [],
   );
 
@@ -222,7 +205,7 @@ function Stays() {
       return false;
     if (
       filters.amenities.length > 0 &&
-      !filters.amenities.every((amenity) => stay.amenities.includes(amenity))
+      !filters.amenities.every((amenity) => stay.amenities.some(a => a.name === amenity))
     )
       return false;
     return true;

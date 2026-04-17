@@ -26,7 +26,9 @@ function StaysFilterSections({
 }) {
   return (
     <>
-      <div className={`widget widget_categories stays-filter-section ${sectionClassName}`}>
+      <div
+        className={`widget widget_categories stays-filter-section ${sectionClassName}`}
+      >
         <h3 className="widget_title">Size</h3>
         <ul>
           <li>
@@ -58,7 +60,9 @@ function StaysFilterSections({
         </ul>
       </div>
 
-      <div className={`widget widget_categories stays-filter-section ${sectionClassName}`}>
+      <div
+        className={`widget widget_categories stays-filter-section ${sectionClassName}`}
+      >
         <h3 className="widget_title">Beds</h3>
         <ul>
           {bedOptions.map((bed) => {
@@ -82,7 +86,9 @@ function StaysFilterSections({
         </ul>
       </div>
 
-      <div className={`widget widget_categories stays-filter-section ${sectionClassName}`}>
+      <div
+        className={`widget widget_categories stays-filter-section ${sectionClassName}`}
+      >
         <h3 className="widget_title">Guests</h3>
         <ul>
           <li>
@@ -114,7 +120,9 @@ function StaysFilterSections({
         </ul>
       </div>
 
-      <div className={`widget widget_categories stays-filter-section ${sectionClassName}`}>
+      <div
+        className={`widget widget_categories stays-filter-section ${sectionClassName}`}
+      >
         <h3 className="widget_title">Property Type</h3>
         <ul>
           <li>
@@ -147,27 +155,38 @@ function StaysFilterSections({
         </ul>
       </div>
 
-      <div className={`widget widget_categories stays-filter-section ${sectionClassName}`}>
+      <div
+        className={`widget widget_categories stays-filter-section ${sectionClassName}`}
+      >
         <h3 className="widget_title">Amenities</h3>
         <div className="stays-amenities-grid">
-          {allAmenities.map((amenity) => {
-            const count = getCountForOption("amenities", amenity);
-            if (count === 0 && !selectedAmenities.includes(amenity))
-              return null;
+          {allAmenities.map((amenityObj) => {
+            const { name, icon } = amenityObj;
+            const count = getCountForOption("amenities", name);
+            if (count === 0 && !selectedAmenities.includes(name)) return null;
             return (
               <button
-                key={amenity}
+                key={name}
                 type="button"
-                className={`stays-filter-chip ${selectedAmenities.includes(amenity) ? "active" : ""}`}
+                className={`stays-filter-chip ${selectedAmenities.includes(name) ? "active" : ""}`}
                 onClick={() =>
                   toggleMultiSelect(
                     setSelectedAmenities,
                     selectedAmenities,
-                    amenity,
+                    name,
                   )
                 }
               >
-                {amenity} ({count})
+                <img
+                  src={icon}
+                  alt=""
+                  style={{
+                    width: "20px",
+                    marginRight: "8px",
+                    objectFit: "contain",
+                  }}
+                />
+                {name}
               </button>
             );
           })}
