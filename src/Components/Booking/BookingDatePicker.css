@@ -6,35 +6,64 @@
   Scope overrides through `.booking-date-dropdown` so they win the cascade.
 */
 
-.booking-form .row {
+.booking-form .booking-form__row {
   row-gap: 0.6rem;
+  /* Bootstrap’s `align-items-stretch` uses `!important` — without this, the row
+     stays stretched and fields/button read as vertically misaligned. */
+  align-items: center !important;
+}
+
+/* Match theme `.input-wrap .form-group`: icon + control block as one centered band */
+.booking-form .input-wrap .form-group.booking-form-group {
+  align-items: center;
+  height: auto;
+  min-height: 41px;
+}
+
+/* Column that holds Search: flex so the pill centers to the same optical line as fields */
+.booking-form .booking-form-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.booking-form .booking-form-btn .th-btn.booking-form__search-btn {
+  margin: 0;
+  min-height: 44px;
+  padding: 0.55rem 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
 }
 
 @media (min-width: 992px) {
   .booking-form .booking-form-group {
-    flex: 0 0 auto;
+    min-width: 0;
   }
 
-  .booking-form .booking-form-group--property {
-    width: 220px;
-  }
-
-  .booking-form .booking-form-group--dates {
-    width: 260px;
-  }
-
-  .booking-form .booking-form-group--guests {
-    width: 220px;
-  }
-
-  .booking-form .booking-form-group--stay-type {
-    width: 180px;
-  }
-
+  /* Same divider rhythm as `.input-wrap .form-group:not(:first-child)` */
   .booking-form .booking-form-btn {
-    flex: 0 0 auto;
-    width: 150px;
+    justify-content: flex-end;
+    border-left: 1px solid #e1e4e5;
+    padding-left: 1.25rem;
   }
+
+  .booking-form .booking-form-btn .th-btn.booking-form__search-btn {
+    min-width: 0;
+  }
+}
+
+.booking-form .booking-form__search-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 
 .booking-form .booking-form-group .search-input,
@@ -56,6 +85,7 @@
 
 .booking-form .booking-form-group .nice-select:after {
   pointer-events: none;
+  right: 10px;
 }
 
 .booking-guests-dropdown .booking-guests-dropdown__current {
@@ -66,14 +96,36 @@
   text-overflow: ellipsis;
 }
 
-.booking-guests-dropdown .nice-select .list,
-.booking-guests-dropdown .nice-select.open .list {
+.booking-form .booking-form-group .nice-select .list,
+.booking-form .booking-form-group .nice-select.open .list {
   max-height: none !important;
   overflow-y: visible !important;
+  width: max-content;
+  min-width: 100%;
+  max-width: min(92vw, 34rem);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.booking-form-group--stay-type .nice-select .list,
-.booking-form-group--stay-type .nice-select.open .list {
+.booking-form .booking-form-group .nice-select .list:not(.booking-date-dropdown__calendar) {
+  overflow-x: hidden;
+}
+
+.booking-form .booking-form-group .nice-select .option {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+  min-height: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.booking-form .booking-form-group .nice-select .list::-webkit-scrollbar {
+  display: none;
+}
+
+.booking-guests-dropdown .nice-select .list,
+.booking-guests-dropdown .nice-select.open .list {
   max-height: none !important;
   overflow-y: visible !important;
 }

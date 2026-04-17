@@ -24,12 +24,6 @@ const PROPERTY_OPTIONS = [
   },
 ];
 
-const STAY_TYPE_OPTIONS = [
-  { value: "all-types", label: "All Types" },
-  { value: "entire-villa", label: "Entire Villa" },
-  { value: "private-room", label: "Private Room" },
-];
-
 const ISO_DATE = "yyyy-MM-dd";
 
 function formatStoredDateForLabel(iso) {
@@ -56,7 +50,6 @@ function Booking() {
   const navigate = useNavigate();
   const { lang } = useParams();
   const [selectedProperty, setSelectedProperty] = useState("all");
-  const [selectedStayType, setSelectedStayType] = useState("all-types");
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
@@ -72,7 +65,6 @@ function Booking() {
   const propertyGroupRef = useRef(null);
   const datesGroupRef = useRef(null);
   const guestsGroupRef = useRef(null);
-  const stayTypeGroupRef = useRef(null);
 
   const datesLabel = useMemo(() => {
     if (checkInDate && checkOutDate) {
@@ -220,7 +212,6 @@ function Booking() {
           children,
           pets,
         },
-        type: selectedStayType,
       },
     });
   };
@@ -259,9 +250,9 @@ function Booking() {
       <div className="container">
         <div className="booking-form">
           <div className="input-wrap">
-            <div className="row align-items-center justify-content-between">
+            <div className="row g-2 g-md-3 align-items-center booking-form__row">
               <div
-                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--property"
+                className="form-group col-12 col-md-6 col-lg-3 booking-form-group booking-form-group--property"
                 ref={propertyGroupRef}
                 onClick={(event) =>
                   openDropdownFromSectionClick(event, propertyGroupRef)
@@ -282,7 +273,7 @@ function Booking() {
               </div>
 
               <div
-                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--dates"
+                className="form-group col-12 col-md-6 col-lg-3 booking-form-group booking-form-group--dates"
                 ref={datesGroupRef}
                 onClick={(event) =>
                   openDropdownFromSectionClick(event, datesGroupRef)
@@ -396,7 +387,7 @@ function Booking() {
               </div>
 
               <div
-                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--guests"
+                className="form-group col-12 col-md-6 col-lg-3 booking-form-group booking-form-group--guests"
                 ref={guestsGroupRef}
                 onClick={(event) =>
                   openDropdownFromSectionClick(event, guestsGroupRef)
@@ -541,30 +532,13 @@ function Booking() {
                 </div>
               </div>
 
-              <div
-                className="form-group col-md-6 col-lg-auto booking-form-group booking-form-group--stay-type"
-                ref={stayTypeGroupRef}
-                onClick={(event) =>
-                  openDropdownFromSectionClick(event, stayTypeGroupRef)
-                }
-              >
-                <div className="icon">
-                  <i className="fa-light fa-house" />
-                </div>
-                <div className="search-input">
-                  <label>Stay Type</label>
-                  <NiceSelect
-                    options={STAY_TYPE_OPTIONS}
-                    defaultValue="All Types"
-                    onChange={setSelectedStayType}
-                    outsideClickBoundaryRef={stayTypeGroupRef}
-                  />
-                </div>
-              </div>
-
-              <div className="form-btn col-md-12 col-lg-auto booking-form-btn">
-                <button className="th-btn" type="button" onClick={handleSearch}>
-                  <img src="/assets/img/icon/search.svg" alt="" />
+              <div className="col-12 col-md-6 col-lg-3 booking-form-btn">
+                <button
+                  className="th-btn booking-form__search-btn"
+                  type="button"
+                  onClick={handleSearch}
+                >
+                  <img src="/assets/img/icon/search.svg" alt="" aria-hidden />
                   Search
                 </button>
               </div>
