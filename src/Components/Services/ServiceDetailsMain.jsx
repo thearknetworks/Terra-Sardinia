@@ -53,6 +53,33 @@ function ServiceDetailsMain({ service }) {
     return pairs;
   }, [galleryImages]);
 
+  const summaryChecklistLayout = useMemo(() => {
+    const lines = service.summaryChecklist || [];
+    if (!lines.length) return { mode: "empty" };
+
+    const pairs = lines.map((line) => {
+      const emParts = line.split(/\s+[—–]\s+/);
+      if (emParts.length === 2) {
+        return [emParts[0].trim(), emParts[1].trim()];
+      }
+      const arrowParts = line.split(/\s*->\s*/);
+      if (arrowParts.length === 2) {
+        return [arrowParts[0].trim(), arrowParts[1].trim()];
+      }
+      return null;
+    });
+
+    if (pairs.every(Boolean)) {
+      return {
+        mode: "pairs",
+        labels: pairs.map((p) => p[0]),
+        values: pairs.map((p) => p[1]),
+      };
+    }
+
+    return { mode: "plain", lines };
+  }, [service.summaryChecklist]);
+
   const renderGalleryBox = (src) => (
     <div className="gallery-box style3 staggered-gallery-box">
       <div className="gallery-img global-img">
@@ -142,33 +169,39 @@ function ServiceDetailsMain({ service }) {
                 ) : null}
                 <h2 className="box-title">{service.summaryTitle}</h2>
                 <p className="blog-text mb-30">{service.summaryBody}</p>
-                <div className="checklist mb-40">
-                  <ul>
-                    {(service.summaryChecklist || []).map((line, index) => (
-                      <li key={`check-${index}`}>{line}</li>
-                    ))}
-                  </ul>
-                </div>
-                {service.quote ? (
-                  <div
-                    className="mb-40 mt-20"
-                    style={{
-                      borderLeft: "4px solid var(--theme-color, #1ca8cb)",
-                      paddingLeft: "24px",
-                    }}
-                  >
-                    <p className="blog-text fst-italic mb-15">
-                      {service.quote}
-                    </p>
-                    {service.quoteAuthor ? (
-                      <cite
-                        className="box-text"
-                        style={{ fontStyle: "normal" }}
-                      >
-                        — {service.quoteAuthor}
-                      </cite>
-                    ) : null}
+                {summaryChecklistLayout.mode === "pairs" ? (
+                  <div className="destination-checklist mb-40">
+                    <div className="checklist style2">
+                      <ul>
+                        {summaryChecklistLayout.labels.map((label, index) => (
+                          <li key={`sum-label-${index}`}>{label}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="checklist style2">
+                      <ul>
+                        {summaryChecklistLayout.values.map((value, index) => (
+                          <li key={`sum-val-${index}`}>{value}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
+                ) : summaryChecklistLayout.mode === "plain" ? (
+                  <div className="checklist mb-40">
+                    <ul>
+                      {summaryChecklistLayout.lines.map((line, index) => (
+                        <li key={`check-${index}`}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+                {service.quote ? (
+                  <blockquote className="wp-block-quote service-detail-quote">
+                    <p className="fst-italic mb-0">{service.quote}</p>
+                    {service.quoteAuthor ? (
+                      <cite>{service.quoteAuthor}</cite>
+                    ) : null}
+                  </blockquote>
                 ) : null}
                 {service.supportingBody ? (
                   <p className="blog-text mb-40">{service.supportingBody}</p>

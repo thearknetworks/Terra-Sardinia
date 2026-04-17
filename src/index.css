@@ -290,6 +290,11 @@
   object-fit: cover;
 }
 
+.page-single .service-detail-quote {
+  margin-top: 16px;
+  margin-bottom: 40px;
+}
+
 .destination-details-card {
   border: 1px solid #e3e7eb;
   border-radius: 12px;
