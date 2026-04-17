@@ -26,6 +26,22 @@ function ServiceListingInner() {
   return (
     <section className="space">
       <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className="title-area text-center pe-xl-4 ps-xl-4">
+              <span className="sub-title">Curate Your Experience</span>
+              <h2 className="sec-title mb-20">Get the Best of Sardenia</h2>
+              <p className="sec-text">
+                From sailing along hidden coastlines to guided discoveries,
+                wellness sessions, and seamless travel support, each service is
+                thoughtfully selected to enrich your time in Sardinia. Designed
+                to be effortless and meaningful, these experiences allow you to
+                explore, relax, and connect with the island in a way that feels
+                natural and unforgettable.
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="row">
           <div className="col-xxl-9 col-lg-8">
             <div className="tab-content" id="nav-tabContent">

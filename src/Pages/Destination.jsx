@@ -212,6 +212,22 @@ function Destination() {
       />
       <section className="destination-categories-section">
         <div className="container">
+          <div className="row justify-content-center mt-5">
+            <div className="col-lg-8">
+              <div className="title-area text-center pe-xl-4 ps-xl-4">
+                <span className="sub-title">Moments Beyond the Villas</span>
+                <h2 className="sec-title mb-20">Discover Torre delle Stelle</h2>
+                <p className="sec-text">
+                  Just beyond the villas lies Torre delle Stelle, where Sardinia
+                  reveals its most authentic rhythm. From crystal-clear beaches
+                  and local dining spots to lively evenings and quiet corners,
+                  every place invites you to explore at your own pace. Whether
+                  you are seeking relaxation, culture, or simple moments by the
+                  sea, the area offers a natural extension of your stay.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="destination-category-tabs-wrap">
             <div className="nav nav-tabs tour-tabs destination-category-tabs">
               {categoryOptions.map((category) => (

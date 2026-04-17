@@ -435,6 +435,7 @@
   color: #5f6d7b;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  font-family: var(--title-font);
 }
 
 .stays-reset-btn {

@@ -361,6 +361,21 @@ function Stays() {
 
       <section className="space">
         <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="title-area text-center pe-xl-4 ps-xl-4">
+                <span className="sub-title">Stays with Character</span>
+                <h2 className="sec-title mb-20">Find Your Perfect Space</h2>
+                <p className="sec-text">
+                  Each stay at Terra Sardinia offers its own atmosphere, from
+                  the charm of Villa Verde’s intimate rooms to the privacy of
+                  Villa Antares. Defined by comfort, simplicity, and a sense of
+                  place, every space is designed to help you slow down, settle
+                  in, and experience Sardinia in a way that feels personal.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="col-12 d-lg-none mb-3">
               <div className="stays-mobile-toolbar d-flex gap-2 align-items-stretch">
@@ -433,20 +448,12 @@ function Stays() {
                             <div className="tour-action">
                               <span>
                                 <i className="fa-light fa-clock" />
-                                <span
-                                  className="d-none d-xl-inline"
-                                  style={{
-                                    color: "inherit",
-                                    fontWeight: "inherit",
-                                  }}
-                                >
-                                  Min. Stay:{" "}
-                                </span>
+
                                 {stay.minStay}
                               </span>
                               <span className="th-btn style4">
                                 <span
-                                  className="d-none d-sm-inline"
+                                  className="d-none d-xl-inline"
                                   style={{
                                     color: "inherit",
                                     fontWeight: "inherit",
