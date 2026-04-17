@@ -532,7 +532,7 @@ function Booking() {
                 </div>
               </div>
 
-              <div className="col-12 col-md-6 col-lg-3 booking-form-btn">
+              <div className="col-12 col-md-6 col-lg-3 mt-3   booking-form-btn">
                 <button
                   className="th-btn booking-form__search-btn"
                   type="button"
