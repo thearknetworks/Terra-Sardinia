@@ -238,8 +238,8 @@ function Faq() {
           <div className="row justify-content-center">
             <div className="col-xl-7">
               <div className="title-area text-center">
-                <span className="sub-title">FAQ</span>
-                <h2 className="sec-title">Frequently Asked Questions</h2>
+                <span className="sub-title">Frequently Asked Questions</span>
+                <h2 className="sec-title">Making Your Stay Easier</h2>
               </div>
             </div>
           </div>
