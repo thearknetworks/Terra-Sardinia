@@ -5,7 +5,7 @@ import allServices from "../data/data-service.json";
 import "../Destination/staggeredGallery.css";
 
 function ServiceDetailsMain({ service }) {
-  const { lang = "en" } = useParams();
+  const { lang = "en", slug: routeSlug, id: routeId } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalIndex, setModalIndex] = useState(0);
@@ -69,17 +69,26 @@ function ServiceDetailsMain({ service }) {
   );
 
   const otherServicesSidebar = useMemo(() => {
-    const current = allServices.find((s) => s.slug === service.slug);
-    const others = allServices.filter((s) => s.slug !== service.slug);
-    const ordered = current != null ? [current, ...others] : [...others];
+    const isSameAsCurrent = (s) => {
+      if (routeSlug != null && routeSlug !== "") {
+        return s.slug === routeSlug;
+      }
+      if (routeId != null && routeId !== "") {
+        const n = parseInt(routeId, 10);
+        if (!Number.isNaN(n)) return s.id === n;
+      }
+      return s.slug === service.slug || s.id === service.id;
+    };
 
-    const mapped = ordered.slice(0, 3).map((s) => ({
+    const others = allServices.filter((s) => !isSameAsCurrent(s));
+
+    const mapped = others.slice(0, 3).map((s) => ({
       placeholder: false,
       slug: s.slug,
       name: s.listTitle,
       typeLabel: s.categoryLabel,
       image: s.otherServicesImage || s.cardImage,
-      isCurrent: s.slug === service.slug,
+      isCurrent: false,
     }));
 
     const out = [...mapped];
@@ -93,7 +102,7 @@ function ServiceDetailsMain({ service }) {
       });
     }
     return out.slice(0, 3);
-  }, [service.slug]);
+  }, [routeSlug, routeId, service.slug, service.id]);
 
   return (
     <section className="space">
