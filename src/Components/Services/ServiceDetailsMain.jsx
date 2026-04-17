@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "../Gallery/Modal";
 import allServices from "../data/data-service.json";
+import "../Destination/staggeredGallery.css";
 
 function ServiceDetailsMain({ service }) {
   const { lang = "en" } = useParams();
@@ -44,6 +45,28 @@ function ServiceDetailsMain({ service }) {
   };
 
   const reviews = service.reviews || [];
+  const galleryRowPairs = useMemo(() => {
+    const pairs = [];
+    for (let i = 0; i < galleryImages.length; i += 2) {
+      pairs.push(galleryImages.slice(i, i + 2));
+    }
+    return pairs;
+  }, [galleryImages]);
+
+  const renderGalleryBox = (src) => (
+    <div className="gallery-box style3 staggered-gallery-box">
+      <div className="gallery-img global-img">
+        <img src={src} alt="Gallery" />
+        <Link
+          to={src}
+          className="icon-btn popup-image"
+          onClick={(e) => openModal(src, e)}
+        >
+          <i className="fal fa-magnifying-glass-plus" />
+        </Link>
+      </div>
+    </div>
+  );
 
   const otherServicesSidebar = useMemo(() => {
     const current = allServices.find((s) => s.slug === service.slug);
@@ -154,26 +177,62 @@ function ServiceDetailsMain({ service }) {
                 </div>
               </div>
               {galleryImages.length ? (
-                <div className="destination-gallery-wrapper">
+                <div className="staggered-gallery-wrapper">
                   <h3 className="page-title mt-30 mb-30">From our gallery</h3>
-                  <div className="row gy-4 gallery-row filter-active">
-                    {galleryImages.map((src) => (
-                      <div key={src} className="col-xxl-auto filter-item">
-                        <div className="gallery-box style3">
-                          <div className="gallery-img global-img">
-                            <img src={src} alt="Gallery" />
-                            <Link
-                              to={src}
-                              className="icon-btn popup-image"
-                              onClick={(e) => openModal(src, e)}
-                            >
-                              <i className="fal fa-magnifying-glass-plus" />
-                            </Link>
+                  {galleryRowPairs.map((pair, rowIndex) => {
+                    const rowKey = `staggered-gallery-row-${rowIndex}-${pair[0]}`;
+                    if (pair.length === 1) {
+                      return (
+                        <div
+                          className="row staggered-gallery-row g-4 align-items-stretch"
+                          key={rowKey}
+                        >
+                          <div className="col-12 filter-item">
+                            <div className="staggered-gallery-item">
+                              {renderGalleryBox(pair[0])}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    const [imgA, imgB] = pair;
+                    if (rowIndex % 2 === 0) {
+                      return (
+                        <div
+                          className="row staggered-gallery-row g-4 align-items-stretch"
+                          key={rowKey}
+                        >
+                          <div className="col-12 col-lg-7 filter-item">
+                            <div className="staggered-gallery-item h-100">
+                              {renderGalleryBox(imgA)}
+                            </div>
+                          </div>
+                          <div className="col-12 col-lg-5 filter-item">
+                            <div className="staggered-gallery-item h-100">
+                              {renderGalleryBox(imgB)}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return (
+                      <div
+                        className="row staggered-gallery-row g-4 align-items-stretch"
+                        key={rowKey}
+                      >
+                        <div className="col-12 col-lg-5 filter-item">
+                          <div className="staggered-gallery-item h-100">
+                            {renderGalleryBox(imgB)}
+                          </div>
+                        </div>
+                        <div className="col-12 col-lg-7 filter-item">
+                          <div className="staggered-gallery-item h-100">
+                            {renderGalleryBox(imgA)}
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })}
                 </div>
               ) : null}
               {reviews.length ? (
