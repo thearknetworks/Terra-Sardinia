@@ -1968,7 +1968,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border-radius: 48px;
   color: var(--theme-color);
   position: absolute;
-  top: 50%;
+  top: 90% !important;
   left: var(--pos-x, -120px);
   width: var(--icon-size, 88px);
   height: var(--icon-size, 56px);
@@ -1981,11 +1981,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   /* Extra large devices */
 }
 
-@media (max-width: 1500px) {
-  .slider-arrow {
-    display: none !important;
-  }
-}
+
 
 .slider-arrow.style2 {
   width: var(--icon-size, 56px);
@@ -2011,11 +2007,19 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border-color: var(--white-color);
 }
 
+@media (max-width: 1200px) {
+  .slider-arrow.style3 {
+  width: var(--icon-size, 44px) !important;
+  height: var(--icon-size, 28px) !important;
+  }
+}
+
 .slider-arrow.style3:hover {
   background-color: var(--title-color);
   color: var(--white-color);
   border-color: var(--white-color);
 }
+
 
 .slider-arrow.style4 {
   background-color: transparent;
