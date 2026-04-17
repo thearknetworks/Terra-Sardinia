@@ -1,58 +1,190 @@
 [
-    {
-        "id": 1,
-        "image": "destination_4_1.jpg",
-        "bannerImg": "destination_4_1.jpg",
-        "title": "Photo Shoot",
-        "item": "20 Listing"
+  {
+    "id": 1,
+    "slug": "savitri-yoganjoy",
+    "listTitle": "Savitri Yoganjoy",
+    "cardSubtitle": "Wellness",
+    "rating": 5,
+    "categoryLabel": "Wellness",
+    "breadcrumbCategory": "Yoga",
+    "bannerImg": "/assets/img/services/Yoga%20Service/Top%20Banner%20Image%20-%20Yoga.png",
+    "headerImg": "/assets/img/services/Yoga%20Service/Header%20Image%20-%20Yoga.png",
+    "cardImage": "/assets/img/services/Yoga%20Service/Service%20Card%20Image%20-%20Yoga.png",
+    "otherServicesImage": "/assets/img/services/Yoga%20Service/Other%20Services%20Image%20-%20Yoga.png",
+    "innerImage": "/assets/img/services/Yoga%20Service/Second%20Image%20-%20Yoga.png",
+    "gallery": [
+      "/assets/img/services/Yoga%20Service/Gallery%201%20Image%20-%20Yoga.png",
+      "/assets/img/services/Yoga%20Service/Gallery%201%20Image%20-%20Yoga-1.png",
+      "/assets/img/services/Yoga%20Service/Gallery%202%20Image%20-%20Yoga.png",
+      "/assets/img/services/Yoga%20Service/Gallery%202%20Image%20-%20Yoga-1.png"
+    ],
+    "headerTitle": "Reconnect Through Movement & Stillness",
+    "bodyParagraphs": [
+      "Set in the calm and natural surroundings of Torre delle Stelle, Savitri Yoganjoy offers a space to slow down, reconnect, and restore balance through guided yoga and wellness practices. Whether by the sea, in nature, or in a more private setting, each session is designed to gently align body and mind while embracing the peaceful rhythm of Sardinia.",
+      "From group classes to private sessions and immersive retreats, the experience is tailored to meet guests where they are. It is not just about movement, but about creating a moment of presence, where breath, environment, and energy come together in a simple yet meaningful way."
+    ],
+    "summaryTitle": "A Personalized Wellness Experience",
+    "summaryBody": "Savitri Yoganjoy provides flexible yoga and wellness sessions for all levels, from beginners to experienced practitioners. Guests can choose between group classes, private sessions, or fully immersive retreats, with options adapted to individual needs, schedules, and preferences.",
+    "summaryChecklist": [
+      "Classes — Group sessions",
+      "Private — On-demand classes",
+      "Online — Zoom sessions",
+      "Retreats — Guided escapes",
+      "Level — All levels",
+      "Location — Torre delle Stelle"
+    ],
+    "quote": "Yoga is a journey back to balance, where breath, movement, and nature come together.",
+    "quoteAuthor": "Savitri Yoganjoy",
+    "supportingBody": "Each session is designed with flexibility in mind, allowing guests to integrate wellness into their stay effortlessly, whether for a single class or a deeper, more immersive experience.",
+    "experienceTitle": "A Moment to Truly Disconnect",
+    "experienceBody": "Practicing yoga in Sardinia brings a different kind of awareness, where the sound of the sea, the warmth of the air, and the natural surroundings become part of the experience itself. It is a gentle pause in the day, an opportunity to step away from routine and reconnect with a quieter, more grounded state of mind.",
+    "highlights": [
+      "Flow with the rhythm of the sea",
+      "Reconnect mind and body naturally",
+      "Private sessions tailored to you",
+      "Wellness woven into your stay",
+      "Breathe, slow down, and reset",
+      "Experience yoga in its purest form"
+    ],
+    "details": {
+      "phone": "+39 366 112 4176",
+      "whatsapp": null,
+      "email": null,
+      "locationUrl": "https://maps.google.com/maps?vet=10CAAQoqAOahcKEwjwvKfYtvOTAxUAAAAAHQAAAAAQDw..i&sca_esv=52ef59f19557e67d&pvq=Cg0vZy8xMXh2enJ5cHpkIg4KCHlvZ2Fuam95EAIYAw&lqi=ChF5b2dhbmpveSBzYXJkaW5pYUjMr_vr67yAgAhaFxAAGAAiEXlvZ2Fuam95IHNhcmRpbmlhkgEPeW9nYV9pbnN0cnVjdG9y&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=lb&sa=X&ftid=0x12e0c54362dc4417:0x8e47860b613a6d39",
+      "website": "https://yoganjoy.com/",
+      "reviewsUrl": "https://www.google.com/search?sca_esv=52ef59f19557e67d&cs=1&sxsrf=ANbL-n7U-XLF7oEz_fyT2l_lzrDEMs2W2w:1776384852958&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOQ7vkqS9pe0KFTNwrcOwZOrn8l6w9Yaww37panZLbid0W_xLcClcrbZ6tDPi6sBEezoW2UmVWAy05p0vFveiDTPi7_8J7JngyNoVeecYfZ1Z3h7clQ%3D%3D&q=Savitri+Yoganjoy+Reviews&sa=X&ved=2ahUKEwidkZShzfOTAxUhQ_EDHe40M8EQ0bkNegQILRAH&biw=1920&bih=911&dpr=1",
+      "locationLabel": "Torre delle Stelle"
     },
-    {
-        "id": 2,
-        "image": "destination_4_2.jpg",
-        "bannerImg": "destination_4_2.jpg",
-        "title": "Tour Guide",
-        "item": "22 Listing"
+    "reviews": [
+      {
+        "name": "Yves Michali",
+        "date": "4 months ago",
+        "stars": 5,
+        "text": "Barbara is one of the top Yogi master i have ever met. She is incredibly talented and very knowledgeable about Yoga but also about the art of meditating, mindfulness, sound immersions. Her teaching skills and kindness will make your journey to Yoga as smooth as it gets and it will change the way you apprehend things forever ! Don’t wait .. just book your Yoga class with Savitri Yoganjoy. Namaste :)",
+        "avatar": "/assets/img/services/Yoga%20Service/Review%201%20Image%20-%20Yoga.png"
+      },
+      {
+        "name": "ITALY DA",
+        "date": "4 months ago",
+        "stars": 5,
+        "text": "Practicing yoga with Savitri Barbara is a deeply rejuvenating experience. Her calm and serene presence creates a welcoming environment where each student can feel free to explore the practice authentically and without pressure. Her guidance is clear, attentive, and respectful of each student's needs. Savitri Barbara explains each pose with simplicity and precision, accompanying the practice with special attention to breathing and body awareness. Her classes instill balance, inner strength, and serenity, leaving a feeling of well-being that lasts long after the practice.",
+        "avatar": "/assets/img/services/Yoga%20Service/Review%202%20Image%20-%20Yoga.png"
+      },
+      {
+        "name": "Gaetano De Stefano",
+        "date": "5 months ago",
+        "stars": 5,
+        "text": "Every yoga session with Savitri is a pleasant experience. With calm and experience, she guides you on a path that adapts to your every level. After a session, if you entered with tension and thoughts, you leave feeling peaceful and light, filled with renewed energy. I highly recommend trying one of her yoga sessions.",
+        "avatar": "/assets/img/services/Yoga%20Service/Review%203%20Image%20-%20Yoga.png"
+      },
+      {
+        "name": "Jessica Maire",
+        "date": "5 months ago",
+        "stars": 5,
+        "text": "Barbara is a true gem. I've been practicing with her online for years, and each class is a suspended moment, a gentle and profound reconnection with myself. Her voice, her clear explanations, her caring presence… everything contributes to creating a space where you feel safe, guided, and inspired.\n\nI've also had the privilege of participating in two retreats in Sardinia with her, and it was simply magical. Impeccable organization, high-quality practices, magnificent locations, and a unique energy that only Barbara can instill.\n\nWhether online or in person, her teaching is a gift. I wholeheartedly recommend her.",
+        "avatar": "/assets/img/services/Yoga%20Service/Review%204%20Image%20-%20Yoga.png"
+      },
+      {
+        "name": "Aurora Tosi",
+        "date": "4 months ago",
+        "stars": 5,
+        "text": "Working with Barbara immediately proved to be a real blessing. She's a true professional who knows exactly what to offer, and she does so in an empathetic and unpretentious manner. Her voice is a discreet yet incredibly present guide during all her classes, which can be held both in person and online. I'm happy to have met her and recommend everyone to contact her.",
+        "avatar": "/assets/img/services/Yoga%20Service/Review%205%20Image%20-%20Yoga.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "guide-sardinia",
+    "listTitle": "Guide Sardinia",
+    "cardSubtitle": "Tours",
+    "rating": 5,
+    "categoryLabel": "Tours",
+    "breadcrumbCategory": "Guide",
+    "bannerImg": "/assets/img/services/Guide%20Sardinia/Top%20Banner%20Image%20-%20Guide%20Sardinia.png",
+    "headerImg": "/assets/img/services/Guide%20Sardinia/Header%20Image%20-%20Guide%20Sardinia.png",
+    "cardImage": "/assets/img/services/Guide%20Sardinia/Service%20Card%20Image%20-%20Guide%20Sardinia.png",
+    "otherServicesImage": "/assets/img/services/Guide%20Sardinia/Other%20Services%20Image%20-%20Guide%20Sardinia.png",
+    "innerImage": "/assets/img/services/Guide%20Sardinia/Second%20Image%20-%20Guide%20Sardinia.png",
+    "gallery": [
+      "/assets/img/services/Guide%20Sardinia/Gallery%201%20Image%20-%20Guide%20Sardinia.png",
+      "/assets/img/services/Guide%20Sardinia/Gallery%201%20Image%20-%20Guide%20Sardinia-1.png",
+      "/assets/img/services/Guide%20Sardinia/Gallery%202%20Image%20-%20Guide%20Sardinia.png",
+      "/assets/img/services/Guide%20Sardinia/Gallery%202%20Image%20-%20Guide%20Sardinia-1.png"
+    ],
+    "headerTitle": "Discover Sardinia Beyond the Surface",
+    "bodyParagraphs": [
+      "Guide Sardinia offers curated experiences that reveal the island through the eyes of those who know it best. From hidden beaches and archaeological sites to cultural landmarks and scenic landscapes, each journey is thoughtfully designed to go beyond the typical tourist path.",
+      "Led by experienced local guides, every tour becomes an immersive exploration of Sardinia’s history, nature, and traditions. Whether by land or sea, these experiences are crafted to connect you with the island in a meaningful and unforgettable way."
+    ],
+    "summaryTitle": "A Curated Island Experience",
+    "summaryBody": "Each tour is carefully planned to balance discovery, comfort, and authenticity, offering guests a seamless way to explore Sardinia’s most remarkable locations with expert guidance.",
+    "summaryChecklist": [
+      "Guides -> Local experts",
+      "Tours -> Private & group",
+      "Routes -> Custom itineraries",
+      "Transport -> Included options",
+      "Languages -> Multi-language",
+      "Booking -> Advance required"
+    ],
+    "quote": "Very competent, helpful and kind guide.",
+    "quoteAuthor": "Noemi S",
+    "supportingBody": "Every route is shaped by local knowledge and attention to detail, ensuring each guest experiences Sardinia in a way that feels personal, smooth, and deeply enriching.",
+    "experienceTitle": "Explore Like a Local",
+    "experienceBody": "From coastal drives and hidden coves to cultural discoveries and panoramic viewpoints, each tour invites you to slow down and experience Sardinia with depth and perspective. It’s not just about seeing the island, but understanding it.",
+    "highlights": [
+      "Hidden gems you wouldn’t find alone",
+      "Expert insight at every stop",
+      "Flexible itineraries tailored to you",
+      "Seamless and stress-free exploration",
+      "Authentic cultural immersion",
+      "Unforgettable scenic routes"
+    ],
+    "details": {
+      "phone": "+39 328 267 0575",
+      "whatsapp": "+39 328 267 0575",
+      "email": "info@guide-sardinia.com",
+      "locationUrl": null,
+      "website": "https://www.guide-sardinia.com/",
+      "reviewsUrl": "https://www.tripadvisor.com/Attraction_Review-g187881-d5777223-Reviews-Guide_Sardinia-Cagliari_Province_of_Cagliari_Sardinia.html",
+      "locationLabel": null
     },
-    {
-        "id": 3,
-        "image": "destination_4_3.jpg",
-        "bannerImg": "destination_4_3.jpg",
-        "title": "Tour Guide",
-        "item": "23 Listing"
-    },
-    {
-        "id": 4,
-        "image": "destination_4_4.jpg",
-        "bannerImg": "destination_4_4.jpg",
-        "title": "Tour Guide",
-        "item": "24 Listing"
-    },
-    {
-        "id": 5,
-        "image": "destination_4_5.jpg",
-        "bannerImg": "destination_4_5.jpg",
-        "title": "Kayaking",
-        "item": "25 Listing"
-    },
-    {
-        "id": 6,
-        "image": "destination_4_6.jpg",
-        "bannerImg": "destination_4_6.jpg",
-        "title": "Safe Flight",
-        "item": "26 Listing"
-    },
-    {
-        "id": 7,
-        "image": "destination_4_7.jpg",
-        "bannerImg": "destination_4_7.jpg",
-        "title": "Entertainment",
-        "item": "27 Listing"
-    },
-    {
-        "id": 8,
-        "image": "destination_4_8.jpg",
-        "bannerImg": "destination_4_8.jpg",
-        "title": "Delicisious Food",
-        "item": "28 Listing"
-    }
+    "reviews": [
+      {
+        "name": "Vince S",
+        "date": "January 2026",
+        "stars": 5,
+        "text": "Wonderful experience with Guglielmo. He was very knowledgeable, personable and well suited for the job. Probably one of the best experiences we’ve had in our travels over many years. Highly recommend!",
+        "avatar": "/assets/img/services/Guide%20Sardinia/Review%201%20Image%20-%20Guide%20Sardinia.png"
+      },
+      {
+        "name": "Katrin R",
+        "date": "March 2026",
+        "stars": 5,
+        "text": "Guglielmo's service is excellent. For over seven years, we have greatly appreciated his reliability, his open-mindedness, and his excellent knowledge of Sardinian history, lifestyle, and highlights. On each of our many trips, he inspires us anew, allowing us to discover more and more of Sardinia. We love listening to him, and the trips are always a wonderful experience. Thank you so much, dear friend.",
+        "avatar": "/assets/img/services/Guide%20Sardinia/Review%202%20Image%20-%20Guide%20Sardinia.png"
+      },
+      {
+        "name": "sgargeum",
+        "date": "August 2025",
+        "stars": 5,
+        "text": "I have known Guglielmo for years and I must say that he is a guarantee from all points of view: punctual, professional and kind. If you want to book a transfer and you don't want to have any problems, well Guglielmo is the number 1 in Sardinia.\n\nSee you soon!",
+        "avatar": "/assets/img/services/Guide%20Sardinia/Review%203%20Image%20-%20Guide%20Sardinia.png"
+      },
+      {
+        "name": "sienna2015",
+        "date": "August 2025",
+        "stars": 5,
+        "text": "Everything is perfect.\n\nProfessional driver, punctual, precise, kind. Van spotless.\n\nSuper recommended, if we return to Sardinia we will definitely lean on him.",
+        "avatar": "/assets/img/services/Guide%20Sardinia/Review%204%20Image%20-%20Guide%20Sardinia.png"
+      },
+      {
+        "name": "Sarah",
+        "date": "July 2025",
+        "stars": 5,
+        "text": "Gugliamo was fabulous. Excellent communication, timely with transfers and friendly but professional. He gave us very good recommendations which proved to be outstanding and we had a wonderful holiday thanks to his expertise.",
+        "avatar": "/assets/img/services/Guide%20Sardinia/Review%205%20Image%20-%20Guide%20Sardinia.png"
+      }
+    ]
+  }
 ]

@@ -1,39 +1,77 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Posts from "../data/data-service.json";
 import Modal from "../Gallery/Modal";
+import allServices from "../data/data-service.json";
 
-function ServiceDetailsMain() {
-  const { id, lang } = useParams();
+function ServiceDetailsMain({ service }) {
+  const { lang = "en" } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const [modalIndex, setModalIndex] = useState(0);
-  const galleryImages = [
-    "/assets/img/gallery/gallery_6_1.jpg",
-    "/assets/img/gallery/gallery_6_2.jpg",
-    "/assets/img/gallery/gallery_6_3.jpg",
-    "/assets/img/gallery/gallery_6_4.jpg",
-  ];
 
-  const servicePost = Posts.find((post) => post.id === parseInt(id));
+  const galleryImages = service.gallery || [];
+  const details = service.details || {};
+  const hasPhone = Boolean(details.phone);
+  const hasWhatsapp = Boolean(details.whatsapp);
+  const hasEmail = Boolean(details.email);
 
-  if (!servicePost) {
-    return <div>Post not found!</div>;
-  }
+  const contactActions = useMemo(
+    () =>
+      [
+        details.locationUrl
+          ? { key: "location", label: "Location", href: details.locationUrl }
+          : null,
+        details.website
+          ? { key: "website", label: "Website", href: details.website }
+          : null,
+        details.reviewsUrl
+          ? { key: "reviews", label: "Reviews", href: details.reviewsUrl }
+          : null,
+      ].filter(Boolean),
+    [details],
+  );
 
-  // Function to open the modal with the selected image
   const openModal = (imageSrc, event) => {
-    event.preventDefault(); // Prevent default link behavior
+    event.preventDefault();
     setModalImage(imageSrc);
     const index = galleryImages.indexOf(imageSrc);
     setModalIndex(index >= 0 ? index : 0);
     setIsModalOpen(true);
   };
 
-  // Function to close the modal
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  const reviews = service.reviews || [];
+
+  const otherServicesSidebar = useMemo(() => {
+    const current = allServices.find((s) => s.slug === service.slug);
+    const others = allServices.filter((s) => s.slug !== service.slug);
+    const ordered =
+      current != null ? [current, ...others] : [...others];
+
+    const mapped = ordered.slice(0, 3).map((s) => ({
+      placeholder: false,
+      slug: s.slug,
+      name: s.listTitle,
+      typeLabel: s.categoryLabel,
+      image: s.otherServicesImage || s.cardImage,
+      isCurrent: s.slug === service.slug,
+    }));
+
+    const out = [...mapped];
+    while (out.length < 3) {
+      out.push({
+        placeholder: true,
+        name: "Coming soon",
+        typeLabel: "",
+        image: null,
+        isCurrent: false,
+      });
+    }
+    return out.slice(0, 3);
+  }, [service.slug]);
 
   return (
     <section className="space">
@@ -42,351 +80,282 @@ function ServiceDetailsMain() {
           <div className="col-xxl-8 col-lg-7">
             <div className="page-single">
               <div className="service-img">
-                <img
-                  src={`/assets/img/destination/${servicePost.bannerImg}`}
-                  alt=""
-                />
+                <img src={service.headerImg || service.bannerImg} alt="" />
               </div>
               <div className="page-content d-block">
-                <div className="page-meta mt-50 mb-45">
-                  <Link className="page-tag" to="/tour">
-                    Featured
+                <div
+                  className="page-meta mt-50 mb-45 d-flex align-items-center"
+                  style={{ gap: "8px" }}
+                >
+                  <Link className="page-tag mr-5" to={`/${lang}/service`}>
+                    {service.categoryLabel}
                   </Link>
                   <span className="ratting">
                     <i className="fa-sharp fa-solid fa-star" />
-                    <span>4.8</span>
+                    <span>{service.rating}</span>
                   </span>
                 </div>
-                <h2 className="box-title">
-                  Explore the Beauty of Maldives and enjoy
-                </h2>
-                <p className="box-text mb-30">
-                  voluptatem accusantium doloremque laudantium, totam rem
-                  aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-                  architecto beatae vitae dicta sunt explicabo. Dolorem ipsum
-                  quia dolor sit amet, consectetur, adipisci velit, sed quia non
-                  numquam eius modi tempora incidunt ut labore et dolore magnam
-                  aliquam quaerat voluptatem. Quis autem vel eum iure
-                  reprehenderit qui in ea voluptate velit esse quam nihil
-                  molestiae consequatur, vel illum qui dolorem eum fugiat quo
-                  voluptas nulla pariatur Quis autem vel eum iure reprehenderit
-                  qui in ea voluptate velit esse quam nihil molestiae
-                  consequatur, vel illum qui dolorem eum fugiat quo voluptas
-                  nulla pariatur
-                </p>
-                <p className="box-text mb-50">
-                  {" "}
-                  ‍Whether you work from home or commute to a nearby office, the
-                  energy-efficient features of your home contribute to a
-                  productive and eco-conscious workday. Smart home systems allow
-                  you to monitor and control energy usage, ensuring that your
-                  environmental impact remains minimal.
-                </p>
-                <div className="service-inner-img mb-40">
-                  <img
-                    src="/assets/img/destination/destination-inner-1.jpg"
-                    alt=""
-                  />
-                </div>
-                <h2 className="box-title">Highlights</h2>
-                <div className="checklist">
+                <h2 className="box-title">{service.headerTitle}</h2>
+                {(service.bodyParagraphs || []).map((para, index) => (
+                  <p
+                    key={`body-${index}`}
+                    className={`blog-text ${index === 0 ? "mb-30" : "mb-50"}`}
+                  >
+                    {para}
+                  </p>
+                ))}
+                {service.innerImage ? (
+                  <div className="service-inner-img mb-40">
+                    <img src={service.innerImage} alt="" />
+                  </div>
+                ) : null}
+                <h2 className="box-title">{service.summaryTitle}</h2>
+                <p className="blog-text mb-30">{service.summaryBody}</p>
+                <div className="checklist mb-40">
                   <ul>
-                    <li>Visit most popular location of Maldives</li>
-                    <li>
-                      Buffet Breakfast for all traveler with good quality.
-                    </li>
-                    <li>
-                      Expert guide always guide you and give informations.
-                    </li>
-                    <li>Best Hotel for all also great food.</li>
-                    <li>Helping all traveler for Money Exchange.</li>
-                    <li>
-                      Buffet Breakfast for all traveler with good quality..
-                    </li>
-                    <li>
-                      Buffet Breakfast for all traveler with good quality.
-                    </li>
+                    {(service.summaryChecklist || []).map((line, index) => (
+                      <li key={`check-${index}`}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+                {service.quote ? (
+                  <div
+                    className="mb-40 mt-20"
+                    style={{
+                      borderLeft: "4px solid var(--theme-color, #1ca8cb)",
+                      paddingLeft: "24px",
+                    }}
+                  >
+                    <p className="blog-text fst-italic mb-15">
+                      {service.quote}
+                    </p>
+                    {service.quoteAuthor ? (
+                      <cite
+                        className="box-text"
+                        style={{ fontStyle: "normal" }}
+                      >
+                        — {service.quoteAuthor}
+                      </cite>
+                    ) : null}
+                  </div>
+                ) : null}
+                {service.supportingBody ? (
+                  <p className="blog-text mb-40">{service.supportingBody}</p>
+                ) : null}
+                <h2 className="box-title">{service.experienceTitle}</h2>
+                <p className="blog-text mb-40">{service.experienceBody}</p>
+                <h2 className="box-title">Highlights</h2>
+                <div className="checklist mb-40">
+                  <ul>
+                    {(service.highlights || []).map((line, index) => (
+                      <li key={`hl-${index}`}>{line}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
-              <div className="destination-gallery-wrapper">
-                <h3 className="page-title mt-30 mb-30">From our gallery</h3>
-                <div className="row gy-4 gallery-row filter-active">
-                  <div className="col-xxl-auto filter-item">
-                    <div className="gallery-box style3">
-                      <div className="gallery-img global-img">
-                        <img
-                          src="/assets/img/gallery/gallery_6_1.jpg"
-                          alt="gallery"
-                        />
-                        <Link
-                          to="/assets/img/gallery/gallery_6_1.jpg"
-                          className="icon-btn popup-image"
-                          onClick={(e) =>
-                            openModal("/assets/img/gallery/gallery_6_1.jpg", e)
-                          }
-                        >
-                          <i className="fal fa-magnifying-glass-plus" />
-                        </Link>
+              {galleryImages.length ? (
+                <div className="destination-gallery-wrapper">
+                  <h3 className="page-title mt-30 mb-30">From our gallery</h3>
+                  <div className="row gy-4 gallery-row filter-active">
+                    {galleryImages.map((src) => (
+                      <div key={src} className="col-xxl-auto filter-item">
+                        <div className="gallery-box style3">
+                          <div className="gallery-img global-img">
+                            <img src={src} alt="Gallery" />
+                            <Link
+                              to={src}
+                              className="icon-btn popup-image"
+                              onClick={(e) => openModal(src, e)}
+                            >
+                              <i className="fal fa-magnifying-glass-plus" />
+                            </Link>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="col-xxl-auto filter-item">
-                    <div className="gallery-box style3">
-                      <div className="gallery-img global-img">
-                        <img
-                          src="/assets/img/gallery/gallery_6_2.jpg"
-                          alt="gallery"
-                        />
-                        <Link
-                          to="/assets/img/gallery/gallery_6_2.jpg"
-                          className="icon-btn popup-image"
-                          onClick={(e) =>
-                            openModal("/assets/img/gallery/gallery_6_2.jpg", e)
-                          }
-                        >
-                          <i className="fal fa-magnifying-glass-plus" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xxl-auto filter-item">
-                    <div className="gallery-box style3">
-                      <div className="gallery-img global-img">
-                        <img
-                          src="/assets/img/gallery/gallery_6_3.jpg"
-                          alt="gallery"
-                        />
-                        <Link
-                          to="/assets/img/gallery/gallery_6_3.jpg"
-                          className="icon-btn popup-image"
-                          onClick={(e) =>
-                            openModal("/assets/img/gallery/gallery_6_3.jpg", e)
-                          }
-                        >
-                          <i className="fal fa-magnifying-glass-plus" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xxl-auto filter-item">
-                    <div className="gallery-box style3">
-                      <div className="gallery-img global-img">
-                        <img
-                          src="/assets/img/gallery/gallery_6_4.jpg"
-                          alt="gallery"
-                        />
-                        <Link
-                          to="/assets/img/gallery/gallery_6_4.jpg"
-                          className="icon-btn popup-image"
-                          onClick={(e) =>
-                            openModal("/assets/img/gallery/gallery_6_4.jpg", e)
-                          }
-                        >
-                          <i className="fal fa-magnifying-glass-plus" />
-                        </Link>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-              <div className="th-comments-wrap style2 ">
-                <h2 className="blog-inner-title h4">Reviews (3)</h2>
-                <ul className="comment-list">
-                  <li className="th-comment-item">
-                    <div className="th-post-comment">
-                      <div className="comment-avater">
-                        <img
-                          src="/assets/img/blog/comment-author-1.jpg"
-                          alt="Comment Author"
-                        />
-                      </div>
-                      <div className="comment-content">
-                        <h3 className="name">Adam Jhon</h3>
-                        <div className="commented-wrapp">
-                          <span className="commented-on">20 Jun, 2024</span>
-                          <span className="commented-time">08:56pm </span>
-                          <span className="comment-review">
-                            <i className="fa-solid fa-star" />
-                            <i className="fa-solid fa-star" />
-                            <i className="fa-solid fa-star" />
-                            <i className="fa-solid fa-star" />
-                            <i className="fa-solid fa-star" />
-                          </span>
-                        </div>
-                        <p className="text">
-                          Credibly pontificate transparent quality vectors with
-                          quality mindshare. Efficiently architect worldwide
-                          strategic theme areas after user.
-                        </p>
-                        <div className="reply_and_edit">
-                          <i className="fa-solid fa-thumbs-up" />
-                        </div>
-                      </div>
-                    </div>
-                    <ul className="children">
-                      <li className="th-comment-item">
+              ) : null}
+              {reviews.length ? (
+                <div className="th-comments-wrap style2 destination-detail-reviews">
+                  <h2 className="blog-inner-title h4">
+                    Reviews ({reviews.length})
+                  </h2>
+                  <ul className="comment-list">
+                    {reviews.map((review, index) => (
+                      <li
+                        className="th-comment-item"
+                        key={`${review.name}-${index}`}
+                      >
                         <div className="th-post-comment">
                           <div className="comment-avater">
-                            <img
-                              src="/assets/img/blog/comment-author-4.jpg"
-                              alt="Comment Author"
-                            />
+                            <img src={review.avatar} alt={review.name} />
                           </div>
                           <div className="comment-content">
-                            <div className="">
-                              <h3 className="name">Maria Willson</h3>
-                              <div className="commented-wrapp">
-                                <span className="commented-on">
-                                  23 Jun, 2024
-                                </span>
-                                <span className="commented-time">08:56pm </span>
-                                <span className="comment-review">
-                                  <i className="fa-solid fa-star" />
-                                  <i className="fa-solid fa-star" />
-                                  <i className="fa-solid fa-star" />
-                                  <i className="fa-solid fa-star" />
-                                  <i className="fa-solid fa-star" />
-                                </span>
-                              </div>
+                            <h3 className="name">{review.name}</h3>
+                            <div className="commented-wrapp">
+                              <span className="commented-on">
+                                {review.date}
+                              </span>
+                              <span className="comment-review">
+                                {Array.from({ length: review.stars || 5 }).map(
+                                  (_, starIndex) => (
+                                    <i
+                                      key={`star-${starIndex}`}
+                                      className="fa-solid fa-star"
+                                    />
+                                  ),
+                                )}
+                              </span>
                             </div>
-                            <p className="text">
-                              It is different from airport transfer or port
-                              transfer, which are services that pick you up
+                            <p
+                              className="text"
+                              style={{ whiteSpace: "pre-line" }}
+                            >
+                              {review.text}
                             </p>
-                            <div className="reply_and_edit">
-                              <i className="fa-solid fa-thumbs-up" />
-                            </div>
                           </div>
                         </div>
                       </li>
-                    </ul>
-                  </li>
-                  <li className="th-comment-item">
-                    <div className="th-post-comment">
-                      <div className="comment-avater">
-                        <img
-                          src="/assets/img/blog/comment-author-5.jpg"
-                          alt="Comment Author"
-                        />
-                      </div>
-                      <div className="comment-content">
-                        <div className="">
-                          <h3 className="name">Michel Edwards</h3>
-                          <div className="commented-wrapp">
-                            <span className="commented-on">27 Jun, 2024</span>
-                            <span className="commented-time">08:56pm </span>
-                            <span className="comment-review">
-                              <i className="fa-solid fa-star" />
-                              <i className="fa-solid fa-star" />
-                              <i className="fa-solid fa-star" />
-                              <i className="fa-solid fa-star" />
-                              <i className="fa-solid fa-star" />
-                            </span>
-                          </div>
-                        </div>
-                        <p className="text">
-                          Credibly pontificate transparent quality vectors with
-                          quality mindshare. Efficiently architect worldwide
-                          strategic theme areas after user.
-                        </p>
-                        <div className="reply_and_edit">
-                          <i className="fa-solid fa-thumbs-up" />
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
-              <div className="widget  ">
-                <h3 className="widget_title">Recent Posts</h3>
-                <div className="recent-post-wrap">
-                  <div className="recent-post">
-                    <div className="media-img">
-                      <Link to="/blog/1">
+              <div className="widget">
+                <h3 className="widget_title">Details</h3>
+                <div className="destination-details-card destination-details-card--sidebar">
+                  {hasPhone || hasWhatsapp || hasEmail ? (
+                    <div className="destination-contact-fields">
+                      {hasPhone ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`tel:${details.phone.replace(/\s+/g, "")}`}
+                        >
+                          <span className="field-label">Phone number</span>
+                          <span className="field-value">{details.phone}</span>
+                        </a>
+                      ) : null}
+                      {hasWhatsapp ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`https://wa.me/${details.whatsapp.replace(/\D/g, "")}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="field-label">WhatsApp</span>
+                          <span className="field-value">{details.whatsapp}</span>
+                        </a>
+                      ) : null}
+                      {hasEmail ? (
+                        <a
+                          className="destination-contact-field"
+                          href={`mailto:${details.email}`}
+                        >
+                          <span className="field-label">Email address</span>
+                          <span className="field-value">{details.email}</span>
+                        </a>
+                      ) : null}
+                    </div>
+                  ) : null}
+                  {contactActions.length ? (
+                    <div className="destination-action-grid">
+                      {contactActions.map((action, index) => (
+                        <a
+                          key={action.key}
+                          href={action.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={`th-btn th-icon destination-action-btn ${
+                            contactActions.length % 2 === 1 &&
+                            index === contactActions.length - 1
+                              ? "full-width"
+                              : ""
+                          }`}
+                        >
+                          {action.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                  {details.locationLabel ? (
+                    <div className="destination-distance-row">
+                      <span className="destination-distance-icon">
                         <img
-                          src="/assets/img/blog/recent-post-1-1.jpg"
-                          alt="Blog"
+                          src="/assets/img/destination/car_icon.png"
+                          alt=""
                         />
-                      </Link>
+                      </span>
+                      <span>{details.locationLabel}</span>
                     </div>
-                    <div className="media-body">
-                      <h4 className="post-title">
-                        <Link className="text-inherit" to="/blog/1">
-                          Exploring The Green Spaces Of the island maldives
-                        </Link>
-                      </h4>
-                      <div className="recent-post-meta">
-                        <Link to="/blog">
-                          <i className="fa-regular fa-calendar" />
-                          22/6/ 2025
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="recent-post">
-                    <div className="media-img">
-                      <Link to="/blog/1">
-                        <img
-                          src="/assets/img/blog/recent-post-1-2.jpg"
-                          alt="Blog"
-                        />
-                      </Link>
-                    </div>
-                    <div className="media-body">
-                      <h4 className="post-title">
-                        <Link className="text-inherit" to="/blog/1">
-                          Harmony With Nature Of Belgium Tour and travle
-                        </Link>
-                      </h4>
-                      <div className="recent-post-meta">
-                        <Link to="/blog">
-                          <i className="fa-regular fa-calendar" />
-                          25/6/ 2025
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="recent-post">
-                    <div className="media-img">
-                      <Link to="/blog/1">
-                        <img
-                          src="/assets/img/blog/recent-post-1-3.jpg"
-                          alt="Blog"
-                        />
-                      </Link>
-                    </div>
-                    <div className="media-body">
-                      <h4 className="post-title">
-                        <Link className="text-inherit" to="/blog/1">
-                          Exploring The Green Spaces Of Realar Residence
-                        </Link>
-                      </h4>
-                      <div className="recent-post-meta">
-                        <Link to="/blog">
-                          <i className="fa-regular fa-calendar" />
-                          27/6/ 2025
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+                  ) : null}
                 </div>
               </div>
-              <div className="widget widget_tag_cloud  ">
-                <h3 className="widget_title">Popular Tags</h3>
-                <div className="tagcloud">
-                  <Link to="/blog">Tour</Link>
-                  <Link to="/blog">Adventure</Link>
-                  <Link to="/blog">Rent</Link>
-                  <Link to="/blog">Innovate</Link>
-                  <Link to="/blog">Hotel</Link>
-                  <Link to="/blog">Modern</Link>
-                  <Link to="/blog">Luxury</Link>
-                  <Link to="/blog">Travel</Link>
+              <div className="widget">
+                <h3 className="widget_title">Services</h3>
+                <div className="recent-post-wrap service-sidebar-other-wrap">
+                  {otherServicesSidebar.map((item, index) => {
+                    const isPlaceholder = Boolean(item.placeholder);
+                    const isCurrent = Boolean(item.isCurrent);
+                    const to =
+                      !isPlaceholder &&
+                      item.slug &&
+                      !isCurrent
+                        ? `/${lang}/services/${item.slug}`
+                        : null;
+                    return (
+                      <div
+                        className={`recent-post service-sidebar-other${isCurrent ? " service-sidebar-other--current" : ""}`}
+                        key={
+                          item.slug
+                            ? `${item.slug}-${index}`
+                            : `placeholder-${index}`
+                        }
+                      >
+                        <div className="media-img">
+                          {isPlaceholder || !item.image ? (
+                            <div
+                              className="service-sidebar-other__thumb-ph"
+                              aria-hidden
+                            />
+                          ) : to ? (
+                            <Link to={to}>
+                              <img src={item.image} alt="" />
+                            </Link>
+                          ) : (
+                            <img src={item.image} alt="" />
+                          )}
+                        </div>
+                        <div className="media-body">
+                          <h4 className="post-title">
+                            {to ? (
+                              <Link className="text-inherit" to={to}>
+                                {item.name}
+                              </Link>
+                            ) : (
+                              <span
+                                className={
+                                  isCurrent
+                                    ? "text-inherit"
+                                    : "text-inherit service-sidebar-other__name--muted"
+                                }
+                              >
+                                {item.name}
+                              </span>
+                            )}
+                          </h4>
+                          {item.typeLabel ? (
+                            <span className="destination-subtitle service-sidebar-other__type">
+                              {item.typeLabel}
+                            </span>
+                          ) : null}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
               <div
@@ -407,7 +376,7 @@ function ServiceDetailsMain() {
                       />
                     </div>
                     <Link
-                      to={`/${lang || "en"}/contact`}
+                      to={`/${lang}/contact`}
                       className="th-btn style2 th-icon"
                     >
                       Contact Us

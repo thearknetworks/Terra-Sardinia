@@ -92,6 +92,7 @@ function RouterPage() {
             <Route path="contact" element={<Contact />} />
             <Route path="stays" element={<Stays />} />
             <Route path="services/ferry" element={<Ferry />} />
+            <Route path="services/:slug" element={<ServiceDetails />} />
             <Route path="booking" element={<Booking />} />
           </Route>
         </Routes>

@@ -69,13 +69,13 @@ function ServiceListingInner() {
                 role="tabpanel"
               >
                 <div className="row gy-30">
-                  {currentPosts.map((data, index) => (
-                    <div key={index} className="col-xxl-4 col-xl-6">
+                  {currentPosts.map((data) => (
+                    <div key={data.slug || data.id} className="col-xxl-4 col-xl-6">
                       <ServiceCard
-                        serviceID={data.id}
-                        serviceImage={data.image}
-                        serviceTitle={data.title}
-                        serviceItem={data.item}
+                        serviceSlug={data.slug}
+                        serviceImage={data.cardImage || data.image}
+                        serviceTitle={data.listTitle || data.title}
+                        serviceItem={data.cardSubtitle || data.item}
                       />
                     </div>
                   ))}
@@ -87,13 +87,13 @@ function ServiceListingInner() {
                 role="tabpanel"
               >
                 <div className="row gy-30">
-                  {currentPosts.map((data, index) => (
-                    <div key={index} className="col-12">
+                  {currentPosts.map((data) => (
+                    <div key={data.slug || data.id} className="col-12">
                       <ServiceCardTwo
-                        serviceID={data.id}
-                        serviceImage={data.image}
-                        serviceTitle={data.title}
-                        serviceItem={data.item}
+                        serviceSlug={data.slug}
+                        serviceImage={data.cardImage || data.image}
+                        serviceTitle={data.listTitle || data.title}
+                        serviceItem={data.cardSubtitle || data.item}
                       />
                     </div>
                   ))}

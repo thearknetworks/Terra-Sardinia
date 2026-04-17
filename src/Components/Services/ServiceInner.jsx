@@ -7,13 +7,13 @@ function ServiceInner() {
         <section className="position-relative overflow-hidden space" id="destination-sec">
             <div className="container shape-mockup-wrap">
                 <div className="row gy-4 gx-4">
-                    {posts.map((data, index) => (
-                        <div key={index} className="col-xl-3 col-lg-4 col-md-6">
+                    {posts.map((data) => (
+                        <div key={data.slug || data.id} className="col-xl-3 col-lg-4 col-md-6">
                             <ServiceCard
-                                serviceID={data.id}
-                                serviceImage={data.image}
-                                serviceTitle={data.title}
-                                serviceItem={data.item}
+                                serviceSlug={data.slug}
+                                serviceImage={data.cardImage || data.image}
+                                serviceTitle={data.listTitle || data.title}
+                                serviceItem={data.cardSubtitle || data.item}
                             />
                         </div>
                     ))}

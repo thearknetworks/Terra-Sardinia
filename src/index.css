@@ -254,6 +254,35 @@
   font-family: var(--body-font), "Inter", sans-serif;
 }
 
+/* Service detail sidebar: other services (ref. blog recent-post layout) */
+.service-sidebar-other-wrap .service-sidebar-other .media-img {
+  max-width: 100px;
+  flex-shrink: 0;
+}
+
+.service-sidebar-other__thumb-ph {
+  width: 100%;
+  aspect-ratio: 1;
+  min-height: 72px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #eef2f4 0%, #e3e9ed 100%);
+}
+
+.service-sidebar-other__type {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.service-sidebar-other__name--muted {
+  color: var(--body-color, #6a737b);
+}
+
+.service-sidebar-other--current .media-img img {
+  opacity: 1;
+}
+
 .destination-detail-reviews .comment-avater img {
   width: 80px;
   height: 80px;
