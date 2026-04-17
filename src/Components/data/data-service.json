@@ -186,5 +186,99 @@
         "avatar": "/assets/img/services/Guide%20Sardinia/Review%205%20Image%20-%20Guide%20Sardinia.png"
       }
     ]
+  },
+  {
+    "id": 3,
+    "slug": "sailover-arbatax",
+    "listTitle": "Sailover Arbatax",
+    "cardSubtitle": "Sailing",
+    "rating": 5,
+    "categoryLabel": "Sailing",
+    "breadcrumbCategory": "Sailing",
+    "bannerImg": "/assets/img/services/Sailing/Top%20Banner%20Image%20-%20Sailing.png",
+    "headerImg": "/assets/img/services/Sailing/Header%20Image%20-%20Sailing.png",
+    "cardImage": "/assets/img/services/Sailing/Service%20Card%20Image%20-%20Sailing.png",
+    "otherServicesImage": "/assets/img/services/Sailing/Other%20Services%20Image%20-%20Sailing.png",
+    "innerImage": "/assets/img/services/Sailing/Second%20Image%20-%20Sailing.png",
+    "gallery": [
+      "/assets/img/services/Sailing/Gallery%201%20Image%20-%20Sailing.png",
+      "/assets/img/services/Sailing/Gallery%201%20Image%20-%20Sailing-1.png",
+      "/assets/img/services/Sailing/Gallery%202%20Image%20-%20Sailing.png",
+      "/assets/img/services/Sailing/Gallery%202%20Image%20-%20Sailing-1.png"
+    ],
+    "headerTitle": "Sail Along Sardinia’s Wild Coast",
+    "bodyParagraphs": [
+      "SAILOVER Arbatax offers unforgettable sailing experiences along one of Sardinia’s most breathtaking coastlines. From hidden coves to crystal-clear waters, each journey reveals landscapes that are only accessible by sea, far from the crowds and untouched by time.",
+      "Whether you choose a private charter or a shared excursion, every trip is guided by experienced crews who combine safety, comfort, and local knowledge. It’s a slow, immersive way to discover the island, where the rhythm of the sea defines the experience."
+    ],
+    "summaryTitle": "A Day Shaped by the Sea",
+    "summaryBody": "Each sailing experience is designed to balance exploration and relaxation, offering curated routes, swimming stops, and moments of pure connection with Sardinia’s natural beauty.",
+    "summaryChecklist": [
+      "Boats -> Modern fleet",
+      "Routes -> Coastal itineraries",
+      "Trips -> Private & shared",
+      "Crew -> Experienced captains",
+      "Stops -> Swim breaks",
+      "Duration -> Half/full day"
+    ],
+    "quote": "We had a great time, thank you so much, Fabio!",
+    "quoteAuthor": "Nicole Coline",
+    "supportingBody": "Every detail is handled so guests can simply relax, explore, and enjoy the freedom of discovering Sardinia from the water.",
+    "experienceTitle": "The Coast, Unseen",
+    "experienceBody": "Sailing along Sardinia’s eastern coast reveals a different perspective of the island, where cliffs meet turquoise waters and secluded beaches appear between stretches of untouched nature. It’s an experience defined by openness, calm, and discovery.",
+    "highlights": [
+      "Access hidden beaches by sea",
+      "Swim in crystal-clear waters",
+      "Relax on board in total comfort",
+      "Discover untouched coastal landscapes",
+      "Enjoy a peaceful escape from crowds",
+      "Experience Sardinia from a new perspective"
+    ],
+    "details": {
+      "phone": "+39 393 905 3722",
+      "whatsapp": "+39 393 905 3722",
+      "email": "booking@sailover.net",
+      "locationUrl": "https://www.google.com/search?sa=X&sca_esv=0fc64cec7a0352f6&hl=en-LB&gl=lb&biw=1920&bih=911&sxsrf=ANbL-n4PG7CjyptxDR4TkiOsO--vAvxK9Q:1776391559508&q=Marina+di+Arbatax&ludocid=7650447486907617973&lsig=AB86z5XuRmdHd0MsgTwnna3Sqi3b&ved=2ahUKEwi2uIuf5vOTAxWn2QIHHR0XF7YQ8G0oAHoECCgQAQ",
+      "website": "https://www.sailover.net/en/base/arbatax-2/",
+      "reviewsUrl": "https://www.google.com/search?sca_esv=0fc64cec7a0352f6&hl=en-LB&gl=lb&sxsrf=ANbL-n4PG7CjyptxDR4TkiOsO--vAvxK9Q:1776391559508&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXdW3gbQAGiOI0c0wqBR3T_LhoOwCRK5fxxGNgB8JqXAQKZ4G31McUv_Lwa9uGsKSS1GRnZn-A9XM91Ky6ETZOXkgIS1dDVJ6LNcrTjh6HYKCVR85Rv0K3aHIL4QZoebwVWKnm4%3D&q=SAILOVER+Arbatax+_+Your+Sailing+Tour+Reviews&sa=X&ved=2ahUKEwi2uIuf5vOTAxWn2QIHHR0XF7YQ0bkNegQIJBAH&biw=1920&bih=911&dpr=1",
+      "locationLabel": null
+    },
+    "reviews": [
+      {
+        "name": "Shane Crow",
+        "date": "October 2025",
+        "stars": 5,
+        "text": "We had the most amazing day out on the water with Fabio!\n\nHe is a great host and it felt like we were out sailing with an old friend from the moment we met! The baunei coastline is perhaps the most beautiful place on the world, and Fabio knows all the best places to go and taylor made the day to the experiences we were looking for. Sailover as a company were so helpful and accomodating from the fist time we reached out to them! Couldn’t recommend Sailover and Fabio enough for the perfect day on the water!",
+        "avatar": "/assets/img/services/Sailing/Review%201%20Image%20-%20Sailing.png"
+      },
+      {
+        "name": "Sophia Ramon",
+        "date": "September 2025",
+        "stars": 5,
+        "text": "We came to Arbatax to celebrate my father’s 60th birthday, and Fabio made the day incredible! He was an expert tour guide with a ton of knowledge about the area, and he showed us some unique and stunning locations off the Baunei coast! We got to enjoy time as a family, swim and snorkel, enjoy delicious local food and hear stories about the region. Fabio also showed us how to sail and even let us steer the boat for a bit! I would recommend Fabio to anyone looking for a private, lowkey adventure full of sailing, sun, and relaxation!",
+        "avatar": "/assets/img/services/Sailing/Review%202%20Image%20-%20Sailing.png"
+      },
+      {
+        "name": "Don Rizzo",
+        "date": "March 2025",
+        "stars": 5,
+        "text": "My wife and I spent a day with Fabio on his beautiful boat Luna. We had an amazing day with perfect weather and beautiful blue seas. Fabio could not have been a better host. We had sparkling wine, beer, white wine and a delicious lunch! He was so pleasant and informative. Fabio was easy to talk to and a great person to spend the day with. He is extremely knowledgeable about sailing and Sardinian culture and history. We highly recommend this tour to anybody looking for an intimate, relaxing day on the water.",
+        "avatar": "/assets/img/services/Sailing/Review%203%20Image%20-%20Sailing.png"
+      },
+      {
+        "name": "C Maria",
+        "date": "April 2025",
+        "stars": 5,
+        "text": "What a trip! We had a brilliant time with Fabio, who was friendly and welcoming. We originally booked a whole day tour, and when the weather outlook changed for the afternoon, Chiara adjusted our trip timings to ensure we still got a fantastic experience. It ended up being better than we could imagine! The aperitivo on board was a lovely touch, it was great to swim with the fish and help with some of the sailing too. If we come back to Arbatax we will definitely book with Fabio again to see even more of the nearby coast! Thank you!",
+        "avatar": "/assets/img/services/Sailing/Review%204%20Image%20-%20Sailing.png"
+      },
+      {
+        "name": "Christiane Pitschl",
+        "date": "April 2025",
+        "stars": 5,
+        "text": "Fabio is a great skipper. He explains everything you wanna know in technical detail and with a lot of passion. Fabio makes you discover hidden gems, snorkeling was great (lot of fishes) and the water was just amazing. The boat is very clean, food is sardinian-delicious, and Fabio looks after you in every possible way. Highly recommended!",
+        "avatar": "/assets/img/services/Sailing/Review%205%20Image%20-%20Sailing.png"
+      }
+    ]
   }
 ]
