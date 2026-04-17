@@ -70,6 +70,10 @@ export const roomContentBySlug = {
         name: "Shower",
         icon: "/assets/img/villaVerde/AQUARIUS%20Shower.png",
       },
+      {
+        name: "Pet Friendly",
+        icon: "/assets/img/villaAntres/Pet%20Friendly.png",
+      },
     ],
   },
 
@@ -95,6 +99,10 @@ export const roomContentBySlug = {
         icon: "/assets/img/villaVerde/ARIES%20Hair%20Dryer.png",
       },
       { name: "Shower", icon: "/assets/img/villaVerde/ARIES%20Shower.png" },
+      {
+        name: "Pet Friendly",
+        icon: "/assets/img/villaAntres/Pet%20Friendly.png",
+      },
     ],
   },
   cancer: {
@@ -125,6 +133,10 @@ export const roomContentBySlug = {
         icon: "/assets/img/villaVerde/CANCER%20Hair%20Dryer.png",
       },
       { name: "Shower", icon: "/assets/img/villaVerde/CANCER%20Shower.png" },
+      {
+        name: "Pet Friendly",
+        icon: "/assets/img/villaAntres/Pet%20Friendly.png",
+      },
     ],
   },
   virgo: {
@@ -152,6 +164,10 @@ export const roomContentBySlug = {
         icon: "/assets/img/villaVerde/VIRGO%20Hair%20Dryer.png",
       },
       { name: "Shower", icon: "/assets/img/villaVerde/VIRGO%20Shower.png" },
+      {
+        name: "Pet Friendly",
+        icon: "/assets/img/villaAntres/Pet%20Friendly.png",
+      },
     ],
   },
   sagittarius: {
@@ -187,6 +203,10 @@ export const roomContentBySlug = {
       {
         name: "Shower",
         icon: "/assets/img/villaVerde/SAGITTARIUS%20Shower.png",
+      },
+      {
+        name: "Pet Friendly",
+        icon: "/assets/img/villaAntres/Pet%20Friendly.png",
       },
     ],
   },
@@ -229,6 +249,10 @@ export const roomContentBySlug = {
       {
         name: "Fresh",
         icon: "/assets/img/villaVerde/LA%20TAVOLA%20Fresh.png",
+      },
+      {
+        name: "Pet Friendly",
+        icon: "/assets/img/villaAntres/Pet%20Friendly.png",
       },
     ],
   },
@@ -292,7 +316,7 @@ const parseReviewDate = (dateLabel) => {
 };
 
 export const villaVerdeReviewsNewestFirst = [...villaVerdeReviews].sort(
-  (a, b) => parseReviewDate(b.date) - parseReviewDate(a.date)
+  (a, b) => parseReviewDate(b.date) - parseReviewDate(a.date),
 );
 
 export const roomMediaBySlug = {
