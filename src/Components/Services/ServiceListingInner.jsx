@@ -40,35 +40,6 @@ function ServiceListingInner() {
             </div>
             <div className="col-md-auto">
               <div className="sorting-filter-wrap">
-                <div className="nav" role="tablist">
-                  <Link
-                    to="#"
-                    id="tab-service-grid"
-                    data-bs-toggle="tab"
-                    data-bs-target="#tab-grid"
-                    role="tab"
-                    aria-controls="tab-grid"
-                    aria-selected="true"
-                    className={`${activeTab === "tab-grid" ? "active" : ""}`}
-                    type="button"
-                    onClick={() => setActiveTab("tab-grid")}
-                  >
-                    <i className="fa-light fa-grid-2" />
-                  </Link>
-                  <Link
-                    to="#"
-                    id="tab-service-list"
-                    data-bs-toggle="tab"
-                    data-bs-target="#tab-list"
-                    role="tab"
-                    aria-controls="tab-list"
-                    aria-selected="false"
-                    className={`${activeTab === "tab-list" ? "active" : ""}`}
-                    onClick={() => setActiveTab("tab-list")}
-                  >
-                    <i className="fa-solid fa-list" />
-                  </Link>
-                </div>
                 <form className="woocommerce-ordering" method="get">
                   <select
                     name="orderby"

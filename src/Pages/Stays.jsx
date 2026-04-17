@@ -177,6 +177,7 @@ function serializeStaysFilterState({
 
 function Stays() {
   const { lang = "en" } = useParams();
+  const [activeTab, setActiveTab] = useState("tab-grid");
   const [selectedSize, setSelectedSize] = useState("all");
   const [selectedBeds, setSelectedBeds] = useState([]);
   const [selectedGuests, setSelectedGuests] = useState("all");
@@ -389,7 +390,6 @@ function Stays() {
 
             <div className="col-xxl-8 col-lg-7">
               <div className="d-none d-lg-flex justify-content-between align-items-center mb-3">
-                <div />
                 {hasAppliedFilters ? (
                   <button
                     type="button"
@@ -399,58 +399,128 @@ function Stays() {
                     <i className="fa-light fa-xmark" />
                     Clear Filter
                   </button>
-                ) : null}
+                ) : (
+                  <div />
+                )}
               </div>
 
-              <div className="row gy-24 gx-24">
-                {sortedFilteredStays.map((stay) => (
-                  <div key={stay.id} className="col-md-6">
-                    <Link
-                      to={stay.to(lang)}
-                      className="tour-box th-ani clickable-card"
-                    >
-                      <div className="tour-box_img global-img">
-                        <img
-                          src={stay.image}
-                          alt={`${stay.villa} - ${stay.roomName}`}
-                        />
+              <div className="tab-content" id="nav-tabContent">
+                <div
+                  className={`tab-pane fade ${activeTab === "tab-grid" ? "show active" : ""}`}
+                  id="tab-grid"
+                  role="tabpanel"
+                >
+                  <div className="row gy-24 gx-24">
+                    {sortedFilteredStays.map((stay) => (
+                      <div key={stay.id} className="col-md-6">
+                        <Link
+                          to={stay.to(lang)}
+                          className="tour-box th-ani clickable-card"
+                        >
+                          <div className="tour-box_img global-img">
+                            <img
+                              src={stay.image}
+                              alt={`${stay.villa} - ${stay.roomName}`}
+                            />
+                          </div>
+                          <div className="tour-content">
+                            <p className="stays-card-villa-label">
+                              {stay.villa}
+                            </p>
+                            <h4 className="tour-box_price">
+                              <span className="currency">{stay.roomName}</span>
+                            </h4>
+                            <div className="tour-action">
+                              <span>
+                                <i className="fa-light fa-clock" />
+                                <span
+                                  className="d-none d-xl-inline"
+                                  style={{
+                                    color: "inherit",
+                                    fontWeight: "inherit",
+                                  }}
+                                >
+                                  Min. Stay:{" "}
+                                </span>
+                                {stay.minStay}
+                              </span>
+                              <span className="th-btn style4">
+                                <span
+                                  className="d-none d-sm-inline"
+                                  style={{
+                                    color: "inherit",
+                                    fontWeight: "inherit",
+                                  }}
+                                >
+                                  View
+                                </span>
+                                Details
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
                       </div>
-                      <div className="tour-content">
-                        <p className="stays-card-villa-label">{stay.villa}</p>
-                        <h4 className="tour-box_price">
-                          <span className="currency">{stay.roomName}</span>
-                        </h4>
-                        <div className="tour-action">
-                          <span>
-                            <i className="fa-light fa-clock" />
-                            <span
-                              className="d-none d-xl-inline"
-                              style={{
-                                color: "inherit",
-                                fontWeight: "inherit",
-                              }}
-                            >
-                              Min. Stay:{" "}
-                            </span>
-                            {stay.minStay}
-                          </span>
-                          <span className="th-btn style4">
-                            <span
-                              className="d-none d-sm-inline"
-                              style={{
-                                color: "inherit",
-                                fontWeight: "inherit",
-                              }}
-                            >
-                              View
-                            </span>
-                            Details
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
+                    ))}
                   </div>
-                ))}
+                </div>
+                <div
+                  className={`tab-pane fade ${activeTab === "tab-list" ? "show active" : ""}`}
+                  id="tab-list"
+                  role="tabpanel"
+                >
+                  <div className="row gy-24 gx-24">
+                    {sortedFilteredStays.map((stay) => (
+                      <div key={`list-${stay.id}`} className="col-12">
+                        <Link
+                          to={stay.to(lang)}
+                          className="tour-box style-flex th-ani clickable-card"
+                        >
+                          <div className="tour-box_img global-img">
+                            <img
+                              src={stay.image}
+                              alt={`${stay.villa} - ${stay.roomName}`}
+                            />
+                          </div>
+                          <div className="tour-content">
+                            <p className="stays-card-villa-label">
+                              {stay.villa}
+                            </p>
+                            <h4 className="tour-box_price">
+                              <span className="currency">{stay.roomName}</span>
+                            </h4>
+                            <div className="tour-action">
+                              <span>
+                                <i className="fa-light fa-clock" />
+                                <span
+                                  className="d-none d-xl-inline"
+                                  style={{
+                                    color: "inherit",
+                                    fontWeight: "inherit",
+                                  }}
+                                >
+                                  Min. Stay:{" "}
+                                </span>
+                                {stay.minStay}
+                              </span>
+                              <span className="th-btn style4">
+                                <span
+                                  className="d-none d-sm-inline"
+                                  style={{
+                                    color: "inherit",
+                                    fontWeight: "inherit",
+                                  }}
+                                >
+                                  View
+                                </span>
+                                Details
+                              </span>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {sortedFilteredStays.length === 0 ? (
@@ -462,6 +532,48 @@ function Stays() {
 
             <div className="col-xxl-4 col-lg-5 mt-4 mt-lg-0 d-none d-lg-block">
               <aside className="sidebar-area">
+                <div className="th-sort-bar d-flex justify-content-end align-items-center gap-3 mb-0 p-3">
+                  <div className="sorting-filter-wrap m-0">
+                    <div className="nav gap-2" role="tablist">
+                      <Link
+                        to="#"
+                        id="tab-service-grid"
+                        data-bs-toggle="tab"
+                        data-bs-target="#tab-grid"
+                        role="tab"
+                        aria-controls="tab-grid"
+                        aria-selected={
+                          activeTab === "tab-grid" ? "true" : "false"
+                        }
+                        className={`${activeTab === "tab-grid" ? "active" : ""}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setActiveTab("tab-grid");
+                        }}
+                      >
+                        <i className="fa-light fa-grid-2" />
+                      </Link>
+                      <Link
+                        to="#"
+                        id="tab-service-list"
+                        data-bs-toggle="tab"
+                        data-bs-target="#tab-list"
+                        role="tab"
+                        aria-controls="tab-list"
+                        aria-selected={
+                          activeTab === "tab-list" ? "true" : "false"
+                        }
+                        className={`${activeTab === "tab-list" ? "active" : ""}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setActiveTab("tab-list");
+                        }}
+                      >
+                        <i className="fa-solid fa-list" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
                 <StaysFilterSections {...filterSectionsProps} />
               </aside>
             </div>
