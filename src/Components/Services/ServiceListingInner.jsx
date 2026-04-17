@@ -26,40 +26,6 @@ function ServiceListingInner() {
   return (
     <section className="space">
       <div className="container">
-        <div className="th-sort-bar">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-md-4">
-              <div className="search-form-area">
-                <form className="search-form">
-                  <input type="text" placeholder="Search" />
-                  <button type="submit">
-                    <i className="fa-light fa-magnifying-glass" />
-                  </button>
-                </form>
-              </div>
-            </div>
-            <div className="col-md-auto">
-              <div className="sorting-filter-wrap">
-                <form className="woocommerce-ordering" method="get">
-                  <select
-                    name="orderby"
-                    className="orderby"
-                    aria-label="service order"
-                  >
-                    <option value="menu_order">Default Sorting</option>
-                    <option value="popularity">Sort by popularity</option>
-                    <option value="rating">Sort by average rating</option>
-                    <option value="date">Sort by latest</option>
-                    <option value="price">Sort by price: low to high</option>
-                    <option value="price-desc">
-                      Sort by price: high to low
-                    </option>
-                  </select>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="row">
           <div className="col-xxl-9 col-lg-8">
             <div className="tab-content" id="nav-tabContent">
@@ -133,53 +99,6 @@ function ServiceListingInner() {
           </div>
           <div className="col-xxl-3 col-lg-4">
             <aside className="sidebar-area style2">
-              <div className="widget widget_categories  ">
-                <h3 className="widget_title">Categories</h3>
-                <ul>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      City Tour
-                    </Link>
-                    <span>(8)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Beach Tours
-                    </Link>
-                    <span>(6)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Wildlife Tours
-                    </Link>
-                    <span>(2)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      News &amp; Tips
-                    </Link>
-                    <span>(7)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Adventure Tours
-                    </Link>
-                    <span>(9)</span>
-                  </li>
-                  <li>
-                    <Link to={`/${lang}/blog`}>
-                      <img src="/assets/img/theme-img/map.svg" alt="" />
-                      Mountain Tours
-                    </Link>
-                    <span>(10)</span>
-                  </li>
-                </ul>
-              </div>
               <div className="widget  ">
                 <h3 className="widget_title">Recent Posts</h3>
                 <div className="recent-post-wrap">
@@ -268,31 +187,27 @@ function ServiceListingInner() {
                 </div>
               </div>
               <div
-                className="widget widget_offer  "
-                data-bg-src="/assets/img/bg/widget_bg_1.jpg"
+                className="widget widget_offer need-help-widget"
                 style={{
-                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/bg/widget_bg_1.jpg)`,
+                  background: `linear-gradient(#111d487b, #111d487b), url(/assets/img/destination/need_help.png)`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
                 }}
               >
                 <div className="offer-banner">
                   <div className="offer">
-                    <h6 className="box-title">
-                      Need Help? We Are Here To Help You
-                    </h6>
+                    <h6 className="box-title">Need Help? We’re here for you</h6>
                     <div className="banner-logo">
-                      <img src="/assets/img/logo2.svg" alt="Terra Sardenia" />
-                    </div>
-                    <div className="offer">
-                      <h6 className="offer-title">You Get Online support</h6>
-                      <a className="offter-num" href="tel:+256214203215">
-                        +256 214 203 215
-                      </a>
+                      <img
+                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        alt="Terra Sardinia"
+                      />
                     </div>
                     <Link
                       to={`/${lang}/contact`}
                       className="th-btn style2 th-icon"
                     >
-                      Read More
+                      Contact Us
                     </Link>
                   </div>
                 </div>
