@@ -5,8 +5,7 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
 
-const FAQ_BG =
-  "/assets/img/faq/Top%20Banner%20Image%20-%20FAQs.png";
+const FAQ_BG = "/assets/img/faq/Top%20Banner%20Image%20-%20FAQs.png";
 
 const FAQ_ITEMS = [
   {
@@ -258,7 +257,7 @@ function Faq() {
                         className={`accordion-button ${activeIndex === index ? "" : "collapsed"}`}
                         onClick={() => toggleAccordion(index)}
                       >
-                        Q{faq.globalIndex + 1}. {faq.q}
+                        {faq.q}
                       </button>
                     </div>
                     <div
