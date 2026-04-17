@@ -114,7 +114,7 @@ function ServiceDetailsMain({ service }) {
                   </Link>
                   <span className="ratting">
                     <i className="fa-sharp fa-solid fa-star" />
-                    <span>{service.rating}</span>
+                    <span>{service.rating.toFixed(1)}</span>
                   </span>
                 </div>
                 <h2 className="box-title">{service.headerTitle}</h2>
