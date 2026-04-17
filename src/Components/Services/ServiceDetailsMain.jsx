@@ -71,8 +71,7 @@ function ServiceDetailsMain({ service }) {
   const otherServicesSidebar = useMemo(() => {
     const current = allServices.find((s) => s.slug === service.slug);
     const others = allServices.filter((s) => s.slug !== service.slug);
-    const ordered =
-      current != null ? [current, ...others] : [...others];
+    const ordered = current != null ? [current, ...others] : [...others];
 
     const mapped = ordered.slice(0, 3).map((s) => ({
       placeholder: false,
@@ -306,7 +305,9 @@ function ServiceDetailsMain({ service }) {
                           rel="noreferrer"
                         >
                           <span className="field-label">WhatsApp</span>
-                          <span className="field-value">{details.whatsapp}</span>
+                          <span className="field-value">
+                            {details.whatsapp}
+                          </span>
                         </a>
                       ) : null}
                       {hasEmail ? (
@@ -340,7 +341,7 @@ function ServiceDetailsMain({ service }) {
                       ))}
                     </div>
                   ) : null}
-                  {details.locationLabel ? (
+                  {/* {details.locationLabel ? (
                     <div className="destination-distance-row">
                       <span className="destination-distance-icon">
                         <img
@@ -350,7 +351,7 @@ function ServiceDetailsMain({ service }) {
                       </span>
                       <span>{details.locationLabel}</span>
                     </div>
-                  ) : null}
+                  ) : null} */}
                 </div>
               </div>
               <div className="widget">
@@ -360,9 +361,7 @@ function ServiceDetailsMain({ service }) {
                     const isPlaceholder = Boolean(item.placeholder);
                     const isCurrent = Boolean(item.isCurrent);
                     const to =
-                      !isPlaceholder &&
-                      item.slug &&
-                      !isCurrent
+                      !isPlaceholder && item.slug && !isCurrent
                         ? `/${lang}/services/${item.slug}`
                         : null;
                     return (

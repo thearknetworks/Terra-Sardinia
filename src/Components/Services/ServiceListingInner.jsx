@@ -70,7 +70,10 @@ function ServiceListingInner() {
               >
                 <div className="row gy-30">
                   {currentPosts.map((data) => (
-                    <div key={data.slug || data.id} className="col-xxl-4 col-xl-6">
+                    <div
+                      key={data.slug || data.id}
+                      className="col-xxl-4 col-xl-6"
+                    >
                       <ServiceCard
                         serviceSlug={data.slug}
                         serviceImage={data.cardImage || data.image}
