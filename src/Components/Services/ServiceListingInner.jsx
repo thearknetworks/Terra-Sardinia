@@ -173,19 +173,7 @@ function ServiceListingInner() {
                   </div>
                 </div>
               </div>
-              <div className="widget widget_tag_cloud  ">
-                <h3 className="widget_title">Popular Tags</h3>
-                <div className="tagcloud">
-                  <Link to={`/${lang}/blog`}>Tour</Link>
-                  <Link to={`/${lang}/blog`}>Adventure</Link>
-                  <Link to={`/${lang}/blog`}>Rent</Link>
-                  <Link to={`/${lang}/blog`}>Innovate</Link>
-                  <Link to={`/${lang}/blog`}>Hotel</Link>
-                  <Link to={`/${lang}/blog`}>Modern</Link>
-                  <Link to={`/${lang}/blog`}>Luxury</Link>
-                  <Link to={`/${lang}/blog`}>Travel</Link>
-                </div>
-              </div>
+
               <div
                 className="widget widget_offer need-help-widget"
                 style={{
