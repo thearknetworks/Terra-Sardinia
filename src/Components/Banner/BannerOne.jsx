@@ -99,7 +99,7 @@ function BannerOne() {
                       to={`/${i18n.resolvedLanguage || "en"}/stays`}
                       className="th-btn th-icon"
                       style={{
-                        minWidth: "220px",
+                        minWidth: "240px",
                         display: "inline-flex",
                         justifyContent: "center",
                       }}
@@ -110,7 +110,7 @@ function BannerOne() {
                       to={`/${i18n.resolvedLanguage || "en"}/destination`}
                       className="th-btn style2 th-icon"
                       style={{
-                        minWidth: "220px",
+                        minWidth: "240px",
                         display: "inline-flex",
                         justifyContent: "center",
                       }}
@@ -157,7 +157,7 @@ function BannerOne() {
                       to={`/${i18n.resolvedLanguage || "en"}/stays`}
                       className="th-btn th-icon"
                       style={{
-                        minWidth: "220px",
+                        minWidth: "240px",
                         display: "inline-flex",
                         justifyContent: "center",
                       }}
@@ -168,7 +168,7 @@ function BannerOne() {
                       to={`/${i18n.resolvedLanguage || "en"}/destination`}
                       className="th-btn style2 th-icon"
                       style={{
-                        minWidth: "220px",
+                        minWidth: "240px",
                         display: "inline-flex",
                         justifyContent: "center",
                       }}
@@ -216,7 +216,7 @@ function BannerOne() {
                       to={`/${i18n.resolvedLanguage || "en"}/stays`}
                       className="th-btn th-icon"
                       style={{
-                        minWidth: "220px",
+                        minWidth: "240px",
                         display: "inline-flex",
                         justifyContent: "center",
                       }}
@@ -227,7 +227,7 @@ function BannerOne() {
                       to={`/${i18n.resolvedLanguage || "en"}/destination`}
                       className="th-btn style2 th-icon"
                       style={{
-                        minWidth: "220px",
+                        minWidth: "240px",
                         display: "inline-flex",
                         justifyContent: "center",
                       }}

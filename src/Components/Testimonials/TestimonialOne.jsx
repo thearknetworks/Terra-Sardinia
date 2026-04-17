@@ -14,7 +14,7 @@ function TestimonialOne() {
       <div className="container-fluid p-0">
         <div className="title-area mb-20 text-center">
           <span className="sub-title">What Clients Say About Us</span>
-          <h2 className="sec-title">Testimonial</h2>
+          <h2 className="sec-title">Testimonials</h2>
         </div>
         <div className="slider-area">
           <Swiper
@@ -44,9 +44,7 @@ function TestimonialOne() {
                       </div>
                       <div className="media-body">
                         <h3 className="box-title">{item.name}</h3>
-                        <span className="testi-card_desig">
-                          {item.date}
-                        </span>
+                        <span className="testi-card_desig">{item.date}</span>
                       </div>
                     </div>
                     <div className="testi-card_review">
