@@ -41,9 +41,9 @@ function TourOne() {
               0: { slidesPerView: 1 },
               576: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
-              992: { slidesPerView: 2 },
-              1200: { slidesPerView: 3 },
-              1300: { slidesPerView: 3 },
+              992: { slidesPerView: 3 },
+              1200: { slidesPerView: 4 },
+              1300: { slidesPerView: 4 },
             }}
             spaceBetween={24}
             grabCursor={true}
