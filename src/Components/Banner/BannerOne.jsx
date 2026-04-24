@@ -247,7 +247,11 @@ function BannerOne() {
           >
             <img src="/assets/img/icon/right-arrow.svg" alt="Prev" />
           </button>
-          <div className="swiper-pagination" /> {/* Pagination container */}
+          <div
+            className="swiper-pagination"
+            style={{ transform: "translateY(90%)" }}
+          />{" "}
+          {/* Pagination container */}
           <button
             className="slider-arrow slider-next"
             onClick={() => handleSliderNavigation("next")}
