@@ -108,7 +108,7 @@ function BannerThree() {
           },
           {
             img: "/assets/img/hero/hero_bg_3_4.jpg",
-            title: "Explore the world with Terra Sardenia",
+            title: "Explore the world with Terra Sardinia",
           },
         ].map((slide, index) => (
           <SwiperSlide key={index}>
@@ -135,7 +135,7 @@ function BannerThree() {
                     data-ani="slideinleft"
                     data-ani-delay="0.4s"
                   >
-                    Terra Sardenia is an international travel management company
+                    Terra Sardinia is an international travel management company
                     with 25 years of experience, specializing in business and
                     maritime travel.
                   </p>
@@ -170,14 +170,14 @@ function BannerThree() {
                   data-ani="slideinleft"
                   data-ani-delay="0.2s"
                 >
-                  Travel experience with Terra Sardenia
+                  Travel experience with Terra Sardinia
                 </h1>
                 <p
                   className="hero-text"
                   data-ani="slideinleft"
                   data-ani-delay="0.4s"
                 >
-                  Terra Sardenia is an international travel management company
+                  Terra Sardinia is an international travel management company
                   with 25 years of experience, specializing in business and
                   maritime travel.
                 </p>

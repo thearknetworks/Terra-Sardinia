@@ -104,7 +104,7 @@ function BannerTwo() {
                   data-ani="slideinup"
                   data-ani-delay="0.5s"
                 >
-                  Terra Sardenia an international travel management company with
+                  Terra Sardinia an international travel management company with
                   25 years of experience, specializing in business and maritime
                   travel.
                 </p>
@@ -183,7 +183,7 @@ function BannerTwo() {
                   data-ani="slideinup"
                   data-ani-delay="0.5s"
                 >
-                  Terra Sardenia an international travel management company with
+                  Terra Sardinia an international travel management company with
                   25 years of experience, specializing in business and maritime
                   travel.
                 </p>

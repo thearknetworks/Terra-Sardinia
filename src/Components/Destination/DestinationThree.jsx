@@ -70,7 +70,7 @@ function DestinationThree() {
             </h2>
             <p className="sec-text mb-30">
               One of the most well-liked travel companies for people looking to
-              experience adventure and see the world is Terra Sardenia.
+              experience adventure and see the world is Terra Sardinia.
             </p>
           </div>
         </div>

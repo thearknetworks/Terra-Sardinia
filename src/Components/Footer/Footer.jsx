@@ -153,7 +153,7 @@ function Footer() {
                     <Link to="/">
                       <img
                         src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
-                        alt="Terra Sardenia"
+                        alt="Terra Sardinia"
                       />
                     </Link>
                   </div>
@@ -314,13 +314,13 @@ function Footer() {
             </div>
             <div className="col-md-6 col-xl-auto">
               <div className="widget footer-widget">
-                <h3 className="widget_title">From Sardenia with Love</h3>
+                <h3 className="widget_title">From Sardinia with Love</h3>
                 <div className="sidebar-gallery">
                   {[...footerGalleryImages].map((imageSrc) => (
                     <div className="gallery-thumb" key={imageSrc}>
                       <img
                         src={imageSrc}
-                        alt="Sardenia gallery"
+                        alt="Sardinia gallery"
                         onClick={(e) => openModal(imageSrc, e)}
                       />
                       <Link
@@ -343,7 +343,7 @@ function Footer() {
           <div className="row justify-content-between align-items-center">
             <div className="col-md-6">
               <p className="copyright-text">
-                Copyright 2026 Terra Sardenia. All Rights Reserved.
+                Copyright 2026 Terra Sardinia. All Rights Reserved.
               </p>
             </div>
             <div className="col-md-6 text-end d-none d-md-block">

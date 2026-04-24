@@ -46,7 +46,7 @@ function MobileMenu({ isOpen, onClose }) {
           <Link to="/">
             <img
               src="/assets/images/logo/TerraSardiniaDarkBlueLogo.png"
-              alt="Terra Sardenia"
+              alt="Terra Sardinia"
             />
           </Link>
         </div>

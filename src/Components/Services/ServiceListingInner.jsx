@@ -30,7 +30,7 @@ function ServiceListingInner() {
           <div className="col-lg-8">
             <div className="title-area text-center pe-xl-4 ps-xl-4">
               <span className="sub-title">Curate Your Experience</span>
-              <h2 className="sec-title mb-20">Get the Best of Sardenia</h2>
+              <h2 className="sec-title mb-20">Get the Best of Sardinia</h2>
               <p className="sec-text">
                 From sailing along hidden coastlines to guided discoveries,
                 wellness sessions, and seamless travel support, each service is

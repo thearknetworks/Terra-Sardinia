@@ -28,7 +28,7 @@ function SideMenu({ isOpen, onClose }) {
             <div className="th-widget-about">
               <div className="about-logo">
                 <Link to="/">
-                  <img src="assets/img/logo2.svg" alt="Terra Sardenia" />
+                  <img src="assets/img/logo2.svg" alt="Terra Sardinia" />
                 </Link>
               </div>
               <p className="about-text">

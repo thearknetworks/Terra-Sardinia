@@ -15,7 +15,7 @@ function About() {
   return (
     <>
       <HeaderOne />
-      <Breadcrumb title="About Terra Sardenia" />
+      <Breadcrumb title="About Terra Sardinia" />
       <AboutFour />
       <OfferTwo />
       <ElementSection />

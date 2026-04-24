@@ -16,7 +16,7 @@ function BlogFour() {
               <div className="title-area mb-md-0">
                 <span className="sub-title">News And Blog</span>
                 <h2 className="sec-title">
-                  Terra Sardenia's Latest News and Insights
+                  Terra Sardinia's Latest News and Insights
                 </h2>
               </div>
             </div>
@@ -41,7 +41,10 @@ function BlogFour() {
           className="th-slider has-shadow"
         >
           <SwiperSlide>
-            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-box style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_1.jpg" alt="blog" />
               </div>
@@ -50,13 +53,18 @@ function BlogFour() {
                   <span className="author">Sep 05 2024</span>
                   <span>6 min read</span>
                 </div>
-                <h3 className="box-title">Experiencing Paradise in The Maldives</h3>
+                <h3 className="box-title">
+                  Experiencing Paradise in The Maldives
+                </h3>
                 <span className="th-btn style4 th-icon">Read More</span>
               </div>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-box style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_2.jpg" alt="blog" />
               </div>
@@ -73,7 +81,10 @@ function BlogFour() {
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-box style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_3.jpg" alt="blog" />
               </div>
@@ -90,7 +101,10 @@ function BlogFour() {
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-box style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_1.jpg" alt="blog" />
               </div>
@@ -99,13 +113,18 @@ function BlogFour() {
                   <span className="author">Sep 09 2024</span>
                   <span>9 min read</span>
                 </div>
-                <h3 className="box-title">Experiencing Paradise in The Maldives</h3>
+                <h3 className="box-title">
+                  Experiencing Paradise in The Maldives
+                </h3>
                 <span className="th-btn style4 th-icon">Read More</span>
               </div>
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-box style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_2.jpg" alt="blog" />
               </div>
@@ -122,7 +141,10 @@ function BlogFour() {
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/blog/1" className="blog-box style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-box style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_4_3.jpg" alt="blog" />
               </div>

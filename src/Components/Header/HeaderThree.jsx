@@ -178,7 +178,7 @@ function HeaderThree() {
                     <Link to="/">
                       <img
                         src="/assets/img/logo-white2.svg"
-                        alt="Terra Sardenia"
+                        alt="Terra Sardinia"
                       />
                     </Link>
                   </div>

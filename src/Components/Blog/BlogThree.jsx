@@ -10,7 +10,7 @@ function BlogThree() {
             <div className="title-area text-center text-lg-start">
               <span className="sub-title">Blog and Article</span>
               <h2 className="sec-title">
-                Blog &amp; Articles From Terra Sardenia
+                Blog &amp; Articles From Terra Sardinia
               </h2>
             </div>
           </div>
@@ -42,7 +42,10 @@ function BlogThree() {
             </Link>
           </div>
           <div className="col-xl-7">
-            <Link to="/blog/1" className="blog-grid style2 th-ani clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-grid style2 th-ani clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_3_2.jpg" alt="blog" />
               </div>
@@ -57,7 +60,10 @@ function BlogThree() {
                 <span className="th-btn style4 th-icon">Read More</span>
               </div>
             </Link>
-            <Link to="/blog/1" className="blog-grid th-ani style2 mt-24 clickable-card">
+            <Link
+              to="/blog/1"
+              className="blog-grid th-ani style2 mt-24 clickable-card"
+            >
               <div className="blog-img global-img">
                 <img src="/assets/img/blog/blog_3_3.jpg" alt="blog" />
               </div>

@@ -35,7 +35,7 @@ function GalleryOne() {
       <div className="container th-container shape-mockup-wrap">
         <div className="title-area text-center">
           <span className="sub-title">Through Our Lens</span>
-          <h2 className="sec-title">Beautiful Moments In Sardenia</h2>
+          <h2 className="sec-title">Beautiful Moments In Sardinia</h2>
         </div>
         <div className="row gy-10 gx-10 justify-content-center align-items-center">
           <div className="col-md-6 col-lg-2">

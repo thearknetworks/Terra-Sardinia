@@ -25,7 +25,7 @@ function AboutFour() {
             <div className="ps-xl-4">
               <div className="title-area mb-20">
                 <span className="sub-title style1 ">
-                  Welcome To Terra Sardenia
+                  Welcome To Terra Sardinia
                 </span>
                 <h2 className="sec-title mb-20 pe-xl-5 me-xl-5 heading">
                   We are world reputeted travel agency

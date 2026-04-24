@@ -69,7 +69,7 @@ function BlogOne() {
               <div className="title-area mb-md-0">
                 <span className="sub-title">About Us Restaurant</span>
                 <h2 className="sec-title">
-                  News & Articles From Terra Sardenia
+                  News & Articles From Terra Sardinia
                 </h2>
               </div>
             </div>
@@ -96,7 +96,10 @@ function BlogOne() {
         >
           {blogPosts.map((post) => (
             <SwiperSlide key={post.id}>
-              <Link to={post.detailsLink} className="blog-box th-ani clickable-card">
+              <Link
+                to={post.detailsLink}
+                className="blog-box th-ani clickable-card"
+              >
                 <div className="blog-img global-img">
                   <img src={post.image} alt="blog" />
                 </div>

@@ -66,7 +66,7 @@ function GalleryInner() {
     <div className="overflow-hidden space" id="gallery-sec">
       <div className="container-fuild">
         <div className="title-area mb-30 text-center">
-          <span className="sub-title">A Taste of Sardenia</span>
+          <span className="sub-title">A Taste of Sardinia</span>
           <h2 className="sec-title">Discover the Simple Pleasures</h2>
           <p className="sec-text"></p>
         </div>

@@ -37,7 +37,7 @@ const BlogTwo = () => {
               <div className="title-area mb-md-0">
                 <span className="sub-title">Blog and Article</span>
                 <h2 className="sec-title">
-                  News & Articles From Terra Sardenia
+                  News & Articles From Terra Sardinia
                 </h2>
               </div>
             </div>
@@ -103,7 +103,10 @@ const BlogTwo = () => {
                 },
               ].map((post, index) => (
                 <div className="swiper-slide" key={index}>
-                  <Link to={post.link} className="blog-box th-ani clickable-card">
+                  <Link
+                    to={post.link}
+                    className="blog-box th-ani clickable-card"
+                  >
                     <div className="blog-img global-img">
                       <img src={post.image} alt="blog" />
                     </div>

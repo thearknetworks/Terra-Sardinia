@@ -62,7 +62,9 @@ function HeaderFour() {
                   <div className="header-links">
                     <ul>
                       <li className="d-none d-xl-inline-block">
-                        <Link to={`/${i18n.resolvedLanguage || "en"}/faqs`}>FAQ</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/faqs`}>
+                          FAQ
+                        </Link>
                       </li>
                       <li className="d-none d-md-inline-block">
                         <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>
@@ -93,7 +95,7 @@ function HeaderFour() {
                 <div className="col-auto">
                   <div className="header-logo">
                     <Link to="/">
-                      <img src="/assets/img/logo4.svg" alt="Terra Sardenia" />
+                      <img src="/assets/img/logo4.svg" alt="Terra Sardinia" />
                     </Link>
                   </div>
                 </div>
@@ -337,10 +339,7 @@ function HeaderFour() {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                    <Link
-                      to="/booking"
-                      className="th-btn style1 th-icon"
-                    >
+                    <Link to="/booking" className="th-btn style1 th-icon">
                       Book Now
                     </Link>
                   </div>
