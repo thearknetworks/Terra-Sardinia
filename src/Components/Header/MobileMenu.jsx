@@ -60,13 +60,26 @@ function MobileMenu({ isOpen, onClose }) {
               className={`menu-item-has-children th-item-has-children ${activeMenu === 1 ? "th-active" : ""}`}
             >
               <Link
-                to="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  toggleMenu(1);
-                }}
+                to={`/${i18n.resolvedLanguage || "en"}/stays`}
+                // onClick={(e) => {
+                //   e.preventDefault();
+                //   toggleMenu(1);
+                // }}
               >
                 Stays
+                <span
+                  className="th-mean-expand"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleMenu(1);
+                  }}
+                >
+                  <i
+                    className={
+                      activeMenu === 1 ? "fal fa-minus" : "fal fa-plus"
+                    }
+                  />
+                </span>
               </Link>
               <ul
                 ref={(el) => (menuRefs.current[1] = el)}
@@ -95,7 +108,9 @@ function MobileMenu({ isOpen, onClose }) {
               </Link>
             </li>
             <li>
-              <Link to="/">Destination</Link>
+              <Link to={`/${i18n.resolvedLanguage || "en"}/destination`}>
+                Destination
+              </Link>
             </li>
             <li>
               <Link to={`/${i18n.resolvedLanguage || "en"}/gallery`}>

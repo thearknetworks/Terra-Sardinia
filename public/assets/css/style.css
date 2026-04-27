@@ -2435,7 +2435,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .th-mobile-menu ul .menu-item-has-children > a .th-mean-expand:before {
-  content: "\f067";
+  /* content: "\f067"; */
   font-family: var(--icon-font);
 }
 
@@ -2454,13 +2454,13 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin-top: 1px;
 }
 
-.th-mobile-menu
+/* .th-mobile-menu
   ul
   .menu-item-has-children.th-active
   > a
   .th-mean-expand:before {
   content: "\f068";
-}
+} */
 
 .th-mobile-menu ul .menu-item-has-children.th-active > a:after {
   content: "\f068";

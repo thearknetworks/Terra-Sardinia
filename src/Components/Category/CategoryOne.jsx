@@ -109,11 +109,11 @@ const CategoryOne = () => {
 
   return (
     <section
-      className="category-area bg-top-center"
+      className="category-area bg-top-center bg-top-center overflow-hidden space bg-no-repeat"
       style={{
         backgroundImage: "url(/assets/img/category/tour_category_bg.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
+        // backgroundRepeat: "no-repeat",
+        // backgroundSize: "contain",
         // backgroundPosition: "center",
       }}
     >
