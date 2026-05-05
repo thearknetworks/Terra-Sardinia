@@ -1,22 +1,21 @@
-import React from 'react'
-import HeaderOne from '../Components/Header/HeaderOne'
-import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
-import ActivitiesInner from '../Components/Activities/ActivitiesInner'
-import Footer from '../Components/Footer/Footer'
-import ScrollToTop from '../Components/ScrollToTop'
+import React from "react";
+import HeaderOne from "../Components/Header/HeaderOne";
+import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
+import ActivitiesInner from "../Components/Activities/ActivitiesInner";
+import Footer from "../Components/Footer/Footer";
+import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function Activities() {
-    return (
-        <>
-            <HeaderOne />
-            <Breadcrumb
-                title="Activities"
-            />
-            <ActivitiesInner />
-            <Footer />
-            <ScrollToTop />
-        </>
-    )
+  return (
+    <>
+      <HeaderThree />
+      <Breadcrumb title="Activities" />
+      <ActivitiesInner />
+      <Footer />
+      <ScrollToTop />
+    </>
+  );
 }
 
-export default Activities
+export default Activities;

@@ -5,6 +5,7 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import VillaVerdeDetailsMain from "../Components/Resort/VillaVerdeDetailsMain";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function VillaVerdeDetails() {
   const { room_name, lang } = useParams();
@@ -41,7 +42,7 @@ function VillaVerdeDetails() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title={pageTitle}
         bgImage={breadcrumbImage}

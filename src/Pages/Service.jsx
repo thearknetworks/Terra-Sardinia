@@ -5,6 +5,7 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import ServiceListingInner from "../Components/Services/ServiceListingInner";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 const SERVICES_BANNER =
   "/assets/img/services/Top%20Banner%20Image%20-%20Services.png";
@@ -14,7 +15,7 @@ function Service() {
 
   return (
     <div>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="Services"
         bgImage={SERVICES_BANNER}

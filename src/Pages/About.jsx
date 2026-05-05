@@ -10,11 +10,12 @@ import BrandOne from "../Components/Brand/BrandOne";
 import GalleryFive from "../Components/Gallery/GalleryFive";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function About() {
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb title="About Terra Sardinia" />
       <AboutFour />
       <OfferTwo />

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
-import HeaderOne from "../Components/Header/HeaderOne";
+import HeaderThree from "../Components/Header/HeaderThree";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import DestinationList from "../Components/Destination/DestinationList";
 import Footer from "../Components/Footer/Footer";
@@ -198,7 +198,7 @@ function Destination() {
 
   return (
     <div>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="Explore the Area"
         bgImage="/assets/img/destination/torre_delle_stelle.jpg"

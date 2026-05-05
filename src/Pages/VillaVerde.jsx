@@ -4,11 +4,12 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import VillaVerdeMain from "../Components/Resort/VillaVerdeMain";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function VillaVerde() {
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="Villa Verde"
         bgImage="/assets/img/villaVerde/Banner%20Image.png"

@@ -1,17 +1,16 @@
-import React from 'react'
-import HeaderOne from '../Components/Header/HeaderOne'
-import Breadcrumb from '../Components/BreadCrumb/Breadcrumb'
-import { Link } from 'react-router-dom'
-import Footer from '../Components/Footer/Footer'
-import ScrollToTop from '../Components/ScrollToTop'
+import React from "react";
+import HeaderOne from "../Components/Header/HeaderOne";
+import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
+import { Link } from "react-router-dom";
+import Footer from "../Components/Footer/Footer";
+import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function Error() {
   return (
     <>
-      <HeaderOne />
-      <Breadcrumb
-        title="Error Page"
-      />
+      <HeaderThree />
+      <Breadcrumb title="Error Page" />
       <section className="space bg-smoke">
         <div className="container">
           <div className="row flex-row-reverse align-items-center">
@@ -27,8 +26,8 @@ function Error() {
                   This page seems to have slipped through a time portal
                 </h4>
                 <p className="error-text">
-                  We appologize for any distruction to the space-time continuum. Feel
-                  free to journey back to our homepage
+                  We appologize for any distruction to the space-time continuum.
+                  Feel free to journey back to our homepage
                 </p>
                 <Link to="/" className="th-btn style3">
                   <img src="/assets/img/icon/right-arrow2.svg" alt="" />
@@ -42,7 +41,7 @@ function Error() {
       <Footer />
       <ScrollToTop />
     </>
-  )
+  );
 }
 
-export default Error
+export default Error;

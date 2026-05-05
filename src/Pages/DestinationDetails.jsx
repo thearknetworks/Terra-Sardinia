@@ -6,6 +6,7 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import DestinationDetailsMain from "../Components/Destination/DestinationDetailsMain";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 const DESTINATION_LABELS = {
   "genne-mari": "Genn’e Mari Beach",
@@ -47,7 +48,7 @@ function DestinationDetails() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title={destinationName}
         bgImage={

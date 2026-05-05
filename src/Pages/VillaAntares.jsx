@@ -5,6 +5,7 @@ import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import VillaAntaresMain from "../Components/Resort/VillaAntaresMain";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function VillaAntares() {
   const { lang } = useParams();
@@ -16,7 +17,7 @@ function VillaAntares() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="Villa Antares"
         bgImage="/assets/img/villaAntres/Antares%20Banner%20Image.png"
@@ -30,4 +31,3 @@ function VillaAntares() {
 }
 
 export default VillaAntares;
-

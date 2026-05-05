@@ -1,5 +1,7 @@
 import React from "react";
 import HeaderOne from "../Components/Header/HeaderOne";
+import HeaderTwo from "../Components/Header/HeaderTwo";
+import HeaderThree from "../Components/Header/HeaderThree";
 import BannerOne from "../Components/Banner/BannerOne";
 import Booking from "../Components/Booking/Booking";
 import CategoryOne from "../Components/Category/CategoryOne";
@@ -18,9 +20,9 @@ import ScrollToTop from "../Components/ScrollToTop";
 function HomeOne() {
   return (
     <div>
-      <HeaderOne />
+      <HeaderThree />
       <BannerOne />
-      <Booking />
+      {/* <Booking /> */}
       <CategoryOne />
       <DestinationOne />
       <AboutOne />

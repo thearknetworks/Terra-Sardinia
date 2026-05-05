@@ -4,6 +4,7 @@ import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 const FAQ_BG = "/assets/img/faq/Top%20Banner%20Image%20-%20FAQs.png";
 
@@ -223,7 +224,7 @@ function Faq() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="FAQs"
         bgImage={FAQ_BG}

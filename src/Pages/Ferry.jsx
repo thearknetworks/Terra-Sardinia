@@ -4,6 +4,7 @@ import HeaderOne from "../Components/Header/HeaderOne";
 import Breadcrumb from "../Components/BreadCrumb/Breadcrumb";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 function Ferry() {
   const { lang = "en" } = useParams();
@@ -22,7 +23,7 @@ function Ferry() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="Ferry Reservation"
         bgImage="/assets/img/ferry/Top%20Banner%20Image%20-%20Ferry.png"

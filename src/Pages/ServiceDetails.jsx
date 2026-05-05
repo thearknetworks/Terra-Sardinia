@@ -6,6 +6,7 @@ import ServiceDetailsMain from "../Components/Services/ServiceDetailsMain";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
 import services from "../Components/data/data-service.json";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 const DEFAULT_SERVICE_BANNER =
   "/assets/img/services/Top%20Banner%20Image%20-%20Services.png";
@@ -30,7 +31,7 @@ function ServiceDetails() {
   if (!service) {
     return (
       <>
-        <HeaderOne />
+        <HeaderThree />
         <Breadcrumb
           title="Service not found"
           bgImage={DEFAULT_SERVICE_BANNER}
@@ -52,13 +53,16 @@ function ServiceDetails() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title={service.listTitle}
         bgImage={service.bannerImg || DEFAULT_SERVICE_BANNER}
         breadcrumbItems={[
           { label: "Services", to: `/${lang}/service` },
-          { label: service.breadcrumbCategory || service.cardSubtitle || "Service" },
+          {
+            label:
+              service.breadcrumbCategory || service.cardSubtitle || "Service",
+          },
         ]}
       />
       <ServiceDetailsMain service={service} />

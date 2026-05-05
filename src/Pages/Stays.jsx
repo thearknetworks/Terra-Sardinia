@@ -10,6 +10,7 @@ import {
   roomContentBySlug,
 } from "../Components/Resort/villaVerdeDetailsData";
 import "../Components/Resort/ResortDetailsInfoCard.css";
+import HeaderThree from "../Components/Header/HeaderThree";
 
 /** Villa Verde room sizes from each room page (La Tavola excluded) + Villa Antares. */
 const VILLA_ANTARES_SIZE_M2 = 150;
@@ -172,22 +173,19 @@ function Stays() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [filterModalBaseline, setFilterModalBaseline] = useState("");
 
-  const allAmenities = useMemo(
-    () => {
-      const map = new Map();
-      STAYS_CARDS.forEach((stay) => {
-        stay.amenities.forEach((am) => {
-          if (!map.has(am.name)) {
-            map.set(am.name, am.icon);
-          }
-        });
+  const allAmenities = useMemo(() => {
+    const map = new Map();
+    STAYS_CARDS.forEach((stay) => {
+      stay.amenities.forEach((am) => {
+        if (!map.has(am.name)) {
+          map.set(am.name, am.icon);
+        }
       });
-      return Array.from(map.entries())
-        .map(([name, icon]) => ({ name, icon }))
-        .sort((a, b) => a.name.localeCompare(b.name));
-    },
-    [],
-  );
+    });
+    return Array.from(map.entries())
+      .map(([name, icon]) => ({ name, icon }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, []);
 
   const matchesFilters = (stay, filters) => {
     if (filters.size !== "all" && stay.size !== filters.size) return false;
@@ -205,7 +203,9 @@ function Stays() {
       return false;
     if (
       filters.amenities.length > 0 &&
-      !filters.amenities.every((amenity) => stay.amenities.some(a => a.name === amenity))
+      !filters.amenities.every((amenity) =>
+        stay.amenities.some((a) => a.name === amenity),
+      )
     )
       return false;
     return true;
@@ -344,7 +344,7 @@ function Stays() {
 
   return (
     <>
-      <HeaderOne />
+      <HeaderThree />
       <Breadcrumb
         title="Stays"
         bgImage="/assets/img/stays/Top%20Banner%20Image%20-%20Stays.png"
