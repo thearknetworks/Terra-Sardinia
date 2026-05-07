@@ -24,7 +24,8 @@ const CategoryOne = () => {
   };
 
   const descriptionStyle = {
-    color: "var(--tourm-react-netlify-app-sirocco, var(--color-grey-44, #6E7070))",
+    color:
+      "var(--tourm-react-netlify-app-sirocco, var(--color-grey-44, #6E7070))",
     fontSize: "clamp(15px, 1.8vw, 18px)",
     fontStyle: "normal",
     fontWeight: "var(--font-weight-400, 400)",
@@ -32,7 +33,8 @@ const CategoryOne = () => {
   };
 
   const featureStyle = {
-    color: "var(--tourm-react-netlify-app-cod-gray, var(--color-grey-5, #0D0D0C))",
+    color:
+      "var(--tourm-react-netlify-app-cod-gray, var(--color-grey-5, #0D0D0C))",
     fontFamily: "var(--font-family-Font-2, Inter)",
     fontSize: "clamp(15px, 1.8vw, var(--font-size-18, 18px))",
     fontStyle: "normal",
@@ -100,8 +102,8 @@ const CategoryOne = () => {
           `}
         </style>
         <div className="title-area text-center">
-          <span className="sub-title">Discover Our Villas</span>
-          <h2 className="sec-title">Find Your Perfect Stay</h2>
+          <span className="sub-title">Discover Our Properties</span>
+          <h2 className="sec-title">Choose your experience in Sardinia</h2>
         </div>
 
         {/* <Swiper
@@ -194,17 +196,11 @@ const CategoryOne = () => {
                     </div>
 
                     <div className="tour-content">
-                      <h4
-                        className="tour-box_price mb-0"
-                        style={titleStyle}
-                      >
+                      <h4 className="tour-box_price mb-0" style={titleStyle}>
                         {item.title}
                       </h4>
 
-                      <p
-                        className="tour-box_price"
-                        style={subTitleStyle}
-                      >
+                      <p className="tour-box_price" style={subTitleStyle}>
                         {item.subTitle}
                       </p>
 
