@@ -1,112 +1,78 @@
-import React, { useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 const CategoryOne = () => {
-  const swiperRef = useRef(null);
-  const navigate = useNavigate();
   const { lang } = useParams();
+  const titleStyle = {
+    color:
+      "var(--tourm-react-netlify-app-elephant, var(--color-cyan-17, #113D48))",
+    fontSize: "clamp(32px, 4vw, 40px)",
+    fontStyle: "normal",
+    fontWeight: 600,
+    lineHeight: "clamp(42px, 5vw, 56.68px)",
+  };
 
-  const categories = [
+  const subTitleStyle = {
+    color:
+      "var(--tourm-react-netlify-app-elephant, var(--color-cyan-17, #113D48))",
+    fontSize: "clamp(18px, 2.4vw, 24px)",
+    fontStyle: "normal",
+    fontWeight: 600,
+    margin: 0,
+    marginBottom: "clamp(10px, 1.5vw, 12px)",
+    lineHeight: "clamp(28px, 3.2vw, 36px)",
+  };
+
+  const descriptionStyle = {
+    color: "var(--tourm-react-netlify-app-sirocco, var(--color-grey-44, #6E7070))",
+    fontSize: "clamp(15px, 1.8vw, 18px)",
+    fontStyle: "normal",
+    fontWeight: "var(--font-weight-400, 400)",
+    lineHeight: "clamp(24px, 2.3vw, 31.5px)",
+  };
+
+  const featureStyle = {
+    color: "var(--tourm-react-netlify-app-cod-gray, var(--color-grey-5, #0D0D0C))",
+    fontFamily: "var(--font-family-Font-2, Inter)",
+    fontSize: "clamp(15px, 1.8vw, var(--font-size-18, 18px))",
+    fontStyle: "normal",
+    fontWeight: "var(--font-weight-400, 400)",
+    lineHeight: "clamp(24px, 2.1vw, var(--line-height-28, 28px))",
+  };
+
+  const data = [
     {
-      id: 1,
-      title: "Private Villa",
-      subtext: "Villa Antares",
-      imgSrc: "/assets/images/StaysHomeScreen/Antares.png",
-      route: `/${lang || "en"}/villa-antares`,
+      title: "Villa Antares",
+      subTitle: "Your private villa in Sardinia",
+      description:
+        "A fully private villa for exclusive use, perfect for those seeking privacy, comfort, and an unforgettable sea view.",
+      features: [
+        "Exclusive use",
+        "Sea view",
+        "Private saltwater swimming pool",
+        "Ideal for families or groups",
+      ],
+      buttonText: "Discover More",
+      imgSrc: "/assets/img/category/Ocean View Resort.png",
+      slug: "villa-antares",
     },
+
     {
-      id: 2,
-      title: "Aquarius",
-      subtext: "Villa Verde",
-      imgSrc: "/assets/images/StaysHomeScreen/Aquarius-1.png",
-      route: `/${lang || "en"}/villa-verde/aquarius`,
-    },
-    {
-      id: 3,
-      title: "Aries",
-      subtext: "Villa Verde",
-      imgSrc: "/assets/images/StaysHomeScreen/Aries-1.png",
-      route: `/${lang || "en"}/villa-verde/aries`,
-    },
-    {
-      id: 4,
-      title: "Cancer",
-      subtext: "Villa Verde",
-      imgSrc: "/assets/images/StaysHomeScreen/Cancer-1.png",
-      route: `/${lang || "en"}/villa-verde/cancer`,
-    },
-    {
-      id: 5,
-      title: "Virgo",
-      subtext: "Villa Verde",
-      imgSrc: "/assets/images/StaysHomeScreen/Virgo-1.png",
-      route: `/${lang || "en"}/villa-verde/virgo`,
-    },
-    {
-      id: 6,
-      title: "Sagittarius",
-      subtext: "Villa Verde",
-      imgSrc: "/assets/images/StaysHomeScreen/Sagittarius-1.png",
-      route: `/${lang || "en"}/villa-verde/sagittarius`,
+      title: "Guesthouse Villa Verde",
+      subTitle: "Warm hospitality, just like home",
+      description:
+        "Five rooms with private bathrooms and breakfast included, set in the tranquility just 200m from the beach",
+      features: [
+        "5 rooms with private bathrooms",
+        "Breakfast included",
+        "Private saltwater swimming pool",
+        "Friendly, welcoming atmosphere",
+      ],
+      buttonText: "Discover More",
+      imgSrc: "/assets/img/category/Premium Forest Resort.png",
+      slug: "villa-verde",
     },
   ];
-
-  useEffect(() => {
-    if (!swiperRef.current) return;
-
-    const swiperInstance = swiperRef.current.swiper;
-
-    // ✅ Start autoplay properly
-    if (swiperInstance && swiperInstance.autoplay) {
-      swiperInstance.autoplay.start();
-    }
-    // ✅ Custom pagination with numbers
-    if (swiperInstance.pagination) {
-      swiperInstance.pagination.renderBullet = function (index, className) {
-        let formattedNumber = index + 1 < 10 ? "0" + (index + 1) : index + 1;
-        return `<span class="${className} number">${formattedNumber}</span>`;
-      };
-      swiperInstance.pagination.init();
-      swiperInstance.pagination.update();
-    }
-    // ✅ Custom wheel effect for category slider
-    const multiplier = {
-      translate: 0.1,
-      rotate: 0.01,
-    };
-
-    const calculateWheel = () => {
-      const slides = document.querySelectorAll(".single");
-      slides.forEach((slide) => {
-        const rect = slide.getBoundingClientRect();
-        const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5);
-        let ty =
-          Math.abs(r) * multiplier.translate -
-          rect.width * multiplier.translate;
-
-        if (ty < 0) {
-          ty = 0;
-        }
-        const transformOrigin = r < 0 ? "left top" : "right top";
-        slide.style.transform = `translate(0, ${ty}px) rotate(${-r * multiplier.rotate}deg)`;
-        slide.style.transformOrigin = transformOrigin;
-      });
-    };
-
-    const raf = () => {
-      requestAnimationFrame(raf);
-      calculateWheel();
-    };
-
-    raf();
-
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
   return (
     <section
@@ -119,7 +85,20 @@ const CategoryOne = () => {
         marginTop: "15%",
       }}
     >
-      <div className="container th-container">
+      <div className="container th-container category-desktop-padding">
+        <style>
+          {`
+            .no-hover-shadow:hover {
+              box-shadow: none !important;
+            }
+            @media (min-width: 1200px) {
+              .category-desktop-padding {
+                padding-left: 48px;
+                padding-right: 48px;
+              }
+            }
+          `}
+        </style>
         <div className="title-area text-center">
           <span className="sub-title">Discover Our Villas</span>
           <h2 className="sec-title">Find Your Perfect Stay</h2>
@@ -187,80 +166,76 @@ const CategoryOne = () => {
             role="tabpanel"
           >
             <div className="row gy-24 gx-24">
-              <div className="col-md-6">
-                <Link
-                  to={"/villa-antares"}
-                  className="tour-box th-ani clickable-card"
-                >
-                  <div className="tour-box_img global-img">
-                    <img
-                      src={"/assets/images/HomeBsanner/Antares1.png"}
-                      alt={`test - test`}
-                    />
-                  </div>
-                  <div className="tour-content">
-                    <p className="stays-card-villa-label">test</p>
-                    <h4 className="tour-box_price">
-                      <span className="currency">test</span>
-                    </h4>
-                    <div className="tour-action">
-                      <span>
-                        <i className="fa-light fa-clock" />
-                        minstay
-                      </span>
-                      <span className="th-btn style4">
-                        <span
-                          className="d-none d-xl-inline"
-                          style={{
-                            color: "inherit",
-                            fontWeight: "inherit",
-                          }}
-                        >
-                          View
-                        </span>
-                        Details
-                      </span>
+              {data.map((item) => (
+                <div className="col-md-6" key={item.title}>
+                  <div
+                    className="tour-box no-hover-shadow"
+                    style={{ border: "none" }}
+                  >
+                    <div
+                      className="tour-box_img global-img"
+                      style={{
+                        aspectRatio: "1 / 1",
+                        width: "100%",
+                        maxWidth: "100%",
+                        borderRadius: "24px",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <img
+                        src={item.imgSrc}
+                        alt={item.title}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "24px",
+                        }}
+                      />
+                    </div>
+
+                    <div className="tour-content">
+                      <h4
+                        className="tour-box_price mb-0"
+                        style={titleStyle}
+                      >
+                        {item.title}
+                      </h4>
+
+                      <p
+                        className="tour-box_price"
+                        style={subTitleStyle}
+                      >
+                        {item.subTitle}
+                      </p>
+
+                      <p className="mb-16" style={descriptionStyle}>
+                        {item.description}
+                      </p>
+
+                      <div
+                        className="checklist"
+                        style={{ marginBottom: "clamp(24px, 5vw, 40px)" }}
+                      >
+                        <ul>
+                          {item.features.map((feature) => (
+                            <li key={feature} style={featureStyle}>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <Link
+                        to={`/${lang}/${item.slug}`}
+                        className="th-btn style4"
+                      >
+                        {item.buttonText}
+                        <i className="fas fa-arrow-right ms-2" />
+                      </Link>
                     </div>
                   </div>
-                </Link>
-              </div>
-              <div className="col-md-6">
-                <Link
-                  to={"/villa-antares"}
-                  className="tour-box th-ani clickable-card"
-                >
-                  <div className="tour-box_img global-img">
-                    <img
-                      src={"/assets/images/HomeBsanner/Antares1.png"}
-                      alt={`test - test`}
-                    />
-                  </div>
-                  <div className="tour-content">
-                    <p className="stays-card-villa-label">test</p>
-                    <h4 className="tour-box_price">
-                      <span className="currency">test</span>
-                    </h4>
-                    <div className="tour-action">
-                      <span>
-                        <i className="fa-light fa-clock" />
-                        minstay
-                      </span>
-                      <span className="th-btn style4">
-                        <span
-                          className="d-none d-xl-inline"
-                          style={{
-                            color: "inherit",
-                            fontWeight: "inherit",
-                          }}
-                        >
-                          View
-                        </span>
-                        Details
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
