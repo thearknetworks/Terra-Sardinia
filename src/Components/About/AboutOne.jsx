@@ -14,7 +14,10 @@ function AboutOne() {
           <div className="col-xl-6 text-center text-xl-start">
             <div className="img-box1 mx-auto mx-xl-0">
               <div className="img1">
-                <img src="/assets/img/normal/about_1_1.png" alt="About" />
+                <img
+                  src="/assets/img/normal/AboutImageWithDog.jpeg"
+                  alt="About"
+                />
               </div>
               <div className="img2">
                 <img src="/assets/img/normal/about_1_2.png" alt="About" />
@@ -28,7 +31,9 @@ function AboutOne() {
           <div className="col-xl-6">
             <div className="ps-xl-4 ms-xl-2 text-center text-xl-start">
               <div className="title-area mb-20 pe-xl-5 me-xl-5">
-                <span className="sub-title style1 justify-content-center justify-content-xl-start">A Love Story</span>
+                <span className="sub-title style1 justify-content-center justify-content-xl-start">
+                  A Love Story
+                </span>
                 <h2 className="sec-title mb-20 pe-xl-5 me-xl-5 heading">
                   Rooted in Sardinia
                 </h2>
