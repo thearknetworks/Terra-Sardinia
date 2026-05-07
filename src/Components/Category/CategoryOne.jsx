@@ -161,13 +161,17 @@ const CategoryOne = () => {
             ></div>
           </div>
         </Swiper> */}
-        <div className="tab-content" id="nav-tabContent" style={{}}>
+        <div
+          className="tab-content"
+          id="nav-tabContent"
+          style={{ maxWidth: "1500px", margin: "0 auto" }}
+        >
           <div
             className={`tab-pane fade show active`}
             id="tab-grid"
             role="tabpanel"
           >
-            <div className="row gy-24 gx-24">
+            <div className="row gy-24 gx-24 ">
               {data.map((item) => (
                 <div className="col-md-6" key={item.title}>
                   <div
@@ -179,7 +183,6 @@ const CategoryOne = () => {
                       style={{
                         aspectRatio: "1 / 1",
                         width: "100%",
-                        maxWidth: "100%",
                         borderRadius: "24px",
                         overflow: "hidden",
                       }}
