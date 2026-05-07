@@ -16,12 +16,13 @@ import BrandOne from "../Components/Brand/BrandOne";
 import BlogOne from "../Components/Blog/BlogOne";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop";
+import BannerThree from "../Components/Banner/BannerThree";
 
 function HomeOne() {
   return (
     <div>
       <HeaderThree />
-      <BannerOne />
+      <BannerThree />
       {/* <Booking /> */}
       <CategoryOne />
       <DestinationOne />

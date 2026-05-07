@@ -61,7 +61,7 @@ function BannerOne() {
           disableOnInteraction: false, // Don't stop autoplay when user interacts
         }}
         className="th-slider hero-slider-1"
-        style={{ height: "82vh" }}
+        style={{ height: "100vh" }}
         id="heroSlide1"
       >
         <div className="swiper-wrapper">

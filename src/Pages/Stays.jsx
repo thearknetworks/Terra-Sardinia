@@ -359,7 +359,7 @@ function Stays() {
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="title-area text-center pe-xl-4 ps-xl-4">
-                <span className="sub-title">Stays with Character</span>
+                <span className="sub-title">Discover Our Properties</span>
                 <h2 className="sec-title mb-20">Find Your Perfect Space</h2>
                 <p className="sec-text">
                   Each stay at Terra Sardinia offers its own atmosphere, from

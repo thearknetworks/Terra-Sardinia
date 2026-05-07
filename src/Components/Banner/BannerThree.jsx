@@ -71,7 +71,7 @@ function BannerThree() {
   };
 
   return (
-    <div className="hero-3" id="hero">
+    <div className="hero-3" id="hero" style={{ position: "relative" }}>
       {/* Main Swiper */}
       <Swiper
         modules={[EffectFade, Autoplay, Controller, Navigation, Pagination]}
@@ -91,24 +91,18 @@ function BannerThree() {
         controller={{ control: thumbsSwiper }} // Link to thumbs swiper
         onSwiper={setMainSwiper}
         className="hero-slider-3"
+        style={{ height: "100vh" }}
       >
         {/* Image Slides */}
         {[
           {
-            img: "/assets/img/hero/hero_bg_3_1.jpg",
-            title: "Discover The World with Our Guide",
+            img: "/assets/images/HomeBsanner/Terra1.png",
           },
           {
-            img: "/assets/img/hero/hero_bg_3_2.jpg",
-            title: "Discover The World Best Destination",
+            img: "/assets/images/HomeBsanner/Verde1.png",
           },
           {
-            img: "/assets/img/hero/hero_bg_3_3.jpg",
-            title: "Capture Wonder Of The World",
-          },
-          {
-            img: "/assets/img/hero/hero_bg_3_4.jpg",
-            title: "Explore the world with Terra Sardinia",
+            img: "/assets/images/HomeBsanner/Antares1.png",
           },
         ].map((slide, index) => (
           <SwiperSlide key={index}>
@@ -121,43 +115,14 @@ function BannerThree() {
                   backgroundSize: "cover",
                 }}
               ></div>
-              <div className="container">
-                <div className="hero-style3">
-                  <h1
-                    className="hero-title"
-                    data-ani="slideinleft"
-                    data-ani-delay="0.2s"
-                  >
-                    {slide.title}
-                  </h1>
-                  <p
-                    className="hero-text"
-                    data-ani="slideinleft"
-                    data-ani-delay="0.4s"
-                  >
-                    Terra Sardinia is an international travel management company
-                    with 25 years of experience, specializing in business and
-                    maritime travel.
-                  </p>
-                  <div
-                    className="btn-group"
-                    data-ani="slideinup"
-                    data-ani-delay="0.6s"
-                  >
-                    <Link to="/tour" className="th-btn style2 th-icon">
-                      Explore Tours
-                    </Link>
-                  </div>
-                </div>
-              </div>
             </div>
           </SwiperSlide>
         ))}
 
         {/* Video Slide */}
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <div className="hero-inner">
-            {/* Video Background */}
+
             <video autoPlay loop muted playsInline className="hero-video">
               <source src="/assets/img/hero/hero-video3.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -193,8 +158,30 @@ function BannerThree() {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
+
+      {/* Static Text Overlay */}
+      <div
+        className="container"
+        style={{
+          position: "absolute",
+          top: "70%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: 10,
+          color: "white", // Assuming text needs to be visible over images
+        }}
+      >
+        <div className="hero-style3">
+          <h1 className="hero-title">Feel at Home in Sardinia</h1>
+          <p className="hero-text">
+            Between crystal-clear seas and Mediterranean nature, Villa Antares
+            and Guesthouse Villa Verde welcome you to Torre delle Stelle for an
+            unforgettable stay.
+          </p>
+        </div>
+      </div>
 
       {/* Thumbnail Swiper */}
       <div className="hero3-wrapper">

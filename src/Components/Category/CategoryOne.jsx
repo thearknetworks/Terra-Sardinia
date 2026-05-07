@@ -4,6 +4,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CategoryOne = () => {
   const swiperRef = useRef(null);
@@ -111,10 +112,11 @@ const CategoryOne = () => {
     <section
       className="category-area bg-top-center bg-top-center overflow-hidden space bg-no-repeat"
       style={{
-        backgroundImage: "url(/assets/img/category/tour_category_bg.png)",
+        // backgroundImage: "url(/assets/img/category/tour_category_bg.png)",
         // backgroundRepeat: "no-repeat",
         // backgroundSize: "contain",
         // backgroundPosition: "center",
+        marginTop: "15%",
       }}
     >
       <div className="container th-container">
@@ -123,7 +125,7 @@ const CategoryOne = () => {
           <h2 className="sec-title">Find Your Perfect Stay</h2>
         </div>
 
-        <Swiper
+        {/* <Swiper
           ref={swiperRef}
           modules={[Pagination, Autoplay]}
           slidesPerView={1}
@@ -177,7 +179,91 @@ const CategoryOne = () => {
               style={{ maxWidth: "100%" }}
             ></div>
           </div>
-        </Swiper>
+        </Swiper> */}
+        <div className="tab-content" id="nav-tabContent" style={{}}>
+          <div
+            className={`tab-pane fade show active`}
+            id="tab-grid"
+            role="tabpanel"
+          >
+            <div className="row gy-24 gx-24">
+              <div className="col-md-6">
+                <Link
+                  to={"/villa-antares"}
+                  className="tour-box th-ani clickable-card"
+                >
+                  <div className="tour-box_img global-img">
+                    <img
+                      src={"/assets/images/HomeBsanner/Antares1.png"}
+                      alt={`test - test`}
+                    />
+                  </div>
+                  <div className="tour-content">
+                    <p className="stays-card-villa-label">test</p>
+                    <h4 className="tour-box_price">
+                      <span className="currency">test</span>
+                    </h4>
+                    <div className="tour-action">
+                      <span>
+                        <i className="fa-light fa-clock" />
+                        minstay
+                      </span>
+                      <span className="th-btn style4">
+                        <span
+                          className="d-none d-xl-inline"
+                          style={{
+                            color: "inherit",
+                            fontWeight: "inherit",
+                          }}
+                        >
+                          View
+                        </span>
+                        Details
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-6">
+                <Link
+                  to={"/villa-antares"}
+                  className="tour-box th-ani clickable-card"
+                >
+                  <div className="tour-box_img global-img">
+                    <img
+                      src={"/assets/images/HomeBsanner/Antares1.png"}
+                      alt={`test - test`}
+                    />
+                  </div>
+                  <div className="tour-content">
+                    <p className="stays-card-villa-label">test</p>
+                    <h4 className="tour-box_price">
+                      <span className="currency">test</span>
+                    </h4>
+                    <div className="tour-action">
+                      <span>
+                        <i className="fa-light fa-clock" />
+                        minstay
+                      </span>
+                      <span className="th-btn style4">
+                        <span
+                          className="d-none d-xl-inline"
+                          style={{
+                            color: "inherit",
+                            fontWeight: "inherit",
+                          }}
+                        >
+                          View
+                        </span>
+                        Details
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
