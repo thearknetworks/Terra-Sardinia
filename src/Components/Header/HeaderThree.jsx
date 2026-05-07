@@ -80,7 +80,7 @@ function HeaderThree() {
                   <div className="header-logo">
                     <Link to="/">
                       <img
-                        src="/assets/images/logo/Logo Blue White.png"
+                        src="/assets/images/logo/terra sardinia logo for navbar.png"
                         style={{
                           width: "126px",
                           height: "70px",
