@@ -58,7 +58,7 @@ const VILLA_ANTARES_HIGHLIGHTS = [
 const STAYS_CARDS = [
   {
     id: "aquarius",
-    villa: "Villa Verde",
+    villa: "Guesthouse Villa Verde",
     roomName: "Aquarius",
     minStay: "2 nights",
     size: 20,
@@ -71,7 +71,7 @@ const STAYS_CARDS = [
   },
   {
     id: "aries",
-    villa: "Villa Verde",
+    villa: "Guesthouse Villa Verde",
     roomName: "Aries",
     minStay: "2 nights",
     size: 21,
@@ -84,7 +84,7 @@ const STAYS_CARDS = [
   },
   {
     id: "cancer",
-    villa: "Villa Verde",
+    villa: "Guesthouse Villa Verde",
     roomName: "Cancer",
     minStay: "2 nights",
     size: 15,
@@ -97,7 +97,7 @@ const STAYS_CARDS = [
   },
   {
     id: "virgo",
-    villa: "Villa Verde",
+    villa: "Guesthouse Villa Verde",
     roomName: "Virgo",
     minStay: "2 nights",
     size: 17,
@@ -110,7 +110,7 @@ const STAYS_CARDS = [
   },
   {
     id: "sagittarius",
-    villa: "Villa Verde",
+    villa: "Guesthouse Villa Verde",
     roomName: "Sagittarius",
     minStay: "2 nights",
     size: 20,
@@ -363,10 +363,11 @@ function Stays() {
                 <h2 className="sec-title mb-20">Find Your Perfect Space</h2>
                 <p className="sec-text">
                   Each stay at Terra Sardinia offers its own atmosphere, from
-                  the charm of Villa Verde’s intimate rooms to the privacy of
-                  Villa Antares. Defined by comfort, simplicity, and a sense of
-                  place, every space is designed to help you slow down, settle
-                  in, and experience Sardinia in a way that feels personal.
+                  the charm of Guesthouse Villa Verde’s intimate rooms to the
+                  privacy of Villa Antares. Defined by comfort, simplicity, and
+                  a sense of place, every space is designed to help you slow
+                  down, settle in, and experience Sardinia in a way that feels
+                  personal.
                 </p>
               </div>
             </div>

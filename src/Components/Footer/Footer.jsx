@@ -161,6 +161,13 @@ function Footer() {
                     Salt in the air, warmth in every detail, and moments that
                     unfold at their own perfect pace.
                   </p>
+                  <br />
+                  <p className="about-text">
+                    Terra Sardinia SRLS via dell’acquario 49 09069 <br />
+                    Torre delle Stelle Maracalagonis
+                    <br />
+                    P.IVA 03916550928 c. univoco T9K4ZHO
+                  </p>
 
                   <div className="th-social">
                     <Link
@@ -264,7 +271,7 @@ function Footer() {
                           href="mailto:villaverdeguesthouse51@gmail.com"
                           className="info-box_link"
                         >
-                          Villa Verde
+                          Guesthouse Villa Verde
                         </a>
                       </p>
                     </div>
@@ -284,7 +291,8 @@ function Footer() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Villa Verde, Via dell'acquario 51, Torre delle Stelle
+                          Guesthouse Villa Verde, Via dell'acquario 51, Torre
+                          delle Stelle
                         </a>
                       </p>
                     </div>
@@ -359,6 +367,10 @@ function Footer() {
                     alt="Mastercard"
                   />
                   <img src="/assets/img/shape/visa-card.png" alt="Visa" />
+                  <img
+                    src="/assets/images/footer/American Express.png"
+                    alt="American Express"
+                  />
                 </div>
               </div>
             </div>

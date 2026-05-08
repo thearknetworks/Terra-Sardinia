@@ -34,10 +34,10 @@ function VillaVerdeDetails() {
     room_name === "antares-villa" || room_name === "villa-antares";
   const pageTitle = isVillaAntares
     ? "Villa Antares"
-    : roomTitleBySlug[room_name] || "Villa Verde";
+    : roomTitleBySlug[room_name] || "Guesthouse Villa Verde";
   const breadcrumbItems = [
     { label: "Stays", to: `/${currentLang}/stays` },
-    { label: isVillaAntares ? "Villa Antares" : "Villa Verde" },
+    { label: isVillaAntares ? "Villa Antares" : "Guesthouse Villa Verde" },
   ];
 
   return (

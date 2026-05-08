@@ -45,14 +45,15 @@ const CategoryOne = () => {
   const data = [
     {
       title: "Villa Antares",
-      subTitle: "Your private villa in Sardinia",
+      subTitle: "Authentic Sardinian-Style Villa",
+      cin: "CIN IT092037B4000F4095",
       description:
-        "A fully private villa for exclusive use, perfect for those seeking privacy, comfort, and an unforgettable sea view.",
+        "Surrounded by Mediterranean lentisk trees, junipers, and majestic granite rocks,  perfect for those seeking privacy, comfort, and panoramic sea views.",
       features: [
         "Exclusive use",
         "Sea view",
         "Private saltwater swimming pool",
-        "Ideal for families or groups",
+        "Ideal for families or groups of friends",
       ],
       buttonText: "Discover More",
       imgSrc: "/assets/images/HomeScreenCategorySeciton/Antares Card.png",
@@ -62,9 +63,10 @@ const CategoryOne = () => {
 
     {
       title: "Guesthouse Villa Verde",
-      subTitle: "Warm hospitality, just like home",
+      subTitle: "Relax & Hospitality in Torre delle Stelle",
+      cin: "CIN  IT092037C2000Q2674",
       description:
-        "Five rooms with private bathrooms and breakfast included, set in the tranquility just 200m from the beach",
+        "A peaceful and welcoming retreat in Torre delle Stelle, where comfort, nature, and authentic hospitality come together to create a relaxing and memorable stay by the sea.",
       features: [
         "5 rooms with private bathrooms",
         "Breakfast included",
@@ -105,7 +107,9 @@ const CategoryOne = () => {
         </style>
         <div className="title-area text-center">
           <span className="sub-title">Discover Our Properties</span>
-          <h2 className="sec-title">Choose your experience in Sardinia</h2>
+          <h2 className="sec-title">
+            Choose Your Experience in Torre delle Stelle
+          </h2>
         </div>
 
         {/* <Swiper
@@ -177,7 +181,7 @@ const CategoryOne = () => {
             role="tabpanel"
           >
             <div className="row gy-24 gx-24 justify-content-center">
-              {data.map((item) => (
+              {data.map((item, index) => (
                 <div
                   className="col-12 col-md-6"
                   key={item.title}
@@ -226,7 +230,18 @@ const CategoryOne = () => {
 
                     <div className="tour-content ">
                       <h4 className="tour-box_price mb-0" style={titleStyle}>
-                        {item.title}
+                        {item.title}{" "}
+                        <span
+                          style={{
+                            fontSize: "clamp(14px, 1.5vw, 16px)",
+                            fontfamily: "var(--font-family-Font-2, Inter)",
+                            fontWeight: "var(--font-weight-400, 400)",
+                            lineHeight: "clamp(20px, 1.8vw, 24px)",
+                            color: "#6e7070",
+                          }}
+                        >
+                          {item.cin}
+                        </span>
                       </h4>
 
                       <p className="tour-box_price" style={subTitleStyle}>
@@ -236,6 +251,8 @@ const CategoryOne = () => {
                       <p className="mb-16" style={descriptionStyle}>
                         {item.description}
                       </p>
+
+                      {index === 0 && <br />}
 
                       <div
                         className="checklist"

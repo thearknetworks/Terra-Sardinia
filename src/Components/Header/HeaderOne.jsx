@@ -84,7 +84,9 @@ function HeaderOne() {
                   <div className="header-links d-none d-xl-block">
                     <ul>
                       <li className="d-none d-xl-inline-block">
-                        <Link to={`/${i18n.resolvedLanguage || "en"}/faqs`}>FAQ</Link>
+                        <Link to={`/${i18n.resolvedLanguage || "en"}/faqs`}>
+                          FAQ
+                        </Link>
                       </li>
                       {/* <li className="d-none d-md-inline-block">
                         <Link to={`/${i18n.resolvedLanguage || "en"}/contact`}>Support</Link>
@@ -142,7 +144,7 @@ function HeaderOne() {
                             <Link
                               to={`/${i18n.resolvedLanguage || "en"}/villa-verde`}
                             >
-                              Villa Verde
+                              Guesthouse Villa Verde
                             </Link>
                           </li>
                           <li>
@@ -200,10 +202,7 @@ function HeaderOne() {
                 </div>
                 <div className="col-auto d-none d-xl-block">
                   <div className="header-button">
-                    <Link
-                      to="/booking"
-                      className="th-btn style3 th-icon"
-                    >
+                    <Link to="/booking" className="th-btn style3 th-icon">
                       Book Now
                     </Link>
                     {/* <button

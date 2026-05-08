@@ -92,7 +92,7 @@ function MobileMenu({ isOpen, onClose }) {
               >
                 <li>
                   <Link to={`/${i18n.resolvedLanguage || "en"}/villa-verde`}>
-                    Villa Verde
+                    Guesthouse Villa Verde
                   </Link>
                 </li>
                 <li>

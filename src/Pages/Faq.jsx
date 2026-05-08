@@ -23,7 +23,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is there a minimum stay requirement?",
-    a: "Yes. Villa Verde typically requires a minimum of 2 nights, while Villa Antares requires a minimum of 6 nights.",
+    a: "Yes. Guesthouse Villa Verde typically requires a minimum of 2 nights, while Villa Antares requires a minimum of 6 nights.",
   },
   {
     q: "Can I book last-minute stays?",
@@ -70,12 +70,12 @@ const FAQ_ITEMS = [
     a: "We recommend guests arrange their own travel insurance for added protection.",
   },
   {
-    q: "What is the difference between Villa Verde and Villa Antares?",
-    a: "Villa Verde offers individual rooms or full villa rental, while Villa Antares is rented exclusively as a full villa.",
+    q: "What is the difference between Guesthouse Villa Verde and Villa Antares?",
+    a: "Guesthouse Villa Verde offers individual rooms or full villa rental, while Villa Antares is rented exclusively as a full villa.",
   },
   {
     q: "How many guests can each property accommodate?",
-    a: "Villa Verde rooms accommodate up to 2–3 guests each; Villa Antares hosts up to 8 guests, with optional extra beds.",
+    a: "Guesthouse Villa Verde rooms accommodate up to 2–3 guests each; Villa Antares hosts up to 8 guests, with optional extra beds.",
   },
   {
     q: "Are extra beds available?",
@@ -83,7 +83,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Are the villas private?",
-    a: "Villa Antares is fully private. Villa Verde can be booked per room or entirely.",
+    a: "Villa Antares is fully private. Guesthouse Villa Verde can be booked per room or entirely.",
   },
   {
     q: "Are linens and towels provided?",

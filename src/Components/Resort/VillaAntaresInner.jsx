@@ -173,7 +173,10 @@ function VillaAntaresInner() {
       <h3 className="widget_title">Details</h3>
       <div className="resort-details-widget__grid">
         <div className="resort-details-widget__item">
-          <img src="/assets/img/villaVerde/details/Duration.png" alt="Min. Stay" />
+          <img
+            src="/assets/img/villaVerde/details/Duration.png"
+            alt="Min. Stay"
+          />
           <div>
             <p>Min. Stay</p>
             <h6 className="resort-details-widget__subtitle">
@@ -182,7 +185,10 @@ function VillaAntaresInner() {
           </div>
         </div>
         <div className="resort-details-widget__item">
-          <img src="/assets/img/villaVerde/details/Group.png" alt="Group Size" />
+          <img
+            src="/assets/img/villaVerde/details/Group.png"
+            alt="Group Size"
+          />
           <div>
             <p>Group Size</p>
             <h6 className="resort-details-widget__subtitle">
@@ -191,7 +197,10 @@ function VillaAntaresInner() {
           </div>
         </div>
         <div className="resort-details-widget__item">
-          <img src="/assets/img/villaVerde/details/Extra%20Bed.png" alt="Extra Bed" />
+          <img
+            src="/assets/img/villaVerde/details/Extra%20Bed.png"
+            alt="Extra Bed"
+          />
           <div>
             <p>Extra Bed</p>
             <h6 className="resort-details-widget__subtitle">
@@ -216,7 +225,23 @@ function VillaAntaresInner() {
           </div>
         </div>
       </div>
-      <Link to="/booking" className="th-btn th-icon resort-details-widget__book-btn">
+      <div className="resort-details-widget__item">
+        <img
+          src="/assets/images/StaysHomeScreen/download.png"
+          alt="Min. Stay"
+        />
+        <div>
+          <p>CIN</p>
+          <h6 className="resort-details-widget__subtitle">
+            IT092037B4000F4095
+          </h6>
+          <br />
+        </div>
+      </div>
+      <Link
+        to="/booking"
+        className="th-btn th-icon resort-details-widget__book-btn"
+      >
         Book Now
       </Link>
     </div>

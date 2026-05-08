@@ -88,12 +88,12 @@ function VillaVerdeInner() {
               <span className="sub-title">Spaces Shaped by The Zodiac</span>
               <h2 className="sec-title mb-20">A Collection of Character</h2>
               <p className="sec-text">
-                Every space within Villa Verde carries its own identity, drawing
-                inspiration from the zodiac to create spaces that feel personal,
-                balanced, and quietly expressive. Defined by light, texture, and
-                atmosphere, every stay offers a refined sense of comfort,
-                allowing you to settle in, slow down, and experience the villa
-                through a space that resonates with you.
+                Every space within Guesthouse Villa Verde carries its own
+                identity, drawing inspiration from the zodiac to create spaces
+                that feel personal, balanced, and quietly expressive. Defined by
+                light, texture, and atmosphere, every stay offers a refined
+                sense of comfort, allowing you to settle in, slow down, and
+                experience the villa through a space that resonates with you.
               </p>
             </div>
           </div>

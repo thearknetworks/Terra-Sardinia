@@ -38,10 +38,11 @@ function AboutOne() {
                   Rooted in Sardinia
                 </h2>
                 <p className="sec-text mb-30">
-                  Welcome to Terra Sardinia, where Villa Verde and Villa Antares
-                  invite you to experience the beauty of Torre delle Stelle, its
-                  peaceful rhythm, and the simple joy of being surrounded by
-                  nature, sea, and unforgettable moments.
+                  Angela & Didier welcome you to Torre delle Stelle, where
+                  Guesthouse Villa Verde and Villa Antares invite you to
+                  experience the beauty of Torre delle Stelle, its peaceful
+                  rhythm, and the simple joy of being surrounded by nature, sea,
+                  and unforgettable moments.
                 </p>
               </div>
 

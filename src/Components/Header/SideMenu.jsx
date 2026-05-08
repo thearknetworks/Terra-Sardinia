@@ -152,7 +152,7 @@ function SideMenu({ isOpen, onClose }) {
                       href="mailto:villaverdeguesthouse51@gmail.com"
                       className="info-box_link"
                     >
-                      Villa Verde
+                      Guesthouse Villa Verde
                     </a>
                   </p>
                 </div>
@@ -172,7 +172,8 @@ function SideMenu({ isOpen, onClose }) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Villa Verde, Via dell'acquario 51, Torre delle Stelle
+                      Guesthouse Villa Verde, Via dell'acquario 51, Torre delle
+                      Stelle
                     </a>
                   </p>
                 </div>

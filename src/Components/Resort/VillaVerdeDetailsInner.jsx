@@ -110,7 +110,10 @@ function VillaVerdeDetailsInner() {
       <h3 className="widget_title">Details</h3>
       <div className="resort-details-widget__grid">
         <div className="resort-details-widget__item">
-          <img src="/assets/img/villaVerde/details/Duration.png" alt="Min. Stay" />
+          <img
+            src="/assets/img/villaVerde/details/Duration.png"
+            alt="Min. Stay"
+          />
           <div>
             <p>Min. Stay</p>
             <h6 className="resort-details-widget__subtitle">
@@ -119,7 +122,10 @@ function VillaVerdeDetailsInner() {
           </div>
         </div>
         <div className="resort-details-widget__item">
-          <img src="/assets/img/villaVerde/details/Group.png" alt="Group Size" />
+          <img
+            src="/assets/img/villaVerde/details/Group.png"
+            alt="Group Size"
+          />
           <div>
             <p>Group Size</p>
             <h6 className="resort-details-widget__subtitle">
@@ -128,7 +134,10 @@ function VillaVerdeDetailsInner() {
           </div>
         </div>
         <div className="resort-details-widget__item">
-          <img src="/assets/img/villaVerde/details/Extra%20Bed.png" alt="Extra Bed" />
+          <img
+            src="/assets/img/villaVerde/details/Extra%20Bed.png"
+            alt="Extra Bed"
+          />
           <div>
             <p>Extra Bed</p>
             <h6 className="resort-details-widget__subtitle">
@@ -153,7 +162,23 @@ function VillaVerdeDetailsInner() {
           </div>
         </div>
       </div>
-      <Link to="/booking" className="th-btn th-icon resort-details-widget__book-btn">
+      <div className="resort-details-widget__item">
+        <img
+          src="/assets/images/StaysHomeScreen/download.png"
+          alt="Min. Stay"
+        />
+        <div>
+          <p>CIN</p>
+          <h6 className="resort-details-widget__subtitle">
+            IT092037C2000Q2674
+          </h6>
+          <br />
+        </div>
+      </div>
+      <Link
+        to="/booking"
+        className="th-btn th-icon resort-details-widget__book-btn"
+      >
         Book Now
       </Link>
     </div>
@@ -295,7 +320,7 @@ function VillaVerdeDetailsInner() {
           <div className="col-xxl-4 col-lg-5">
             <aside className="sidebar-area style3">
               <div className="widget  ">
-                <h3 className="widget_title">Villa Verde</h3>
+                <h3 className="widget_title">Guesthouse Villa Verde</h3>
                 <div className="recent-post-wrap">
                   {villaVerdeSidebarItems.map((item) => (
                     <div className="recent-post" key={item.slug}>
@@ -322,9 +347,7 @@ function VillaVerdeDetailsInner() {
                 </div>
               </div>
               {shouldShowDetailsWidget ? (
-                <div className="d-none d-lg-block">
-                  {renderDetailsWidget()}
-                </div>
+                <div className="d-none d-lg-block">{renderDetailsWidget()}</div>
               ) : null}
               <div
                 className="widget widget_offer need-help-widget"
@@ -359,7 +382,10 @@ function VillaVerdeDetailsInner() {
           className="shape-mockup shape1 d-none d-xxl-block"
           style={{ bottom: "35%", right: "-12%", scale: "0.4" }}
         >
-          <img src="/assets/images/Elements/Blue color/Shrimp.png" alt="shape" />
+          <img
+            src="/assets/images/Elements/Blue color/Shrimp.png"
+            alt="shape"
+          />
         </div>
         <div
           className="shape-mockup shape2 d-none d-xl-block"

@@ -49,7 +49,7 @@ function HeaderThree() {
                             <Link
                               to={`/${i18n.resolvedLanguage || "en"}/villa-verde`}
                             >
-                              Villa Verde
+                              Guesthouse Villa Verde
                             </Link>
                           </li>
                           <li>

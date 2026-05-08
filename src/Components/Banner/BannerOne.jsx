@@ -140,7 +140,7 @@ function BannerOne() {
                     data-ani="slideinup"
                     data-ani-delay="0.2s"
                   >
-                    Villa Verde
+                    Guesthouse Villa Verde
                   </span>
                   <h1
                     className="hero-title"

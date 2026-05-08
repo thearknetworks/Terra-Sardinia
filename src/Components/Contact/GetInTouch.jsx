@@ -23,7 +23,7 @@ function GetInTouch() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Villa Verde
+                    Guesthouse Villa Verde
                   </a>
                 </p>
                 <p className="about-contact-details-text">
@@ -91,7 +91,7 @@ function GetInTouch() {
                 </p>
                 <p className="about-contact-details-text">
                   <a href="mailto:villaverdeguesthouse51@gmail.com">
-                    Villa Verde
+                    Guesthouse Villa Verde
                   </a>
                 </p>
               </div>

@@ -11,7 +11,7 @@ function VillaVerde() {
     <>
       <HeaderThree />
       <Breadcrumb
-        title="Villa Verde"
+        title="Guesthouse Villa Verde"
         bgImage="/assets/img/villaVerde/Banner%20Image.png"
       />
       <VillaVerdeMain />
