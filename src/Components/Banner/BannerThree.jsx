@@ -92,9 +92,14 @@ function BannerThree() {
         onSwiper={setMainSwiper}
         className="hero-slider-3"
         style={{ height: "100vh" }}
+        lazy={true}
       >
         {/* Image Slides */}
         {[
+          {
+            img: "/assets/images/HomeBsanner/home banner 3.png",
+          },
+
           {
             img: "/assets/images/HomeBsanner/Terra1.png",
           },
@@ -104,13 +109,22 @@ function BannerThree() {
           {
             img: "/assets/images/HomeBsanner/Antares1.png",
           },
+          {
+            img: "/assets/images/HomeBsanner/home banner.png",
+          },
+          {
+            img: "/assets/images/HomeBsanner/home banner 1.png",
+          },
+          {
+            img: "/assets/images/HomeBsanner/home banner 2.png",
+          },
         ].map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="hero-inner">
               <div
                 className="th-hero-bg"
                 style={{
-                  backgroundImage: `url(${slide.img})`,
+                  backgroundImage: `url("${encodeURI(slide.img)}")`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                 }}
@@ -286,7 +300,7 @@ function BannerThree() {
           </div>
         </div>
       </div>
-      <div className="scroll-down">
+      {/* <div className="scroll-down">
         <Link
           to="/#destination-sec"
           onClick={handleScroll}
@@ -297,7 +311,7 @@ function BannerThree() {
           </span>
           Scroll Down
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

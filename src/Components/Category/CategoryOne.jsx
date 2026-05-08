@@ -55,8 +55,9 @@ const CategoryOne = () => {
         "Ideal for families or groups",
       ],
       buttonText: "Discover More",
-      imgSrc: "/assets/img/category/Ocean View Resort.png",
+      imgSrc: "/assets/images/HomeScreenCategorySeciton/Antares Card.png",
       slug: "villa-antares",
+      stamp: "/assets/images/HomeScreenCategorySeciton/logo antares.png",
     },
 
     {
@@ -71,8 +72,9 @@ const CategoryOne = () => {
         "Friendly, welcoming atmosphere",
       ],
       buttonText: "Discover More",
-      imgSrc: "/assets/img/category/Premium Forest Resort.png",
+      imgSrc: "/assets/images/HomeScreenCategorySeciton/Verde Card.png",
       slug: "villa-verde",
+      stamp: "/assets/images/HomeScreenCategorySeciton/logo verde.png",
     },
   ];
 
@@ -164,16 +166,25 @@ const CategoryOne = () => {
         <div
           className="tab-content"
           id="nav-tabContent"
-          style={{ maxWidth: "1500px", margin: "0 auto" }}
+          style={{
+            maxWidth: "1500px",
+            margin: "0 auto",
+          }}
         >
           <div
             className={`tab-pane fade show active`}
             id="tab-grid"
             role="tabpanel"
           >
-            <div className="row gy-24 gx-24 ">
+            <div className="row gy-24 gx-24 justify-content-center">
               {data.map((item) => (
-                <div className="col-md-6" key={item.title}>
+                <div
+                  className="col-12 col-md-6"
+                  key={item.title}
+                  onClick={() =>
+                    (window.location.href = `/${lang}/${item.slug}`)
+                  }
+                >
                   <div
                     className="tour-box no-hover-shadow"
                     style={{ border: "none" }}
@@ -185,6 +196,7 @@ const CategoryOne = () => {
                         width: "100%",
                         borderRadius: "24px",
                         overflow: "hidden",
+                        position: "relative",
                       }}
                     >
                       <img
@@ -196,9 +208,23 @@ const CategoryOne = () => {
                           borderRadius: "24px",
                         }}
                       />
+                      {item.stamp && (
+                        <img
+                          src={item.stamp}
+                          alt={`${item.title} stamp`}
+                          style={{
+                            position: "absolute",
+                            bottom: "16px",
+                            right: "16px",
+                            width: "130px",
+                            height: "130px",
+                            objectFit: "contain",
+                          }}
+                        />
+                      )}
                     </div>
 
-                    <div className="tour-content">
+                    <div className="tour-content ">
                       <h4 className="tour-box_price mb-0" style={titleStyle}>
                         {item.title}
                       </h4>

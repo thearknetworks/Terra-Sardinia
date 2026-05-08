@@ -28,14 +28,17 @@ function SideMenu({ isOpen, onClose }) {
             <div className="th-widget-about">
               <div className="about-logo">
                 <Link to="/">
-                  <img src="assets/img/logo2.svg" alt="Terra Sardinia" />
+                  <img
+                    src="\assets\images\logo\TerraSardiniaDarkBlueLogo.png"
+                    alt="Terra Sardinia"
+                  />
                 </Link>
               </div>
               <p className="about-text">
-                Rapidiously myocardinate cross-platform intellectual capital
-                model. Appropriately create interactive infrastructures
+                Salt in the air, warmth in every detail, and moments that unfold
+                at their own perfect pace.
               </p>
-              <div className="th-social">
+              {/* <div className="th-social">
                 <Link to="https://www.facebook.com/">
                   <i className="fab fa-facebook-f" />
                 </Link>
@@ -48,10 +51,10 @@ function SideMenu({ isOpen, onClose }) {
                 <Link to="https://www.whatsapp.com/">
                   <i className="fab fa-whatsapp" />
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
-          <div className="widget  ">
+          {/* <div className="widget  ">
             <h3 className="widget_title">Recent Posts</h3>
             <div className="recent-post-wrap">
               <div className="recent-post">
@@ -101,56 +104,97 @@ function SideMenu({ isOpen, onClose }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="widget  ">
             <h3 className="widget_title">Get In Touch</h3>
             <div className="th-widget-contact">
               <div className="info-box_text">
                 <div className="icon">
-                  <img src="assets/img/icon/phone.svg" alt="img" />
+                  <img src="/assets/img/icon/phone.svg" alt="Phone icon" />
                 </div>
-                <div className="details">
-                  <p>
-                    <Link to="tel:+01234567890" className="info-box_link">
-                      +01 234 567 890
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="tel:+09876543210" className="info-box_link">
-                      +09 876 543 210
-                    </Link>
+
+                <div className="details d-flex align-items-center">
+                  <p className="mb-0">
+                    <a href="tel:+393924915855" className="info-box_link">
+                      +39 3924915855
+                    </a>
                   </p>
                 </div>
               </div>
               <div className="info-box_text">
                 <div className="icon">
-                  <img src="assets/img/icon/envelope.svg" alt="img" />
+                  <img
+                    src="/assets/img/icon/envelope.svg"
+                    alt="Envelope icon"
+                  />
                 </div>
-                <div className="details">
+                <div className="details d-flex align-items-center">
                   <p>
-                    <Link
-                      to="mailto:mailinfo00@tourm.com"
+                    <a
+                      href="mailto:villaantares.viapesci65@gmail.com"
                       className="info-box_link"
                     >
-                      mailinfo00@tourm.com
-                    </Link>
-                  </p>
-                  <p>
-                    <Link
-                      to="mailto:support24@tourm.com"
-                      className="info-box_link"
-                    >
-                      support24@tourm.com
-                    </Link>
+                      Villa Antares
+                    </a>
                   </p>
                 </div>
               </div>
               <div className="info-box_text">
                 <div className="icon">
-                  <img src="assets/img/icon/location-dot.svg" alt="img" />
+                  <img
+                    src="/assets/img/icon/envelope.svg"
+                    alt="Envelope icon"
+                  />
+                </div>
+                <div className="details d-flex align-items-center">
+                  <p>
+                    <a
+                      href="mailto:villaverdeguesthouse51@gmail.com"
+                      className="info-box_link"
+                    >
+                      Villa Verde
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div className="info-box_text">
+                <div className="icon">
+                  <img
+                    src="/assets/img/icon/location-dot.svg"
+                    alt="Location icon"
+                  />
                 </div>
                 <div className="details">
-                  <p>789 Inner Lane, Holy park, California, USA</p>
+                  <p>
+                    <a
+                      href="https://maps.app.goo.gl/r19TGvnjhd1ZYzP7A"
+                      className="info-box_link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Villa Verde, Via dell'acquario 51, Torre delle Stelle
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div className="info-box_text">
+                <div className="icon">
+                  <img
+                    src="/assets/img/icon/location-dot.svg"
+                    alt="Location icon"
+                  />
+                </div>
+                <div className="details">
+                  <p>
+                    <a
+                      href="https://maps.app.goo.gl/AtnRLm71X88EKWtJ6"
+                      className="info-box_link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Villa Antares, Via dei Pesci 65, Torre delle Stelle
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>

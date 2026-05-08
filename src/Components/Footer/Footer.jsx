@@ -321,14 +321,14 @@ function Footer() {
                       <img
                         src={imageSrc}
                         alt="Sardinia gallery"
-                        onClick={(e) => openModal(imageSrc, e)}
+                        // onClick={(e) => openModal(imageSrc, e)}
                       />
                       <Link
                         to={imageSrc}
                         className="gallery-btn popup-image"
                         onClick={(e) => openModal(imageSrc, e)}
                       >
-                        <i className="fab fa-instagram" />
+                        {/* <i className="fab fa-instagram" /> */}
                       </Link>
                     </div>
                   ))}
@@ -374,13 +374,13 @@ function Footer() {
           alt="shape"
         />
       </div>
-      <Modal
+      {/* <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}
         imageSrc={modalImage}
         images={footerGalleryImages}
         initialIndex={modalIndex}
-      />
+      /> */}
     </footer>
   );
 }

@@ -128,7 +128,7 @@ function HeaderThree() {
                 </div>
               </div>
             </div>
-            {/* <div className="header-right-button">
+            <div className="header-right-button">
               <button
                 type="button"
                 className="simple-btn sideMenuToggler"
@@ -136,7 +136,7 @@ function HeaderThree() {
               >
                 <img src="/assets/img/icon/menu.svg" alt="" />
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       </header>

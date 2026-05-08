@@ -61,7 +61,6 @@ function TestimonialOne() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="slider-pagination" />
         </div>
       </div>
       <div

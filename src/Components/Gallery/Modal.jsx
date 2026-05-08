@@ -118,7 +118,7 @@ const Modal = ({ isOpen, closeModal, imageSrc, images, initialIndex = 0 }) => {
             border: "none",
           }}
         >
-          <span style={{ transform: "translateY(-2px)", lineHeight: 1 }}>
+          <span style={{ transform: "translateY(-4px)", lineHeight: 1 }}>
             ×
           </span>
         </button>
