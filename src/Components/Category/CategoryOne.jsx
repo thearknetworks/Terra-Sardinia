@@ -63,7 +63,7 @@ const CategoryOne = () => {
 
     {
       title: "Guesthouse Villa Verde",
-      subTitle: "Relax & Hospitality in Torre delle Stelle",
+      subTitle: "Relax & Family Hospitality Just Steps from the Sea",
       cin: "CIN  IT092037C2000Q2674",
       description:
         "A peaceful and welcoming retreat in Torre delle Stelle, where comfort, nature, and authentic hospitality come together to create a relaxing and memorable stay by the sea.",
@@ -88,7 +88,7 @@ const CategoryOne = () => {
         // backgroundRepeat: "no-repeat",
         // backgroundSize: "contain",
         // backgroundPosition: "center",
-        marginTop: "15%",
+        // marginTop: "15%",
       }}
     >
       <div className="container th-container category-desktop-padding">

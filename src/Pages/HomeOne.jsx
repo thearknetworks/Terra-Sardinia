@@ -24,9 +24,9 @@ function HomeOne() {
       <HeaderThree />
       <BannerThree />
       {/* <Booking /> */}
+      <AboutOne />
       <CategoryOne />
       <DestinationOne />
-      <AboutOne />
       <CounterOne />
       <TourOne />
       <GalleryOne />
