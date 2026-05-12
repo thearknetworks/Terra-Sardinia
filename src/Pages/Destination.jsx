@@ -216,14 +216,14 @@ function Destination() {
             <div className="col-lg-8">
               <div className="title-area text-center pe-xl-4 ps-xl-4">
                 <span className="sub-title">Moments Beyond the Villas</span>
-                <h2 className="sec-title mb-20">Discover Torre delle Stelle</h2>
+                <h2 className="sec-title mb-20">Explore Southern Sardinia</h2>
                 <p className="sec-text">
-                  Just beyond the villas lies Torre delle Stelle, where Sardinia
-                  reveals its most authentic rhythm. From crystal-clear beaches
-                  and local dining spots to lively evenings and quiet corners,
-                  every place invites you to explore at your own pace. Whether
-                  you are seeking relaxation, culture, or simple moments by the
-                  sea, the area offers a natural extension of your stay.
+                  Beyond the peaceful coastline of Torre delle Stelle lies a
+                  region filled with unforgettable experiences. From the vibrant
+                  streets of Cagliari and the turquoise waters of Villasimius to
+                  hidden beaches, seaside restaurants, local villages, and
+                  scenic coastal escapes, Southern Sardinia invites you to
+                  discover the island far beyond your stay.
                 </p>
               </div>
             </div>

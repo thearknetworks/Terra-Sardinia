@@ -162,7 +162,7 @@ function DestinationOne() {
   }, []);
 
   return (
-    <div className="position-relative overflow-hidden">
+    <div className="position-relative overflow-hidden mb-4">
       <div className="container">
         <div className="title-area text-center">
           <span className="sub-title">Explore The Surroundings</span>

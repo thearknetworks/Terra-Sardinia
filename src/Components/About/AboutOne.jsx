@@ -84,41 +84,6 @@ function AboutOne() {
         </div>
 
         <div
-          className="shape-mockup shape1 d-none d-xl-block"
-          style={{
-            top: "6%",
-            left: "-16%",
-            scale: "0.4",
-          }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Shrimp.png"
-            alt="shape"
-          />
-        </div>
-
-        <div
-          className="shape-mockup shape2 d-none d-xl-block"
-          style={{
-            top: "23%",
-            left: "-14%",
-          }}
-        >
-          <img src="/assets/images/Elements/Blue color/Coral.png" alt="shape" />
-        </div>
-
-        <div
-          className="shape-mockup shape3 d-none d-xl-block"
-          style={{
-            top: "12%",
-            left: "-10%",
-            scale: "0.5",
-          }}
-        >
-          <img src="/assets/images/Elements/Blue color/Fish.png" alt="shape" />
-        </div>
-
-        <div
           className="shape-mockup about-shape movingX d-none d-xxl-block"
           style={{
             bottom: "0%",

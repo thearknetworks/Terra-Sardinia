@@ -190,8 +190,22 @@ function VillaVerdeDetailsInner() {
         <div className="row">
           <div className="col-xxl-8 col-lg-7">
             <div className="page-single">
-              <div className="service-img global-img">
+              <div className="service-img global-img position-relative">
                 <img src={selectedRoomMedia.topImage} alt="" />
+                <img
+                  src={selectedRoomMedia.stamp}
+                  alt="Stamp"
+                  className="stamp"
+                  style={{
+                    position: "absolute",
+                    bottom: "20px",
+                    right: "20px",
+                    width: "80px",
+                    height: "80px",
+                    objectFit: "contain",
+                    borderRadius: "30%",
+                  }}
+                />
               </div>
               <div className="page-content d-block">
                 <h2 className="box-title mt-20">
@@ -377,27 +391,6 @@ function VillaVerdeDetailsInner() {
               </div>
             </aside>
           </div>
-        </div>
-        <div
-          className="shape-mockup shape1 d-none d-xxl-block"
-          style={{ bottom: "35%", right: "-12%", scale: "0.4" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Shrimp.png"
-            alt="shape"
-          />
-        </div>
-        <div
-          className="shape-mockup shape2 d-none d-xl-block"
-          style={{ bottom: "31%", right: "-8%" }}
-        >
-          <img src="/assets/images/Elements/Blue color/Coral.png" alt="shape" />
-        </div>
-        <div
-          className="shape-mockup shape3 d-none d-xxl-block"
-          style={{ bottom: "33%", right: "-5%", scale: "0.5" }}
-        >
-          <img src="/assets/images/Elements/Blue color/Fish.png" alt="shape" />
         </div>
       </div>
       <Modal

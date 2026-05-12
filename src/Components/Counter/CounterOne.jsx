@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 
 const CounterOne = () => {
   const counters = [
-    {value: 400, suffix: "+", title: "Happy Guests" },
+    { value: 400, suffix: "+", title: "Happy Guests" },
     { value: 6, suffix: "", title: "Available Rentals" },
     { value: 56, suffix: "+", title: "Nearby Experinces" },
     { value: 2, suffix: "", title: "Wonderful Hosts" },
@@ -14,7 +14,7 @@ const CounterOne = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
-    <div className="counter-area space-bottom" ref={ref}>
+    <div className="counter-area space-bottom mt-5" ref={ref}>
       <div className="container shape-mockup-wrap">
         <div className="row">
           {counters.map((counter, index) => (
@@ -40,58 +40,6 @@ const CounterOne = () => {
               </div>
             </div>
           ))}
-        </div>
-        <div
-          className="shape-mockup shape1 d-none d-xl-block"
-          data-top="30%"
-          data-left="-15%"
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Coral.png"
-            alt="shape"
-            style={{ scale: "0.7" }}
-          />
-        </div>
-        <div
-          className="shape-mockup shape2 d-none d-xl-block"
-          style={{ top: "45%", left: "-13%" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Crab.png"
-            style={{ scale: "1" }}
-            alt="shape"
-          />
-        </div>
-        <div
-          className="shape-mockup shape3 d-none d-xl-block"
-          style={{ top: "32%", left: "-7%" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Fish.png"
-            style={{ scale: "0.3" }}
-            alt="shape"
-          />
-        </div>
-        <div
-          className="shape-mockup d-none d-xl-block"
-          style={{ bottom: "-26.5%", left: "-15%" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Shell.png"
-            style={{ scale: "0.5" }}
-            alt="shape"
-          />
-        </div>
-        <div
-          className="shape-mockup jump d-none d-xl-block"
-          data-top="5%"
-          data-right="-10%"
-          style={{ top: "5%", right: "-10%" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Shrimp.png"
-            alt="shape"
-          />
         </div>
       </div>
     </div>

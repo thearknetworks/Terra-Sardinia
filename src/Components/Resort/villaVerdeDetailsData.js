@@ -309,6 +309,50 @@ export const villaVerdeReviews = [
     body: "I stayed for a week in June with my family and had a wonderful time! The owners are very hospitable and kind. Everything is very well-kept and clean, and there's a beautiful garden. Angela and Dominique are also amazing chefs!! We had dinner with them one evening under the porch in their flower garden, filled with the unique scents of Sardinia. We'll definitely be back.",
   },
 ];
+export const villaAntaresReviews = [
+  {
+    name: "Ludovic",
+    rating: "5.0",
+    date: "October 2025",
+    avatar: "/assets/images/reviews/Frame 1000008683.png",
+    body: "Merveilleuse maison dans laquelle nous avons passé des vacances inoubliables à 9. La maison est encore plus belle en vraie qu’en photo et avons été très chaleureusement accueillis par Angela et Didier, qui ont de plus été toujours très réactifs durant le séjours à nous petites questions. Un vrai plaisir et nous recommandons vivement cette maison.",
+  },
+  {
+    name: "Hannah",
+    rating: "5.0",
+    date: "September 2025",
+    avatar: "/assets/images/reviews/Frame 1000008684.png",
+    body: "Wow, such a beautiful house, even nicer than the pictures! We had the most amazing week in Torre Delle Stelle. Angela’s house was the perfect location to explore the area, only 5mins drive from two equally gorgeous beaches with warm crystal blue waters - so many more to visit within a 30-min drive, all with their own charm. The house itself is not like any Airbnb we’ve stayed, it’s clearly their home with all gorgeous finishings and furniture, comfy beds, really nice pool to relax in (shallow end perfect for the babies to play in), so many places to sit outside. Would come back again in a heartbeat! Thanks Angela!",
+  },
+  {
+    name: "Loïc & Karine",
+    rating: "5.0",
+    date: "May 2025",
+    avatar: "/assets/images/reviews/Frame 1000008685.png",
+    body: "Angela et Didier sont des hôtes plus que accueillants ils ont reçu ma famille avec gentillesse. J'ai réservé cette magnifique villa pour 8 personnes de ma famille car moi et mes enfant poursuivions en camping car et ils ont été ravie. La villa est splendide parfait état tout était parfait encore mieux que sur les photos la literie était impeccable la piscine parfaite même en mai ils ont pu se baigner. Ma famille remercie Angela qui a été d'une gentillesse extrême avec ma famille. Allez y les yeux fermés. Merci à vous Angela et Didier ma famille étaient tellement heureuse.",
+  },
+  {
+    name: "Katja",
+    rating: "5.0",
+    date: "October 2024",
+    avatar: "/assets/images/reviews/Frame 1000008686.png",
+    body: "Wir kämen gerne wieder. Merci!",
+  },
+  {
+    name: "Caroline",
+    rating: "5.0",
+    date: "August 2024",
+    avatar: "/assets/images/reviews/Frame 1000008688.png",
+    body: "Un séjour mémorable tant par la qualité de l’accueil dont nous avons bénéficié que par la maison en elle-même qui présentait tout ce que nous recherchions : confort/cadre magnifique/tranquillité… nous nous souviendrons toujours de la belle maison sarde d’Angela et Didier.",
+  },
+  {
+    name: "Alexandra",
+    rating: "5.0",
+    date: "July 2024",
+    avatar: "/assets/images/reviews/Frame 1000008689.png",
+    body: "We’ve spend a very relaxing vacation at Angela & Didier’s house. They are very lovely hosts and made sure we feel welcomed! The view is amazing, so is the pool and the entire house! There’s amazing beaches close to the house (10 min drive). Our favorite was Solanas. Angela also made sure we got a table at her favorite restaurant Da Barbara - which we loved! It’s located in a quiet neighborhood - you just need to be prepared to have a car available!",
+  },
+];
 
 const parseReviewDate = (dateLabel) => {
   const parsedTimestamp = Date.parse(`${dateLabel} 1`);
@@ -316,6 +360,9 @@ const parseReviewDate = (dateLabel) => {
 };
 
 export const villaVerdeReviewsNewestFirst = [...villaVerdeReviews].sort(
+  (a, b) => parseReviewDate(b.date) - parseReviewDate(a.date),
+);
+export const villaAntaresReviewsNewestFirst = [...villaAntaresReviews].sort(
   (a, b) => parseReviewDate(b.date) - parseReviewDate(a.date),
 );
 
@@ -328,6 +375,7 @@ export const roomMediaBySlug = {
       "/assets/img/villaVerde/gallery/AQUARIUS%20Gallery%201%20Destination%20Detail-1-12.png",
       "/assets/img/villaVerde/gallery/AQUARIUS%20Gallery%202%20Destination%20Detail-1-12.png",
     ],
+    stamp: "/assets/images/stoneLogos/Aquarius.png",
   },
   aries: {
     topImage: "/assets/img/villaVerde/Aries%20Image%201.png",
@@ -337,6 +385,7 @@ export const roomMediaBySlug = {
       "/assets/img/villaVerde/gallery/ARIES%20Gallery%201%20Destination%20Detail-1-13.png",
       "/assets/img/villaVerde/gallery/ARIES%20Gallery%202%20Destination%20Detail-1-13.png",
     ],
+    stamp: "/assets/images/stoneLogos/Aries.png",
   },
   cancer: {
     topImage: "/assets/img/villaVerde/Cancer%20Image%201.png",
@@ -346,6 +395,7 @@ export const roomMediaBySlug = {
       "/assets/img/villaVerde/gallery/Cancer%20Gallery%201%20Destination%20Detail-1-14.png",
       "/assets/img/villaVerde/gallery/Cancer%20Gallery%202%20Destination%20Detail-1-14.png",
     ],
+    stamp: "/assets/images/stoneLogos/Cancer.png",
   },
   virgo: {
     topImage: "/assets/img/villaVerde/Virgo%20Image%201.png",
@@ -355,6 +405,7 @@ export const roomMediaBySlug = {
       "/assets/img/villaVerde/gallery/VIRGO%20Gallery%201%20Destination%20Detail-1-15.png",
       "/assets/img/villaVerde/gallery/VIRGO%20Gallery%202%20Destination%20Detail-1-15.png",
     ],
+    stamp: "/assets/images/stoneLogos/Virgo.png",
   },
   sagittarius: {
     topImage: "/assets/img/villaVerde/Sagittarius%20Image%201.png",
@@ -364,6 +415,7 @@ export const roomMediaBySlug = {
       "/assets/img/villaVerde/gallery/SAGITTARIUS%20Gallery%201%20Destination%20Detail-1-16.png",
       "/assets/img/villaVerde/gallery/SAGITTARIUS%20Gallery%202%20Destination%20Detail-1-16.png",
     ],
+    stamp: "/assets/images/stoneLogos/Sag.png",
   },
   "la-tavola": {
     topImage: "/assets/img/villaVerde/La%20Tavola%20Image%201.png",

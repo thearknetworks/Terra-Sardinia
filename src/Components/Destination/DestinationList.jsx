@@ -26,33 +26,6 @@ function DestinationList({
             </div>
           ))}
         </div>
-
-        <div
-          className="shape-mockup shape1 d-none d-xxl-block"
-          style={{ bottom: "17%", right: "-9%" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Coral.png"
-            style={{ scale: "0.4" }}
-            alt="shape"
-          />
-        </div>
-        <div
-          className="shape-mockup shape2 d-none d-xl-block"
-          style={{ bottom: "2%", right: "-8%" }}
-        >
-          <img src="/assets/images/Elements/Blue color/Crab.png" alt="shape" />
-        </div>
-        <div
-          className="shape-mockup shape3 d-none d-xxl-block"
-          style={{ bottom: "15%", right: "-4%" }}
-        >
-          <img
-            src="/assets/images/Elements/Blue color/Shrimp.png"
-            style={{ scale: "0.6" }}
-            alt="shape"
-          />
-        </div>
       </div>
     </section>
   );

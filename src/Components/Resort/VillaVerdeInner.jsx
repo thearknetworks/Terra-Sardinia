@@ -12,6 +12,7 @@ const resorts = [
     size: "20 m²",
     bed: "King Bed",
     amenities: "Pool View, TV, Wifi, AC...",
+    stamp: "/assets/images/stoneLogos/Aquarius.png",
   },
 
   {
@@ -24,6 +25,7 @@ const resorts = [
     size: "21 m²",
     bed: "King Bed",
     amenities: "Pool View, TV, Wifi, AC...",
+    stamp: "/assets/images/stoneLogos/Aries.png",
   },
 
   {
@@ -36,6 +38,7 @@ const resorts = [
     size: "15 m²",
     bed: "King Bed",
     amenities: "Garden View, TV, Wifi, AC...",
+    stamp: "/assets/images/stoneLogos/Cancer.png",
   },
 
   {
@@ -48,6 +51,7 @@ const resorts = [
     size: "17 m²",
     bed: "King Bed, Single Bed",
     amenities: "Garden View, TV, Wifi, AC...",
+    stamp: "/assets/images/stoneLogos/Virgo.png",
   },
 
   {
@@ -60,6 +64,7 @@ const resorts = [
     size: "20 m²",
     bed: "King Bed, Sofa Bed",
     amenities: "Garden View, TV, Wifi, AC...",
+    stamp: "/assets/images/stoneLogos/Sag.png",
   },
 ];
 
@@ -105,8 +110,21 @@ function VillaVerdeInner() {
             key={resort.id}
           >
             <div className={`col-lg-6 ${index % 2 !== 0 ? "order-lg-4" : ""}`}>
-              <div className="resort-image global-img">
+              <div className="resort-image global-img position-relative">
                 <img src={resort.image} alt={resort.title} />
+                <img
+                  src={resort.stamp}
+                  alt={`${resort.title} Stamp`}
+                  style={{
+                    backgroundColor: "transparent",
+                    position: "absolute",
+                    bottom: "20px",
+                    right: "20px",
+                    width: "80px",
+                    height: "80px",
+                    objectFit: "contain",
+                  }}
+                />
               </div>
             </div>
             <div className="col-lg-6">

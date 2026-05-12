@@ -63,22 +63,6 @@ function TestimonialOne() {
           </Swiper>
         </div>
       </div>
-      <div
-        className="shape-mockup d-none d-xl-block"
-        style={{ bottom: "-2%", right: "0%" }}
-      >
-        <img src="/assets/img/shape/line2.png" alt="shape" />
-      </div>
-      <div
-        className="shape-mockup movingX d-none d-xl-block"
-        style={{ top: "25%", left: "4%" }}
-      >
-        <img
-          src="/assets/images/Elements/Blue color/Fish.png"
-          style={{ transform: "rotate(45deg)", scale: "0.7" }}
-          alt="shape"
-        />
-      </div>
     </section>
   );
 }

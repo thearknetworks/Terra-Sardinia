@@ -9,7 +9,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css/effect-fade";
-import { villaVerdeReviewsNewestFirst } from "./villaVerdeDetailsData";
+import {
+  villaAntaresReviewsNewestFirst,
+  villaVerdeReviewsNewestFirst,
+} from "./villaVerdeDetailsData";
 
 const REVIEW_AVATAR_STYLE = {
   width: "80px",
@@ -19,57 +22,47 @@ const REVIEW_AVATAR_STYLE = {
 };
 
 const sliderImages = [
-  "/assets/img/slider/a4oyyb39ounwv6rhjad2.webp",
-  "/assets/img/slider/avxyeckgjs48quysoyvc.webp",
-  "/assets/img/slider/cadsjj0iniyxxltpi9ec.webp",
-  "/assets/img/slider/ccc1mhpmnawd0w3kircw.webp",
-  "/assets/img/slider/cskfsqdnddsncptamtiy.webp",
-  "/assets/img/slider/elfictg7dsi12k8hvedh.webp",
-  "/assets/img/slider/euutfgqxhdcmkvkelgpi.webp",
-  "/assets/img/slider/eyiybm6778l4uqtnhsns.webp",
-  "/assets/img/slider/f6kkhwynae8qgxykleh4.webp",
-  "/assets/img/slider/gfao8mukr5scau6wrkbt.webp",
-  "/assets/img/slider/gzaortnmddmzn8blogtp.webp",
-  "/assets/img/slider/ipfnwjxwwel7wnwcp7vk.webp",
-  "/assets/img/slider/jadqscjw9jhdou9czey3.webp",
-  "/assets/img/slider/jd7vqqyh3y3ls5slpewr.webp",
-  "/assets/img/slider/ka3kqoe10had65673g6p.webp",
-  "/assets/img/slider/l1gbimgxctb71lduuqxt.webp",
-  "/assets/img/slider/li6mqd2xt8fpokkcbioa.webp",
-  "/assets/img/slider/ljoegzli0xso6qnbnmcf.webp",
-  "/assets/img/slider/ly6up9jrvtxpnhxea9ul.webp",
-  "/assets/img/slider/mhl7greh6ijcafxe5crk.webp",
-  "/assets/img/slider/mi9wixalmlptgeiayzni.webp",
-  "/assets/img/slider/nrq4wcngmm4do1ha509f.webp",
-  "/assets/img/slider/nwribsdq94cfbqd8azgt.webp",
-  "/assets/img/slider/oy2gn5mbx00picjoiip9.webp",
-  "/assets/img/slider/pmxclj2gf5akzr1hsswz.webp",
-  "/assets/img/slider/q287iwlsmilsgldksbis.webp",
-  "/assets/img/slider/qossjrtwiainrmewawle.webp",
-  "/assets/img/slider/sxortqfnwxoapahi0hzx.webp",
-  "/assets/img/slider/szc4sqcea9dzruof6qwi.webp",
-  "/assets/img/slider/t9nzfklbvbsmjy6zmnmj.webp",
-  "/assets/img/slider/tyq6txyg7ecckhqgh8nh.webp",
-  "/assets/img/slider/umshbf4irno99g0ds2d5.webp",
-  "/assets/img/slider/vjcz3am4nkovuym1xu0y.webp",
-  "/assets/img/slider/xklxlsjx6c4rhhr04njb.webp",
-  "/assets/img/slider/yse1em6e9zjdkqozvlat.webp",
-  "/assets/img/slider/fmgo2dtyo7afneh9kkcb.jpg",
-  "/assets/img/slider/ldmczmharv8d8b8xtmka.jpg",
-  "/assets/img/slider/mfmbhkex7cv7hp9yyno7.jpg",
-  "/assets/img/slider/mxsdyfb5jvfrwfcmgqyo.jpg",
-  "/assets/img/slider/t1smo9m6t2vvzelkvq9c.jpg",
-  "/assets/img/slider/yoxcafbe1dms0mpxkxnl.jpg",
-  "/assets/img/slider/zwirkj7ql2z9uepfbttx.jpg",
+  "/assets/images/villaAntare/1.jpg",
+  "/assets/images/villaAntare/2.jpg",
+  "/assets/images/villaAntare/3.jpg",
+  "/assets/images/villaAntare/4.jpg",
+  "/assets/images/villaAntare/5.jpg",
+  "/assets/images/villaAntare/6.jpg",
+  "/assets/images/villaAntare/7.jpg",
+  "/assets/images/villaAntare/8.jpg",
+  "/assets/images/villaAntare/9.jpg",
+  "/assets/images/villaAntare/10.jpg",
+  "/assets/images/villaAntare/11.jpg",
+  "/assets/images/villaAntare/12.jpg",
+  "/assets/images/villaAntare/13.jpg",
+  "/assets/images/villaAntare/14.jpg",
+  "/assets/images/villaAntare/15.jpg",
+  "/assets/images/villaAntare/16.jpg",
+  "/assets/images/villaAntare/17.jpg",
+  "/assets/images/villaAntare/18.jpg",
+  "/assets/images/villaAntare/19.jpg",
+  "/assets/images/villaAntare/20.jpg",
+  "/assets/images/villaAntare/21.jpg",
+  "/assets/images/villaAntare/22.jpg",
+  "/assets/images/villaAntare/23.jpg",
+  "/assets/images/villaAntare/24.jpg",
+  "/assets/images/villaAntare/25.jpg",
+  "/assets/images/villaAntare/26.jpg",
+  "/assets/images/villaAntare/27.jpg",
+  "/assets/images/villaAntare/28.jpg",
+  "/assets/images/villaAntare/29.jpg",
+  "/assets/images/villaAntare/30.jpg",
+  "/assets/images/villaAntare/31.jpg",
+  "/assets/images/villaAntare/32.png",
 ];
 
 const bannerImage = "/assets/img/villaAntres/Antares%20Banner%20Image.png";
 
 const galleryImages = [
-  "/assets/img/villaAntres/Antares%20Gallery%202%20%28a%29.png",
-  "/assets/img/villaAntres/Antares%20Gallery%201.png",
-  "/assets/img/villaAntres/Antares%20Gallery%202.png",
-  "/assets/img/villaAntres/Gallery%201%20%28a%29.png",
+  "/assets/images/villaAntare/18.jpg",
+  "/assets/images/villaAntare/14.jpg",
+  "/assets/images/villaAntare/1.jpg",
+  "/assets/images/villaAntare/4.jpg",
 ];
 
 const highlights = [
@@ -276,7 +269,7 @@ function VillaAntaresInner() {
                     <SwiperSlide key={img}>
                       <div className="tour-slider-img">
                         <img
-                          src={img}
+                          src={encodeURI(img)}
                           alt={`Villa Antares Slide ${slideIndex + 1}`}
                         />
                       </div>
@@ -412,10 +405,10 @@ function VillaAntaresInner() {
 
               <div className="th-comments-wrap style2 ">
                 <h2 className="blog-inner-title h4">
-                  Reviews ({villaVerdeReviewsNewestFirst.length})
+                  Reviews ({villaAntaresReviewsNewestFirst.length})
                 </h2>
                 <ul className="comment-list">
-                  {villaVerdeReviewsNewestFirst.map((review) => (
+                  {villaAntaresReviewsNewestFirst.map((review) => (
                     <li className="th-comment-item" key={review.name}>
                       <div className="th-post-comment">
                         <div className="comment-avater">
