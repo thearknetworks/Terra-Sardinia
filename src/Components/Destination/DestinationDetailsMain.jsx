@@ -1421,10 +1421,12 @@ function DestinationDetailsMain() {
               >
                 <div className="offer-banner">
                   <div className="offer">
-                    <h6 className="box-title">Need Help? We’re here for you</h6>
-                    <div className="banner-logo">
+                    <h6 className="box-title " style={{ fontSize: "1.25rem" }}>
+                      Need Help? We’re here for you
+                    </h6>
+                    <div className="banner-logo" style={{ maxWidth: "50%" }}>
                       <img
-                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        src="/assets/images/logo/Terra Logo original.png"
                         alt="Terra Sardinia"
                       />
                     </div>

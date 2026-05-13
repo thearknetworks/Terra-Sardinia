@@ -215,6 +215,52 @@ function Destination() {
           <div className="row justify-content-center mt-5">
             <div className="col-lg-8">
               <div className="title-area text-center pe-xl-4 ps-xl-4">
+                <span className="sub-title">Mediterranean Coastal Living</span>
+                <h2 className="sec-title mb-20">
+                  Life Around Torre delle Stelle
+                </h2>
+                <p className="sec-text">
+                  Born in the late 1960s, Torre delle Stelle is a seaside
+                  tourist village located about 35 km from Cagliari (around a
+                  35-minute drive) and 19 km from Villasimius, along the
+                  south-eastern coast of Sardinia. Home to around one hundred
+                  year-round residents, the village truly comes alive during the
+                  warmer months, becoming a paradise of colors and scents where
+                  the sounds of nature prevail. Thanks to its unique location,
+                  Torre delle Stelle enjoys one of the longest summers on the
+                  island, stretching across the coastal areas of the
+                  municipalities of Maracalagonis and Sinnai.
+                </p>
+                <p className="sec-text">
+                  Beyond the beautiful beaches of Torre delle Stelle — Cann’e
+                  Sisa and Genn’e Mari — visitors can easily explore many other
+                  stunning beaches nearby, including Solanas, Villasimius,
+                  Geremeas, Costa Rei, and Cagliari, the island’s capital.
+                </p>
+                <p className="sec-text">
+                  During spring and summer, the village offers two supermarkets,
+                  a fish market, a butcher shop, local crafts, and souvenirs.
+                  There are also kiosks and market stalls offering local
+                  products, from fresh fruit and vegetables to traditional
+                  Sardinian cured meats and pecorino cheese. The area also
+                  offers a wide variety of restaurants to suit every taste,
+                  ranging from refined dining experiences to more traditional
+                  and authentic local cuisine.Visitors can also find Newsstands,
+                  tobacconists, . In the quieter months, a grocery store and the
+                  newsstand/bar/tobacconist are open mainly on weekends. Torre
+                  delle Stelle also features several bars and ice cream shops
+                  that stay open until late in the evening. There are also
+                  tennis courts and football fields for those who enjoy sports,
+                  as well as the possibility to rent inflatable boats and
+                  explore the beautiful coastline from the sea.
+                </p>
+                <p className="sec-text">
+                  Despite the lively summer atmosphere, the village remains a
+                  very peaceful and safe destination, and during the summer
+                  months a medical emergency service is available.
+                </p>
+              </div>
+              <div className="title-area text-center pe-xl-4 ps-xl-4">
                 <span className="sub-title">Moments Beyond the Villas</span>
                 <h2 className="sec-title mb-20">Explore Southern Sardinia</h2>
                 <p className="sec-text">

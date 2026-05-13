@@ -29,7 +29,7 @@ function SideMenu({ isOpen, onClose }) {
               <div className="about-logo">
                 <Link to="/">
                   <img
-                    src="\assets\images\logo\TerraSardiniaDarkBlueLogo.png"
+                    src="\assets\images\logo\Terra Logo original.png"
                     alt="Terra Sardinia"
                   />
                 </Link>

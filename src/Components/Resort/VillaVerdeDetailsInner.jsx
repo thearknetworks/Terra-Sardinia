@@ -72,7 +72,7 @@ function VillaVerdeDetailsInner() {
   const selectedRoomContent =
     roomContentBySlug[room_name] || roomContentBySlug[DEFAULT_VILLA_VERDE_SLUG];
   const galleryRowPairs = useMemo(() => {
-    const galleryImages = selectedRoomMedia.gallery.slice(0, 4);
+    const galleryImages = selectedRoomMedia.gallery.slice(0, 6);
     const pairs = [];
     for (let i = 0; i < galleryImages.length; i += 2) {
       pairs.push(galleryImages.slice(i, i + 2));
@@ -373,11 +373,14 @@ function VillaVerdeDetailsInner() {
               >
                 <div className="offer-banner">
                   <div className="offer">
-                    <h6 className="box-title">Need Help? We’re here for you</h6>
+                    <h6 className="box-title" style={{ fontSize: "1.25rem" }}>
+                      Need Help? We’re here for you
+                    </h6>
                     <div className="banner-logo">
                       <img
-                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        src="/assets/images/logo/Terra Logo original.png"
                         alt="Terra Sardinia"
+                        style={{ maxWidth: "50%" }}
                       />
                     </div>
                     <Link

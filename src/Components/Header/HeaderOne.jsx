@@ -116,7 +116,7 @@ function HeaderOne() {
                   <div className="header-logo">
                     <Link to="/">
                       <img
-                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        src="/assets/images/logo/Terra Logo original.png"
                         style={{
                           width: "126px",
                           height: "70px",

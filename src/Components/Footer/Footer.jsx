@@ -152,7 +152,7 @@ function Footer() {
                   <div className="about-logo">
                     <Link to="/">
                       <img
-                        src="/assets/images/logo/TerraSardiniaWhiteLogo.png"
+                        src="/assets/images/logo/Terra Logo original.png"
                         alt="Terra Sardinia"
                       />
                     </Link>
@@ -377,15 +377,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div
-        className="shape-mockup movingX d-none d-xxl-block"
-        style={{ top: "24%", left: "5%" }}
-      >
-        <img
-          src="/assets/images/Elements/White color/Starfish.png"
-          alt="shape"
-        />
-      </div>
+
       {/* <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}

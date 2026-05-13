@@ -254,19 +254,6 @@ function GalleryOne() {
         >
           <img src="/assets/img/shape/line.png" alt="shape" />
         </div>
-        <div
-          className="shape-mockup movingX d-none d-xl-block"
-          style={{
-            top: "30%",
-            left: "-3%",
-          }}
-        >
-          <img
-            className="gmovingX"
-            src="/assets/images/Elements/Blue color/Starfish.png"
-            alt="shape"
-          />
-        </div>
       </div>
       <Modal
         isOpen={isModalOpen}

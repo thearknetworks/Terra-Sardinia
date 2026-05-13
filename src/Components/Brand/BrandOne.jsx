@@ -5,57 +5,24 @@ import "swiper/css";
 import { Link } from "react-router-dom";
 
 const brands = [
-  "Terra Logo original.png",
   "Verde logo original.png",
-  "Antares logo original.png",
   "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
-  "Antares logo original.png",
-  "Terra Logo original.png",
-  "Verde logo original.png",
   "Antares logo original.png",
 ];
 
 function BrandOne({ className }) {
   return (
     <div className={`brand-area overflow-hidden space-top ${className}`}>
-      <div className="container th-container">
-        <Swiper
-          modules={[Autoplay]}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+      <div
+        className="container th-container"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
+        {/* <Swiper
           loop={true}
           speed={1000}
           spaceBetween={20}
@@ -68,26 +35,26 @@ function BrandOne({ className }) {
             1400: { slidesPerView: 8 },
           }}
           className="brandSlider1"
-        >
-          {brands.map((brand, index) => (
-            <SwiperSlide key={index}>
-              <div className="brand-box">
-                <Link to="#">
-                  <img
-                    className="original"
-                    src={`/assets/images/logo/${brand}`}
-                    alt="Brand Logo"
-                  />
-                  <img
-                    className="gray"
-                    src={`/assets/images/logo/${brand}`}
-                    alt="Brand Logo"
-                  />
-                </Link>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        > */}
+        {brands.map((brand, index) => (
+          <div key={index}>
+            <div className="brand-box">
+              <Link to="#">
+                <img
+                  className="original"
+                  src={`/assets/images/logo/${brand}`}
+                  alt="Brand Logo"
+                />
+                <img
+                  className="gray"
+                  src={`/assets/images/logo/${brand}`}
+                  alt="Brand Logo"
+                />
+              </Link>
+            </div>
+          </div>
+        ))}
+        {/* </Swiper> */}
       </div>
     </div>
   );
