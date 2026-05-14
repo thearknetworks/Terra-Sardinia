@@ -175,21 +175,21 @@ function BookATour() {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Video Popup"
-        className="video-modal"
+        className="video-modal video-modal--portrait"
         overlayClassName="video-modal-overlay"
       >
-        <button className="close-btn" onClick={() => setModalIsOpen(false)}>
+        <button type="button" className="close-btn video-modal__close" onClick={() => setModalIsOpen(false)} aria-label="Close video">
           &times;
         </button>
-        <iframe
-          width="100%"
-          height="400px"
-          src="https://www.youtube.com/embed/cQfIUPw72Dk"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <div className="video-modal__media">
+          <iframe
+            src="https://www.youtube.com/embed/cQfIUPw72Dk"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
       </Modal>
     </div>
   );

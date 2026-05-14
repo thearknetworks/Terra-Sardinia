@@ -4,9 +4,10 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import Modal from "react-modal";
-
 import "swiper/css";
 import "swiper/css/effect-fade";
+
+Modal.setAppElement("#root");
 
 function BannerThree() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -156,32 +157,23 @@ function BannerThree() {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Video Popup"
-        // className="video-modal"
+        className="video-modal video-modal--portrait"
         overlayClassName="video-modal-overlay"
       >
-        <button className="close-btn" onClick={() => setModalIsOpen(false)}>
+        <button
+          type="button"
+          className="close-btn video-modal__close"
+          onClick={() => setModalIsOpen(false)}
+          aria-label="Close video"
+        >
           &times;
         </button>
-        <div
-          style={{
-            // width: "min(90vw, 1200px)",
-            width: "0vw",
-            height: "80vh",
-            display: "flex",
-            // justifyContent: "center",
-            // alignItems: "center",
-            backgroundColor: "transparent",
-          }}
-        >
+        <div className="video-modal__media">
           <video
-            width="100%"
-            height="100%"
-            src="/assets/Videos/film sardegna-.mp4"
             controls
-            autoplay
-            style={{
-              height: "100%",
-            }}
+            playsInline
+            preload="metadata"
+            src="/assets/Videos/film%20sardegna-.mp4"
           />
         </div>
       </Modal>

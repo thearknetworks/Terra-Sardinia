@@ -36371,13 +36371,60 @@ span.select2-selection.select2-selection--single:focus {
   z-index: 2;
 }
 .video-modal {
-  
-
-  background: transparent;
-  /* width: 80%; */
-  /* max-width: 800px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  line-height: 0;
+  outline: none;
+}
+
+/* Narrow portrait frame; cap width using viewport height so the 9:16 box fits on short screens */
+.video-modal--portrait {
+  width: min(420px, 92vw, calc((100dvh - 120px) * 9 / 16));
+  max-height: calc(100dvh - 48px);
+}
+
+.video-modal__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: min(85vh, 920px);
+  background: #000;
+}
+
+.video-modal__media iframe,
+.video-modal__media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  display: block;
+}
+
+.video-modal__media video {
+  object-fit: contain;
+}
+
+.video-modal .close-btn,
+.video-modal__close {
+  line-height: 1;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 4;
+  color: #fff;
+  font-size: 26px;
+  padding: 4px 8px;
 }
 
 .video-modal-overlay {
