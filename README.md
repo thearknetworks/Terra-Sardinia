@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project documentation
+
+- **[SEO (metadata, blog slugs, prerender, sitemap)](docs/SEO.md)** — Terra Sardinia SEO setup and maintenance for developers.
+
 ## Available Scripts
 
 In the project directory, you can run:

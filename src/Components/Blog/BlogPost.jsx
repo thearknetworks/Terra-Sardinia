@@ -1,39 +1,42 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { useLangPrefix } from "../../hooks/useLangPrefix";
 
 function BlogPost(props) {
-    const { blogID, blogImage, blogTitle } = props;
+    const { blogID, blogSlug, blogImage, blogTitle } = props;
+    const base = useLangPrefix();
+    const postPath = blogSlug || blogID;
     return (
         <>
             {/* Single Blog Post */}
             <div className="th-blog blog-single has-post-thumbnail">
                 <div className="blog-img">
-                    <Link to={`/blog/${blogID}`}>
+                    <Link to={`${base}/blog/${postPath}`}>
                         <img src={`/assets/img/blog/${blogImage}`} alt="Blog" />
                     </Link>
                 </div>
                 <div className="blog-content">
                     <div className="blog-meta">
-                        <Link className="author" to="/blog">
+                        <Link className="author" to={`${base}/blog`}>
                             <i className="fa-light fa-user" />
                             by David Smith
                         </Link>
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                             <i className="fa-solid fa-calendar-days" />
                             05 May, 2025
                         </Link>
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             <img src="/assets/img/icon/map.svg" alt="" />
                             Tour Guide
                         </Link>
                     </div>
                     <h2 className="blog-title">
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             {blogTitle ? blogTitle : 'Living sustainability: A day in the life at Realar Residence'}
                         </Link>
                     </h2>
@@ -57,12 +60,12 @@ function BlogPost(props) {
                         loop={true}
                     >
                         <SwiperSlide>
-                            <Link to={`/blog/${blogID}`}>
+                            <Link to={`${base}/blog/${postPath}`}>
                                 <img src="/assets/img/blog/blog-s-1-2.jpg" alt="Blog" />
                             </Link>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <Link to={`/blog/${blogID}`}>
+                            <Link to={`${base}/blog/${postPath}`}>
                                 <img src="/assets/img/blog/blog-s-1-4.jpg" alt="Blog" />
                             </Link>
                         </SwiperSlide>
@@ -76,21 +79,21 @@ function BlogPost(props) {
                 </div>
                 <div className="blog-content">
                     <div className="blog-meta">
-                        <Link className="author" to="/blog">
+                        <Link className="author" to={`${base}/blog`}>
                             <i className="fa-light fa-user" />
                             by David Smith
                         </Link>
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                             <i className="fa-solid fa-calendar-days" />
                             05 May, 2025
                         </Link>
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             <img src="/assets/img/icon/map.svg" alt="" />
                             Tour Guide
                         </Link>
                     </div>
                     <h2 className="blog-title">
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             Exploring The Green Spaces Of Realar Residence
                         </Link>
                     </h2>
@@ -108,21 +111,21 @@ function BlogPost(props) {
             <div className="th-blog blog-single has-post-thumbnail">
                 <div className="blog-content">
                     <div className="blog-meta">
-                        <Link className="author" to="/blog">
+                        <Link className="author" to={`${base}/blog`}>
                             <i className="fa-light fa-user" />
                             by David Smith
                         </Link>
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                             <i className="fa-solid fa-calendar-days" />
                             05 May, 2025
                         </Link>
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             <img src="/assets/img/icon/map.svg" alt="" />
                             Tour Guide
                         </Link>
                     </div>
                     <h2 className="blog-title">
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             Enrich Your Mind Envision Your Future Education for Success
                         </Link>
                     </h2>
@@ -139,7 +142,7 @@ function BlogPost(props) {
             {/* Blog Post with Video */}
             <div className="th-blog blog-single has-post-thumbnail">
                 <div className="blog-img" data-overlay="bg-title" data-opacity={5}>
-                    <Link to={`/blog/${blogID}`}>
+                    <Link to={`${base}/blog/${postPath}`}>
                         <img src="/assets/img/blog/blog-s-1-2.jpg" alt="Blog" />
                     </Link>
                     <Link to="https://www.youtube.com/watch?v=cQfIUPw72Dk" className="play-btn popup-video">
@@ -148,21 +151,21 @@ function BlogPost(props) {
                 </div>
                 <div className="blog-content">
                     <div className="blog-meta">
-                        <Link className="author" to="/blog">
+                        <Link className="author" to={`${base}/blog`}>
                             <i className="fa-light fa-user" />
                             by David Smith
                         </Link>
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                             <i className="fa-solid fa-calendar-days" />
                             05 May, 2025
                         </Link>
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             <img src="/assets/img/icon/map.svg" alt="" />
                             Tour Guide
                         </Link>
                     </div>
                     <h2 className="blog-title">
-                        <Link to={`/blog/${blogID}`}>
+                        <Link to={`${base}/blog/${postPath}`}>
                             University class starting soon while the lovely valley team works
                         </Link>
                     </h2>

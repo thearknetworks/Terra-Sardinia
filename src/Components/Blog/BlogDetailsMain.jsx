@@ -1,15 +1,63 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Posts from "../data/data-post.json";
+import {
+  absoluteAssetUrl,
+  clipMetaDescription,
+  getSiteOrigin,
+} from "../../utils/seo";
 
 function BlogDetailsMain() {
-  const { id } = useParams();
-  const blogPost = Posts.find((post) => post.id === parseInt(id));
+  const { slug: slugParam, lang } = useParams();
+  const base = `/${lang || "en"}`;
+  const bySlug = Posts.find((post) => post.slug === slugParam);
+  const byId = Posts.find((post) => String(post.id) === slugParam);
+  const blogPost = bySlug || byId;
 
   if (!blogPost) {
     return <div>Post not found!</div>;
   }
+
+  if (byId && blogPost.slug && slugParam !== blogPost.slug) {
+    return <Navigate to={`${base}/blog/${blogPost.slug}`} replace />;
+  }
+
+  const origin = getSiteOrigin();
+  const url = `${origin}${base}/blog/${blogPost.slug}`;
+  const title = `${blogPost.title} | Terra Sardinia`;
+  const description = clipMetaDescription(
+    blogPost.excerpt ||
+      "Travel, stays, and experiences in Sardinia with Terra Sardinia."
+  );
+  const cover = absoluteAssetUrl(
+    origin,
+    `/assets/img/blog/${blogPost.bannerImg}`
+  );
+
   return (
+    <>
+      <Helmet htmlAttributes={{ lang: lang || "en" }}>
+        <title>{title}</title>
+        <link rel="canonical" href={url} />
+        <meta name="description" content={description} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={url} />
+        {cover ? <meta property="og:image" content={cover} /> : null}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        {cover ? <meta name="twitter:image" content={cover} /> : null}
+        {blogPost.publishedAt ? (
+          <meta property="article:published_time" content={blogPost.publishedAt} />
+        ) : null}
+        {blogPost.updatedAt ? (
+          <meta property="article:modified_time" content={blogPost.updatedAt} />
+        ) : null}
+      </Helmet>
+      <div data-seo-ready="1">
     <section className="th-blog-wrapper blog-details space-top space-extra-bottom">
       <div className="container shape-mockup-wrap">
         <div className="row">
@@ -23,11 +71,11 @@ function BlogDetailsMain() {
               </div>
               <div className="blog-content">
                 <div className="blog-meta">
-                  <Link className="author" to="/blog">
+                  <Link className="author" to={`${base}/blog`}>
                     <i className="fa-light fa-user" />
                     by David Smith
                   </Link>
-                  <Link to="/blog">
+                  <Link to={`${base}/blog`}>
                     <i className="fa-regular fa-calendar" />
                     05 May, 2025
                   </Link>
@@ -36,10 +84,7 @@ function BlogDetailsMain() {
                     Sea Beach
                   </Link>
                 </div>
-                <h2 className="blog-title">
-                  Relar Residence promotes sustainable transportation options,
-                  with dedicated spaces.
-                </h2>
+                <h2 className="blog-title">{blogPost.title}</h2>
                 <p className="blog-text mb-30">
                   Welcome to Realar Residence, where sustainability meets
                   comfort in every corner. In this blog post, we'll explore the
@@ -128,10 +173,10 @@ function BlogDetailsMain() {
                     <div className="col-md-auto">
                       <span className="share-links-title">Tags:</span>
                       <div className="tagcloud">
-                        <Link to="/blog">Apartment</Link>
-                        <Link to="/blog">Buyer</Link>
-                        <Link to="/blog">Modern</Link>
-                        <Link to="/blog">Luxury</Link>
+                        <Link to={`${base}/blog`}>Apartment</Link>
+                        <Link to={`${base}/blog`}>Buyer</Link>
+                        <Link to={`${base}/blog`}>Modern</Link>
+                        <Link to={`${base}/blog`}>Luxury</Link>
                       </div>
                     </div>
                     <div className="col-md-auto text-xl-end">
@@ -324,42 +369,42 @@ function BlogDetailsMain() {
                 <h3 className="widget_title">Categories</h3>
                 <ul>
                   <li>
-                    <Link to="/blog">
+                    <Link to={`${base}/blog`}>
                       <img src="/assets/img/theme-img/map.svg" alt="" />
                       City Tour
                     </Link>
                     <span>(8)</span>
                   </li>
                   <li>
-                    <Link to="/blog">
+                    <Link to={`${base}/blog`}>
                       <img src="/assets/img/theme-img/map.svg" alt="" />
                       Beach Tours
                     </Link>
                     <span>(6)</span>
                   </li>
                   <li>
-                    <Link to="/blog">
+                    <Link to={`${base}/blog`}>
                       <img src="/assets/img/theme-img/map.svg" alt="" />
                       Wildlife Tours
                     </Link>
                     <span>(2)</span>
                   </li>
                   <li>
-                    <Link to="/blog">
+                    <Link to={`${base}/blog`}>
                       <img src="/assets/img/theme-img/map.svg" alt="" />
                       News &amp; Tips
                     </Link>
                     <span>(7)</span>
                   </li>
                   <li>
-                    <Link to="/blog">
+                    <Link to={`${base}/blog`}>
                       <img src="/assets/img/theme-img/map.svg" alt="" />
                       Adventure Tours
                     </Link>
                     <span>(9)</span>
                   </li>
                   <li>
-                    <Link to="/blog">
+                    <Link to={`${base}/blog`}>
                       <img src="/assets/img/theme-img/map.svg" alt="" />
                       Mountain Tours
                     </Link>
@@ -386,7 +431,7 @@ function BlogDetailsMain() {
                         </Link>
                       </h4>
                       <div className="recent-post-meta">
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                           <i className="fa-regular fa-calendar" />
                           22/6/ 2025
                         </Link>
@@ -409,7 +454,7 @@ function BlogDetailsMain() {
                         </Link>
                       </h4>
                       <div className="recent-post-meta">
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                           <i className="fa-regular fa-calendar" />
                           25/6/ 2025
                         </Link>
@@ -432,7 +477,7 @@ function BlogDetailsMain() {
                         </Link>
                       </h4>
                       <div className="recent-post-meta">
-                        <Link to="/blog">
+                        <Link to={`${base}/blog`}>
                           <i className="fa-regular fa-calendar" />
                           27/6/ 2025
                         </Link>
@@ -444,14 +489,14 @@ function BlogDetailsMain() {
               <div className="widget widget_tag_cloud  ">
                 <h3 className="widget_title">Popular Tags</h3>
                 <div className="tagcloud">
-                  <Link to="/blog">Tour</Link>
-                  <Link to="/blog">Adventure</Link>
-                  <Link to="/blog">Rent</Link>
-                  <Link to="/blog">Innovate</Link>
-                  <Link to="/blog">Hotel</Link>
-                  <Link to="/blog">Modern</Link>
-                  <Link to="/blog">Luxury</Link>
-                  <Link to="/blog">Travel</Link>
+                  <Link to={`${base}/blog`}>Tour</Link>
+                  <Link to={`${base}/blog`}>Adventure</Link>
+                  <Link to={`${base}/blog`}>Rent</Link>
+                  <Link to={`${base}/blog`}>Innovate</Link>
+                  <Link to={`${base}/blog`}>Hotel</Link>
+                  <Link to={`${base}/blog`}>Modern</Link>
+                  <Link to={`${base}/blog`}>Luxury</Link>
+                  <Link to={`${base}/blog`}>Travel</Link>
                 </div>
               </div>
               <div
@@ -503,6 +548,8 @@ function BlogDetailsMain() {
         </div>
       </div>
     </section>
+      </div>
+  </>
   );
 }
 

@@ -88,7 +88,7 @@ function RouterPage() {
             <Route path="price" element={<Pricing />} />
             <Route path="error" element={<Error />} />
             <Route path="blog" element={<Blog />} />
-            <Route path="blog/:id" element={<BlogDetails />} />
+            <Route path="blog/:slug" element={<BlogDetails />} />
             <Route path="contact" element={<Contact />} />
             <Route path="stays" element={<Stays />} />
             <Route path="service/ferry" element={<Ferry />} />
