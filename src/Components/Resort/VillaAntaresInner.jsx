@@ -54,6 +54,10 @@ const sliderImages = [
   "/assets/images/villaAntare/30.jpg",
   "/assets/images/villaAntare/31.jpg",
   "/assets/images/villaAntare/32.png",
+  "/assets/images/villaAntare/18.jpg",
+  "/assets/images/villaAntare/14.jpg",
+  "/assets/images/villaAntare/1.jpg",
+  "/assets/images/villaAntare/4.jpg",
 ];
 
 const bannerImage = "/assets/img/villaAntres/Antares%20Banner%20Image.png";
@@ -246,73 +250,16 @@ function VillaAntaresInner() {
         <div className="row">
           <div className="col-xxl-8 col-lg-7">
             <div className="page-single">
-              <div className="slider-area tour-slider1">
-                <Swiper
-                  modules={[Navigation, Thumbs, EffectFade]}
-                  effect="fade"
-                  loop={true}
-                  spaceBetween={10}
-                  navigation={{
-                    prevEl: ".villa-antares-slider-prev",
-                    nextEl: ".villa-antares-slider-next",
-                  }}
-                  thumbs={{
-                    swiper:
-                      thumbsSwiper && !thumbsSwiper.destroyed
-                        ? thumbsSwiper
-                        : null,
-                  }}
-                  className="swiper th-slider mb-25"
-                  id="villaAntaresSlider"
-                >
-                  {sliderImages.map((img, slideIndex) => (
-                    <SwiperSlide key={img}>
-                      <div className="tour-slider-img">
-                        <img
-                          src={encodeURI(img)}
-                          alt={`Villa Antares Slide ${slideIndex + 1}`}
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-
-                <Swiper
-                  modules={[Thumbs]}
-                  loop={false}
-                  spaceBetween={12}
-                  slidesPerView={3}
-                  watchSlidesProgress
-                  onSwiper={setThumbsSwiper}
-                  className="swiper tour-thumb-slider"
-                >
-                  {sliderImages.map((img, thumbIndex) => (
-                    <SwiperSlide key={`${img}-thumb`}>
-                      <div className="tour-slider-img">
-                        <img
-                          src={img}
-                          alt={`Villa Antares Thumbnail ${thumbIndex + 1}`}
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-
-                <button
-                  className="slider-arrow style3 villa-antares-slider-prev"
-                  aria-label="Previous slide"
-                >
-                  <img src="/assets/img/icon/hero-arrow-left.svg" alt="" />
-                </button>
-                <button
-                  className="slider-arrow style3 slider-next villa-antares-slider-next"
-                  aria-label="Next slide"
-                >
-                  <img src="/assets/img/icon/hero-arrow-right.svg" alt="" />
-                </button>
-              </div>
-
               <div className="page-content d-block">
+                <div className="mb-30">
+                  <video
+                    width="100%"
+                    height="100%"
+                    controls
+                    src="/assets/Videos/Screen Recording 2025-03-27 173746.mp4"
+                    style={{ borderRadius: "8px" }}
+                  ></video>
+                </div>
                 <h2 className="box-title mt-20">
                   {selectedRoomContent.header}
                 </h2>
@@ -325,7 +272,71 @@ function VillaAntaresInner() {
                 <div className="d-block d-lg-none mb-35">
                   {renderDetailsWidget()}
                 </div>
+                <div className="slider-area tour-slider1">
+                  <Swiper
+                    modules={[Navigation, Thumbs, EffectFade]}
+                    effect="fade"
+                    loop={true}
+                    spaceBetween={10}
+                    navigation={{
+                      prevEl: ".villa-antares-slider-prev",
+                      nextEl: ".villa-antares-slider-next",
+                    }}
+                    thumbs={{
+                      swiper:
+                        thumbsSwiper && !thumbsSwiper.destroyed
+                          ? thumbsSwiper
+                          : null,
+                    }}
+                    className="swiper th-slider mb-25"
+                    id="villaAntaresSlider"
+                  >
+                    {sliderImages.map((img, slideIndex) => (
+                      <SwiperSlide key={img}>
+                        <div className="tour-slider-img">
+                          <img
+                            src={encodeURI(img)}
+                            alt={`Villa Antares Slide ${slideIndex + 1}`}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
 
+                  <Swiper
+                    modules={[Thumbs]}
+                    loop={false}
+                    spaceBetween={12}
+                    slidesPerView={3}
+                    watchSlidesProgress
+                    onSwiper={setThumbsSwiper}
+                    className="swiper tour-thumb-slider"
+                  >
+                    {sliderImages.map((img, thumbIndex) => (
+                      <SwiperSlide key={`${img}-thumb`}>
+                        <div className="tour-slider-img">
+                          <img
+                            src={img}
+                            alt={`Villa Antares Thumbnail ${thumbIndex + 1}`}
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+
+                  <button
+                    className="slider-arrow style3 villa-antares-slider-prev"
+                    aria-label="Previous slide"
+                  >
+                    <img src="/assets/img/icon/hero-arrow-left.svg" alt="" />
+                  </button>
+                  <button
+                    className="slider-arrow style3 slider-next villa-antares-slider-next"
+                    aria-label="Next slide"
+                  >
+                    <img src="/assets/img/icon/hero-arrow-right.svg" alt="" />
+                  </button>
+                </div>
                 <h2 className="box-title">Highlights</h2>
                 <ul className="resort-grid-list">
                   {selectedRoomContent.highlights.map((highlight) => (
@@ -343,7 +354,7 @@ function VillaAntaresInner() {
                 </ul>
               </div>
 
-              <div className="staggered-gallery-wrapper">
+              {/* <div className="staggered-gallery-wrapper">
                 <h3 className="page-title mt-30 mb-30">From our gallery</h3>
                 {galleryRowPairs.map((pair, rowIndex) => {
                   const rowKey = `staggered-gallery-row-${rowIndex}-${pair[0]}`;
@@ -401,7 +412,7 @@ function VillaAntaresInner() {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
 
               <div className="th-comments-wrap style2 ">
                 <h2 className="blog-inner-title h4">
