@@ -22,7 +22,7 @@ function HomeOne() {
   const url = `${origin}${base}/home`;
   const title = "Terra Sardinia | Stays, tours & experiences";
   const description = clipMetaDescription(
-    "Discover Sardinia with Terra Sardinia: curated stays, destinations, services, and travel inspiration."
+    "Discover Sardinia with Terra Sardinia: curated stays, destinations, services, and travel inspiration.",
   );
 
   return (
@@ -41,18 +41,15 @@ function HomeOne() {
       </Helmet>
       <HeaderThree />
       <BannerThree />
-      {/* <Booking /> */}
+      <AboutOne />'{/* <Booking /> */}
       <CategoryOne />
       <DestinationOne />
-      <AboutOne />
       <CounterOne />
       <TourOne />
       <GalleryOne />
-
       {/* <TourGuide /> */}
       <BrandOne />
       <TestimonialOne />
-
       {/* <BlogOne /> */}
       <Footer />
       <ScrollToTop />
