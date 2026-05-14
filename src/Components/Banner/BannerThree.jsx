@@ -156,21 +156,34 @@ function BannerThree() {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Video Popup"
-        className="video-modal"
+        // className="video-modal"
         overlayClassName="video-modal-overlay"
       >
         <button className="close-btn" onClick={() => setModalIsOpen(false)}>
           &times;
         </button>
-        <iframe
-          width="100%"
-          height="400px"
-          src="https://www.youtube.com/embed/cQfIUPw72Dk"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <div
+          style={{
+            // width: "min(90vw, 1200px)",
+            width: "0vw",
+            height: "80vh",
+            display: "flex",
+            // justifyContent: "center",
+            // alignItems: "center",
+            backgroundColor: "transparent",
+          }}
+        >
+          <video
+            width="100%"
+            height="100%"
+            src="/assets/Videos/film sardegna-.mp4"
+            controls
+            autoplay
+            style={{
+              height: "100%",
+            }}
+          />
+        </div>
       </Modal>
     </section>
   );

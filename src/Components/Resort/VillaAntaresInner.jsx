@@ -256,7 +256,9 @@ function VillaAntaresInner() {
                     width="100%"
                     height="100%"
                     controls
-                    src="/assets/Videos/Screen Recording 2025-03-27 173746.mp4"
+                    autoplay
+                    muted
+                    src="/assets/Videos/Villa Antares.mp4"
                     style={{ borderRadius: "8px" }}
                   ></video>
                 </div>
