@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import Modal from "react-modal";
@@ -12,6 +12,28 @@ Modal.setAppElement("#root");
 function BannerThree() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const videoRef = useRef(null);
+
+  const closeVideoModal = useCallback(() => {
+    setModalIsOpen(false);
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, []);
+
+  const playVideoWithSound = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.play().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (!modalIsOpen) return;
+    playVideoWithSound();
+  }, [modalIsOpen, playVideoWithSound]);
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -124,9 +146,8 @@ function BannerThree() {
           <div
             className="img2 "
             style={{
-              height: "125px",
-              width: "125px",
-
+              height: "88px",
+              width: "88px",
               zIndex: 10,
               border: "0px solid #1CA8CB",
               zindex: 10000000,
@@ -138,14 +159,15 @@ function BannerThree() {
               style={{
                 boxShadow: "none",
                 border: "none",
-                height: "125px",
-                width: "125px",
+                height: "88px",
+                width: "88px",
               }}
             >
               <i
                 className="fa-sharp fa-solid fa-play bg-[#1CA8CB]"
                 style={{
-                  scale: "1.5",
+                  "--icon-size": "72px",
+                  "--icon-font-size": "1.35em",
                 }}
               />
             </button>
@@ -155,7 +177,8 @@ function BannerThree() {
 
       <Modal
         isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        onRequestClose={closeVideoModal}
+        onAfterOpen={playVideoWithSound}
         contentLabel="Video Popup"
         className="video-modal video-modal--portrait"
         overlayClassName="video-modal-overlay"
@@ -163,17 +186,22 @@ function BannerThree() {
         <button
           type="button"
           className="close-btn video-modal__close"
-          onClick={() => setModalIsOpen(false)}
+          onClick={closeVideoModal}
           aria-label="Close video"
         >
           &times;
         </button>
         <div className="video-modal__media">
           <video
+            ref={videoRef}
             controls
             playsInline
-            preload="metadata"
+            preload="auto"
             src="/assets/Videos/film%20sardegna-.mp4"
+            onClick={() => {
+              const video = videoRef.current;
+              if (video?.paused) playVideoWithSound();
+            }}
           />
         </div>
       </Modal>
