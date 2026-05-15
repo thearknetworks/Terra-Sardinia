@@ -111,65 +111,29 @@ function BannerThree() {
       </Swiper>
 
       <div
-        className="container"
-        style={{
-          position: "absolute",
-          top: "58%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 10,
-          color: "#fff",
-          // pointerEvents: "none",
-          zindex: 50,
-        }}
+        className="container hero-3__content"
       >
         <div
-          className="hero-style3 flex flex-col md:!items-center   gap-6"
-          style={
-            width < 768
-              ? {
-                  alignItems: "center",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                }
-              : { alignItems: "flex-start" }
-          }
+          className={`hero-style3 hero-style3--home flex flex-col gap-6${
+            width < 768 ? " hero-style3--mobile-portrait" : ""
+          }`}
         >
-          <h1 className="hero-title">Feel at Home in Sardinia</h1>
-
-          <p className="hero-text">
+          <div className="hero-style3__copy">
+            <h1 className="hero-title">Feel at Home in Sardinia</h1>
+            <p className="hero-text">
             Between crystal-clear seas and Mediterranean nature, Villa Antares
             and Guesthouse Villa Verde welcome you to Torre delle Stelle for an
             unforgettable stay.
-          </p>
-          <div
-            className="img2 "
-            style={{
-              height: "88px",
-              width: "88px",
-              zIndex: 10,
-              border: "0px solid #1CA8CB",
-              zindex: 10000000,
-            }}
-          >
+            </p>
+          </div>
+          <div className="hero-style3__play img2">
             <button
-              className="play-btn bg-transparent border-none cursor-pointer "
+              type="button"
+              className="play-btn bg-transparent border-none cursor-pointer hero-style3__play-btn"
               onClick={() => setModalIsOpen(true)}
-              style={{
-                boxShadow: "none",
-                border: "none",
-                height: "88px",
-                width: "88px",
-              }}
+              aria-label="Play video"
             >
-              <i
-                className="fa-sharp fa-solid fa-play bg-[#1CA8CB]"
-                style={{
-                  "--icon-size": "72px",
-                  "--icon-font-size": "1.35em",
-                }}
-              />
+              <i className="fa-sharp fa-solid fa-play bg-[#1CA8CB]" />
             </button>
           </div>
         </div>

@@ -12512,6 +12512,121 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child
   }
 }
 
+/* Home hero (BannerThree) */
+.hero-3__content {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  z-index: 10;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.hero-style3--home {
+  align-items: flex-start;
+}
+
+.hero-style3--home.hero-style3--mobile-portrait {
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-style3--home.hero-style3--mobile-portrait .hero-style3__copy,
+.hero-style3--home.hero-style3--mobile-portrait .hero-title,
+.hero-style3--home.hero-style3--mobile-portrait .hero-text {
+  text-align: center;
+}
+
+.hero-style3__play {
+  z-index: 10;
+}
+
+.hero-style3__play-btn {
+  box-shadow: none;
+  border: none;
+  height: 88px;
+  width: 88px;
+}
+
+.hero-style3__play-btn > i {
+  --icon-size: 72px;
+  --icon-font-size: 1.35em;
+}
+
+/* Phone landscape only — short viewport height */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-3__content {
+    top: 50%;
+    padding-top: 32px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-style3--home {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .hero-style3--home,
+  .hero-style3--home.hero-style3--mobile-portrait,
+  .hero-style3--home .hero-style3__copy,
+  .hero-style3--home .hero-title,
+  .hero-style3--home .hero-text,
+  .hero-style3--home.hero-style3--mobile-portrait .hero-style3__copy,
+  .hero-style3--home.hero-style3--mobile-portrait .hero-title,
+  .hero-style3--home.hero-style3--mobile-portrait .hero-text {
+    text-align: left;
+  }
+
+  .hero-style3--home .hero-style3__copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: center;
+  }
+
+  .hero-style3--home .hero-title {
+    font-size: clamp(26px, 5.5vw, 36px);
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+
+  .hero-style3--home .hero-text,
+  .hero-style3--home.hero-style3--mobile-portrait .hero-text {
+    display: block;
+    max-width: min(52vw, 340px);
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .hero-style3--home .hero-style3__play {
+    flex: 0 0 auto;
+    align-self: center;
+    margin: 0;
+  }
+
+  .hero-style3--home .hero-style3__play-btn {
+    height: 72px;
+    width: 72px;
+  }
+
+  .hero-style3--home .hero-style3__play-btn > i {
+    --icon-size: 58px;
+    --icon-font-size: 1.25em;
+  }
+}
+
 .hero3Thumbs {
   position: relative;
   right: 0;

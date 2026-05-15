@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Modal from "../Gallery/Modal";
 import "../Destination/staggeredGallery.css";
@@ -123,6 +123,18 @@ const detailsConfig = {
 function VillaAntaresInner() {
   const { lang } = useParams();
   const currentLang = lang || "en";
+  const villaVideoRef = useRef(null);
+
+  const playVillaVideoWithSound = useCallback(() => {
+    const video = villaVideoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.play().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    playVillaVideoWithSound();
+  }, [playVillaVideoWithSound]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
@@ -251,16 +263,18 @@ function VillaAntaresInner() {
           <div className="col-xxl-8 col-lg-7">
             <div className="page-single">
               <div className="page-content d-block">
-                <div className="mb-30">
+                <div className="mb-30 villa-antares-video">
                   <video
-                    width="100%"
-                    height="100%"
+                    ref={villaVideoRef}
                     controls
-                    autoplay
-                    muted
+                    autoPlay
+                    playsInline
+                    preload="auto"
                     src="/assets/Videos/Villa Antares.mp4"
-                    style={{ borderRadius: "8px" }}
-                  ></video>
+                    onClick={() => {
+                      if (villaVideoRef.current?.paused) playVillaVideoWithSound();
+                    }}
+                  />
                 </div>
                 <h2 className="box-title mt-20">
                   {selectedRoomContent.header}

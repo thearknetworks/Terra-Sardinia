@@ -1,3 +1,34 @@
+/* ── Villa Antares hero video ─────────────────────────────────────── */
+.villa-antares-video {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0d1a22;
+}
+
+.villa-antares-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .villa-antares-video {
+    height: 280px;
+  }
+}
+
+@media (max-width: 575px) {
+  .villa-antares-video {
+    height: 220px;
+  }
+}
+
 /* ── Villa Antares / Tour-style image slider ──────────────────────── */
 .page-single .tour-slider1 {
   margin-bottom: 30px;
